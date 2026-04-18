@@ -56,7 +56,7 @@
     /* Brew guide */
     .guide-screen { display: none; animation: fadeIn 0.4s ease; }
     .guide-screen.visible { display: block; }
-    .guide-header { display: flex; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--foam); }
+    .guide-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--foam); gap: 1rem; }
     .method-icon { font-size: 2.2rem; margin-bottom: 0.4rem; }
     .guide-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--roast); margin-bottom: 0.2rem; }
     .guide-header .subtitle { font-size: 0.65rem; color: var(--caramel); letter-spacing: 0.1em; text-transform: uppercase; }
@@ -65,7 +65,7 @@
     .drink-screen { display: none; animation: fadeIn 0.4s ease; }
     .drink-screen.visible { display: block; }
 
-    .drink-header { margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--foam); }
+    .drink-header { margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--foam); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
     .drink-header .drink-big-icon { font-size: 2.8rem; margin-bottom: 0.5rem; }
     .drink-header h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--roast); margin-bottom: 0.3rem; }
     .drink-header .drink-tagline { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--caramel); }
@@ -159,7 +159,21 @@
     .reset-btn { margin-top: 1rem; background: var(--espresso); color: var(--cream); border: none; padding: 0.55rem 1.3rem; border-radius: 8px; font-family: 'DM Mono', monospace; font-size: 0.7rem; cursor: pointer; transition: opacity 0.2s; }
     .reset-btn:hover { opacity: 0.8; }
 
-    /* Timer */
+    /* Inline header timer */
+    .header-timer { background: var(--roast); border-radius: 14px; padding: 0.9rem 1.1rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; min-width: 130px; flex-shrink: 0; }
+    .ht-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .ht-display { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--cream); letter-spacing: -0.02em; line-height: 1; }
+    .ht-display.running { color: var(--gold); }
+    .ht-display.done { color: #7ecb7e; }
+    .ht-controls { display: flex; gap: 0.35rem; margin-top: 0.1rem; }
+    .ht-btn { background: rgba(255,255,255,0.1); border: none; color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.6rem; padding: 0.28rem 0.6rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+    .ht-btn:hover { background: rgba(255,255,255,0.2); }
+    .ht-btn.primary { background: var(--caramel); color: var(--espresso); }
+    .ht-btn.primary:hover { background: var(--gold); }
+    .ht-input-row { display: flex; align-items: center; gap: 0.3rem; }
+    .ht-input { width: 38px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 5px; color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.68rem; text-align: center; padding: 0.2rem 0.25rem; outline: none; }
+    .ht-input:focus { border-color: var(--gold); }
+    .ht-sep { color: var(--gold); font-size: 0.8rem; line-height: 1; }
     .timer-widget { position: fixed; bottom: 2rem; right: 2rem; background: var(--roast); color: var(--cream); padding: 1.2rem 1.6rem; border-radius: 16px; box-shadow: 0 16px 48px rgba(26,15,0,0.3); display: none; flex-direction: column; align-items: center; gap: 0.45rem; min-width: 165px; z-index: 100; }
     .timer-widget.visible { display: flex; }
     .timer-lbl { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
@@ -268,6 +282,19 @@
           <h2 id="methodName"></h2>
           <div class="subtitle" id="methodSubtitle"></div>
         </div>
+        <div class="header-timer" id="htGuide">
+          <div class="ht-label">Timer</div>
+          <div class="ht-display" id="htGuideDisplay">0:00</div>
+          <div class="ht-input-row">
+            <input class="ht-input" id="htGuideMin" type="number" min="0" max="99" value="0" placeholder="m"/>
+            <span class="ht-sep">:</span>
+            <input class="ht-input" id="htGuideSec" type="number" min="0" max="59" value="0" placeholder="s"/>
+          </div>
+          <div class="ht-controls">
+            <button class="ht-btn primary" id="htGuideStartBtn" onclick="htToggle('guide')">Start</button>
+            <button class="ht-btn" onclick="htReset('guide')">Reset</button>
+          </div>
+        </div>
       </div>
       <div class="variant-section" id="variantSection" style="display:none;">
         <div class="section-label">Style</div>
@@ -306,9 +333,24 @@
     <!-- ── ESPRESSO DRINK PANEL ── -->
     <div class="drink-screen" id="drinkScreen">
       <div class="drink-header">
-        <div class="drink-big-icon" id="drinkIcon"></div>
-        <h2 id="drinkName"></h2>
-        <div class="drink-tagline" id="drinkTagline"></div>
+        <div>
+          <div class="drink-big-icon" id="drinkIcon"></div>
+          <h2 id="drinkName"></h2>
+          <div class="drink-tagline" id="drinkTagline"></div>
+        </div>
+        <div class="header-timer" id="htDrink">
+          <div class="ht-label">Timer</div>
+          <div class="ht-display" id="htDrinkDisplay">0:00</div>
+          <div class="ht-input-row">
+            <input class="ht-input" id="htDrinkMin" type="number" min="0" max="99" value="0" placeholder="m"/>
+            <span class="ht-sep">:</span>
+            <input class="ht-input" id="htDrinkSec" type="number" min="0" max="59" value="0" placeholder="s"/>
+          </div>
+          <div class="ht-controls">
+            <button class="ht-btn primary" id="htDrinkStartBtn" onclick="htToggle('drink')">Start</button>
+            <button class="ht-btn" onclick="htReset('drink')">Reset</button>
+          </div>
+        </div>
       </div>
 
       <!-- Cup visualiser -->
@@ -861,6 +903,7 @@ function loadMethod(key) {
   currentMethod = key; currentDrink = null;
   doneSteps = []; donedrinkSteps = [];
   currentVariant = m.variants ? m.variants[0].id : null;
+  htReset('guide');
 
   showScreen('guide');
   document.getElementById('methodIcon').textContent = m.icon;
@@ -894,6 +937,7 @@ function loadDrink(key) {
   if (!d) return;
   currentDrink = key; currentMethod = null;
   donedrinkSteps = [];
+  htReset('drink');
 
   // Sidebar highlight
   activateMethodBtn('espresso');
@@ -1104,7 +1148,7 @@ function renderSteps() {
 function toggleStep(i, secs) {
   const el = document.getElementById(`step-${i}`);
   const idx = doneSteps.indexOf(i);
-  if (idx === -1) { doneSteps.push(i); el.classList.add('done'); if(secs>0) startTimerFor(secs,`Step ${i+1}`); }
+  if (idx === -1) { doneSteps.push(i); el.classList.add('done'); if(secs>0) { startTimerFor(secs,`Step ${i+1}`); htLoad('guide', secs); } }
   else { doneSteps.splice(idx,1); el.classList.remove('done'); }
   updateProgress();
 }
@@ -1123,7 +1167,71 @@ function resetGuide() {
 }
 
 // ═══════════════════════════════════════════════════════
-//  TIMER
+//  HEADER TIMERS
+// ═══════════════════════════════════════════════════════
+const ht = {
+  guide: { interval: null, running: false, seconds: 0, countUp: true },
+  drink: { interval: null, running: false, seconds: 0, countUp: true },
+};
+
+function htToggle(which) {
+  const s = ht[which];
+  const btn = document.getElementById(`ht${cap(which)}StartBtn`);
+  const disp = document.getElementById(`ht${cap(which)}Display`);
+  if (s.running) {
+    clearInterval(s.interval); s.running = false; btn.textContent = 'Resume';
+    disp.classList.remove('running');
+  } else {
+    // If not yet started and inputs have values, load from inputs
+    if (!s.running && s.seconds === 0) {
+      const m = parseInt(document.getElementById(`ht${cap(which)}Min`).value) || 0;
+      const sc = parseInt(document.getElementById(`ht${cap(which)}Sec`).value) || 0;
+      const total = m * 60 + sc;
+      s.seconds = total;
+      s.countUp = total === 0;
+    }
+    s.running = true; btn.textContent = 'Pause';
+    disp.classList.add('running'); disp.classList.remove('done');
+    s.interval = setInterval(() => {
+      if (s.countUp) {
+        s.seconds++;
+        disp.textContent = fmt(s.seconds);
+      } else {
+        if (s.seconds <= 0) {
+          clearInterval(s.interval); s.running = false;
+          btn.textContent = 'Start'; disp.textContent = 'Done!';
+          disp.classList.remove('running'); disp.classList.add('done'); return;
+        }
+        s.seconds--;
+        disp.textContent = fmt(s.seconds);
+      }
+    }, 1000);
+  }
+}
+
+function htReset(which) {
+  const s = ht[which];
+  clearInterval(s.interval); s.running = false; s.seconds = 0;
+  const btn = document.getElementById(`ht${cap(which)}StartBtn`);
+  const disp = document.getElementById(`ht${cap(which)}Display`);
+  btn.textContent = 'Start';
+  disp.textContent = '0:00';
+  disp.classList.remove('running', 'done');
+  document.getElementById(`ht${cap(which)}Min`).value = 0;
+  document.getElementById(`ht${cap(which)}Sec`).value = 0;
+}
+
+function htLoad(which, secs) {
+  htReset(which);
+  const m = Math.floor(secs / 60), s2 = secs % 60;
+  ht[which].seconds = secs; ht[which].countUp = false;
+  document.getElementById(`ht${cap(which)}Min`).value = m;
+  document.getElementById(`ht${cap(which)}Sec`).value = s2;
+  document.getElementById(`ht${cap(which)}Display`).textContent = fmt(secs);
+}
+
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
 // ═══════════════════════════════════════════════════════
 function startTimerFor(secs, label) {
   resetTimer(); timerSeconds = secs;
