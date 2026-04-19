@@ -1,294 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brew — Coffee Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --cream: #f5ede0; --warm-white: #fdf8f2; --espresso: #1a0f00;
-      --roast: #3d1f00; --caramel: #c47c2b; --gold: #e8a84c; --foam: #f0e0c8;
-    }
-    body { background: var(--cream); color: var(--espresso); font-family: 'DM Mono', monospace; min-height: 100vh; overflow-x: hidden; }
-    body::before {
-      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.5;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    }
-    header { display: flex; justify-content: space-between; align-items: flex-end; padding: 2.5rem 4rem 1.5rem; border-bottom: 1px solid rgba(61,31,0,0.15); }
-    .logo { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--roast); }
-    .logo span { font-style: italic; color: var(--caramel); }
-    .tagline { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); opacity: 0.8; }
-    main { display: grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 90px); }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Brew — Coffee Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#f5ede0;--warm-white:#fdf8f2;--espresso:#1a0f00;
+  --roast:#3d1f00;--caramel:#c47c2b;--gold:#e8a84c;--foam:#f0e0c8;
+}
+body{background:var(--cream);color:var(--espresso);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden}
 
-    /* ── SIDEBAR ── */
-    aside { background: var(--roast); padding: 2rem 1.75rem; position: sticky; top: 0; height: calc(100vh - 90px); overflow-y: auto; }
-    aside h2 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .method-list { list-style: none; display: flex; flex-direction: column; gap: 0.2rem; }
-    .method-btn { width: 100%; background: none; border: none; cursor: pointer; text-align: left; padding: 0.8rem 1rem; border-radius: 6px; color: var(--foam); font-family: 'DM Mono', monospace; font-size: 0.76rem; letter-spacing: 0.04em; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
-    .method-btn-left { display: flex; align-items: center; gap: 0.7rem; }
-    .method-btn:hover { background: rgba(255,255,255,0.08); color: var(--gold); }
-    .method-btn.active { background: var(--caramel); color: var(--espresso); font-weight: 500; }
-    .method-btn .chevron { font-size: 0.6rem; opacity: 0.5; transition: transform 0.25s; }
-    .method-btn.open .chevron { transform: rotate(90deg); opacity: 1; }
+/* ── HEADER ── */
+header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;border-bottom:1px solid rgba(61,31,0,.15);position:sticky;top:0;z-index:50;background:var(--cream)}
+.logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--roast)}
+.logo span{font-style:italic;color:var(--caramel)}
+.menu-btn{background:var(--roast);border:none;color:var(--gold);border-radius:8px;width:38px;height:38px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
-    /* Espresso submenu */
-    .submenu { list-style: none; overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
-    .submenu.open { max-height: 600px; }
-    .submenu-item { padding: 0; }
-    .submenu-btn { width: 100%; background: none; border: none; cursor: pointer; text-align: left; padding: 0.55rem 1rem 0.55rem 2.6rem; border-radius: 6px; color: rgba(240,224,200,0.65); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.03em; transition: all 0.2s; display: flex; align-items: center; gap: 0.55rem; }
-    .submenu-btn:hover { background: rgba(255,255,255,0.06); color: var(--gold); }
-    .submenu-btn.active { color: var(--gold); background: rgba(232,168,76,0.12); }
-    .submenu-divider { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(232,168,76,0.4); padding: 0.8rem 1rem 0.35rem 2.6rem; }
+/* ── LAYOUT ── */
+.app{display:flex;flex-direction:column;min-height:calc(100vh - 57px)}
 
-    /* ── CONTENT ── */
-    .content { padding: 2.5rem 3.5rem; background: var(--warm-white); overflow-y: auto; }
+/* ── DRAWER OVERLAY ── */
+.drawer-overlay{position:fixed;inset:0;background:rgba(26,15,0,.45);z-index:100;opacity:0;pointer-events:none;transition:opacity .3s}
+.drawer-overlay.open{opacity:1;pointer-events:all}
 
-    /* Intro */
-    .intro-screen { display: flex; flex-direction: column; justify-content: center; min-height: 70vh; animation: fadeIn 0.6s ease; }
-    .intro-screen .eyebrow { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--caramel); margin-bottom: 1rem; }
-    .intro-screen h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.1; color: var(--roast); margin-bottom: 1.25rem; max-width: 500px; }
-    .intro-screen h1 em { font-style: italic; color: var(--caramel); }
-    .intro-screen p { font-size: 0.8rem; line-height: 1.8; color: rgba(26,15,0,0.55); max-width: 420px; margin-bottom: 2rem; }
-    .arrow-hint { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--caramel); }
+/* ── DRAWER (sidebar as bottom sheet on mobile) ── */
+.drawer{position:fixed;bottom:0;left:0;right:0;background:var(--roast);border-radius:20px 20px 0 0;z-index:101;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);max-height:75vh;overflow-y:auto;padding-bottom:env(safe-area-inset-bottom)}
+.drawer.open{transform:translateY(0)}
+.drawer-handle{width:36px;height:4px;background:rgba(255,255,255,.25);border-radius:2px;margin:10px auto 4px}
+.drawer h2{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);padding:.75rem 1.25rem .5rem}
+.method-list{list-style:none;padding:0 .75rem .75rem;display:flex;flex-direction:column;gap:.2rem}
+.method-btn{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:.75rem 1rem;border-radius:8px;color:var(--foam);font-family:'DM Mono',monospace;font-size:.8rem;letter-spacing:.04em;display:flex;align-items:center;justify-content:space-between;transition:all .2s}
+.method-btn:active,.method-btn:hover{background:rgba(255,255,255,.08);color:var(--gold)}
+.method-btn.active{background:var(--caramel);color:var(--espresso);font-weight:500}
+.method-btn .chevron{font-size:.6rem;opacity:.5;transition:transform .25s}
+.method-btn.open .chevron{transform:rotate(90deg);opacity:1}
+.submenu{list-style:none;overflow:hidden;max-height:0;transition:max-height .3s ease}
+.submenu.open{max-height:600px}
+.submenu-btn{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:.55rem 1rem .55rem 2.6rem;border-radius:6px;color:rgba(240,224,200,.65);font-family:'DM Mono',monospace;font-size:.75rem;display:flex;align-items:center;gap:.55rem;transition:all .2s}
+.submenu-btn:active{background:rgba(255,255,255,.06);color:var(--gold)}
+.submenu-btn.active{color:var(--gold);background:rgba(232,168,76,.12)}
+.submenu-divider{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,168,76,.4);padding:.8rem 1rem .35rem 2.6rem}
 
-    /* Brew guide */
-    .guide-screen { display: none; animation: fadeIn 0.4s ease; }
-    .guide-screen.visible { display: block; }
-    .guide-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--foam); gap: 1rem; }
-    .method-icon { font-size: 2.2rem; margin-bottom: 0.4rem; }
-    .guide-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--roast); margin-bottom: 0.2rem; }
-    .guide-header .subtitle { font-size: 0.65rem; color: var(--caramel); letter-spacing: 0.1em; text-transform: uppercase; }
+/* ── CONTENT ── */
+.content{flex:1;padding:1.25rem;background:var(--warm-white);overflow-y:auto}
 
-    /* ── ESPRESSO DRINK PANEL ── */
-    .drink-screen { display: none; animation: fadeIn 0.4s ease; }
-    .drink-screen.visible { display: block; }
+/* Intro */
+.intro-screen{display:flex;flex-direction:column;justify-content:center;min-height:60vh;animation:fadeIn .6s ease}
+.intro-screen .eyebrow{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:.75rem}
+.intro-screen h1{font-family:'Playfair Display',serif;font-size:2rem;line-height:1.15;color:var(--roast);margin-bottom:1rem}
+.intro-screen h1 em{font-style:italic;color:var(--caramel)}
+.intro-screen p{font-size:.78rem;line-height:1.8;color:rgba(26,15,0,.55);margin-bottom:1.5rem}
+.arrow-hint{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--caramel)}
 
-    .drink-header { margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--foam); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-    .drink-header .drink-big-icon { font-size: 2.8rem; margin-bottom: 0.5rem; }
-    .drink-header h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--roast); margin-bottom: 0.3rem; }
-    .drink-header .drink-tagline { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--caramel); }
+/* Brew guide */
+.guide-screen{display:none;animation:fadeIn .4s ease}
+.guide-screen.visible{display:block}
 
-    /* Cup visualiser */
-    .cup-section { margin-bottom: 2rem; }
-    .cup-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); margin-bottom: 0.9rem; }
-    .cup-visual { display: flex; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; }
-    .cup-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
-    .cup { width: 64px; border-radius: 0 0 12px 12px; border: 2px solid rgba(61,31,0,0.15); overflow: hidden; display: flex; flex-direction: column; }
-    .cup-layer { width: 100%; transition: height 0.5s ease; display: flex; align-items: center; justify-content: center; }
-    .cup-name { font-size: 0.58rem; color: rgba(26,15,0,0.45); letter-spacing: 0.05em; text-align: center; max-width: 64px; }
-    .cup-total { font-size: 0.62rem; color: var(--caramel); font-weight: 500; }
+/* Header with timer */
+.guide-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--foam)}
+.guide-header-left .method-icon{font-size:1.8rem;margin-bottom:.3rem}
+.guide-header-left h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--roast);margin-bottom:.15rem}
+.guide-header-left .subtitle{font-size:.6rem;color:var(--caramel);letter-spacing:.1em;text-transform:uppercase}
 
-    /* Layer legend */
-    .layer-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
-    .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.62rem; color: rgba(26,15,0,0.55); }
-    .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+/* Inline header timer */
+.header-timer{background:var(--roast);border-radius:12px;padding:.75rem .9rem;display:flex;flex-direction:column;align-items:center;gap:.3rem;min-width:110px;flex-shrink:0}
+.ht-label{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ht-display{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--cream);letter-spacing:-.02em;line-height:1}
+.ht-display.running{color:var(--gold)}
+.ht-display.done{color:#7ecb7e}
+.ht-input-row{display:flex;align-items:center;gap:.25rem}
+.ht-input{width:34px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:5px;color:var(--cream);font-family:'DM Mono',monospace;font-size:.65rem;text-align:center;padding:.18rem .2rem;outline:none}
+.ht-input:focus{border-color:var(--gold)}
+.ht-sep{color:var(--gold);font-size:.75rem}
+.ht-controls{display:flex;gap:.3rem}
+.ht-btn{background:rgba(255,255,255,.1);border:none;color:var(--cream);font-family:'DM Mono',monospace;font-size:.58rem;padding:.25rem .55rem;border-radius:5px;cursor:pointer}
+.ht-btn.primary{background:var(--caramel);color:var(--espresso)}
 
-    /* Ingredients grid */
-    .ingredients-section { margin-bottom: 2rem; }
-    .ingredients-grid { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
-    .ing-card { background: var(--cream); border: 1px solid var(--foam); border-radius: 10px; padding: 0.75rem 1rem; min-width: 90px; }
-    .ing-label { font-size: 0.55rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--caramel); margin-bottom: 0.2rem; }
-    .ing-value { font-size: 1rem; font-weight: 500; color: var(--roast); }
-    .ing-sub { font-size: 0.58rem; color: rgba(26,15,0,0.4); margin-top: 0.1rem; }
+/* Drink screen */
+.drink-screen{display:none;animation:fadeIn .4s ease}
+.drink-screen.visible{display:block}
+.drink-header{margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--foam);display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+.drink-header-left .drink-big-icon{font-size:2rem;margin-bottom:.35rem}
+.drink-header-left h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--roast);margin-bottom:.2rem}
+.drink-header-left .drink-tagline{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--caramel)}
 
-    /* Drink steps */
-    .drink-steps-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); margin-bottom: 1.25rem; }
-    .drink-steps { display: flex; flex-direction: column; }
-    .d-step { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; position: relative; cursor: pointer; }
-    .d-step:not(:last-child)::after { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: var(--foam); }
-    .d-step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--foam); border: 2px solid var(--foam); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 500; color: var(--caramel); flex-shrink: 0; z-index: 1; transition: all 0.3s; }
-    .d-step.done .d-step-num { background: var(--caramel); border-color: var(--caramel); color: white; }
-    .d-step.done .d-step-num::after { content: '✓'; font-size: 0.95rem; }
-    .d-step.done .d-step-num span { display: none; }
-    .d-step-body { padding: 0.6rem 0 1.4rem; }
-    .d-step-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--roast); margin-bottom: 0.3rem; }
-    .d-step-desc { font-size: 0.73rem; line-height: 1.7; color: rgba(26,15,0,0.55); }
-    .d-step-tip { font-size: 0.67rem; color: var(--caramel); margin-top: 0.45rem; background: rgba(196,124,43,0.08); padding: 0.3rem 0.75rem; border-radius: 6px; display: inline-block; }
+/* Cup visual */
+.cup-section{margin-bottom:1.5rem}
+.cup-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);margin-bottom:.75rem}
+.cup-visual{display:flex;align-items:flex-end;gap:1.25rem;flex-wrap:wrap}
+.cup-wrap{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.cup{width:56px;border-radius:0 0 10px 10px;border:2px solid rgba(61,31,0,.15);overflow:hidden;display:flex;flex-direction:column}
+.cup-layer{width:100%;transition:height .5s ease}
+.cup-name{font-size:.55rem;color:rgba(26,15,0,.45);letter-spacing:.05em;text-align:center;max-width:64px}
+.cup-total{font-size:.6rem;color:var(--caramel);font-weight:500}
+.layer-legend{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.75rem}
+.legend-item{display:flex;align-items:center;gap:.35rem;font-size:.6rem;color:rgba(26,15,0,.55)}
+.legend-dot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
 
-    /* Brew guide shared pieces */
-    .section-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); margin-bottom: 0.75rem; }
-    .variant-section { margin-bottom: 1.75rem; }
-    .variant-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-    .variant-tab { background: var(--foam); border: 1.5px solid var(--foam); border-radius: 8px; padding: 0.5rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(26,15,0,0.6); cursor: pointer; transition: all 0.2s; }
-    .variant-tab:hover { border-color: var(--caramel); color: var(--caramel); }
-    .variant-tab.active { background: var(--caramel); border-color: var(--caramel); color: white; font-weight: 500; }
-    .variant-desc { font-size: 0.72rem; line-height: 1.65; color: rgba(26,15,0,0.55); padding: 0.8rem 1rem; background: var(--cream); border-radius: 8px; border-left: 3px solid var(--caramel); }
+/* Ingredients */
+.ingredients-section{margin-bottom:1.5rem}
+.ingredients-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:.65rem}
+.ing-card{background:var(--cream);border:1px solid var(--foam);border-radius:10px;padding:.65rem .85rem}
+.ing-label{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--caramel);margin-bottom:.15rem}
+.ing-value{font-size:.95rem;font-weight:500;color:var(--roast)}
+.ing-sub{font-size:.55rem;color:rgba(26,15,0,.4);margin-top:.1rem}
 
-    .ratio-section { background: var(--cream); border: 1px solid var(--foam); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.75rem; }
-    .ratio-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-    .ratio-badge { font-size: 0.65rem; background: rgba(196,124,43,0.15); color: var(--caramel); padding: 0.2rem 0.65rem; border-radius: 20px; }
-    .ratio-inputs { display: flex; align-items: flex-end; gap: 1rem; flex-wrap: wrap; }
-    .ratio-field { display: flex; flex-direction: column; gap: 0.4rem; }
-    .ratio-field label { font-size: 0.57rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(26,15,0,0.45); }
-    .ratio-field input[type="number"] { width: 90px; padding: 0.55rem 0.75rem; border: 1.5px solid var(--foam); border-radius: 8px; background: white; font-family: 'DM Mono', monospace; font-size: 0.88rem; color: var(--roast); outline: none; transition: border-color 0.2s; }
-    .ratio-field input:focus { border-color: var(--caramel); }
-    .ratio-arrow { font-size: 1rem; color: var(--caramel); opacity: 0.5; padding-bottom: 0.55rem; }
-    .ratio-results { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
-    .r-card { flex: 1; min-width: 100px; background: white; border-radius: 8px; padding: 0.7rem 0.9rem; border: 1px solid var(--foam); }
-    .r-label { font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(26,15,0,0.4); margin-bottom: 0.2rem; }
-    .r-value { font-size: 1.05rem; font-weight: 500; color: var(--roast); }
-    .r-sub { font-size: 0.58rem; color: var(--caramel); margin-top: 0.1rem; }
+/* Variant tabs */
+.variant-section{margin-bottom:1.5rem}
+.section-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);margin-bottom:.65rem}
+.variant-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.65rem}
+.variant-tab{background:var(--foam);border:1.5px solid var(--foam);border-radius:8px;padding:.45rem .85rem;font-family:'DM Mono',monospace;font-size:.68rem;color:rgba(26,15,0,.6);cursor:pointer;transition:all .2s;white-space:nowrap}
+.variant-tab.active{background:var(--caramel);border-color:var(--caramel);color:white;font-weight:500}
+.variant-desc{font-size:.7rem;line-height:1.65;color:rgba(26,15,0,.55);padding:.75rem .9rem;background:var(--cream);border-radius:8px;border-left:3px solid var(--caramel)}
 
-    .params-bar { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .param-card { background: var(--cream); border: 1px solid var(--foam); border-radius: 10px; padding: 0.75rem 1rem; min-width: 80px; }
-    .param-label { font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--caramel); margin-bottom: 0.2rem; }
-    .param-value { font-size: 0.88rem; font-weight: 500; color: var(--roast); }
+/* Ratio section */
+.ratio-section{background:var(--cream);border:1px solid var(--foam);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.5rem}
+.ratio-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
+.ratio-badge{font-size:.63rem;background:rgba(196,124,43,.15);color:var(--caramel);padding:.2rem .6rem;border-radius:20px}
+.ratio-inputs{display:flex;align-items:flex-end;gap:.75rem;flex-wrap:wrap}
+.ratio-field{display:flex;flex-direction:column;gap:.35rem}
+.ratio-field label{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,15,0,.45)}
+.ratio-field input[type="number"]{width:80px;padding:.5rem .65rem;border:1.5px solid var(--foam);border-radius:8px;background:white;font-family:'DM Mono',monospace;font-size:.85rem;color:var(--roast);outline:none}
+.ratio-field input:focus{border-color:var(--caramel)}
+.ratio-arrow{font-size:.9rem;color:var(--caramel);opacity:.5;padding-bottom:.5rem}
+.ratio-results{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:.85rem}
+.r-card{background:white;border-radius:8px;padding:.6rem .8rem;border:1px solid var(--foam)}
+.r-label{font-size:.54rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(26,15,0,.4);margin-bottom:.15rem}
+.r-value{font-size:.95rem;font-weight:500;color:var(--roast)}
+.r-sub{font-size:.56rem;color:var(--caramel);margin-top:.1rem}
 
-    .steps-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); margin-bottom: 1.25rem; }
-    .steps-list { display: flex; flex-direction: column; }
-    .step { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; position: relative; cursor: pointer; }
-    .step:not(:last-child)::after { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: var(--foam); }
-    .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--foam); border: 2px solid var(--foam); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 500; color: var(--caramel); flex-shrink: 0; z-index: 1; transition: all 0.3s; }
-    .step.done .step-num { background: var(--caramel); border-color: var(--caramel); color: white; }
-    .step.done .step-num::after { content: '✓'; font-size: 0.95rem; }
-    .step.done .step-num span { display: none; }
-    .step-body { padding: 0.6rem 0 1.4rem; }
-    .step-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--roast); margin-bottom: 0.3rem; }
-    .step-desc { font-size: 0.73rem; line-height: 1.7; color: rgba(26,15,0,0.55); }
-    .step-timer { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.62rem; color: var(--caramel); margin-top: 0.5rem; background: rgba(196,124,43,0.1); padding: 0.25rem 0.65rem; border-radius: 20px; }
+/* Params bar */
+.params-bar{display:flex;gap:.6rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.param-card{background:var(--cream);border:1px solid var(--foam);border-radius:10px;padding:.65rem .85rem;min-width:0;flex:1}
+.param-label{font-size:.52rem;letter-spacing:.13em;text-transform:uppercase;color:var(--caramel);margin-bottom:.15rem}
+.param-value{font-size:.82rem;font-weight:500;color:var(--roast);white-space:nowrap}
 
-    .progress-bar-wrap { background: var(--foam); border-radius: 20px; height: 4px; margin-bottom: 2rem; overflow: hidden; }
-    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--caramel), var(--gold)); border-radius: 20px; transition: width 0.4s ease; width: 0%; }
+/* Progress */
+.progress-bar-wrap{background:var(--foam);border-radius:20px;height:4px;margin-bottom:1.5rem;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--caramel),var(--gold));border-radius:20px;transition:width .4s ease;width:0%}
 
-    .complete-banner { display: none; background: linear-gradient(135deg, var(--caramel), var(--gold)); color: var(--espresso); border-radius: 12px; padding: 1.5rem 2rem; margin-top: 2rem; text-align: center; animation: fadeIn 0.5s ease; }
-    .complete-banner.visible { display: block; }
-    .complete-banner h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 0.25rem; }
-    .complete-banner p { font-size: 0.72rem; opacity: 0.8; }
-    .reset-btn { margin-top: 1rem; background: var(--espresso); color: var(--cream); border: none; padding: 0.55rem 1.3rem; border-radius: 8px; font-family: 'DM Mono', monospace; font-size: 0.7rem; cursor: pointer; transition: opacity 0.2s; }
-    .reset-btn:hover { opacity: 0.8; }
+/* Steps */
+.steps-title,.drink-steps-title{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);margin-bottom:1rem}
+.steps-list,.drink-steps{display:flex;flex-direction:column}
+.step,.d-step{display:grid;grid-template-columns:40px 1fr;gap:.85rem;position:relative;cursor:pointer}
+.step:not(:last-child)::after,.d-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--foam)}
+.step-num,.d-step-num{width:40px;height:40px;border-radius:50%;background:var(--foam);border:2px solid var(--foam);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:500;color:var(--caramel);flex-shrink:0;z-index:1;transition:all .3s}
+.step.done .step-num,.d-step.done .d-step-num{background:var(--caramel);border-color:var(--caramel);color:white}
+.step.done .step-num::after,.d-step.done .d-step-num::after{content:'✓';font-size:.9rem}
+.step.done .step-num span,.d-step.done .d-step-num span{display:none}
+.step-body,.d-step-body{padding:.5rem 0 1.25rem}
+.step-name,.d-step-name{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--roast);margin-bottom:.25rem}
+.step-desc,.d-step-desc{font-size:.7rem;line-height:1.7;color:rgba(26,15,0,.55)}
+.step-timer{display:inline-flex;align-items:center;gap:.35rem;font-size:.6rem;color:var(--caramel);margin-top:.45rem;background:rgba(196,124,43,.1);padding:.22rem .6rem;border-radius:20px}
+.d-step-tip{font-size:.65rem;color:var(--caramel);margin-top:.4rem;background:rgba(196,124,43,.08);padding:.28rem .7rem;border-radius:6px;display:inline-block}
 
-    /* Inline header timer */
-    .header-timer { background: var(--roast); border-radius: 14px; padding: 0.9rem 1.1rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; min-width: 130px; flex-shrink: 0; }
-    .ht-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-    .ht-display { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--cream); letter-spacing: -0.02em; line-height: 1; }
-    .ht-display.running { color: var(--gold); }
-    .ht-display.done { color: #7ecb7e; }
-    .ht-controls { display: flex; gap: 0.35rem; margin-top: 0.1rem; }
-    .ht-btn { background: rgba(255,255,255,0.1); border: none; color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.6rem; padding: 0.28rem 0.6rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-    .ht-btn:hover { background: rgba(255,255,255,0.2); }
-    .ht-btn.primary { background: var(--caramel); color: var(--espresso); }
-    .ht-btn.primary:hover { background: var(--gold); }
-    .ht-input-row { display: flex; align-items: center; gap: 0.3rem; }
-    .ht-input { width: 38px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 5px; color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.68rem; text-align: center; padding: 0.2rem 0.25rem; outline: none; }
-    .ht-input:focus { border-color: var(--gold); }
-    .ht-sep { color: var(--gold); font-size: 0.8rem; line-height: 1; }
-    .timer-widget { position: fixed; bottom: 2rem; right: 2rem; background: var(--roast); color: var(--cream); padding: 1.2rem 1.6rem; border-radius: 16px; box-shadow: 0 16px 48px rgba(26,15,0,0.3); display: none; flex-direction: column; align-items: center; gap: 0.45rem; min-width: 165px; z-index: 100; }
-    .timer-widget.visible { display: flex; }
-    .timer-lbl { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-    .timer-display { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--cream); letter-spacing: -0.02em; }
-    .timer-controls { display: flex; gap: 0.4rem; margin-top: 0.2rem; }
-    .timer-btn { background: rgba(255,255,255,0.1); border: none; color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 0.3rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-    .timer-btn:hover { background: rgba(255,255,255,0.2); }
-    .timer-btn.start { background: var(--caramel); color: var(--espresso); }
+/* Complete banner */
+.complete-banner{display:none;background:linear-gradient(135deg,var(--caramel),var(--gold));color:var(--espresso);border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.5rem;text-align:center;animation:fadeIn .5s ease}
+.complete-banner.visible{display:block}
+.complete-banner h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.2rem}
+.complete-banner p{font-size:.7rem;opacity:.8}
+.reset-btn{margin-top:.85rem;background:var(--espresso);color:var(--cream);border:none;padding:.5rem 1.2rem;border-radius:8px;font-family:'DM Mono',monospace;font-size:.68rem;cursor:pointer}
 
-    /* Notes panel */
-    .notes-toggle { position: fixed; bottom: 2rem; left: 2rem; background: var(--roast); color: var(--gold); border: none; border-radius: 12px; padding: 0.7rem 1.1rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 8px 24px rgba(26,15,0,0.25); transition: background 0.2s; z-index: 99; }
-    .notes-toggle:hover { background: var(--caramel); color: var(--espresso); }
-    .notes-panel { position: fixed; left: 0; bottom: 0; width: 380px; max-width: 100vw; background: var(--warm-white); border-top: 2px solid var(--caramel); border-right: 2px solid var(--foam); border-radius: 0 16px 0 0; box-shadow: 8px -8px 40px rgba(26,15,0,0.15); z-index: 200; display: flex; flex-direction: column; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-    .notes-panel.open { transform: translateY(0); }
-    .notes-header { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 1.25rem 0.7rem; border-bottom: 1px solid var(--foam); }
-    .notes-header-left { display: flex; align-items: center; gap: 0.6rem; }
-    .notes-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--roast); }
-    .notes-count { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--caramel); background: rgba(196,124,43,0.12); padding: 0.15rem 0.5rem; border-radius: 20px; }
-    .notes-close { background: none; border: none; cursor: pointer; font-size: 1rem; color: rgba(26,15,0,0.35); transition: color 0.2s; }
-    .notes-close:hover { color: var(--caramel); }
-    .notes-list { flex: 1; overflow-y: auto; max-height: 280px; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .note-card { background: var(--cream); border: 1px solid var(--foam); border-radius: 10px; padding: 0.7rem 0.9rem; position: relative; animation: fadeIn 0.25s ease; }
-    .note-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
-    .note-tag { font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--caramel); white-space: nowrap; }
-    .note-del { background: none; border: none; cursor: pointer; font-size: 0.75rem; color: rgba(26,15,0,0.2); transition: color 0.2s; padding: 0; line-height: 1; }
-    .note-del:hover { color: #c04a2a; }
-    .note-text { font-size: 0.73rem; line-height: 1.6; color: rgba(26,15,0,0.7); margin-top: 0.3rem; white-space: pre-wrap; word-break: break-word; }
-    .note-date { font-size: 0.57rem; color: rgba(26,15,0,0.3); margin-top: 0.4rem; }
-    .notes-empty { text-align: center; padding: 2rem 1rem; color: rgba(26,15,0,0.3); font-size: 0.72rem; line-height: 1.6; }
-    .notes-composer { border-top: 1px solid var(--foam); padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .notes-context-row { display: flex; align-items: center; gap: 0.5rem; }
-    .notes-context-label { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(26,15,0,0.35); }
-    .notes-context-chip { font-size: 0.62rem; color: var(--caramel); background: rgba(196,124,43,0.1); padding: 0.15rem 0.55rem; border-radius: 20px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .notes-textarea { width: 100%; border: 1.5px solid var(--foam); border-radius: 10px; padding: 0.65rem 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.73rem; color: var(--espresso); background: var(--cream); resize: none; outline: none; line-height: 1.6; transition: border-color 0.2s; }
-    .notes-textarea:focus { border-color: var(--caramel); }
-    .notes-textarea::placeholder { color: rgba(26,15,0,0.28); }
-    .notes-actions { display: flex; justify-content: flex-end; gap: 0.5rem; align-items: center; }
-    .notes-saving { font-size: 0.58rem; color: var(--caramel); opacity: 0; transition: opacity 0.3s; }
-    .notes-saving.visible { opacity: 1; }
-    .notes-save-btn { background: var(--caramel); color: white; border: none; border-radius: 8px; padding: 0.45rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; cursor: pointer; transition: background 0.2s; }
-    .notes-save-btn:hover { background: var(--roast); }
-    .notes-save-btn:disabled { opacity: 0.45; cursor: default; }
+/* ── NOTES PANEL ── */
+.notes-fab{position:fixed;bottom:1.25rem;right:1.25rem;background:var(--roast);color:var(--gold);border:none;border-radius:50px;padding:.65rem 1rem;font-family:'DM Mono',monospace;font-size:.7rem;cursor:pointer;display:flex;align-items:center;gap:.45rem;box-shadow:0 6px 20px rgba(26,15,0,.3);z-index:99;white-space:nowrap}
+.notes-panel{position:fixed;left:0;right:0;bottom:0;background:var(--warm-white);border-top:2px solid var(--caramel);border-radius:20px 20px 0 0;box-shadow:0 -8px 32px rgba(26,15,0,.15);z-index:200;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);max-height:80vh;padding-bottom:env(safe-area-inset-bottom)}
+.notes-panel.open{transform:translateY(0)}
+.notes-handle{width:36px;height:4px;background:rgba(61,31,0,.15);border-radius:2px;margin:10px auto 4px}
+.notes-header{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.1rem .6rem;border-bottom:1px solid var(--foam)}
+.notes-header-left{display:flex;align-items:center;gap:.5rem}
+.notes-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--roast)}
+.notes-count{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--caramel);background:rgba(196,124,43,.12);padding:.12rem .45rem;border-radius:20px}
+.notes-close{background:none;border:none;cursor:pointer;font-size:.95rem;color:rgba(26,15,0,.35)}
+.notes-list{flex:1;overflow-y:auto;padding:.65rem;display:flex;flex-direction:column;gap:.45rem}
+.note-card{background:var(--cream);border:1px solid var(--foam);border-radius:10px;padding:.65rem .85rem;animation:fadeIn .25s ease}
+.note-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.note-tag{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--caramel);white-space:nowrap}
+.note-del{background:none;border:none;cursor:pointer;font-size:.72rem;color:rgba(26,15,0,.2);padding:0;line-height:1}
+.note-text{font-size:.7rem;line-height:1.6;color:rgba(26,15,0,.7);margin-top:.25rem;white-space:pre-wrap;word-break:break-word}
+.note-date{font-size:.55rem;color:rgba(26,15,0,.3);margin-top:.35rem}
+.notes-empty{text-align:center;padding:2rem 1rem;color:rgba(26,15,0,.3);font-size:.7rem;line-height:1.6}
+.notes-composer{border-top:1px solid var(--foam);padding:.65rem}
+.notes-context-row{display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem}
+.notes-context-label{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,15,0,.35)}
+.notes-context-chip{font-size:.6rem;color:var(--caramel);background:rgba(196,124,43,.1);padding:.12rem .5rem;border-radius:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:180px}
+.notes-textarea{width:100%;border:1.5px solid var(--foam);border-radius:10px;padding:.6rem .8rem;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--espresso);background:var(--cream);resize:none;outline:none;line-height:1.6;-webkit-appearance:none}
+.notes-textarea:focus{border-color:var(--caramel)}
+.notes-actions{display:flex;justify-content:flex-end;gap:.5rem;align-items:center;margin-top:.45rem}
+.notes-saving{font-size:.56rem;color:var(--caramel);opacity:0;transition:opacity .3s}
+.notes-saving.visible{opacity:1}
+.notes-save-btn{background:var(--caramel);color:white;border:none;border-radius:8px;padding:.45rem 1rem;font-family:'DM Mono',monospace;font-size:.68rem;cursor:pointer;-webkit-appearance:none;min-height:36px}
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: var(--caramel); border-radius: 4px; }
-    @media (max-width: 768px) { main { grid-template-columns: 1fr; } aside { height: auto; position: static; } header, .content { padding: 1.25rem; } }
-  </style>
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--caramel);border-radius:3px}
+</style>
 </head>
 <body>
 
 <header>
   <div class="logo">brew<span>.</span></div>
-  <div class="tagline">Your personal coffee guide</div>
+  <button class="menu-btn" onclick="openDrawer()" aria-label="Open menu">☰</button>
 </header>
 
-<main>
-  <aside>
-    <h2>Brew Methods</h2>
-    <ul class="method-list" id="methodList">
-      <li>
-        <button class="method-btn" id="espressoBtn" data-method="espresso" onclick="toggleEspressoMenu(event)">
-          <div class="method-btn-left"><span>☕</span> Espresso</div>
-          <span class="chevron">▶</span>
-        </button>
-        <ul class="submenu" id="espressoSubmenu">
-          <li class="submenu-item">
-            <button class="submenu-btn" onclick="loadDrink('espresso_pure')">☕ &nbsp;Espresso</button>
-          </li>
-          <div class="submenu-divider">Milk Drinks</div>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('latte')">🥛 &nbsp;Café Latte</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('cappuccino')">☁️ &nbsp;Cappuccino</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('piccolo')">🌿 &nbsp;Piccolo Latte</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('flatwhite')">🤍 &nbsp;Flat White</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('cortado')">⚖️ &nbsp;Cortado</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('macchiato')">🔸 &nbsp;Macchiato</button></li>
-          <div class="submenu-divider">Black</div>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('americano')">🌊 &nbsp;Americano</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('longblack')">🖤 &nbsp;Long Black</button></li>
-          <div class="submenu-divider">Specialty</div>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('affogato')">🍨 &nbsp;Affogato</button></li>
-          <li class="submenu-item"><button class="submenu-btn" onclick="loadDrink('dirtychai')">🍵 &nbsp;Dirty Chai</button></li>
-        </ul>
-      </li>
-      <li><button class="method-btn" data-method="pourover"><div class="method-btn-left"><span>🫖</span> Pour Over</div></button></li>
-      <li><button class="method-btn" data-method="frenchpress"><div class="method-btn-left"><span>⚗️</span> French Press</div></button></li>
-      <li><button class="method-btn" data-method="aeropress"><div class="method-btn-left"><span>🧪</span> AeroPress</div></button></li>
-      <li><button class="method-btn" data-method="coldbrew"><div class="method-btn-left"><span>🧊</span> Cold Brew</div></button></li>
-      <li><button class="method-btn" data-method="moka"><div class="method-btn-left"><span>🔥</span> Moka Pot</div></button></li>
-    </ul>
-  </aside>
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 
+<!-- Drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-handle"></div>
+  <h2>Brew Methods</h2>
+  <ul class="method-list" id="methodList">
+    <li>
+      <button class="method-btn" id="espressoBtn" data-method="espresso" onclick="toggleEspressoMenu(event)">
+        <div style="display:flex;align-items:center;gap:.7rem"><span>☕</span>Espresso</div>
+        <span class="chevron">▶</span>
+      </button>
+      <ul class="submenu" id="espressoSubmenu">
+        <li><button class="submenu-btn" onclick="loadDrink('espresso_pure')">☕ &nbsp;Espresso</button></li>
+        <div class="submenu-divider">Milk Drinks</div>
+        <li><button class="submenu-btn" onclick="loadDrink('latte')">🥛 &nbsp;Café Latte</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('cappuccino')">☁️ &nbsp;Cappuccino</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('piccolo')">🌿 &nbsp;Piccolo Latte</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('flatwhite')">🤍 &nbsp;Flat White</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('cortado')">⚖️ &nbsp;Cortado</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('macchiato')">🔸 &nbsp;Macchiato</button></li>
+        <div class="submenu-divider">Black</div>
+        <li><button class="submenu-btn" onclick="loadDrink('americano')">🌊 &nbsp;Americano</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('longblack')">🖤 &nbsp;Long Black</button></li>
+        <div class="submenu-divider">Specialty</div>
+        <li><button class="submenu-btn" onclick="loadDrink('affogato')">🍨 &nbsp;Affogato</button></li>
+        <li><button class="submenu-btn" onclick="loadDrink('dirtychai')">🍵 &nbsp;Dirty Chai</button></li>
+      </ul>
+    </li>
+    <li><button class="method-btn" data-method="pourover"><div style="display:flex;align-items:center;gap:.7rem"><span>🫖</span>Pour Over</div></button></li>
+    <li><button class="method-btn" data-method="frenchpress"><div style="display:flex;align-items:center;gap:.7rem"><span>⚗️</span>French Press</div></button></li>
+    <li><button class="method-btn" data-method="aeropress"><div style="display:flex;align-items:center;gap:.7rem"><span>🧪</span>AeroPress</div></button></li>
+    <li><button class="method-btn" data-method="coldbrew"><div style="display:flex;align-items:center;gap:.7rem"><span>🧊</span>Cold Brew</div></button></li>
+    <li><button class="method-btn" data-method="moka"><div style="display:flex;align-items:center;gap:.7rem"><span>🔥</span>Moka Pot</div></button></li>
+  </ul>
+</div>
+
+<div class="app">
   <div class="content">
-    <!-- ── INTRO ── -->
+
+    <!-- INTRO -->
     <div class="intro-screen" id="introScreen">
       <p class="eyebrow">Craft. Patience. Ritual.</p>
       <h1>The art of a <em>perfect</em> cup starts here.</h1>
-      <p>Select a brew method to get step-by-step guidance, a ratio calculator, and built-in timers — all for the home barista.</p>
-      <div class="arrow-hint">← choose your method</div>
+      <p>Select a brew method to get step-by-step guidance, a ratio calculator, and built-in timers.</p>
+      <div class="arrow-hint">☰ tap menu to choose your method</div>
     </div>
 
-    <!-- ── BREW GUIDE ── -->
+    <!-- BREW GUIDE -->
     <div class="guide-screen" id="guideScreen">
       <div class="guide-header">
-        <div>
+        <div class="guide-header-left">
           <div class="method-icon" id="methodIcon"></div>
           <h2 id="methodName"></h2>
           <div class="subtitle" id="methodSubtitle"></div>
         </div>
-        <div class="header-timer" id="htGuide">
+        <div class="header-timer">
           <div class="ht-label">Timer</div>
           <div class="ht-display" id="htGuideDisplay">0:00</div>
           <div class="ht-input-row">
-            <input class="ht-input" id="htGuideMin" type="number" min="0" max="99" value="0" placeholder="m"/>
+            <input class="ht-input" id="htGuideMin" type="number" min="0" max="99" value="0"/>
             <span class="ht-sep">:</span>
-            <input class="ht-input" id="htGuideSec" type="number" min="0" max="59" value="0" placeholder="s"/>
+            <input class="ht-input" id="htGuideSec" type="number" min="0" max="59" value="0"/>
           </div>
           <div class="ht-controls">
             <button class="ht-btn primary" id="htGuideStartBtn" onclick="htToggle('guide')">Start</button>
@@ -296,14 +275,16 @@
           </div>
         </div>
       </div>
-      <div class="variant-section" id="variantSection" style="display:none;">
+
+      <div class="variant-section" id="variantSection" style="display:none">
         <div class="section-label">Style</div>
         <div class="variant-tabs" id="variantTabs"></div>
         <div class="variant-desc" id="variantDesc"></div>
       </div>
+
       <div class="ratio-section">
         <div class="ratio-header">
-          <div class="section-label" style="margin:0;">Ratio Calculator</div>
+          <div class="section-label" style="margin:0">Ratio Calculator</div>
           <div class="ratio-badge" id="ratioBadge">1 : —</div>
         </div>
         <div class="ratio-inputs">
@@ -319,6 +300,7 @@
         </div>
         <div class="ratio-results" id="ratioResults"></div>
       </div>
+
       <div class="params-bar" id="paramsBar"></div>
       <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
       <p class="steps-title">Steps — tap to mark complete</p>
@@ -330,21 +312,21 @@
       </div>
     </div>
 
-    <!-- ── ESPRESSO DRINK PANEL ── -->
+    <!-- DRINK SCREEN -->
     <div class="drink-screen" id="drinkScreen">
       <div class="drink-header">
-        <div>
+        <div class="drink-header-left">
           <div class="drink-big-icon" id="drinkIcon"></div>
           <h2 id="drinkName"></h2>
           <div class="drink-tagline" id="drinkTagline"></div>
         </div>
-        <div class="header-timer" id="htDrink">
+        <div class="header-timer">
           <div class="ht-label">Timer</div>
           <div class="ht-display" id="htDrinkDisplay">0:00</div>
           <div class="ht-input-row">
-            <input class="ht-input" id="htDrinkMin" type="number" min="0" max="99" value="0" placeholder="m"/>
+            <input class="ht-input" id="htDrinkMin" type="number" min="0" max="99" value="0"/>
             <span class="ht-sep">:</span>
-            <input class="ht-input" id="htDrinkSec" type="number" min="0" max="59" value="0" placeholder="s"/>
+            <input class="ht-input" id="htDrinkSec" type="number" min="0" max="59" value="0"/>
           </div>
           <div class="ht-controls">
             <button class="ht-btn primary" id="htDrinkStartBtn" onclick="htToggle('drink')">Start</button>
@@ -353,20 +335,17 @@
         </div>
       </div>
 
-      <!-- Cup visualiser -->
       <div class="cup-section" id="cupSection">
         <div class="cup-label">Cup composition</div>
         <div class="cup-visual" id="cupVisual"></div>
         <div class="layer-legend" id="layerLegend"></div>
       </div>
 
-      <!-- Ingredients -->
       <div class="ingredients-section">
         <div class="section-label">What you need</div>
         <div class="ingredients-grid" id="ingredientsGrid"></div>
       </div>
 
-      <!-- Steps -->
       <div class="progress-bar-wrap"><div class="progress-bar-fill" id="drinkProgressBar"></div></div>
       <p class="drink-steps-title">How to make it — tap to mark complete</p>
       <div class="drink-steps" id="drinkSteps"></div>
@@ -376,14 +355,16 @@
         <button class="reset-btn" onclick="resetDrink()">Make Another</button>
       </div>
     </div>
-  </div>
-</main>
 
-<!-- ── NOTES TOGGLE ── -->
-<button class="notes-toggle" onclick="toggleNotes()">📝 <span id="notesToggleLabel">Brew Notes</span></button>
+  </div><!-- /content -->
+</div><!-- /app -->
 
-<!-- ── NOTES PANEL ── -->
+<!-- Notes FAB -->
+<button class="notes-fab" onclick="toggleNotes()">📝 <span id="notesToggleLabel">Brew Notes</span></button>
+
+<!-- Notes Panel -->
 <div class="notes-panel" id="notesPanel">
+  <div class="notes-handle"></div>
   <div class="notes-header">
     <div class="notes-header-left">
       <div class="notes-title">Brew Notes</div>
@@ -397,888 +378,269 @@
   <div class="notes-composer">
     <div class="notes-context-row">
       <span class="notes-context-label">Context:</span>
-      <span class="notes-context-chip" id="notesContextChip">— select a brew method first —</span>
+      <span class="notes-context-chip" id="notesContextChip">— select a brew method —</span>
     </div>
-    <textarea class="notes-textarea" id="notesTextarea" rows="3" placeholder="Grind size, dose, taste notes, tweaks…" onkeydown="notesKeydown(event)"></textarea>
+    <textarea class="notes-textarea" id="notesTextarea" rows="3" placeholder="Grind size, dose, taste notes, tweaks…"></textarea>
     <div class="notes-actions">
       <span class="notes-saving" id="notesSaving">✓ saved</span>
-      <button class="notes-save-btn" id="notesSaveBtn" onclick="saveNote()">Add Note</button>
+      <button class="notes-save-btn" onclick="saveNote()">Add Note</button>
     </div>
-  </div>
-</div>
-
-<div class="timer-widget" id="timerWidget">
-  <div class="timer-lbl" id="timerLabel">Timer</div>
-  <div class="timer-display" id="timerDisplay">0:00</div>
-  <div class="timer-controls">
-    <button class="timer-btn start" id="timerStartBtn" onclick="toggleTimer()">Start</button>
-    <button class="timer-btn" onclick="resetTimer()">Reset</button>
-    <button class="timer-btn" onclick="closeTimer()">✕</button>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════
-//  NOTES
-// ═══════════════════════════════════════════════════════
-let notesOpen = false;
-let allNotes = []; // { id, context, text, date }
-
-async function loadNotes() {
-  try {
-    const res = await window.storage.get('brew_notes');
-    allNotes = res ? JSON.parse(res.value) : [];
-  } catch { allNotes = []; }
-  renderNotes();
-}
-
-async function saveNote() {
-  const ta = document.getElementById('notesTextarea');
-  const text = ta.value.trim();
-  if (!text) return;
-
-  const context = getActiveContext();
-  const note = { id: Date.now(), context, text, date: new Date().toLocaleString() };
-  allNotes.unshift(note);
-
-  try {
-    await window.storage.set('brew_notes', JSON.stringify(allNotes));
-    ta.value = '';
-    renderNotes();
-    flashSaved();
-  } catch { alert('Could not save note.'); }
-}
-
-async function deleteNote(id) {
-  allNotes = allNotes.filter(n => n.id !== id);
-  try {
-    await window.storage.set('brew_notes', JSON.stringify(allNotes));
-    renderNotes();
-  } catch {}
-}
-
-function renderNotes() {
-  const list = document.getElementById('notesList');
-  const count = document.getElementById('notesCount');
-  count.textContent = `${allNotes.length} note${allNotes.length !== 1 ? 's' : ''}`;
-  document.getElementById('notesToggleLabel').textContent = allNotes.length ? `Notes (${allNotes.length})` : 'Brew Notes';
-
-  if (!allNotes.length) {
-    list.innerHTML = '<div class="notes-empty">No notes yet.<br>Start brewing and jot something down!</div>';
-    return;
-  }
-  list.innerHTML = allNotes.map(n => `
-    <div class="note-card">
-      <div class="note-card-top">
-        <div class="note-tag">☕ ${n.context}</div>
-        <button class="note-del" onclick="deleteNote(${n.id})" title="Delete">✕</button>
-      </div>
-      <div class="note-text">${escHtml(n.text)}</div>
-      <div class="note-date">${n.date}</div>
-    </div>`).join('');
-}
-
-function getActiveContext() {
-  if (currentDrink && drinks[currentDrink]) return drinks[currentDrink].name;
-  if (currentMethod && methods[currentMethod]) return methods[currentMethod].name;
-  return 'General';
-}
-
-function updateNotesContext() {
-  document.getElementById('notesContextChip').textContent = getActiveContext();
-}
-
-function toggleNotes() {
-  notesOpen = !notesOpen;
-  document.getElementById('notesPanel').classList.toggle('open', notesOpen);
-  if (notesOpen) setTimeout(() => document.getElementById('notesTextarea').focus(), 350);
-}
-
-function notesKeydown(e) {
-  if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); saveNote(); }
-}
-
-function flashSaved() {
-  const el = document.getElementById('notesSaving');
-  el.classList.add('visible');
-  setTimeout(() => el.classList.remove('visible'), 1800);
-}
-
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// ═══════════════════════════════════════════════════════
-//  BREW METHODS DATA
-// ═══════════════════════════════════════════════════════
+// ── DATA ──────────────────────────────────────────────
 const methods = {
-  espresso: {
-    icon:'☕', name:'Espresso', subtitle:'Concentrated & bold',
-    baseRatio:{ coffee:18, water:36 },
-    params:[{ label:'Temp', value:'93°C' },{ label:'Brew time', value:'25–30s' },{ label:'Grind', value:'Fine' }],
-    extraResults(c,w){ return [
-      { label:'Shots', value: Math.round(c/9)||1, sub:'~9g per shot' },
-      { label:'Espresso yield', value:`${w}ml`, sub:'total output' },
-    ]},
-    steps:[
-      { name:'Warm up your machine', desc:'Run hot water through the group head and portafilter for 20–30s to stabilise temperature.', timer:30 },
-      { name:'Grind & dose', desc:'Grind your coffee fine — like table salt. Distribute evenly in the portafilter basket.' },
-      { name:'Tamp firmly', desc:'Apply 15–20kg of even pressure. The puck should be flat and smooth.' },
-      { name:'Lock in & pull', desc:'Attach the portafilter. Start the shot — expect first drops around 5–8 seconds.', timer:28 },
-      { name:'Assess the shot', desc:'A good shot runs 25–30s total. Look for a golden-brown crema. Blond = under-extracted.' },
-      { name:'Serve immediately', desc:'Espresso oxidises fast. Serve within 10 seconds for peak flavour.' },
-    ]
-  },
-  pourover: {
-    icon:'🫖', name:'Pour Over', subtitle:'Clean, bright & nuanced',
-    baseRatio:{ coffee:25, water:400 },
-    params:[{ label:'Temp', value:'96°C' },{ label:'Brew time', value:'3–4 min' },{ label:'Grind', value:'Medium' }],
-    extraResults(c,w){ return [
-      { label:'Bloom water', value:`${c*2}ml`, sub:'2× coffee weight' },
-      { label:'Cups (250ml)', value:(w/250).toFixed(1), sub:'approx.' },
-    ]},
-    steps:[
-      { name:'Rinse your filter', desc:'Pour hot water through the filter in the dripper, then discard — removes paper taste and preheats.' },
-      { name:'Add coffee', desc:'Add your measured grounds. Shake gently to level. Tare your scale to zero.' },
-      { name:'Bloom pour', desc:'Pour twice the coffee weight in water in slow circles. Saturate all grounds and wait 45 seconds.', timer:45 },
-      { name:'First pour', desc:'Slowly pour to 50% of total water, spiralling from centre outward.', timer:30 },
-      { name:'Second pour', desc:'As water drops near the bed, pour to 75% of total water.', timer:30 },
-      { name:'Final pour', desc:'Complete to 100% of target. Total brew should finish draining in 3–4 minutes.', timer:60 },
-      { name:'Serve & taste', desc:'Remove the dripper. Swirl gently and enjoy the clarity of flavour.' },
-    ]
-  },
-  frenchpress: {
-    icon:'⚗️', name:'French Press', subtitle:'Rich, full-bodied & bold',
-    baseRatio:{ coffee:30, water:500 },
-    params:[{ label:'Temp', value:'94°C' },{ label:'Steep time', value:'4 min' },{ label:'Grind', value:'Coarse' }],
-    extraResults(c,w){ return [
-      { label:'Cups (300ml)', value:(w/300).toFixed(1), sub:'approx.' },
-      { label:'Bloom water', value:`${c*2}ml`, sub:'optional pre-wet' },
-    ]},
-    steps:[
-      { name:'Preheat the press', desc:'Pour a splash of hot water in, swirl, and discard. Keeps brew temperature stable.' },
-      { name:'Add coarse grounds', desc:'Add your measured grounds — coarse sea salt texture. Tare your scale.' },
-      { name:'Pour & stir', desc:'Pour all your measured water in one steady pour. Stir to ensure even saturation.' },
-      { name:'Steep', desc:'Set the lid on with the plunger up. Do not press yet. Steep exactly 4 minutes.', timer:240 },
-      { name:'Press slowly', desc:'Press with slow, steady pressure over 20 seconds.', timer:20 },
-      { name:'Pour immediately', desc:'Pour all of it right away — it keeps extracting if left sitting.' },
-    ]
-  },
-  aeropress: {
-    icon:'🧪', name:'AeroPress', subtitle:'Smooth, versatile & fast',
-    baseRatio:{ coffee:17, water:220 },
-    params:[{ label:'Temp', value:'85°C' },{ label:'Brew time', value:'~2 min' },{ label:'Grind', value:'Med-fine' }],
-    extraResults(c,w){ return [
-      { label:'Shots (yield)', value:`${w}ml`, sub:'in chamber' },
-      { label:'Cups', value:(w/220).toFixed(1), sub:'per press' },
-    ]},
-    steps:[
-      { name:'Prepare inverted', desc:'Flip the AeroPress upside down. Rinse the paper filter and attach the cap.' },
-      { name:'Add coffee', desc:'Add your measured grounds into the chamber. Tap to level.' },
-      { name:'Pour & stir', desc:'Pour your measured 85°C water. Stir gently 3–4 times.' },
-      { name:'Steep', desc:'Place the cap on. Steep for 90 seconds.', timer:90 },
-      { name:'Flip & press', desc:'Place cup on top, flip in one confident motion. Press slowly — about 30 seconds.', timer:30 },
-      { name:'Stop at the hiss', desc:'Stop as soon as you hear air hissing — avoids bitter over-extraction.' },
-    ]
-  },
-  coldbrew: {
-    icon:'🧊', name:'Cold Brew', subtitle:'Mellow, smooth & patient',
-    baseRatio:{ coffee:100, water:700 },
-    variants:[
-      { id:'concentrate', label:'🧪 Concentrate', ratio:7, steepLabel:'18–24h',
-        desc:'Strong concentrate (1:7 ratio). Dilute 1 part cold brew with 1–2 parts water, milk, or ice before drinking. Great for lattes and recipes. Steep 18–24 hours.' },
-      { id:'rtd', label:'🥤 Ready to Drink', ratio:14, steepLabel:'12–16h',
-        desc:'Balanced and drinkable straight (1:14 ratio). No dilution needed — pour over ice and enjoy. Smooth and mellow. Steep 12–16 hours.' },
-      { id:'nitro', label:'💨 Nitro Style', ratio:10, steepLabel:'16–20h',
-        desc:'Medium-strong brew (1:10 ratio) for serving on nitro tap or with a cream whipper. Silky, velvety mouthfeel. Steep 16–20 hours.' },
-      { id:'flash', label:'⚡ Flash Brew', ratio:8, steepLabel:'5–7 min (hot)',
-        desc:'Strong hot brew (1:8 ratio) poured directly over ice — the ice dilutes it to perfect drinking strength instantly. Only 5–7 minutes total.' },
-    ],
-    params:[{ label:'Temp', value:'Cold' },{ label:'Steep time', value:'12–18h' },{ label:'Grind', value:'Very coarse' }],
-    extraResults(c,w,variantId){
-      const v = methods.coldbrew.variants.find(v=>v.id===variantId);
-      if (!v) return [];
-      if (v.id==='concentrate') return [
-        { label:'Diluted yield', value:`${Math.round(w*2)}ml`, sub:'at 1:1 dilution' },
-        { label:'Servings (240ml)', value:`${Math.round(w*2/240)}`, sub:'after diluting' },
-      ];
-      return [
-        { label:'Brew yield', value:`~${Math.round(w*0.88)}ml`, sub:'after straining' },
-        { label:'Servings (300ml)', value:`${Math.round(w*0.88/300)}`, sub:'glasses' },
-      ];
-    },
-    steps:[
-      { name:'Measure & grind', desc:'Grind very coarsely — like coarse breadcrumbs. Use a dark or medium roast for best sweetness.' },
-      { name:'Combine in jar', desc:'Add grounds to a large jar or pitcher. Pour your measured cold, filtered water over the grounds.' },
-      { name:'Stir to saturate', desc:'Stir well so all grounds are wet. No dry pockets. Cover with a lid or plastic wrap.' },
-      { name:'Refrigerate & wait', desc:'Place in the refrigerator for your target steep time. Longer = stronger, but avoid muddying flavours.' },
-      { name:'Strain twice', desc:'Strain through a fine mesh sieve, then again through a coffee filter or cheesecloth for a clean result.' },
-      { name:'Serve', desc:'For concentrate: dilute before serving. For RTD: pour straight over ice. Keeps 2 weeks refrigerated.' },
-    ]
-  },
-  moka: {
-    icon:'🔥', name:'Moka Pot', subtitle:'Stovetop intensity & richness',
-    baseRatio:{ coffee:20, water:300 },
-    params:[{ label:'Heat', value:'Med-low' },{ label:'Brew time', value:'5–7 min' },{ label:'Grind', value:'Fine-med' }],
-    extraResults(c,w){ return [
-      { label:'Cups (60ml)', value:Math.round(w/60), sub:'espresso-sized' },
-      { label:'Cups (150ml)', value:Math.round(w/150), sub:'small coffee' },
-    ]},
-    steps:[
-      { name:'Fill the boiler', desc:'Fill the bottom chamber with water up to — not above — the pressure valve.' },
-      { name:'Fill the basket', desc:'Fill with your measured grounds, levelled but not tamped — it needs room to expand.' },
-      { name:'Assemble carefully', desc:'Screw chambers together firmly. Use a cloth if warm. Ensure the seal is tight.' },
-      { name:'Heat on medium-low', desc:'Place on the stove with the lid open. Too high a heat creates a burnt, bitter taste.' },
-      { name:'Listen for the gurgle', desc:'When you hear a steady gurgle and light-brown coffee fills the top, remove from heat.' },
-      { name:'Stop the extraction', desc:'Run the base under cold water to halt extraction. Pour right away.' },
-    ]
-  },
+  espresso:{icon:'☕',name:'Espresso',subtitle:'Concentrated & bold',baseRatio:{coffee:18,water:36},params:[{label:'Temp',value:'93°C'},{label:'Brew time',value:'25–30s'},{label:'Grind',value:'Fine'}],extraResults(c,w){return[{label:'Shots',value:Math.round(c/9)||1,sub:'~9g per shot'},{label:'Yield',value:`${w}ml`,sub:'total output'}]},steps:[{name:'Warm up machine',desc:'Run hot water through the group head and portafilter for 20–30s.',timer:30},{name:'Grind & dose',desc:'Grind fine — like table salt. Distribute evenly in the basket.'},{name:'Tamp firmly',desc:'Apply 15–20kg of even, level pressure.'},{name:'Pull the shot',desc:'Lock in and start. First drops around 5–8 seconds.',timer:28},{name:'Assess',desc:'25–30s total. Golden-brown crema. Blond = under-extracted.'},{name:'Serve immediately',desc:'Espresso oxidises fast. Serve within 10 seconds.'}]},
+  pourover:{icon:'🫖',name:'Pour Over',subtitle:'Clean, bright & nuanced',baseRatio:{coffee:25,water:400},params:[{label:'Temp',value:'96°C'},{label:'Brew time',value:'3–4 min'},{label:'Grind',value:'Medium'}],extraResults(c,w){return[{label:'Bloom water',value:`${c*2}ml`,sub:'2× coffee weight'},{label:'Cups (250ml)',value:(w/250).toFixed(1),sub:'approx.'}]},steps:[{name:'Rinse filter',desc:'Pour hot water through filter, discard — removes paper taste and preheats.'},{name:'Add coffee',desc:'Add grounds. Shake to level. Tare scale to zero.'},{name:'Bloom',desc:'Pour 2× coffee weight in water in slow circles. Wait 45 seconds.',timer:45},{name:'First pour',desc:'Slowly pour to 50% of total water, spiralling from centre out.',timer:30},{name:'Second pour',desc:'As water drops near the bed, pour to 75% of total.',timer:30},{name:'Final pour',desc:'Complete to 100%. Total brew finishes in 3–4 min.',timer:60},{name:'Serve',desc:'Remove dripper, swirl gently and enjoy.'}]},
+  frenchpress:{icon:'⚗️',name:'French Press',subtitle:'Rich, full-bodied & bold',baseRatio:{coffee:30,water:500},params:[{label:'Temp',value:'94°C'},{label:'Steep',value:'4 min'},{label:'Grind',value:'Coarse'}],extraResults(c,w){return[{label:'Cups (300ml)',value:(w/300).toFixed(1),sub:'approx.'},{label:'Bloom',value:`${c*2}ml`,sub:'optional pre-wet'}]},steps:[{name:'Preheat',desc:'Add hot water, swirl, discard. Keeps brew temperature stable.'},{name:'Add grounds',desc:'Coarse sea salt texture. Tare scale.'},{name:'Pour & stir',desc:'Pour all water in one pour. Stir to saturate.'},{name:'Steep',desc:'Lid on, plunger up. Steep exactly 4 minutes.',timer:240},{name:'Press slowly',desc:'Slow steady pressure over 20 seconds.',timer:20},{name:'Pour immediately',desc:'Pour all at once — it keeps extracting if left sitting.'}]},
+  aeropress:{icon:'🧪',name:'AeroPress',subtitle:'Smooth, versatile & fast',baseRatio:{coffee:17,water:220},params:[{label:'Temp',value:'85°C'},{label:'Brew time',value:'~2 min'},{label:'Grind',value:'Med-fine'}],extraResults(c,w){return[{label:'Yield',value:`${w}ml`,sub:'in chamber'},{label:'Cups',value:(w/220).toFixed(1),sub:'per press'}]},steps:[{name:'Prepare inverted',desc:'Flip AeroPress upside down. Rinse filter, attach cap.'},{name:'Add coffee',desc:'Add grounds, tap to level.'},{name:'Pour & stir',desc:'Pour 85°C water. Stir 3–4 times.'},{name:'Steep',desc:'Place cap on. Steep 90 seconds.',timer:90},{name:'Flip & press',desc:'Flip confidently, press slowly — about 30 seconds.',timer:30},{name:'Stop at the hiss',desc:'Stop as you hear air — avoids bitter over-extraction.'}]},
+  coldbrew:{icon:'🧊',name:'Cold Brew',subtitle:'Mellow, smooth & patient',baseRatio:{coffee:100,water:700},variants:[{id:'concentrate',label:'🧪 Concentrate',ratio:7,steepLabel:'18–24h',desc:'Strong concentrate (1:7). Dilute 1:1–2 before drinking. Great for lattes. Steep 18–24 hours.'},{id:'rtd',label:'🥤 Ready to Drink',ratio:14,steepLabel:'12–16h',desc:'Balanced, drinkable straight (1:14). Pour over ice. Steep 12–16 hours.'},{id:'nitro',label:'💨 Nitro Style',ratio:10,steepLabel:'16–20h',desc:'Medium-strong (1:10) for nitro tap or cream whipper. Silky mouthfeel. Steep 16–20 hours.'},{id:'flash',label:'⚡ Flash Brew',ratio:8,steepLabel:'5–7 min',desc:'Strong hot brew (1:8) poured over ice — the ice dilutes to perfect strength instantly. 5–7 minutes.'}],params:[{label:'Temp',value:'Cold'},{label:'Steep',value:'12–18h'},{label:'Grind',value:'Very coarse'}],extraResults(c,w,vId){const v=methods.coldbrew.variants.find(v=>v.id===vId);if(!v)return[];if(v.id==='concentrate')return[{label:'Diluted yield',value:`${Math.round(w*2)}ml`,sub:'at 1:1 dilution'},{label:'Servings (240ml)',value:`${Math.round(w*2/240)}`,sub:'after diluting'}];return[{label:'Brew yield',value:`~${Math.round(w*.88)}ml`,sub:'after straining'},{label:'Servings (300ml)',value:`${Math.round(w*.88/300)}`,sub:'glasses'}]},steps:[{name:'Grind coarsely',desc:'Like coarse breadcrumbs. Use dark or medium roast.'},{name:'Combine',desc:'Add grounds to jar. Pour cold filtered water over.'},{name:'Stir',desc:'Stir so all grounds are wet. Cover with lid.'},{name:'Refrigerate',desc:'Steep in fridge for target time. Longer = stronger.'},{name:'Strain twice',desc:'Fine mesh sieve, then coffee filter or cheesecloth.'},{name:'Serve',desc:'Dilute if concentrate. Pour over ice. Keeps 2 weeks.'}]},
+  moka:{icon:'🔥',name:'Moka Pot',subtitle:'Stovetop intensity & richness',baseRatio:{coffee:20,water:300},params:[{label:'Heat',value:'Med-low'},{label:'Brew time',value:'5–7 min'},{label:'Grind',value:'Fine-med'}],extraResults(c,w){return[{label:'Cups (60ml)',value:Math.round(w/60),sub:'espresso-sized'},{label:'Cups (150ml)',value:Math.round(w/150),sub:'small coffee'}]},steps:[{name:'Fill boiler',desc:'Water up to — not above — the pressure valve.'},{name:'Fill basket',desc:'Level but not tamped. Needs room to expand.'},{name:'Assemble',desc:'Screw chambers firmly. Check the seal is tight.'},{name:'Heat med-low',desc:'Lid open. Too high = burnt, bitter taste.'},{name:'Listen for gurgle',desc:'Steady gurgle + light-brown coffee in top = remove from heat.'},{name:'Stop extraction',desc:'Run base under cold water. Pour right away.'}]}
 };
 
-// ═══════════════════════════════════════════════════════
-//  ESPRESSO DRINKS DATA
-// ═══════════════════════════════════════════════════════
-// layers: { label, color, heightPx }
 const drinks = {
-  espresso_pure: {
-    icon:'☕', name:'Espresso', tagline:'Pure · Unadulterated · 30ml',
-    cupHeight: 80,
-    layers:[
-      { label:'Crema', color:'#c8903a', h:12 },
-      { label:'Espresso', color:'#3d1800', h:68 },
-    ],
-    ingredients:[
-      { label:'Coffee', value:'9g', sub:'fine grind' },
-      { label:'Espresso', value:'30ml', sub:'single shot' },
-      { label:'Temp', value:'93°C', sub:'water' },
-      { label:'Cup size', value:'60–90ml', sub:'demitasse' },
-    ],
-    steps:[
-      { name:'Pull a single shot', desc:'Dose 9g of finely ground coffee. Tamp level and pull a 30ml shot in 25–30 seconds.', tip:'Golden crema should cover the surface.' },
-      { name:'Serve immediately', desc:'Espresso is best drunk within 10–20 seconds. Don\'t let it sit.', tip:'Pre-warm your cup with hot water.' },
-    ]
-  },
-  latte: {
-    icon:'🥛', name:'Café Latte', tagline:'Smooth · Creamy · 240ml',
-    cupHeight: 180,
-    layers:[
-      { label:'Foam', color:'#f5f0e8', h:20 },
-      { label:'Steamed milk', color:'#f0e6d0', h:120 },
-      { label:'Espresso', color:'#3d1800', h:40 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'60ml', sub:'double shot' },
-      { label:'Steamed milk', value:'160ml', sub:'microfoam' },
-      { label:'Foam', value:'~1cm', sub:'on top' },
-      { label:'Cup size', value:'240ml', sub:'tulip glass' },
-    ],
-    steps:[
-      { name:'Pull a double shot', desc:'Dose 18g and pull a 60ml double espresso into the bottom of your cup. Target 25–30 seconds.' },
-      { name:'Steam milk to 60–65°C', desc:'Submerge the steam wand just below the surface. Texture milk to a silky, paint-like microfoam — no large bubbles.', tip:'Swirl and tap the jug to remove any bubbles before pouring.' },
-      { name:'Pour from low', desc:'Start pouring from low — tilt the cup and let the steamed milk flow through the espresso. As the cup fills, raise the jug slightly.' },
-      { name:'Latte art (optional)', desc:'As the cup nears full, bring the jug spout close to the surface and wiggle for a simple heart or rosetta.', tip:'Aim for a 1cm layer of foam on top.' },
-    ]
-  },
-  cappuccino: {
-    icon:'☁️', name:'Cappuccino', tagline:'Balanced · Frothy · 180ml',
-    cupHeight: 150,
-    layers:[
-      { label:'Thick foam', color:'#f8f4ee', h:60 },
-      { label:'Steamed milk', color:'#f0e4cc', h:50 },
-      { label:'Espresso', color:'#3d1800', h:40 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'60ml', sub:'double shot' },
-      { label:'Steamed milk', value:'60ml', sub:'hot' },
-      { label:'Foam', value:'60ml', sub:'thick & dry' },
-      { label:'Cup size', value:'180ml', sub:'ceramic cup' },
-    ],
-    steps:[
-      { name:'Pull a double shot', desc:'Dose 18g and pull a 60ml double espresso into your pre-warmed cup.' },
-      { name:'Steam milk to stiff foam', desc:'Steam 120ml of cold milk. Unlike a latte, introduce more air — the goal is a thicker, drier foam that holds its shape.', tip:'Keep the wand tip near the surface longer to build foam volume.' },
-      { name:'Pour equal thirds', desc:'A traditional cappuccino is ⅓ espresso, ⅓ steamed milk, ⅓ foam. Spoon the foam on top to achieve the domed finish.' },
-      { name:'Dust with chocolate (optional)', desc:'A light dusting of cocoa powder over the foam is classic. Serve immediately.' },
-    ]
-  },
-  piccolo: {
-    icon:'🌿', name:'Piccolo Latte', tagline:'Intense · Small · 100ml',
-    cupHeight: 120,
-    layers:[
-      { label:'Foam', color:'#f5f0e8', h:10 },
-      { label:'Steamed milk', color:'#f0e4cc', h:50 },
-      { label:'Ristretto', color:'#2a1000', h:60 },
-    ],
-    ingredients:[
-      { label:'Ristretto', value:'30ml', sub:'restricted shot' },
-      { label:'Steamed milk', value:'60ml', sub:'fine microfoam' },
-      { label:'Foam', value:'thin layer', sub:'on top' },
-      { label:'Cup size', value:'100ml', sub:'glass demitasse' },
-    ],
-    steps:[
-      { name:'Pull a ristretto', desc:'Dose 9g and pull a restricted 20–30ml shot — stop early for a sweeter, more intense espresso with less bitterness.' },
-      { name:'Steam a small amount of milk', desc:'Steam only 60ml of milk to silky microfoam texture, 60–65°C. With such a small volume, work quickly.', tip:'Use a smaller steaming jug if possible for more control.' },
-      { name:'Pour over the ristretto', desc:'Pour the steamed milk directly over the ristretto in a small glass. The piccolo is meant to be drunk quickly — the balance shifts fast.' },
-    ]
-  },
-  flatwhite: {
-    icon:'🤍', name:'Flat White', tagline:'Velvety · Strong · 160ml',
-    cupHeight: 150,
-    layers:[
-      { label:'Microfoam', color:'#f5f0e6', h:15 },
-      { label:'Steamed milk', color:'#efe3cc', h:95 },
-      { label:'Double espresso', color:'#3d1800', h:40 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'60ml', sub:'double ristretto' },
-      { label:'Steamed milk', value:'100ml', sub:'velvety microfoam' },
-      { label:'Ratio', value:'2:3', sub:'coffee to milk' },
-      { label:'Cup size', value:'160ml', sub:'tulip cup' },
-    ],
-    steps:[
-      { name:'Pull a double ristretto', desc:'Dose 18g and pull a restricted double shot — about 40–50ml total. More intense and sweeter than a standard double.' },
-      { name:'Steam milk to thin microfoam', desc:'Steam 100ml of milk to 60–65°C. The foam should be thinner than a latte — almost no visible foam layer, just velvety integrated milk.', tip:'The flat white has less foam than a latte. Tap the jug hard to collapse any big bubbles.' },
-      { name:'Pour with intention', desc:'Pour in a steady stream close to the surface, keeping the foam integrated into the milk rather than floating on top.' },
-    ]
-  },
-  cortado: {
-    icon:'⚖️', name:'Cortado', tagline:'Equal parts · No fuss · 120ml',
-    cupHeight: 120,
-    layers:[
-      { label:'Steamed milk', color:'#ede0c8', h:60 },
-      { label:'Espresso', color:'#3d1800', h:60 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'60ml', sub:'double shot' },
-      { label:'Steamed milk', value:'60ml', sub:'lightly textured' },
-      { label:'Ratio', value:'1:1', sub:'espresso to milk' },
-      { label:'Cup size', value:'120ml', sub:'Gibraltar glass' },
-    ],
-    steps:[
-      { name:'Pull a double shot', desc:'Dose 18g for a standard 60ml double espresso. The cortado is about balance — the espresso should be strong and present.' },
-      { name:'Steam milk — lightly', desc:'Steam 60ml of milk to just 55–60°C with minimal foam. The milk cuts the acidity without drowning the espresso.', tip:'Cortado milk is less textured than a latte. Just enough to warm and soften.' },
-      { name:'Pour equal parts', desc:'Pour the steamed milk straight over the espresso in a 1:1 ratio. No art, no fuss. Serve in a small glass.' },
-    ]
-  },
-  macchiato: {
-    icon:'🔸', name:'Macchiato', tagline:'Marked · Sharp · 40ml',
-    cupHeight: 90,
-    layers:[
-      { label:'Foam dot', color:'#f8f2e8', h:20 },
-      { label:'Espresso', color:'#3d1800', h:70 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'30ml', sub:'single shot' },
-      { label:'Foam', value:'1 tsp', sub:'steamed milk foam' },
-      { label:'Cup size', value:'60ml', sub:'demitasse' },
-    ],
-    steps:[
-      { name:'Pull a single shot', desc:'Dose 9g and pull a 30ml espresso into a small demitasse cup.' },
-      { name:'Steam a tiny amount of milk', desc:'Steam just a small amount of milk — you only need a teaspoon of foam. A few seconds on the wand is enough.' },
-      { name:'"Mark" the espresso', desc:'Spoon a small dollop of foam onto the centre of the espresso. The word "macchiato" means marked — this is all you need.', tip:'The foam is a mark, not a topping. Keep it small.' },
-    ]
-  },
-  americano: {
-    icon:'🌊', name:'Americano', tagline:'Diluted · Approachable · 240ml',
-    cupHeight: 180,
-    layers:[
-      { label:'Hot water', color:'#c8dde8', h:120 },
-      { label:'Espresso', color:'#3d1800', h:60 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'60ml', sub:'double shot' },
-      { label:'Hot water', value:'180ml', sub:'off the boil' },
-      { label:'Ratio', value:'1:3', sub:'espresso to water' },
-      { label:'Cup size', value:'240ml', sub:'large mug' },
-    ],
-    steps:[
-      { name:'Pull a double shot', desc:'Dose 18g and pull a standard 60ml double espresso. Use fresh, quality beans — the dilution reveals character.' },
-      { name:'Add hot water to the cup', desc:'Pour 180ml of hot water (not boiling — around 85–90°C) into your cup first.', tip:'Adding water first preserves the crema when you pour the espresso on top.' },
-      { name:'Pour espresso over the water', desc:'Gently pour the espresso over the hot water. The crema will float. Stir gently if preferred.' },
-    ]
-  },
-  longblack: {
-    icon:'🖤', name:'Long Black', tagline:'Strong · Crema-rich · 200ml',
-    cupHeight: 160,
-    layers:[
-      { label:'Crema', color:'#c8903a', h:15 },
-      { label:'Espresso', color:'#3d1800', h:45 },
-      { label:'Hot water', color:'#b8ccd6', h:100 },
-    ],
-    ingredients:[
-      { label:'Hot water', value:'120ml', sub:'in cup first' },
-      { label:'Espresso', value:'60ml', sub:'double shot' },
-      { label:'Cup size', value:'200ml', sub:'ceramic cup' },
-    ],
-    steps:[
-      { name:'Add hot water first', desc:'Pour 120ml of hot water (85–90°C) into a pre-warmed cup. Always water first — this is what separates a long black from an americano.', tip:'Water first = crema preserved on top.' },
-      { name:'Pull a double shot directly in', desc:'Pull a 60ml double espresso directly on top of the hot water. The crema stays intact and floats on the surface.' },
-      { name:'Do not stir', desc:'A long black is served unstirred so you can taste the crema on the first sip. Stir only if you prefer a more uniform taste.' },
-    ]
-  },
-  affogato: {
-    icon:'🍨', name:'Affogato', tagline:'Dessert · Contrast · Indulgent',
-    cupHeight: 140,
-    layers:[
-      { label:'Espresso', color:'#3d1800', h:50 },
-      { label:'Ice cream', color:'#fdf6e8', h:90 },
-    ],
-    ingredients:[
-      { label:'Ice cream', value:'1–2 scoops', sub:'vanilla gelato' },
-      { label:'Espresso', value:'30ml', sub:'single shot, hot' },
-      { label:'Cup size', value:'150ml', sub:'small bowl or glass' },
-    ],
-    steps:[
-      { name:'Chill your glass', desc:'Place your serving glass or bowl in the freezer for a few minutes. A cold vessel slows melting.' },
-      { name:'Scoop ice cream', desc:'Add 1–2 scoops of high-quality vanilla gelato or ice cream into the chilled glass.' },
-      { name:'Pull a hot shot immediately', desc:'Pull a fresh, hot 30ml single shot. Speed matters — the contrast between hot espresso and cold ice cream is the whole point.', tip:'Use a single origin espresso — the flavour shines through.' },
-      { name:'Pour & serve at once', desc:'Pour the hot espresso directly over the ice cream and serve immediately. It\'s best within the first minute as the gelato begins to melt into the coffee.' },
-    ]
-  },
-  dirtychai: {
-    icon:'🍵', name:'Dirty Chai', tagline:'Spiced · Complex · 240ml',
-    cupHeight: 180,
-    layers:[
-      { label:'Espresso', color:'#3d1800', h:30 },
-      { label:'Chai & milk', color:'#c8845a', h:120 },
-      { label:'Foam', color:'#f0e4d0', h:30 },
-    ],
-    ingredients:[
-      { label:'Espresso', value:'30–60ml', sub:'single or double' },
-      { label:'Chai concentrate', value:'60ml', sub:'or 1 chai teabag' },
-      { label:'Steamed milk', value:'120ml', sub:'oat milk works great' },
-      { label:'Spices', value:'cinnamon, ginger', sub:'cardamom, clove' },
-    ],
-    steps:[
-      { name:'Brew or heat chai', desc:'If using concentrate: heat 60ml gently. If using a teabag: steep in 60ml of hot water for 4 minutes, then remove.', tip:'Masala chai spice blends vary — find one with cardamom, ginger, cinnamon, and black pepper.' },
-      { name:'Steam milk', desc:'Steam 120ml of milk (or oat milk) to a silky microfoam at 60–65°C.' },
-      { name:'Pull espresso', desc:'Pull a 30–60ml espresso shot depending on how strong you want it. A single shot lets the chai shine; a double adds more coffee forward flavour.' },
-      { name:'Assemble', desc:'Pour the chai into the cup first, then the steamed milk, then float the espresso on top. Dust with cinnamon to finish.', tip:'The espresso sinking through the spiced milk creates a beautiful layered flavour.' },
-    ]
-  },
+  espresso_pure:{icon:'☕',name:'Espresso',tagline:'Pure · Unadulterated · 30ml',cupHeight:80,layers:[{label:'Crema',color:'#c8903a',h:12},{label:'Espresso',color:'#3d1800',h:68}],ingredients:[{label:'Coffee',value:'9g',sub:'fine grind'},{label:'Espresso',value:'30ml',sub:'single shot'},{label:'Temp',value:'93°C',sub:'water'},{label:'Cup size',value:'60–90ml',sub:'demitasse'}],steps:[{name:'Pull a single shot',desc:'Dose 9g of finely ground coffee. Tamp level and pull 30ml in 25–30 seconds.',tip:'Golden crema should cover the surface.'},{name:'Serve immediately',desc:"Best drunk within 10–20 seconds.",tip:'Pre-warm your cup with hot water.'}]},
+  latte:{icon:'🥛',name:'Café Latte',tagline:'Smooth · Creamy · 240ml',cupHeight:180,layers:[{label:'Foam',color:'#f5f0e8',h:20},{label:'Steamed milk',color:'#f0e6d0',h:120},{label:'Espresso',color:'#3d1800',h:40}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Steamed milk',value:'160ml',sub:'microfoam'},{label:'Foam',value:'~1cm',sub:'on top'},{label:'Cup size',value:'240ml',sub:'tulip glass'}],steps:[{name:'Pull a double shot',desc:'Dose 18g and pull 60ml double espresso into your cup. Target 25–30 seconds.'},{name:'Steam milk to 60–65°C',desc:'Submerge wand just below surface. Texture to silky microfoam.',tip:'Swirl and tap jug before pouring.'},{name:'Pour from low',desc:'Tilt cup, let steamed milk flow through espresso. Raise jug as cup fills.'},{name:'Latte art (optional)',desc:'Near full, bring spout close and wiggle for a heart or rosetta.',tip:'Aim for a 1cm foam layer on top.'}]},
+  cappuccino:{icon:'☁️',name:'Cappuccino',tagline:'Balanced · Frothy · 180ml',cupHeight:150,layers:[{label:'Thick foam',color:'#f8f4ee',h:60},{label:'Steamed milk',color:'#f0e4cc',h:50},{label:'Espresso',color:'#3d1800',h:40}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Steamed milk',value:'60ml',sub:'hot'},{label:'Foam',value:'60ml',sub:'thick & dry'},{label:'Cup size',value:'180ml',sub:'ceramic cup'}],steps:[{name:'Pull a double shot',desc:'Dose 18g, pull 60ml into a pre-warmed cup.'},{name:'Steam milk to stiff foam',desc:'Steam 120ml of cold milk. Introduce more air for thicker, drier foam.',tip:'Keep wand near surface longer to build foam volume.'},{name:'Pour equal thirds',desc:'⅓ espresso, ⅓ steamed milk, ⅓ foam. Spoon foam on top for domed finish.'},{name:'Dust with chocolate',desc:'A light cocoa powder dusting is classic. Serve immediately.'}]},
+  piccolo:{icon:'🌿',name:'Piccolo Latte',tagline:'Intense · Small · 100ml',cupHeight:120,layers:[{label:'Foam',color:'#f5f0e8',h:10},{label:'Steamed milk',color:'#f0e4cc',h:50},{label:'Ristretto',color:'#2a1000',h:60}],ingredients:[{label:'Ristretto',value:'30ml',sub:'restricted shot'},{label:'Steamed milk',value:'60ml',sub:'fine microfoam'},{label:'Foam',value:'thin layer',sub:'on top'},{label:'Cup size',value:'100ml',sub:'glass demitasse'}],steps:[{name:'Pull a ristretto',desc:'Dose 9g, pull a restricted 20–30ml shot — sweeter and more intense.'},{name:'Steam small milk',desc:'Steam only 60ml to silky microfoam at 60–65°C.',tip:'Use a smaller jug for more control.'},{name:'Pour over ristretto',desc:'Pour steamed milk directly over ristretto in a small glass. Drink quickly.'}]},
+  flatwhite:{icon:'🤍',name:'Flat White',tagline:'Velvety · Strong · 160ml',cupHeight:150,layers:[{label:'Microfoam',color:'#f5f0e6',h:15},{label:'Steamed milk',color:'#efe3cc',h:95},{label:'Double espresso',color:'#3d1800',h:40}],ingredients:[{label:'Espresso',value:'60ml',sub:'double ristretto'},{label:'Steamed milk',value:'100ml',sub:'velvety microfoam'},{label:'Ratio',value:'2:3',sub:'coffee to milk'},{label:'Cup size',value:'160ml',sub:'tulip cup'}],steps:[{name:'Pull a double ristretto',desc:'Dose 18g, pull restricted double ~40–50ml. More intense than standard.'},{name:'Steam milk thin',desc:'Steam 100ml to 60–65°C. Thinner foam than a latte — almost no visible layer.',tip:'Tap jug hard to collapse big bubbles.'},{name:'Pour with intention',desc:'Steady stream close to surface, foam integrated into milk.'}]},
+  cortado:{icon:'⚖️',name:'Cortado',tagline:'Equal parts · No fuss · 120ml',cupHeight:120,layers:[{label:'Steamed milk',color:'#ede0c8',h:60},{label:'Espresso',color:'#3d1800',h:60}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Steamed milk',value:'60ml',sub:'lightly textured'},{label:'Ratio',value:'1:1',sub:'espresso to milk'},{label:'Cup size',value:'120ml',sub:'Gibraltar glass'}],steps:[{name:'Pull a double shot',desc:'Dose 18g for a standard 60ml double. Strong and present.'},{name:'Steam lightly',desc:'Steam 60ml to just 55–60°C with minimal foam.',tip:'Just enough to warm and soften the espresso.'},{name:'Pour equal parts',desc:'1:1 ratio straight over espresso. No art, no fuss. Serve in small glass.'}]},
+  macchiato:{icon:'🔸',name:'Macchiato',tagline:'Marked · Sharp · 40ml',cupHeight:90,layers:[{label:'Foam dot',color:'#f8f2e8',h:20},{label:'Espresso',color:'#3d1800',h:70}],ingredients:[{label:'Espresso',value:'30ml',sub:'single shot'},{label:'Foam',value:'1 tsp',sub:'steamed milk foam'},{label:'Cup size',value:'60ml',sub:'demitasse'}],steps:[{name:'Pull a single shot',desc:'Dose 9g, pull 30ml into a small demitasse.'},{name:'Steam tiny milk',desc:'A few seconds on the wand — you only need a teaspoon of foam.'},{name:'"Mark" the espresso',desc:'Spoon a small foam dollop onto the centre. "Macchiato" means marked.',tip:'The foam is a mark, not a topping.'}]},
+  americano:{icon:'🌊',name:'Americano',tagline:'Diluted · Approachable · 240ml',cupHeight:180,layers:[{label:'Hot water',color:'#c8dde8',h:120},{label:'Espresso',color:'#3d1800',h:60}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Hot water',value:'180ml',sub:'off the boil'},{label:'Ratio',value:'1:3',sub:'espresso to water'},{label:'Cup size',value:'240ml',sub:'large mug'}],steps:[{name:'Pull a double shot',desc:'Dose 18g, pull standard 60ml double.'},{name:'Add hot water first',desc:'Pour 180ml of hot water (85–90°C) into cup first.',tip:'Water first preserves crema when espresso pours on top.'},{name:'Pour espresso over',desc:'Gently pour espresso over the water. Stir gently if preferred.'}]},
+  longblack:{icon:'🖤',name:'Long Black',tagline:'Strong · Crema-rich · 200ml',cupHeight:160,layers:[{label:'Crema',color:'#c8903a',h:15},{label:'Espresso',color:'#3d1800',h:45},{label:'Hot water',color:'#b8ccd6',h:100}],ingredients:[{label:'Hot water',value:'120ml',sub:'in cup first'},{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Cup size',value:'200ml',sub:'ceramic cup'}],steps:[{name:'Hot water first',desc:'Pour 120ml of hot water (85–90°C) into pre-warmed cup.',tip:'Always water first — this is what separates it from an americano.'},{name:'Pull double shot in',desc:'Pull 60ml directly on top of water. Crema floats on surface.'},{name:'Do not stir',desc:'Served unstirred so you taste the crema first. Stir only if you prefer.'}]},
+  affogato:{icon:'🍨',name:'Affogato',tagline:'Dessert · Contrast · Indulgent',cupHeight:140,layers:[{label:'Espresso',color:'#3d1800',h:50},{label:'Ice cream',color:'#fdf6e8',h:90}],ingredients:[{label:'Ice cream',value:'1–2 scoops',sub:'vanilla gelato'},{label:'Espresso',value:'30ml',sub:'single shot, hot'},{label:'Cup size',value:'150ml',sub:'small bowl'}],steps:[{name:'Chill your glass',desc:'Freeze the serving glass for a few minutes.'},{name:'Scoop ice cream',desc:'Add 1–2 scoops of quality vanilla gelato.'},{name:'Pull hot shot immediately',desc:'Pull a fresh hot 30ml shot. Speed matters — contrast is the point.',tip:'Single origin espresso shines here.'},{name:'Pour & serve at once',desc:"Pour espresso over ice cream. Best within the first minute as gelato melts."}]},
+  dirtychai:{icon:'🍵',name:'Dirty Chai',tagline:'Spiced · Complex · 240ml',cupHeight:180,layers:[{label:'Espresso',color:'#3d1800',h:30},{label:'Chai & milk',color:'#c8845a',h:120},{label:'Foam',color:'#f0e4d0',h:30}],ingredients:[{label:'Espresso',value:'30–60ml',sub:'single or double'},{label:'Chai concentrate',value:'60ml',sub:'or 1 teabag'},{label:'Steamed milk',value:'120ml',sub:'oat milk works great'},{label:'Spices',value:'cinnamon+',sub:'ginger, cardamom'}],steps:[{name:'Brew or heat chai',desc:'Concentrate: heat 60ml gently. Teabag: steep in 60ml hot water 4 min, remove.',tip:'Look for blends with cardamom, ginger, cinnamon, black pepper.'},{name:'Steam milk',desc:'Steam 120ml (or oat milk) to silky microfoam at 60–65°C.'},{name:'Pull espresso',desc:'30–60ml depending on preference. Single = chai forward; double = coffee forward.'},{name:'Assemble',desc:'Chai first, steamed milk, float espresso on top. Dust with cinnamon.',tip:'The espresso sinking through the spiced milk is the magic.'}]}
 };
 
-// ═══════════════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════════════
-let currentMethod = null, currentVariant = null;
-let doneSteps = [], donedrinkSteps = [];
-let currentDrink = null;
-let timerInterval = null, timerSeconds = 0, timerRunning = false;
-let espressoMenuOpen = false;
+// ── STATE ─────────────────────────────────────────────
+let currentMethod=null,currentVariant=null,doneSteps=[],donedrinkSteps=[],currentDrink=null;
+let espressoMenuOpen=false;
 
-// ═══════════════════════════════════════════════════════
-//  SIDEBAR
-// ═══════════════════════════════════════════════════════
-function toggleEspressoMenu(e) {
+// ── DRAWER ────────────────────────────────────────────
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawerOverlay').classList.add('open')}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawerOverlay').classList.remove('open')}
+
+function toggleEspressoMenu(e){
   e.stopPropagation();
-  espressoMenuOpen = !espressoMenuOpen;
-  const btn = document.getElementById('espressoBtn');
-  const sub = document.getElementById('espressoSubmenu');
-  btn.classList.toggle('open', espressoMenuOpen);
-  sub.classList.toggle('open', espressoMenuOpen);
-  // If clicking the espresso button itself (not a submenu), also load espresso guide
-  if (espressoMenuOpen && currentMethod !== 'espresso' && !currentDrink) {
-    activateMethodBtn('espresso');
-    loadMethod('espresso');
-  }
+  espressoMenuOpen=!espressoMenuOpen;
+  const btn=document.getElementById('espressoBtn');
+  const sub=document.getElementById('espressoSubmenu');
+  btn.classList.toggle('open',espressoMenuOpen);
+  sub.classList.toggle('open',espressoMenuOpen);
+  if(espressoMenuOpen&&currentMethod!=='espresso'&&!currentDrink){activateMethodBtn('espresso');loadMethod('espresso')}
 }
 
-function activateMethodBtn(key) {
-  document.querySelectorAll('.method-btn').forEach(b => b.classList.remove('active'));
-  if (key === 'espresso') {
-    document.getElementById('espressoBtn').classList.add('active');
-  } else {
-    document.querySelectorAll('.method-btn').forEach(b => {
-      if (b.dataset.method === key) b.classList.add('active');
-    });
-  }
+function activateMethodBtn(key){
+  document.querySelectorAll('.method-btn').forEach(b=>b.classList.remove('active'));
+  if(key==='espresso'){document.getElementById('espressoBtn').classList.add('active')}
+  else{document.querySelectorAll('.method-btn').forEach(b=>{if(b.dataset.method===key)b.classList.add('active')})}
 }
+function clearSubmenuActive(){document.querySelectorAll('.submenu-btn').forEach(b=>b.classList.remove('active'))}
 
-// ═══════════════════════════════════════════════════════
-//  LOAD BREW METHOD
-// ═══════════════════════════════════════════════════════
-function loadMethod(key) {
-  const m = methods[key];
-  if (!m) return;
-  currentMethod = key; currentDrink = null;
-  doneSteps = []; donedrinkSteps = [];
-  currentVariant = m.variants ? m.variants[0].id : null;
+// ── LOAD METHOD ───────────────────────────────────────
+function loadMethod(key){
+  const m=methods[key];if(!m)return;
+  currentMethod=key;currentDrink=null;doneSteps=[];donedrinkSteps=[];
+  currentVariant=m.variants?m.variants[0].id:null;
   htReset('guide');
-
   showScreen('guide');
-  document.getElementById('methodIcon').textContent = m.icon;
-  document.getElementById('methodName').textContent = m.name;
-  document.getElementById('methodSubtitle').textContent = m.subtitle;
+  document.getElementById('methodIcon').textContent=m.icon;
+  document.getElementById('methodName').textContent=m.name;
+  document.getElementById('methodSubtitle').textContent=m.subtitle;
   document.getElementById('completeBanner').classList.remove('visible');
-
-  const vs = document.getElementById('variantSection');
-  if (m.variants) {
-    vs.style.display = 'block';
-    renderVariantTabs();
-  } else {
-    vs.style.display = 'none';
-  }
-
-  const ratio = getBaseRatio();
-  document.getElementById('coffeeInput').value = ratio.coffee;
-  document.getElementById('waterInput').value = ratio.water;
-  updateRatioUI();
-  renderParams();
-  renderSteps();
-  updateProgress();
-  clearSubmenuActive();
+  const vs=document.getElementById('variantSection');
+  if(m.variants){vs.style.display='block';renderVariantTabs()}else{vs.style.display='none'}
+  const ratio=getBaseRatio();
+  document.getElementById('coffeeInput').value=ratio.coffee;
+  document.getElementById('waterInput').value=ratio.water;
+  updateRatioUI();renderParams();renderSteps();updateProgress();updateNotesContext();
+  closeDrawer();
 }
 
-// ═══════════════════════════════════════════════════════
-//  LOAD ESPRESSO DRINK
-// ═══════════════════════════════════════════════════════
-function loadDrink(key) {
-  const d = drinks[key];
-  if (!d) return;
-  currentDrink = key; currentMethod = null;
-  donedrinkSteps = [];
+// ── LOAD DRINK ────────────────────────────────────────
+function loadDrink(key){
+  const d=drinks[key];if(!d)return;
+  currentDrink=key;currentMethod=null;donedrinkSteps=[];
   htReset('drink');
-
-  // Sidebar highlight
   activateMethodBtn('espresso');
-  if (!espressoMenuOpen) {
-    espressoMenuOpen = true;
-    document.getElementById('espressoBtn').classList.add('open');
-    document.getElementById('espressoSubmenu').classList.add('open');
-  }
+  if(!espressoMenuOpen){espressoMenuOpen=true;document.getElementById('espressoBtn').classList.add('open');document.getElementById('espressoSubmenu').classList.add('open')}
   clearSubmenuActive();
-  document.querySelectorAll('.submenu-btn').forEach(b => {
-    if (b.getAttribute('onclick') === `loadDrink('${key}')`) b.classList.add('active');
-  });
-
+  document.querySelectorAll('.submenu-btn').forEach(b=>{if(b.getAttribute('onclick')===`loadDrink('${key}')`)b.classList.add('active')});
   showScreen('drink');
-
-  document.getElementById('drinkIcon').textContent = d.icon;
-  document.getElementById('drinkName').textContent = d.name;
-  document.getElementById('drinkTagline').textContent = d.tagline;
+  document.getElementById('drinkIcon').textContent=d.icon;
+  document.getElementById('drinkName').textContent=d.name;
+  document.getElementById('drinkTagline').textContent=d.tagline;
   document.getElementById('drinkCompleteBanner').classList.remove('visible');
-  document.getElementById('drinkCompleteMsg').textContent = `${d.icon} ${d.name} is ready!`;
-
-  // Cup visualiser
+  document.getElementById('drinkCompleteMsg').textContent=`${d.icon} ${d.name} is ready!`;
   renderCupVisual(d);
-
-  // Ingredients
-  document.getElementById('ingredientsGrid').innerHTML = d.ingredients.map(i => `
-    <div class="ing-card">
-      <div class="ing-label">${i.label}</div>
-      <div class="ing-value">${i.value}</div>
-      <div class="ing-sub">${i.sub}</div>
-    </div>`).join('');
-
-  // Steps
-  document.getElementById('drinkSteps').innerHTML = d.steps.map((s,i) => `
-    <div class="d-step" id="ds-${i}" onclick="toggleDrinkStep(${i})">
-      <div class="d-step-num"><span>${i+1}</span></div>
-      <div class="d-step-body">
-        <div class="d-step-name">${s.name}</div>
-        <div class="d-step-desc">${s.desc}</div>
-        ${s.tip ? `<div class="d-step-tip">💡 ${s.tip}</div>` : ''}
-      </div>
-    </div>`).join('');
-
-  updateDrinkProgress();
+  document.getElementById('ingredientsGrid').innerHTML=d.ingredients.map(i=>`<div class="ing-card"><div class="ing-label">${i.label}</div><div class="ing-value">${i.value}</div><div class="ing-sub">${i.sub}</div></div>`).join('');
+  document.getElementById('drinkSteps').innerHTML=d.steps.map((s,i)=>`<div class="d-step" id="ds-${i}" onclick="toggleDrinkStep(${i})"><div class="d-step-num"><span>${i+1}</span></div><div class="d-step-body"><div class="d-step-name">${s.name}</div><div class="d-step-desc">${s.desc}</div>${s.tip?`<div class="d-step-tip">💡 ${s.tip}</div>`:''}</div></div>`).join('');
+  updateDrinkProgress();updateNotesContext();
+  closeDrawer();
 }
 
-function renderCupVisual(d) {
-  const totalH = d.layers.reduce((a,l) => a+l.h, 0);
-  // Build one cup
-  const layersHtml = [...d.layers].reverse().map(l => `
-    <div class="cup-layer" style="height:${l.h}px; background:${l.color};"></div>
-  `).join('');
-  const cupHtml = `
-    <div class="cup-wrap">
-      <div class="cup" style="height:${totalH}px;">${layersHtml}</div>
-      <div class="cup-total">${totalH}ml</div>
-      <div class="cup-name">${d.name}</div>
-    </div>`;
-  document.getElementById('cupVisual').innerHTML = cupHtml;
-
-  // Legend
-  const legendHtml = d.layers.map(l => `
-    <div class="legend-item">
-      <div class="legend-dot" style="background:${l.color}; border: 1px solid rgba(0,0,0,0.1);"></div>
-      ${l.label}
-    </div>`).join('');
-  document.getElementById('layerLegend').innerHTML = legendHtml;
+function renderCupVisual(d){
+  const totalH=d.layers.reduce((a,l)=>a+l.h,0);
+  const layersHtml=[...d.layers].reverse().map(l=>`<div class="cup-layer" style="height:${l.h}px;background:${l.color}"></div>`).join('');
+  document.getElementById('cupVisual').innerHTML=`<div class="cup-wrap"><div class="cup" style="height:${totalH}px">${layersHtml}</div><div class="cup-total">${totalH}ml</div><div class="cup-name">${d.name}</div></div>`;
+  document.getElementById('layerLegend').innerHTML=d.layers.map(l=>`<div class="legend-item"><div class="legend-dot" style="background:${l.color};border:1px solid rgba(0,0,0,.1)"></div>${l.label}</div>`).join('');
 }
 
-function clearSubmenuActive() {
-  document.querySelectorAll('.submenu-btn').forEach(b => b.classList.remove('active'));
-}
-
-function toggleDrinkStep(i) {
-  const el = document.getElementById(`ds-${i}`);
-  const idx = donedrinkSteps.indexOf(i);
-  if (idx === -1) { donedrinkSteps.push(i); el.classList.add('done'); }
-  else { donedrinkSteps.splice(idx,1); el.classList.remove('done'); }
-  updateDrinkProgress();
-}
-
-function updateDrinkProgress() {
-  const total = drinks[currentDrink].steps.length;
-  document.getElementById('drinkProgressBar').style.width = (donedrinkSteps.length/total*100)+'%';
-  document.getElementById('drinkCompleteBanner').classList.toggle('visible', donedrinkSteps.length===total);
-}
-
-function resetDrink() {
-  donedrinkSteps = [];
-  document.querySelectorAll('.d-step').forEach(s=>s.classList.remove('done'));
-  document.getElementById('drinkCompleteBanner').classList.remove('visible');
-  updateDrinkProgress();
-}
-
-// ═══════════════════════════════════════════════════════
-//  SCREEN SWITCHING
-// ═══════════════════════════════════════════════════════
-function showScreen(which) {
-  document.getElementById('introScreen').style.display = 'none';
+function showScreen(which){
+  document.getElementById('introScreen').style.display='none';
   document.getElementById('guideScreen').classList.remove('visible');
   document.getElementById('drinkScreen').classList.remove('visible');
-  if (which === 'guide') document.getElementById('guideScreen').classList.add('visible');
-  if (which === 'drink') document.getElementById('drinkScreen').classList.add('visible');
-  if (which === 'intro') document.getElementById('introScreen').style.display = 'flex';
+  if(which==='guide')document.getElementById('guideScreen').classList.add('visible');
+  if(which==='drink')document.getElementById('drinkScreen').classList.add('visible');
+  if(which==='intro')document.getElementById('introScreen').style.display='flex';
 }
 
-// ═══════════════════════════════════════════════════════
-//  VARIANTS (cold brew)
-// ═══════════════════════════════════════════════════════
-function renderVariantTabs() {
-  const m = methods[currentMethod];
-  document.getElementById('variantTabs').innerHTML = m.variants.map(v => `
-    <button class="variant-tab ${v.id===currentVariant?'active':''}" onclick="selectVariant('${v.id}')">${v.label}</button>
-  `).join('');
-  const active = m.variants.find(v=>v.id===currentVariant);
-  document.getElementById('variantDesc').textContent = active ? active.desc : '';
+// ── VARIANTS ──────────────────────────────────────────
+function renderVariantTabs(){
+  const m=methods[currentMethod];
+  document.getElementById('variantTabs').innerHTML=m.variants.map(v=>`<button class="variant-tab ${v.id===currentVariant?'active':''}" onclick="selectVariant('${v.id}')">${v.label}</button>`).join('');
+  const active=m.variants.find(v=>v.id===currentVariant);
+  document.getElementById('variantDesc').textContent=active?active.desc:'';
+}
+function selectVariant(id){
+  const m=methods[currentMethod];currentVariant=id;renderVariantTabs();
+  const v=m.variants.find(v=>v.id===id);
+  const c=parseFloat(document.getElementById('coffeeInput').value)||100;
+  document.getElementById('waterInput').value=Math.round(c*v.ratio);
+  updateRatioUI();renderParams();
 }
 
-function selectVariant(id) {
-  const m = methods[currentMethod];
-  currentVariant = id;
-  renderVariantTabs();
-  const v = m.variants.find(v=>v.id===id);
-  const coffee = parseFloat(document.getElementById('coffeeInput').value) || 100;
-  document.getElementById('waterInput').value = Math.round(coffee * v.ratio);
-  updateRatioUI(); renderParams();
-}
-
-// ═══════════════════════════════════════════════════════
-//  RATIO
-// ═══════════════════════════════════════════════════════
-function getBaseRatio() {
-  const m = methods[currentMethod];
-  if (m.variants && currentVariant) {
-    const v = m.variants.find(v=>v.id===currentVariant);
-    return { coffee:100, water: v ? Math.round(100*v.ratio) : m.baseRatio.water };
-  }
+// ── RATIO ─────────────────────────────────────────────
+function getBaseRatio(){
+  const m=methods[currentMethod];
+  if(m.variants&&currentVariant){const v=m.variants.find(v=>v.id===currentVariant);return{coffee:100,water:v?Math.round(100*v.ratio):m.baseRatio.water}}
   return m.baseRatio;
 }
-
-function getCurrentRatioMultiplier() {
-  const m = methods[currentMethod];
-  if (m.variants && currentVariant) {
-    const v = m.variants.find(v=>v.id===currentVariant);
-    return v ? v.ratio : 7;
-  }
-  return m.baseRatio.water / m.baseRatio.coffee;
+function getCurrentRatioMultiplier(){
+  const m=methods[currentMethod];
+  if(m.variants&&currentVariant){const v=m.variants.find(v=>v.id===currentVariant);return v?v.ratio:7}
+  return m.baseRatio.water/m.baseRatio.coffee;
 }
-
-function recalc(changed) {
-  const mult = getCurrentRatioMultiplier();
-  if (changed === 'coffee') {
-    const c = parseFloat(document.getElementById('coffeeInput').value);
-    if (!isNaN(c) && c > 0) document.getElementById('waterInput').value = Math.round(c * mult);
-  } else {
-    const w = parseFloat(document.getElementById('waterInput').value);
-    if (!isNaN(w) && w > 0) document.getElementById('coffeeInput').value = +(w / mult).toFixed(1);
-  }
+function recalc(changed){
+  const mult=getCurrentRatioMultiplier();
+  if(changed==='coffee'){const c=parseFloat(document.getElementById('coffeeInput').value);if(!isNaN(c)&&c>0)document.getElementById('waterInput').value=Math.round(c*mult)}
+  else{const w=parseFloat(document.getElementById('waterInput').value);if(!isNaN(w)&&w>0)document.getElementById('coffeeInput').value=+(w/mult).toFixed(1)}
   updateRatioUI();
 }
-
-function updateRatioUI() {
-  const m = methods[currentMethod];
-  if (!m) return;
-  const c = parseFloat(document.getElementById('coffeeInput').value) || 0;
-  const w = parseFloat(document.getElementById('waterInput').value) || 0;
-  const r = (c > 0 && w > 0) ? (w/c).toFixed(1) : '—';
-  document.getElementById('ratioBadge').textContent = `1 : ${r}`;
-  let extras = currentMethod === 'coldbrew' ? m.extraResults(c,w,currentVariant) : m.extraResults(c,w);
-  document.getElementById('ratioResults').innerHTML = extras.map(e => `
-    <div class="r-card">
-      <div class="r-label">${e.label}</div>
-      <div class="r-value">${e.value}</div>
-      <div class="r-sub">${e.sub}</div>
-    </div>`).join('');
+function updateRatioUI(){
+  const m=methods[currentMethod];if(!m)return;
+  const c=parseFloat(document.getElementById('coffeeInput').value)||0;
+  const w=parseFloat(document.getElementById('waterInput').value)||0;
+  const r=(c>0&&w>0)?(w/c).toFixed(1):'—';
+  document.getElementById('ratioBadge').textContent=`1 : ${r}`;
+  const extras=currentMethod==='coldbrew'?m.extraResults(c,w,currentVariant):m.extraResults(c,w);
+  document.getElementById('ratioResults').innerHTML=extras.map(e=>`<div class="r-card"><div class="r-label">${e.label}</div><div class="r-value">${e.value}</div><div class="r-sub">${e.sub}</div></div>`).join('');
 }
 
-// ═══════════════════════════════════════════════════════
-//  PARAMS & STEPS
-// ═══════════════════════════════════════════════════════
-function renderParams() {
-  const m = methods[currentMethod];
-  let params = [...m.params];
-  if (currentMethod === 'coldbrew' && currentVariant) {
-    const v = m.variants.find(v=>v.id===currentVariant);
-    const idx = params.findIndex(p=>p.label==='Steep time');
-    if (idx !== -1 && v) params[idx] = { label:'Steep time', value: v.steepLabel };
-  }
-  document.getElementById('paramsBar').innerHTML = params.map(p => `
-    <div class="param-card">
-      <div class="param-label">${p.label}</div>
-      <div class="param-value">${p.value}</div>
-    </div>`).join('');
+// ── PARAMS & STEPS ────────────────────────────────────
+function renderParams(){
+  const m=methods[currentMethod];let params=[...m.params];
+  if(currentMethod==='coldbrew'&&currentVariant){const v=m.variants.find(v=>v.id===currentVariant);const idx=params.findIndex(p=>p.label==='Steep');if(idx!==-1&&v)params[idx]={label:'Steep',value:v.steepLabel}}
+  document.getElementById('paramsBar').innerHTML=params.map(p=>`<div class="param-card"><div class="param-label">${p.label}</div><div class="param-value">${p.value}</div></div>`).join('');
 }
-
-function renderSteps() {
-  document.getElementById('stepsList').innerHTML = methods[currentMethod].steps.map((s,i)=>`
-    <div class="step" id="step-${i}" onclick="toggleStep(${i},${s.timer||0})">
-      <div class="step-num"><span>${i+1}</span></div>
-      <div class="step-body">
-        <div class="step-name">${s.name}</div>
-        <div class="step-desc">${s.desc}</div>
-        ${s.timer?`<div class="step-timer">⏱ ${fmt(s.timer)} suggested</div>`:''}
-      </div>
-    </div>`).join('');
+function renderSteps(){
+  document.getElementById('stepsList').innerHTML=methods[currentMethod].steps.map((s,i)=>`<div class="step" id="step-${i}" onclick="toggleStep(${i},${s.timer||0})"><div class="step-num"><span>${i+1}</span></div><div class="step-body"><div class="step-name">${s.name}</div><div class="step-desc">${s.desc}</div>${s.timer?`<div class="step-timer">⏱ ${fmt(s.timer)} suggested</div>`:''}</div></div>`).join('');
 }
-
-function toggleStep(i, secs) {
-  const el = document.getElementById(`step-${i}`);
-  const idx = doneSteps.indexOf(i);
-  if (idx === -1) { doneSteps.push(i); el.classList.add('done'); if(secs>0) { startTimerFor(secs,`Step ${i+1}`); htLoad('guide', secs); } }
-  else { doneSteps.splice(idx,1); el.classList.remove('done'); }
+function toggleStep(i,secs){
+  const el=document.getElementById(`step-${i}`);
+  const idx=doneSteps.indexOf(i);
+  if(idx===-1){doneSteps.push(i);el.classList.add('done');if(secs>0){htLoad('guide',secs)}}
+  else{doneSteps.splice(idx,1);el.classList.remove('done')}
   updateProgress();
 }
-
-function updateProgress() {
-  const total = methods[currentMethod].steps.length;
-  document.getElementById('progressBar').style.width = (doneSteps.length/total*100)+'%';
-  document.getElementById('completeBanner').classList.toggle('visible', doneSteps.length===total);
+function updateProgress(){
+  const total=methods[currentMethod].steps.length;
+  document.getElementById('progressBar').style.width=(doneSteps.length/total*100)+'%';
+  document.getElementById('completeBanner').classList.toggle('visible',doneSteps.length===total);
 }
+function resetGuide(){doneSteps=[];document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));document.getElementById('completeBanner').classList.remove('visible');updateProgress()}
 
-function resetGuide() {
-  doneSteps = [];
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));
-  document.getElementById('completeBanner').classList.remove('visible');
-  updateProgress();
+function toggleDrinkStep(i){
+  const el=document.getElementById(`ds-${i}`);
+  const idx=donedrinkSteps.indexOf(i);
+  if(idx===-1){donedrinkSteps.push(i);el.classList.add('done')}else{donedrinkSteps.splice(idx,1);el.classList.remove('done')}
+  updateDrinkProgress();
 }
+function updateDrinkProgress(){
+  const total=drinks[currentDrink].steps.length;
+  document.getElementById('drinkProgressBar').style.width=(donedrinkSteps.length/total*100)+'%';
+  document.getElementById('drinkCompleteBanner').classList.toggle('visible',donedrinkSteps.length===total);
+}
+function resetDrink(){donedrinkSteps=[];document.querySelectorAll('.d-step').forEach(s=>s.classList.remove('done'));document.getElementById('drinkCompleteBanner').classList.remove('visible');updateDrinkProgress()}
 
-// ═══════════════════════════════════════════════════════
-//  HEADER TIMERS
-// ═══════════════════════════════════════════════════════
-const ht = {
-  guide: { interval: null, running: false, seconds: 0, countUp: true },
-  drink: { interval: null, running: false, seconds: 0, countUp: true },
+// ── HEADER TIMERS ─────────────────────────────────────
+const ht={
+  guide:{interval:null,running:false,seconds:0,countUp:true},
+  drink:{interval:null,running:false,seconds:0,countUp:true}
 };
-
-function htToggle(which) {
-  const s = ht[which];
-  const btn = document.getElementById(`ht${cap(which)}StartBtn`);
-  const disp = document.getElementById(`ht${cap(which)}Display`);
-  if (s.running) {
-    clearInterval(s.interval); s.running = false; btn.textContent = 'Resume';
-    disp.classList.remove('running');
-  } else {
-    // If not yet started and inputs have values, load from inputs
-    if (!s.running && s.seconds === 0) {
-      const m = parseInt(document.getElementById(`ht${cap(which)}Min`).value) || 0;
-      const sc = parseInt(document.getElementById(`ht${cap(which)}Sec`).value) || 0;
-      const total = m * 60 + sc;
-      s.seconds = total;
-      s.countUp = total === 0;
-    }
-    s.running = true; btn.textContent = 'Pause';
-    disp.classList.add('running'); disp.classList.remove('done');
-    s.interval = setInterval(() => {
-      if (s.countUp) {
-        s.seconds++;
-        disp.textContent = fmt(s.seconds);
-      } else {
-        if (s.seconds <= 0) {
-          clearInterval(s.interval); s.running = false;
-          btn.textContent = 'Start'; disp.textContent = 'Done!';
-          disp.classList.remove('running'); disp.classList.add('done'); return;
-        }
-        s.seconds--;
-        disp.textContent = fmt(s.seconds);
-      }
-    }, 1000);
-  }
-}
-
-function htReset(which) {
-  const s = ht[which];
-  clearInterval(s.interval); s.running = false; s.seconds = 0;
-  const btn = document.getElementById(`ht${cap(which)}StartBtn`);
-  const disp = document.getElementById(`ht${cap(which)}Display`);
-  btn.textContent = 'Start';
-  disp.textContent = '0:00';
-  disp.classList.remove('running', 'done');
-  document.getElementById(`ht${cap(which)}Min`).value = 0;
-  document.getElementById(`ht${cap(which)}Sec`).value = 0;
-}
-
-function htLoad(which, secs) {
-  htReset(which);
-  const m = Math.floor(secs / 60), s2 = secs % 60;
-  ht[which].seconds = secs; ht[which].countUp = false;
-  document.getElementById(`ht${cap(which)}Min`).value = m;
-  document.getElementById(`ht${cap(which)}Sec`).value = s2;
-  document.getElementById(`ht${cap(which)}Display`).textContent = fmt(secs);
-}
-
-function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-
-// ═══════════════════════════════════════════════════════
-function startTimerFor(secs, label) {
-  resetTimer(); timerSeconds = secs;
-  document.getElementById('timerLabel').textContent = label;
-  document.getElementById('timerDisplay').textContent = fmt(secs);
-  document.getElementById('timerWidget').classList.add('visible');
-  document.getElementById('timerStartBtn').textContent = 'Start';
-}
-function toggleTimer() {
-  if (timerRunning) {
-    clearInterval(timerInterval); timerRunning=false;
-    document.getElementById('timerStartBtn').textContent='Resume';
-  } else {
-    timerRunning=true; document.getElementById('timerStartBtn').textContent='Pause';
-    timerInterval=setInterval(()=>{
-      if(timerSeconds<=0){ clearInterval(timerInterval); timerRunning=false;
-        document.getElementById('timerDisplay').textContent='Done!';
-        document.getElementById('timerStartBtn').textContent='Start'; return; }
-      timerSeconds--; document.getElementById('timerDisplay').textContent=fmt(timerSeconds);
+function htToggle(which){
+  const s=ht[which];const btn=document.getElementById(`ht${cap(which)}StartBtn`);const disp=document.getElementById(`ht${cap(which)}Display`);
+  if(s.running){clearInterval(s.interval);s.running=false;btn.textContent='Resume';disp.classList.remove('running')}
+  else{
+    if(!s.running&&s.seconds===0){const m=parseInt(document.getElementById(`ht${cap(which)}Min`).value)||0;const sc=parseInt(document.getElementById(`ht${cap(which)}Sec`).value)||0;const total=m*60+sc;s.seconds=total;s.countUp=total===0}
+    s.running=true;btn.textContent='Pause';disp.classList.add('running');disp.classList.remove('done');
+    s.interval=setInterval(()=>{
+      if(s.countUp){s.seconds++;disp.textContent=fmt(s.seconds)}
+      else{if(s.seconds<=0){clearInterval(s.interval);s.running=false;btn.textContent='Start';disp.textContent='Done!';disp.classList.remove('running');disp.classList.add('done');return}s.seconds--;disp.textContent=fmt(s.seconds)}
     },1000);
   }
 }
-function resetTimer() {
-  clearInterval(timerInterval); timerRunning=false; timerSeconds=0;
-  document.getElementById('timerDisplay').textContent='0:00';
-  document.getElementById('timerStartBtn').textContent='Start';
+function htReset(which){
+  const s=ht[which];clearInterval(s.interval);s.running=false;s.seconds=0;
+  const btn=document.getElementById(`ht${cap(which)}StartBtn`);const disp=document.getElementById(`ht${cap(which)}Display`);
+  btn.textContent='Start';disp.textContent='0:00';disp.classList.remove('running','done');
+  document.getElementById(`ht${cap(which)}Min`).value=0;document.getElementById(`ht${cap(which)}Sec`).value=0;
 }
-function closeTimer() { clearInterval(timerInterval); timerRunning=false; document.getElementById('timerWidget').classList.remove('visible'); }
-function fmt(s){ return `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`; }
+function htLoad(which,secs){
+  htReset(which);const m2=Math.floor(secs/60),s2=secs%60;
+  ht[which].seconds=secs;ht[which].countUp=false;
+  document.getElementById(`ht${cap(which)}Min`).value=m2;document.getElementById(`ht${cap(which)}Sec`).value=s2;
+  document.getElementById(`ht${cap(which)}Display`).textContent=fmt(secs);
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+function fmt(s){return`${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`}
 
-// ═══════════════════════════════════════════════════════
-//  BOOT — wire up non-espresso method buttons
-// ═══════════════════════════════════════════════════════
-document.querySelectorAll('.method-btn[data-method]').forEach(btn => {
-  if (btn.id === 'espressoBtn') return;
-  btn.addEventListener('click', () => {
+// ── NOTES ─────────────────────────────────────────────
+let notesOpen=false,allNotes=[];
+async function loadNotes(){try{const r=await window.storage.get('brew_notes');allNotes=r?JSON.parse(r.value):[];}catch{allNotes=[]}renderNotes()}
+async function saveNote(){
+  const ta=document.getElementById('notesTextarea');const text=ta.value.trim();if(!text)return;
+  const note={id:Date.now(),context:getActiveContext(),text,date:new Date().toLocaleString()};
+  allNotes.unshift(note);
+  try{await window.storage.set('brew_notes',JSON.stringify(allNotes));ta.value='';renderNotes();flashSaved()}catch{alert('Could not save note.')}
+}
+async function deleteNote(id){
+  allNotes=allNotes.filter(n=>n.id!==id);
+  try{await window.storage.set('brew_notes',JSON.stringify(allNotes));renderNotes()}catch{}
+}
+function renderNotes(){
+  const list=document.getElementById('notesList');const count=document.getElementById('notesCount');
+  count.textContent=`${allNotes.length} note${allNotes.length!==1?'s':''}`;
+  document.getElementById('notesToggleLabel').textContent=allNotes.length?`Notes (${allNotes.length})`:'Brew Notes';
+  if(!allNotes.length){list.innerHTML='<div class="notes-empty">No notes yet.<br>Start brewing and jot something down!</div>';return}
+  list.innerHTML=allNotes.map(n=>`<div class="note-card"><div class="note-card-top"><div class="note-tag">☕ ${n.context}</div><button class="note-del" onclick="deleteNote(${n.id})">✕</button></div><div class="note-text">${escHtml(n.text)}</div><div class="note-date">${n.date}</div></div>`).join('');
+}
+function getActiveContext(){if(currentDrink&&drinks[currentDrink])return drinks[currentDrink].name;if(currentMethod&&methods[currentMethod])return methods[currentMethod].name;return'General'}
+function updateNotesContext(){document.getElementById('notesContextChip').textContent=getActiveContext()}
+function toggleNotes(){notesOpen=!notesOpen;document.getElementById('notesPanel').classList.toggle('open',notesOpen);if(notesOpen)setTimeout(()=>document.getElementById('notesTextarea').focus(),350)}
+function flashSaved(){const el=document.getElementById('notesSaving');el.classList.add('visible');setTimeout(()=>el.classList.remove('visible'),1800)}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+// ── BOOT ──────────────────────────────────────────────
+document.querySelectorAll('.method-btn[data-method]').forEach(btn=>{
+  if(btn.id==='espressoBtn')return;
+  btn.addEventListener('click',()=>{
     activateMethodBtn(btn.dataset.method);
-    espressoMenuOpen = false;
-    document.getElementById('espressoBtn').classList.remove('open');
-    document.getElementById('espressoSubmenu').classList.remove('open');
-    clearSubmenuActive();
-    loadMethod(btn.dataset.method);
-    updateNotesContext();
+    espressoMenuOpen=false;document.getElementById('espressoBtn').classList.remove('open');document.getElementById('espressoSubmenu').classList.remove('open');
+    clearSubmenuActive();loadMethod(btn.dataset.method);updateNotesContext();
   });
 });
-
-// Boot
 loadNotes();
 </script>
 </body>
