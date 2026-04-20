@@ -2,8 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"/>
 <title>Brew — Coffee Guide</title>
+
+<!-- PWA core -->
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#3d1f00"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+
+<!-- iOS specific -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Brew"/>
+<link rel="apple-touch-icon" href="icon-192.png"/>
+<link rel="apple-touch-startup-image" href="splash.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -359,6 +371,9 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
   </div><!-- /content -->
 </div><!-- /app -->
 
+<!-- Buy Me a Coffee -->
+<a class="bmc-btn" href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+
 <!-- Notes FAB -->
 <button class="notes-fab" onclick="toggleNotes()">📝 <span id="notesToggleLabel">Brew Notes</span></button>
 
@@ -631,6 +646,15 @@ function updateNotesContext(){document.getElementById('notesContextChip').textCo
 function toggleNotes(){notesOpen=!notesOpen;document.getElementById('notesPanel').classList.toggle('open',notesOpen);if(notesOpen)setTimeout(()=>document.getElementById('notesTextarea').focus(),350)}
 function flashSaved(){const el=document.getElementById('notesSaving');el.classList.add('visible');setTimeout(()=>el.classList.remove('visible'),1800)}
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+// ── SERVICE WORKER REGISTRATION ───────────────────────
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js')
+      .then(r=>console.log('SW registered:',r.scope))
+      .catch(e=>console.log('SW failed:',e));
+  });
+}
 
 // ── BOOT ──────────────────────────────────────────────
 document.querySelectorAll('.method-btn[data-method]').forEach(btn=>{
