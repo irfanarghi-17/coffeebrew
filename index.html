@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"/>
 <title>Brew — Coffee Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-<!-- PWA core -->
 <link rel="manifest" href="manifest.json"/>
 <meta name="theme-color" content="#3d1f00"/>
 <meta name="mobile-web-app-capable" content="yes"/>
@@ -152,68 +151,58 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
 .notes-saving{font-size:.56rem;color:var(--caramel);opacity:0;transition:opacity .3s}
 .notes-saving.visible{opacity:1}
 .notes-save-btn{background:var(--caramel);color:white;border:none;border-radius:8px;padding:.45rem 1rem;font-family:'DM Mono',monospace;font-size:.68rem;cursor:pointer;min-height:36px}
-/* Knowledge base */
+/* KB + FAQ */
 .kb-screen{display:none;animation:fadeIn .4s ease}
 .kb-screen.visible{display:block}
-.kb-hero{margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--foam)}
+.kb-hero{margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--foam)}
 .kb-hero-eyebrow{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:.5rem}
 .kb-hero h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--roast);margin-bottom:.4rem}
 .kb-hero p{font-size:.72rem;line-height:1.7;color:rgba(26,15,0,.5)}
 .kb-chapters{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.75rem}
-.kb-chapter-btn{width:100%;background:var(--cream);border:1px solid var(--foam);border-radius:12px;padding:.9rem 1.1rem;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.75rem;transition:all .2s}
-.kb-chapter-btn.active{background:var(--roast);border-color:var(--roast)}
-.kb-chapter-left{display:flex;align-items:center;gap:.75rem}
-.kb-chapter-icon{font-size:1.3rem;flex-shrink:0}
-.kb-chapter-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--roast)}
-.kb-chapter-btn.active .kb-chapter-title{color:var(--gold)}
-.kb-chapter-sub{font-size:.58rem;color:rgba(26,15,0,.45);margin-top:.1rem}
-.kb-chapter-btn.active .kb-chapter-sub{color:rgba(232,168,76,.6)}
-.kb-chapter-arrow{font-size:.7rem;color:var(--caramel);transition:transform .25s;flex-shrink:0}
-.kb-chapter-btn.active .kb-chapter-arrow{transform:rotate(90deg);color:var(--gold)}
-.kb-chapter-content{display:none;padding:.25rem 0 .75rem}
-.kb-chapter-content.open{display:block}
+.kb-ch-btn{width:100%;background:var(--cream);border:1px solid var(--foam);border-radius:12px;padding:.9rem 1.1rem;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.75rem;transition:all .2s}
+.kb-ch-btn.active{background:var(--roast);border-color:var(--roast)}
+.kb-ch-left{display:flex;align-items:center;gap:.75rem}
+.kb-ch-icon{font-size:1.3rem;flex-shrink:0}
+.kb-ch-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--roast)}
+.kb-ch-btn.active .kb-ch-title{color:var(--gold)}
+.kb-ch-sub{font-size:.58rem;color:rgba(26,15,0,.45);margin-top:.1rem}
+.kb-ch-btn.active .kb-ch-sub{color:rgba(232,168,76,.6)}
+.kb-ch-arrow{font-size:.7rem;color:var(--caramel);transition:transform .25s;flex-shrink:0}
+.kb-ch-btn.active .kb-ch-arrow{transform:rotate(90deg);color:var(--gold)}
+.kb-ch-content{display:none;padding:.25rem 0 .75rem}
+.kb-ch-content.open{display:block}
 .kb-cards{display:flex;flex-direction:column;gap:.75rem}
 .kb-card{background:white;border:1px solid var(--foam);border-radius:12px;overflow:hidden}
-.kb-card-header{padding:.75rem 1rem;background:var(--cream);border-bottom:1px solid var(--foam);display:flex;align-items:center;gap:.6rem}
-.kb-card-icon{font-size:1.1rem}
-.kb-card-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--roast)}
-.kb-card-badge{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:20px;margin-left:auto;white-space:nowrap}
-.badge-arabica{background:rgba(196,124,43,.15);color:var(--caramel)}
-.badge-robusta{background:rgba(61,31,0,.12);color:var(--roast)}
-.badge-origin{background:rgba(30,100,60,.12);color:#1e643c}
-.badge-process{background:rgba(80,60,160,.12);color:#503ca0}
-.badge-roast{background:rgba(200,60,40,.12);color:#c83c28}
-.badge-brew{background:rgba(30,100,170,.12);color:#1e64aa}
-.badge-info{background:rgba(26,15,0,.07);color:rgba(26,15,0,.5)}
-.kb-card-body{padding:.85rem 1rem}
-.kb-card-body p{font-size:.72rem;line-height:1.75;color:rgba(26,15,0,.62);margin-bottom:.6rem}
+.kb-card-hdr{padding:.75rem 1rem;background:var(--cream);border-bottom:1px solid var(--foam);display:flex;align-items:center;gap:.6rem}
+.kb-card-ico{font-size:1.1rem}
+.kb-card-ttl{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--roast)}
+.kb-badge{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:20px;margin-left:auto;white-space:nowrap;background:rgba(26,15,0,.07);color:rgba(26,15,0,.5)}
+.kb-card-body{padding:.85rem 1rem;font-size:.72rem;line-height:1.75;color:rgba(26,15,0,.62)}
+.kb-card-body p{margin-bottom:.6rem}
 .kb-card-body p:last-child{margin-bottom:0}
 .kb-card-body strong{color:var(--roast);font-weight:500}
 .kb-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.65rem}
 .kb-tag{font-size:.58rem;background:var(--cream);border:1px solid var(--foam);border-radius:20px;padding:.18rem .55rem;color:rgba(26,15,0,.55)}
-.kb-flavor-bar{margin-top:.65rem}
-.kb-flavor-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem}
-.kb-flavor-label{font-size:.58rem;color:rgba(26,15,0,.45);width:60px;flex-shrink:0}
-.kb-flavor-track{flex:1;background:var(--foam);border-radius:20px;height:5px;overflow:hidden}
-.kb-flavor-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--caramel),var(--gold))}
-.kb-divider{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);margin:.85rem 0 .5rem;opacity:.7}
+.kb-bar-wrap{margin-top:.65rem}
+.kb-bar-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem}
+.kb-bar-lbl{font-size:.58rem;color:rgba(26,15,0,.45);width:65px;flex-shrink:0}
+.kb-bar-track{flex:1;background:var(--foam);border-radius:20px;height:5px;overflow:hidden}
+.kb-bar-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--caramel),var(--gold))}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--caramel);border-radius:3px}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">brew<span>.</span></div>
   <button class="menu-btn" id="menuBtn">☰</button>
 </header>
-
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-handle"></div>
   <h2>Brew Methods</h2>
   <ul class="method-list" id="methodList"></ul>
 </div>
-
 <div class="app">
   <div class="content">
     <div class="intro-screen" id="introScreen">
@@ -222,7 +211,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
       <p>Select a brew method to get step-by-step guidance, a ratio calculator, and built-in timers.</p>
       <div class="arrow-hint">☰ tap menu to choose your method</div>
     </div>
-
     <div class="guide-screen" id="guideScreen">
       <div class="guide-header">
         <div class="guide-header-left">
@@ -271,17 +259,14 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
         <button class="reset-btn" id="resetGuideBtn">Brew Again</button>
       </div>
     </div>
-
-    <!-- KNOWLEDGE BASE -->
     <div class="kb-screen" id="kbScreen">
       <div class="kb-hero">
-        <div class="kb-hero-eyebrow">The Coffee Nerd's Handbook</div>
+        <div class="kb-hero-eyebrow">The Coffee Nerd Handbook</div>
         <h2>Know your coffee.</h2>
-        <p>Everything you need to sound dangerously knowledgeable at your next specialty café visit.</p>
+        <p>Everything you need to sound dangerously knowledgeable at your next specialty cafe visit.</p>
       </div>
       <div class="kb-chapters" id="kbChapters"></div>
     </div>
-
     <div class="drink-screen" id="drinkScreen">
       <div class="drink-header">
         <div class="drink-header-left">
@@ -319,12 +304,8 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
             <div class="ratio-badge">1 : 16.7 (coffee : brew)</div>
           </div>
           <div class="ratio-inputs">
-            <div class="ratio-field">
-              <label>Coffee (g)</label>
-              <input type="number" id="icedCoffeeInput" min="1" max="200" value="20"/>
-            </div>
-            <div class="ratio-arrow">→</div>
-            <div></div>
+            <div class="ratio-field"><label>Coffee (g)</label><input type="number" id="icedCoffeeInput" min="1" max="200" value="20"/></div>
+            <div class="ratio-arrow">→</div><div></div>
           </div>
           <div class="ratio-results" id="icedRatioResults"></div>
         </div>
@@ -340,10 +321,8 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
     </div>
   </div>
 </div>
-
 <a class="bmc-btn" href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 <button class="notes-fab" id="notesFab">📝 <span id="notesToggleLabel">Brew Notes</span></button>
-
 <div class="notes-panel" id="notesPanel">
   <div class="notes-handle"></div>
   <div class="notes-header">
@@ -359,493 +338,464 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
       <span class="notes-context-label">Context:</span>
       <span class="notes-context-chip" id="notesContextChip">— select a brew method —</span>
     </div>
-    <textarea class="notes-textarea" id="notesTextarea" rows="3" placeholder="Grind size, dose, taste notes, tweaks…"></textarea>
+    <textarea class="notes-textarea" id="notesTextarea" rows="3" placeholder="Grind size, dose, taste notes, tweaks..."></textarea>
     <div class="notes-actions">
       <span class="notes-saving" id="notesSaving">✓ saved</span>
       <button class="notes-save-btn" id="notesSaveBtn">Add Note</button>
     </div>
   </div>
 </div>
-
 <script>
-// ── DATA ──────────────────────────────────────────────
+// ── METHODS ───────────────────────────────────────────
 const METHODS = {
-  espresso:{icon:'☕',name:'Espresso',subtitle:'Concentrated & bold',baseRatio:{coffee:18,water:36},params:[{label:'Temp',value:'93°C'},{label:'Brew time',value:'25–30s'},{label:'Grind',value:'Fine'}],extraResults(c,w){return[{label:'Shots',value:Math.round(c/9)||1,sub:'~9g per shot'},{label:'Yield',value:w+'ml',sub:'total output'}]},steps:[{name:'Warm up machine',desc:'Run hot water through the group head and portafilter for 20–30s.',timer:30},{name:'Grind & dose',desc:'Grind fine — like table salt. Distribute evenly in the basket.'},{name:'Tamp firmly',desc:'Apply 15–20kg of even, level pressure.'},{name:'Pull the shot',desc:'Lock in and start. First drops around 5–8 seconds.',timer:28},{name:'Assess',desc:'25–30s total. Golden-brown crema. Blond = under-extracted.'},{name:'Serve immediately',desc:'Espresso oxidises fast. Serve within 10 seconds.'}]},
-
-  frenchpress:{icon:'⚗️',name:'French Press',subtitle:'Rich, full-bodied & bold',baseRatio:{coffee:30,water:500},params:[{label:'Temp',value:'94°C'},{label:'Steep',value:'4 min'},{label:'Grind',value:'Coarse'}],extraResults(c,w){return[{label:'Cups (300ml)',value:(w/300).toFixed(1),sub:'approx.'},{label:'Bloom',value:c*2+'ml',sub:'optional'}]},steps:[{name:'Preheat',desc:'Add hot water, swirl, discard.'},{name:'Add grounds',desc:'Coarse sea salt texture. Tare scale.'},{name:'Pour & stir',desc:'Pour all water in one pour. Stir.'},{name:'Steep',desc:'Lid on, plunger up. Steep 4 minutes.',timer:240},{name:'Press slowly',desc:'Slow steady pressure over 20 seconds.',timer:20},{name:'Pour immediately',desc:'Pour all at once.'}]},
-  aeropress:{icon:'🧪',name:'AeroPress',subtitle:'Smooth, versatile & fast',baseRatio:{coffee:17,water:220},params:[{label:'Temp',value:'85°C'},{label:'Brew time',value:'~2 min'},{label:'Grind',value:'Med-fine'}],extraResults(c,w){return[{label:'Yield',value:w+'ml',sub:'in chamber'},{label:'Cups',value:(w/220).toFixed(1),sub:'per press'}]},steps:[{name:'Prepare inverted',desc:'Flip AeroPress upside down. Rinse filter, attach cap.'},{name:'Add coffee',desc:'Add grounds, tap to level.'},{name:'Pour & stir',desc:'Pour 85°C water. Stir 3–4 times.'},{name:'Steep',desc:'Place cap on. Steep 90 seconds.',timer:90},{name:'Flip & press',desc:'Flip confidently, press slowly — about 30 seconds.',timer:30},{name:'Stop at the hiss',desc:'Stop as you hear air — avoids bitter over-extraction.'}]},
-  coldbrew:{icon:'🧊',name:'Cold Brew',subtitle:'Mellow, smooth & patient',baseRatio:{coffee:100,water:700},variants:[{id:'concentrate',label:'🧪 Concentrate',ratio:7,steepLabel:'18–24h',desc:'Strong concentrate (1:7). Dilute 1:1–2 before drinking. Steep 18–24 hours.'},{id:'rtd',label:'🥤 Ready to Drink',ratio:14,steepLabel:'12–16h',desc:'Balanced, drinkable straight (1:14). Pour over ice. Steep 12–16 hours.'},{id:'nitro',label:'💨 Nitro Style',ratio:10,steepLabel:'16–20h',desc:'Medium-strong (1:10) for nitro tap. Silky mouthfeel. Steep 16–20 hours.'},{id:'flash',label:'⚡ Flash Brew',ratio:8,steepLabel:'5–7 min',desc:'Strong hot brew (1:8) poured over ice instantly. 5–7 minutes.'}],params:[{label:'Temp',value:'Cold'},{label:'Steep',value:'12–18h'},{label:'Grind',value:'Very coarse'}],extraResults(c,w,vId){const v=this.variants.find(x=>x.id===vId);if(!v)return[];if(v.id==='concentrate')return[{label:'Diluted yield',value:Math.round(w*2)+'ml',sub:'at 1:1 dilution'},{label:'Servings',value:Math.round(w*2/240),sub:'240ml cups'}];return[{label:'Brew yield',value:'~'+Math.round(w*.88)+'ml',sub:'after straining'},{label:'Servings',value:Math.round(w*.88/300),sub:'300ml glasses'}]},steps:[{name:'Grind coarsely',desc:'Like coarse breadcrumbs. Dark or medium roast.'},{name:'Combine',desc:'Add grounds to jar. Pour cold water over.'},{name:'Stir',desc:'Stir so all grounds are wet. Cover with lid.'},{name:'Refrigerate',desc:'Steep in fridge for target time.'},{name:'Strain twice',desc:'Fine mesh sieve, then coffee filter.'},{name:'Serve',desc:'Dilute if concentrate. Pour over ice. Keeps 2 weeks.'}]},
-  moka:{icon:'🔥',name:'Moka Pot',subtitle:'Stovetop intensity & richness',baseRatio:{coffee:20,water:300},params:[{label:'Heat',value:'Med-low'},{label:'Brew time',value:'5–7 min'},{label:'Grind',value:'Fine-med'}],extraResults(c,w){return[{label:'Cups (60ml)',value:Math.round(w/60),sub:'espresso-sized'},{label:'Cups (150ml)',value:Math.round(w/150),sub:'small coffee'}]},steps:[{name:'Fill boiler',desc:'Water up to — not above — the pressure valve.'},{name:'Fill basket',desc:'Level but not tamped. Needs room to expand.'},{name:'Assemble',desc:'Screw chambers firmly. Check the seal.'},{name:'Heat med-low',desc:'Lid open. Too high = burnt, bitter taste.'},{name:'Listen for gurgle',desc:'Steady gurgle + light coffee in top = remove.'},{name:'Stop extraction',desc:'Run base under cold water. Pour right away.'}]},
-  v60:{icon:'🔻',name:'V60',subtitle:'Precise · Conical · Clean',baseRatio:{coffee:15,water:250},params:[{label:'Temp',value:'93°C'},{label:'Brew time',value:'2.5–3 min'},{label:'Grind',value:'Med-fine'}],extraResults(c,w){return[{label:'Bloom water',value:Math.round(c*3)+'ml',sub:'3× coffee weight'},{label:'First pour target',value:Math.round(w*0.6)+'ml',sub:'60% of total'},{label:'Cups (250ml)',value:(w/250).toFixed(1),sub:'approx.'}]},steps:[{name:'Rinse filter',desc:'Rinse paper filter in the V60, discard water. Preheat your cup too.'},{name:'Add coffee',desc:'Add ground coffee. Shake gently to create a flat bed. Tare your scale.'},{name:'Bloom',desc:'Pour 3× coffee weight in water (e.g. 45ml for 15g). Let bloom 30–40 seconds.',timer:35},{name:'Pour in circles',desc:'Pour slowly in tight spirals to 60% of total water. Keep it slow and centred.',timer:30},{name:'Final pour',desc:'Continue pouring in controlled spirals to your full target water weight. Keep the slurry spinning.'},{name:'Wait for drawdown',desc:'Total brew time should be 2.5–3 minutes. Pull out the V60 when dripping stops.',timer:45},{name:'Serve',desc:'Swirl gently and enjoy the clean, bright flavour.'}]},
+  espresso:{icon:"☕",name:"Espresso",subtitle:"Concentrated & bold",baseRatio:{coffee:18,water:36},params:[{label:"Temp",value:"93°C"},{label:"Brew time",value:"25-30s"},{label:"Grind",value:"Fine"}],extraResults:function(c,w){return[{label:"Shots",value:Math.round(c/9)||1,sub:"~9g per shot"},{label:"Yield",value:w+"ml",sub:"total output"}]},steps:[{name:"Warm up machine",desc:"Run hot water through the group head and portafilter for 20-30s.",timer:30},{name:"Grind & dose",desc:"Grind fine like table salt. Distribute evenly in the basket."},{name:"Tamp firmly",desc:"Apply 15-20kg of even, level pressure."},{name:"Pull the shot",desc:"Lock in and start. First drops around 5-8 seconds.",timer:28},{name:"Assess",desc:"25-30s total. Golden-brown crema. Blond means under-extracted."},{name:"Serve immediately",desc:"Espresso oxidises fast. Serve within 10 seconds."}]},
+  v60:{icon:"🔻",name:"V60",subtitle:"Precise · Conical · Clean",baseRatio:{coffee:15,water:250},params:[{label:"Temp",value:"93°C"},{label:"Brew time",value:"2.5-3 min"},{label:"Grind",value:"Med-fine"}],extraResults:function(c,w){return[{label:"Bloom water",value:Math.round(c*3)+"ml",sub:"3x coffee weight"},{label:"First pour",value:Math.round(w*0.6)+"ml",sub:"60% of total"},{label:"Cups (250ml)",value:(w/250).toFixed(1),sub:"approx."}]},steps:[{name:"Rinse filter",desc:"Rinse paper filter in the V60, discard water. Preheat your cup too."},{name:"Add coffee",desc:"Add ground coffee. Shake gently to create a flat bed. Tare your scale."},{name:"Bloom",desc:"Pour 3x coffee weight in water. Let bloom 30-40 seconds.",timer:35},{name:"Pour in circles",desc:"Pour slowly in tight spirals to 60% of total water.",timer:30},{name:"Final pour",desc:"Continue pouring in controlled spirals to your full target water weight."},{name:"Wait for drawdown",desc:"Total brew time 2.5-3 minutes. Pull out V60 when dripping stops.",timer:45},{name:"Serve",desc:"Swirl gently and enjoy the clean, bright flavour."}]},
+  frenchpress:{icon:"⚗️",name:"French Press",subtitle:"Rich, full-bodied & bold",baseRatio:{coffee:30,water:500},params:[{label:"Temp",value:"94°C"},{label:"Steep",value:"4 min"},{label:"Grind",value:"Coarse"}],extraResults:function(c,w){return[{label:"Cups (300ml)",value:(w/300).toFixed(1),sub:"approx."},{label:"Bloom",value:c*2+"ml",sub:"optional"}]},steps:[{name:"Preheat",desc:"Add hot water, swirl, discard."},{name:"Add grounds",desc:"Coarse sea salt texture. Tare scale."},{name:"Pour & stir",desc:"Pour all water in one pour. Stir."},{name:"Steep",desc:"Lid on, plunger up. Steep 4 minutes.",timer:240},{name:"Press slowly",desc:"Slow steady pressure over 20 seconds.",timer:20},{name:"Pour immediately",desc:"Pour all at once."}]},
+  aeropress:{icon:"🧪",name:"AeroPress",subtitle:"Smooth, versatile & fast",baseRatio:{coffee:17,water:220},params:[{label:"Temp",value:"85°C"},{label:"Brew time",value:"~2 min"},{label:"Grind",value:"Med-fine"}],extraResults:function(c,w){return[{label:"Yield",value:w+"ml",sub:"in chamber"},{label:"Cups",value:(w/220).toFixed(1),sub:"per press"}]},steps:[{name:"Prepare inverted",desc:"Flip AeroPress upside down. Rinse filter, attach cap."},{name:"Add coffee",desc:"Add grounds, tap to level."},{name:"Pour & stir",desc:"Pour 85C water. Stir 3-4 times."},{name:"Steep",desc:"Place cap on. Steep 90 seconds.",timer:90},{name:"Flip & press",desc:"Flip confidently, press slowly about 30 seconds.",timer:30},{name:"Stop at the hiss",desc:"Stop as you hear air — avoids bitter over-extraction."}]},
+  coldbrew:{icon:"🧊",name:"Cold Brew",subtitle:"Mellow, smooth & patient",baseRatio:{coffee:100,water:700},variants:[{id:"concentrate",label:"🧪 Concentrate",ratio:7,steepLabel:"18-24h",desc:"Strong concentrate 1:7. Dilute 1:1-2 before drinking. Steep 18-24 hours."},{id:"rtd",label:"🥤 Ready to Drink",ratio:14,steepLabel:"12-16h",desc:"Balanced, drinkable straight 1:14. Pour over ice. Steep 12-16 hours."},{id:"nitro",label:"💨 Nitro Style",ratio:10,steepLabel:"16-20h",desc:"Medium-strong 1:10 for nitro tap. Silky mouthfeel. Steep 16-20 hours."},{id:"flash",label:"⚡ Flash Brew",ratio:8,steepLabel:"5-7 min",desc:"Strong hot brew 1:8 poured over ice instantly. 5-7 minutes."}],params:[{label:"Temp",value:"Cold"},{label:"Steep",value:"12-18h"},{label:"Grind",value:"Very coarse"}],extraResults:function(c,w,vId){var v=this.variants.find(function(x){return x.id===vId});if(!v)return[];if(v.id==="concentrate")return[{label:"Diluted yield",value:Math.round(w*2)+"ml",sub:"at 1:1 dilution"},{label:"Servings",value:Math.round(w*2/240),sub:"240ml cups"}];return[{label:"Brew yield",value:"~"+Math.round(w*.88)+"ml",sub:"after straining"},{label:"Servings",value:Math.round(w*.88/300),sub:"300ml glasses"}]},steps:[{name:"Grind coarsely",desc:"Like coarse breadcrumbs. Dark or medium roast."},{name:"Combine",desc:"Add grounds to jar. Pour cold water over."},{name:"Stir",desc:"Stir so all grounds are wet. Cover with lid."},{name:"Refrigerate",desc:"Steep in fridge for target time."},{name:"Strain twice",desc:"Fine mesh sieve, then coffee filter."},{name:"Serve",desc:"Dilute if concentrate. Pour over ice. Keeps 2 weeks."}]},
+  moka:{icon:"🔥",name:"Moka Pot",subtitle:"Stovetop intensity & richness",baseRatio:{coffee:20,water:300},params:[{label:"Heat",value:"Med-low"},{label:"Brew time",value:"5-7 min"},{label:"Grind",value:"Fine-med"}],extraResults:function(c,w){return[{label:"Cups (60ml)",value:Math.round(w/60),sub:"espresso-sized"},{label:"Cups (150ml)",value:Math.round(w/150),sub:"small coffee"}]},steps:[{name:"Fill boiler",desc:"Water up to not above the pressure valve."},{name:"Fill basket",desc:"Level but not tamped. Needs room to expand."},{name:"Assemble",desc:"Screw chambers firmly. Check the seal."},{name:"Heat med-low",desc:"Lid open. Too high means burnt, bitter taste."},{name:"Listen for gurgle",desc:"Steady gurgle plus light coffee in top means remove."},{name:"Stop extraction",desc:"Run base under cold water. Pour right away."}]}
 };
 
-const DRINKS = {
-  espresso_pure:{icon:'☕',name:'Espresso',tagline:'Pure · Unadulterated · 30ml',cupHeight:80,layers:[{label:'Crema',color:'#c8903a',h:12},{label:'Espresso',color:'#3d1800',h:68}],ingredients:[{label:'Coffee',value:'9g',sub:'fine grind'},{label:'Espresso',value:'30ml',sub:'single shot'},{label:'Temp',value:'93°C',sub:'water'},{label:'Cup size',value:'60–90ml',sub:'demitasse'}],steps:[{name:'Pull a single shot',desc:'Dose 9g of finely ground coffee. Tamp level and pull 30ml in 25–30 seconds.',tip:'Golden crema should cover the surface.'},{name:'Serve immediately',desc:'Best drunk within 10–20 seconds.',tip:'Pre-warm your cup with hot water.'}]},
-  latte:{icon:'🥛',name:'Café Latte',tagline:'Smooth · Creamy · 240ml',cupHeight:180,layers:[{label:'Foam',color:'#f5f0e8',h:20},{label:'Steamed milk',color:'#f0e6d0',h:120},{label:'Espresso',color:'#3d1800',h:40}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Steamed milk',value:'160ml',sub:'microfoam'},{label:'Foam',value:'~1cm',sub:'on top'},{label:'Cup size',value:'240ml',sub:'tulip glass'}],steps:[{name:'Pull a double shot',desc:'Dose 18g and pull 60ml double espresso. Target 25–30 seconds.'},{name:'Steam milk to 60–65°C',desc:'Texture to silky microfoam.',tip:'Swirl and tap jug before pouring.'},{name:'Pour from low',desc:'Tilt cup, let milk flow through espresso.'},{name:'Latte art (optional)',desc:'Near full, wiggle spout for a heart or rosetta.',tip:'Aim for 1cm foam layer on top.'}]},
-  cappuccino:{icon:'☁️',name:'Cappuccino',tagline:'Balanced · Frothy · 180ml',cupHeight:150,layers:[{label:'Thick foam',color:'#f8f4ee',h:60},{label:'Steamed milk',color:'#f0e4cc',h:50},{label:'Espresso',color:'#3d1800',h:40}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Steamed milk',value:'60ml',sub:'hot'},{label:'Foam',value:'60ml',sub:'thick & dry'},{label:'Cup size',value:'180ml',sub:'ceramic cup'}],steps:[{name:'Pull a double shot',desc:'Dose 18g, pull 60ml into pre-warmed cup.'},{name:'Steam milk to stiff foam',desc:'Introduce more air for thicker foam.',tip:'Keep wand near surface to build volume.'},{name:'Pour equal thirds',desc:'⅓ espresso, ⅓ milk, ⅓ foam. Spoon foam on top.'},{name:'Dust with chocolate',desc:'Light cocoa dusting is classic. Serve immediately.'}]},
-  piccolo:{icon:'🌿',name:'Piccolo Latte',tagline:'Intense · Small · 100ml',cupHeight:120,layers:[{label:'Foam',color:'#f5f0e8',h:10},{label:'Steamed milk',color:'#f0e4cc',h:50},{label:'Ristretto',color:'#2a1000',h:60}],ingredients:[{label:'Ristretto',value:'30ml',sub:'restricted shot'},{label:'Steamed milk',value:'60ml',sub:'fine microfoam'},{label:'Foam',value:'thin layer',sub:'on top'},{label:'Cup size',value:'100ml',sub:'glass demitasse'}],steps:[{name:'Pull a ristretto',desc:'Dose 9g, pull a restricted 20–30ml shot.'},{name:'Steam small milk',desc:'Steam only 60ml to silky microfoam at 60–65°C.',tip:'Use a smaller jug for more control.'},{name:'Pour over ristretto',desc:'Pour over ristretto in a small glass. Drink quickly.'}]},
-  flatwhite:{icon:'🤍',name:'Flat White',tagline:'Velvety · Strong · 160ml',cupHeight:150,layers:[{label:'Microfoam',color:'#f5f0e6',h:15},{label:'Steamed milk',color:'#efe3cc',h:95},{label:'Double espresso',color:'#3d1800',h:40}],ingredients:[{label:'Espresso',value:'60ml',sub:'double ristretto'},{label:'Steamed milk',value:'100ml',sub:'velvety microfoam'},{label:'Ratio',value:'2:3',sub:'coffee to milk'},{label:'Cup size',value:'160ml',sub:'tulip cup'}],steps:[{name:'Pull a double ristretto',desc:'Dose 18g, pull restricted double ~40–50ml.'},{name:'Steam milk thin',desc:'Steam 100ml to 60–65°C. Thinner foam than a latte.',tip:'Tap jug hard to collapse big bubbles.'},{name:'Pour with intention',desc:'Steady stream close to surface.'}]},
-  cortado:{icon:'⚖️',name:'Cortado',tagline:'Equal parts · No fuss · 120ml',cupHeight:120,layers:[{label:'Steamed milk',color:'#ede0c8',h:60},{label:'Espresso',color:'#3d1800',h:60}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Steamed milk',value:'60ml',sub:'lightly textured'},{label:'Ratio',value:'1:1',sub:'espresso to milk'},{label:'Cup size',value:'120ml',sub:'Gibraltar glass'}],steps:[{name:'Pull a double shot',desc:'Dose 18g for 60ml double. Strong and present.'},{name:'Steam lightly',desc:'Steam 60ml to 55–60°C with minimal foam.',tip:'Just enough to soften the espresso.'},{name:'Pour equal parts',desc:'1:1 ratio. No art, no fuss.'}]},
-  macchiato:{icon:'🔸',name:'Macchiato',tagline:'Marked · Sharp · 40ml',cupHeight:90,layers:[{label:'Foam dot',color:'#f8f2e8',h:20},{label:'Espresso',color:'#3d1800',h:70}],ingredients:[{label:'Espresso',value:'30ml',sub:'single shot'},{label:'Foam',value:'1 tsp',sub:'steamed milk foam'},{label:'Cup size',value:'60ml',sub:'demitasse'}],steps:[{name:'Pull a single shot',desc:'Dose 9g, pull 30ml into a small demitasse.'},{name:'Steam tiny milk',desc:'A few seconds on the wand — just one teaspoon of foam.'},{name:'"Mark" the espresso',desc:'Spoon a small foam dollop onto the centre.',tip:'The foam is a mark, not a topping.'}]},
-  americano:{icon:'🌊',name:'Americano',tagline:'Diluted · Approachable · 240ml',cupHeight:180,layers:[{label:'Hot water',color:'#c8dde8',h:120},{label:'Espresso',color:'#3d1800',h:60}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Hot water',value:'180ml',sub:'off the boil'},{label:'Ratio',value:'1:3',sub:'espresso to water'},{label:'Cup size',value:'240ml',sub:'large mug'}],steps:[{name:'Pull a double shot',desc:'Dose 18g, pull standard 60ml double.'},{name:'Add hot water first',desc:'Pour 180ml of 85–90°C water into cup first.',tip:'Water first preserves crema.'},{name:'Pour espresso over',desc:'Gently pour espresso over the water.'}]},
-  iced_americano:{icon:'🧊',name:'Iced Americano',tagline:'Cold · Refreshing · 300ml',cupHeight:200,layers:[{label:'Espresso',color:'#3d1800',h:40},{label:'Cold water',color:'#c8dde8',h:80},{label:'Ice',color:'#e8f4f8',h:80}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Cold water',value:'120ml',sub:'filtered'},{label:'Ice',value:'1 cup',sub:'cubes'},{label:'Cup size',value:'300ml',sub:'tall glass'}],steps:[{name:'Fill glass with ice',desc:'Fill a tall glass generously with ice.',tip:'Large cubes melt slower and dilute less.'},{name:'Add cold water',desc:'Pour 120ml of cold water over the ice.'},{name:'Pull a double shot',desc:'Pull a fresh hot 60ml double espresso.'},{name:'Pour espresso over ice',desc:'Pour hot espresso directly over the ice and water.',tip:'Do not stir — let it mix naturally as you drink.'}]},
-  longblack:{icon:'🖤',name:'Long Black',tagline:'Strong · Crema-rich · 200ml',cupHeight:160,layers:[{label:'Crema',color:'#c8903a',h:15},{label:'Espresso',color:'#3d1800',h:45},{label:'Hot water',color:'#b8ccd6',h:100}],ingredients:[{label:'Hot water',value:'120ml',sub:'in cup first'},{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Cup size',value:'200ml',sub:'ceramic cup'}],steps:[{name:'Hot water first',desc:'Pour 120ml of 85–90°C water into pre-warmed cup.',tip:'Water first separates it from an americano.'},{name:'Pull double shot in',desc:'Pull 60ml directly on top. Crema floats.'},{name:'Do not stir',desc:'Served unstirred. Stir only if you prefer.'}]},
-  iced_longblack:{icon:'🖤',name:'Iced Long Black',tagline:'Bold · Cold · 250ml',cupHeight:190,layers:[{label:'Crema',color:'#c8903a',h:10},{label:'Espresso',color:'#3d1800',h:50},{label:'Cold water',color:'#b8ccd6',h:50},{label:'Ice',color:'#ddeef4',h:80}],ingredients:[{label:'Espresso',value:'60ml',sub:'double shot'},{label:'Cold water',value:'80ml',sub:'filtered'},{label:'Ice',value:'1 cup',sub:'large cubes'},{label:'Cup size',value:'250ml',sub:'tall glass'}],steps:[{name:'Fill glass with ice',desc:'Pack a tall glass with large ice cubes.',tip:'Chill your glass beforehand for best results.'},{name:'Add cold water over ice',desc:'Pour 80ml of cold filtered water over ice.'},{name:'Pull double shot immediately',desc:'Pull a hot 60ml double espresso.'},{name:'Pour espresso over ice',desc:'Pour directly on top. Crema will float. Serve immediately.',tip:'Less water than iced americano — stronger and more intense.'}]},
-  affogato:{icon:'🍨',name:'Affogato',tagline:'Dessert · Contrast · Indulgent',cupHeight:140,layers:[{label:'Espresso',color:'#3d1800',h:50},{label:'Ice cream',color:'#fdf6e8',h:90}],ingredients:[{label:'Ice cream',value:'1–2 scoops',sub:'vanilla gelato'},{label:'Espresso',value:'30ml',sub:'single shot, hot'},{label:'Cup size',value:'150ml',sub:'small bowl'}],steps:[{name:'Chill your glass',desc:'Freeze the serving glass for a few minutes.'},{name:'Scoop ice cream',desc:'Add 1–2 scoops of quality vanilla gelato.'},{name:'Pull hot shot immediately',desc:'Pull a fresh hot 30ml shot.',tip:'Single origin espresso shines here.'},{name:'Pour & serve at once',desc:'Pour espresso over ice cream. Best within the first minute.'}]},
-  dirtychai:{icon:'🍵',name:'Dirty Chai',tagline:'Spiced · Complex · 240ml',cupHeight:180,layers:[{label:'Espresso',color:'#3d1800',h:30},{label:'Chai & milk',color:'#c8845a',h:120},{label:'Foam',color:'#f0e4d0',h:30}],ingredients:[{label:'Espresso',value:'30–60ml',sub:'single or double'},{label:'Chai concentrate',value:'60ml',sub:'or 1 teabag'},{label:'Steamed milk',value:'120ml',sub:'oat milk works great'},{label:'Spices',value:'cinnamon+',sub:'ginger, cardamom'}],steps:[{name:'Brew or heat chai',desc:'Concentrate: heat 60ml. Teabag: steep 4 min.',tip:'Look for cardamom, ginger, cinnamon, black pepper.'},{name:'Steam milk',desc:'Steam 120ml to silky microfoam at 60–65°C.'},{name:'Pull espresso',desc:'30–60ml depending on preference.'},{name:'Assemble',desc:'Chai first, steamed milk, float espresso on top. Dust with cinnamon.',tip:'The espresso sinking through the spiced milk is the magic.'}]},
-  iced_v60:{icon:'🧊',name:'Japanese Iced V60',tagline:'Bright · Crisp · Flash-chilled · 300ml',cupHeight:200,hasRatio:true,layers:[{label:'Brewed coffee',color:'#6b3a1f',h:80},{label:'Melted ice',color:'#c8dde8',h:40},{label:'Ice cubes',color:'#e4f2f8',h:80}],ingredients:[{label:'Ground coffee',value:'20g',sub:'medium-fine grind'},{label:'Hot water',value:'160ml',sub:'93°C for brewing'},{label:'Ice',value:'140g',sub:'weighed, in server'},{label:'Total yield',value:'~300ml',sub:'coffee + melted ice'}],steps:[{name:'Set up with ice in server',desc:'Place V60 on a server already containing 140g of weighed ice.',tip:'Weigh the ice — it\'s part of the recipe, not optional.'},{name:'Rinse filter',desc:'Rinse paper filter, discard rinse water, place dripper back on the ice-filled server.'},{name:'Add coffee & bloom',desc:'Add 20g of coffee. Pour 40ml of 93°C water to bloom. Wait 45 seconds.',timer:45},{name:'First pour — to 100ml',desc:'Pour slowly in spirals to reach 100ml total water.',timer:30},{name:'Second pour — to 160ml',desc:'Pour remaining water to reach 160ml total.',timer:30},{name:'Wait for drawdown',desc:'Total brew time ~2.5–3 minutes from first pour.',timer:60},{name:'Serve immediately',desc:'Hot coffee hits ice and chills instantly, locking in bright, floral flavours.',tip:'Do not add more ice — the melted ice is already your dilution.'}]},
+// ── DRINKS ────────────────────────────────────────────
+var DRINKS = {
+  espresso_pure:{icon:"☕",name:"Espresso",tagline:"Pure · Unadulterated · 30ml",cupHeight:80,layers:[{label:"Crema",color:"#c8903a",h:12},{label:"Espresso",color:"#3d1800",h:68}],ingredients:[{label:"Coffee",value:"9g",sub:"fine grind"},{label:"Espresso",value:"30ml",sub:"single shot"},{label:"Temp",value:"93C",sub:"water"},{label:"Cup size",value:"60-90ml",sub:"demitasse"}],steps:[{name:"Pull a single shot",desc:"Dose 9g of finely ground coffee. Tamp level and pull 30ml in 25-30 seconds.",tip:"Golden crema should cover the surface."},{name:"Serve immediately",desc:"Best drunk within 10-20 seconds.",tip:"Pre-warm your cup with hot water."}]},
+  latte:{icon:"🥛",name:"Cafe Latte",tagline:"Smooth · Creamy · 240ml",cupHeight:180,layers:[{label:"Foam",color:"#f5f0e8",h:20},{label:"Steamed milk",color:"#f0e6d0",h:120},{label:"Espresso",color:"#3d1800",h:40}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Steamed milk",value:"160ml",sub:"microfoam"},{label:"Foam",value:"~1cm",sub:"on top"},{label:"Cup size",value:"240ml",sub:"tulip glass"}],steps:[{name:"Pull a double shot",desc:"Dose 18g and pull 60ml double espresso. Target 25-30 seconds."},{name:"Steam milk to 60-65C",desc:"Texture to silky microfoam.",tip:"Swirl and tap jug before pouring."},{name:"Pour from low",desc:"Tilt cup, let milk flow through espresso."},{name:"Latte art (optional)",desc:"Near full, wiggle spout for a heart or rosetta.",tip:"Aim for 1cm foam layer on top."}]},
+  cappuccino:{icon:"☁️",name:"Cappuccino",tagline:"Balanced · Frothy · 180ml",cupHeight:150,layers:[{label:"Thick foam",color:"#f8f4ee",h:60},{label:"Steamed milk",color:"#f0e4cc",h:50},{label:"Espresso",color:"#3d1800",h:40}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Steamed milk",value:"60ml",sub:"hot"},{label:"Foam",value:"60ml",sub:"thick & dry"},{label:"Cup size",value:"180ml",sub:"ceramic cup"}],steps:[{name:"Pull a double shot",desc:"Dose 18g, pull 60ml into pre-warmed cup."},{name:"Steam milk to stiff foam",desc:"Introduce more air for thicker foam.",tip:"Keep wand near surface to build volume."},{name:"Pour equal thirds",desc:"One third espresso, one third milk, one third foam. Spoon foam on top."},{name:"Dust with chocolate",desc:"Light cocoa dusting is classic. Serve immediately."}]},
+  piccolo:{icon:"🌿",name:"Piccolo Latte",tagline:"Intense · Small · 100ml",cupHeight:120,layers:[{label:"Foam",color:"#f5f0e8",h:10},{label:"Steamed milk",color:"#f0e4cc",h:50},{label:"Ristretto",color:"#2a1000",h:60}],ingredients:[{label:"Ristretto",value:"30ml",sub:"restricted shot"},{label:"Steamed milk",value:"60ml",sub:"fine microfoam"},{label:"Foam",value:"thin layer",sub:"on top"},{label:"Cup size",value:"100ml",sub:"glass demitasse"}],steps:[{name:"Pull a ristretto",desc:"Dose 9g, pull a restricted 20-30ml shot."},{name:"Steam small milk",desc:"Steam only 60ml to silky microfoam at 60-65C.",tip:"Use a smaller jug for more control."},{name:"Pour over ristretto",desc:"Pour over ristretto in a small glass. Drink quickly."}]},
+  flatwhite:{icon:"🤍",name:"Flat White",tagline:"Velvety · Strong · 160ml",cupHeight:150,layers:[{label:"Microfoam",color:"#f5f0e6",h:15},{label:"Steamed milk",color:"#efe3cc",h:95},{label:"Double espresso",color:"#3d1800",h:40}],ingredients:[{label:"Espresso",value:"60ml",sub:"double ristretto"},{label:"Steamed milk",value:"100ml",sub:"velvety microfoam"},{label:"Ratio",value:"2:3",sub:"coffee to milk"},{label:"Cup size",value:"160ml",sub:"tulip cup"}],steps:[{name:"Pull a double ristretto",desc:"Dose 18g, pull restricted double ~40-50ml."},{name:"Steam milk thin",desc:"Steam 100ml to 60-65C. Thinner foam than a latte.",tip:"Tap jug hard to collapse big bubbles."},{name:"Pour with intention",desc:"Steady stream close to surface."}]},
+  cortado:{icon:"⚖️",name:"Cortado",tagline:"Equal parts · No fuss · 120ml",cupHeight:120,layers:[{label:"Steamed milk",color:"#ede0c8",h:60},{label:"Espresso",color:"#3d1800",h:60}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Steamed milk",value:"60ml",sub:"lightly textured"},{label:"Ratio",value:"1:1",sub:"espresso to milk"},{label:"Cup size",value:"120ml",sub:"Gibraltar glass"}],steps:[{name:"Pull a double shot",desc:"Dose 18g for 60ml double. Strong and present."},{name:"Steam lightly",desc:"Steam 60ml to 55-60C with minimal foam.",tip:"Just enough to soften the espresso."},{name:"Pour equal parts",desc:"1:1 ratio. No art, no fuss."}]},
+  macchiato:{icon:"🔸",name:"Macchiato",tagline:"Marked · Sharp · 40ml",cupHeight:90,layers:[{label:"Foam dot",color:"#f8f2e8",h:20},{label:"Espresso",color:"#3d1800",h:70}],ingredients:[{label:"Espresso",value:"30ml",sub:"single shot"},{label:"Foam",value:"1 tsp",sub:"steamed milk foam"},{label:"Cup size",value:"60ml",sub:"demitasse"}],steps:[{name:"Pull a single shot",desc:"Dose 9g, pull 30ml into a small demitasse."},{name:"Steam tiny milk",desc:"A few seconds on the wand. Just one teaspoon of foam."},{name:"Mark the espresso",desc:"Spoon a small foam dollop onto the centre.",tip:"The foam is a mark, not a topping."}]},
+  americano:{icon:"🌊",name:"Americano",tagline:"Diluted · Approachable · 240ml",cupHeight:180,layers:[{label:"Hot water",color:"#c8dde8",h:120},{label:"Espresso",color:"#3d1800",h:60}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Hot water",value:"180ml",sub:"off the boil"},{label:"Ratio",value:"1:3",sub:"espresso to water"},{label:"Cup size",value:"240ml",sub:"large mug"}],steps:[{name:"Pull a double shot",desc:"Dose 18g, pull standard 60ml double."},{name:"Add hot water first",desc:"Pour 180ml of 85-90C water into cup first.",tip:"Water first preserves crema."},{name:"Pour espresso over",desc:"Gently pour espresso over the water."}]},
+  iced_americano:{icon:"🧊",name:"Iced Americano",tagline:"Cold · Refreshing · 300ml",cupHeight:200,layers:[{label:"Espresso",color:"#3d1800",h:40},{label:"Cold water",color:"#c8dde8",h:80},{label:"Ice",color:"#e8f4f8",h:80}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Cold water",value:"120ml",sub:"filtered"},{label:"Ice",value:"1 cup",sub:"cubes"},{label:"Cup size",value:"300ml",sub:"tall glass"}],steps:[{name:"Fill glass with ice",desc:"Fill a tall glass generously with ice.",tip:"Large cubes melt slower and dilute less."},{name:"Add cold water",desc:"Pour 120ml of cold water over the ice."},{name:"Pull a double shot",desc:"Pull a fresh hot 60ml double espresso."},{name:"Pour espresso over ice",desc:"Pour hot espresso directly over the ice and water.",tip:"Do not stir — let it mix naturally as you drink."}]},
+  longblack:{icon:"🖤",name:"Long Black",tagline:"Strong · Crema-rich · 200ml",cupHeight:160,layers:[{label:"Crema",color:"#c8903a",h:15},{label:"Espresso",color:"#3d1800",h:45},{label:"Hot water",color:"#b8ccd6",h:100}],ingredients:[{label:"Hot water",value:"120ml",sub:"in cup first"},{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Cup size",value:"200ml",sub:"ceramic cup"}],steps:[{name:"Hot water first",desc:"Pour 120ml of 85-90C water into pre-warmed cup.",tip:"Water first separates it from an americano."},{name:"Pull double shot in",desc:"Pull 60ml directly on top. Crema floats."},{name:"Do not stir",desc:"Served unstirred. Stir only if you prefer."}]},
+  iced_longblack:{icon:"🖤",name:"Iced Long Black",tagline:"Bold · Cold · 250ml",cupHeight:190,layers:[{label:"Crema",color:"#c8903a",h:10},{label:"Espresso",color:"#3d1800",h:50},{label:"Cold water",color:"#b8ccd6",h:50},{label:"Ice",color:"#ddeef4",h:80}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Cold water",value:"80ml",sub:"filtered"},{label:"Ice",value:"1 cup",sub:"large cubes"},{label:"Cup size",value:"250ml",sub:"tall glass"}],steps:[{name:"Fill glass with ice",desc:"Pack a tall glass with large ice cubes.",tip:"Chill your glass beforehand for best results."},{name:"Add cold water over ice",desc:"Pour 80ml of cold filtered water over ice."},{name:"Pull double shot immediately",desc:"Pull a hot 60ml double espresso."},{name:"Pour espresso over ice",desc:"Pour directly on top. Crema will float. Serve immediately.",tip:"Less water than iced americano — stronger and more intense."}]},
+  affogato:{icon:"🍨",name:"Affogato",tagline:"Dessert · Contrast · Indulgent",cupHeight:140,layers:[{label:"Espresso",color:"#3d1800",h:50},{label:"Ice cream",color:"#fdf6e8",h:90}],ingredients:[{label:"Ice cream",value:"1-2 scoops",sub:"vanilla gelato"},{label:"Espresso",value:"30ml",sub:"single shot, hot"},{label:"Cup size",value:"150ml",sub:"small bowl"}],steps:[{name:"Chill your glass",desc:"Freeze the serving glass for a few minutes."},{name:"Scoop ice cream",desc:"Add 1-2 scoops of quality vanilla gelato."},{name:"Pull hot shot immediately",desc:"Pull a fresh hot 30ml shot.",tip:"Single origin espresso shines here."},{name:"Pour and serve at once",desc:"Pour espresso over ice cream. Best within the first minute."}]},
+  dirtychai:{icon:"🍵",name:"Dirty Chai",tagline:"Spiced · Complex · 240ml",cupHeight:180,layers:[{label:"Espresso",color:"#3d1800",h:30},{label:"Chai & milk",color:"#c8845a",h:120},{label:"Foam",color:"#f0e4d0",h:30}],ingredients:[{label:"Espresso",value:"30-60ml",sub:"single or double"},{label:"Chai concentrate",value:"60ml",sub:"or 1 teabag"},{label:"Steamed milk",value:"120ml",sub:"oat milk works great"},{label:"Spices",value:"cinnamon+",sub:"ginger, cardamom"}],steps:[{name:"Brew or heat chai",desc:"Concentrate: heat 60ml. Teabag: steep 4 min.",tip:"Look for cardamom, ginger, cinnamon, black pepper."},{name:"Steam milk",desc:"Steam 120ml to silky microfoam at 60-65C."},{name:"Pull espresso",desc:"30-60ml depending on preference."},{name:"Assemble",desc:"Chai first, steamed milk, float espresso on top. Dust with cinnamon.",tip:"The espresso sinking through the spiced milk is the magic."}]},
+  dirty_latte:{icon:"🤎",name:"Dirty Latte",tagline:"Espresso · Cold Milk · Iced · 300ml",cupHeight:200,layers:[{label:"Espresso",color:"#2a1000",h:40},{label:"Cold milk",color:"#f5efe4",h:120},{label:"Ice",color:"#e4f2f8",h:40}],ingredients:[{label:"Espresso",value:"60ml",sub:"double shot, hot"},{label:"Cold milk",value:"200ml",sub:"whole or oat milk"},{label:"Ice",value:"1 cup",sub:"in the glass"},{label:"Sweetener",value:"optional",sub:"syrup or sugar"}],steps:[{name:"Fill glass with ice",desc:"Fill a tall glass generously with ice cubes. The contrast between hot espresso and cold milk is the whole point.",tip:"Use large ice cubes — they melt slower and keep the drink colder longer."},{name:"Pour cold milk over ice",desc:"Pour 200ml of cold milk directly over the ice. Leave room at the top for the espresso.",tip:"Whole milk gives the richest result. Oat milk barista edition is the best dairy-free option."},{name:"Pull a double shot",desc:"Pull a fresh hot 60ml double espresso right before pouring."},{name:"Pour espresso over the back of a spoon",desc:"Hold a spoon just above the milk and slowly pour the hot espresso over the back of it. This helps it float briefly before sinking.",tip:"Do not stir — let it drift down naturally."},{name:"Add sweetener (optional)",desc:"Add simple syrup or vanilla syrup before the milk if you want it sweet. Stirring sugar in after will disturb the layers."},{name:"Serve immediately",desc:"Drink as is, or stir just before sipping. The flavour shifts as the espresso blends."}]},
+  iced_v60:{icon:"🧊",name:"Japanese Iced V60",tagline:"Bright · Crisp · Flash-chilled · 300ml",cupHeight:200,hasRatio:true,layers:[{label:"Brewed coffee",color:"#6b3a1f",h:80},{label:"Melted ice",color:"#c8dde8",h:40},{label:"Ice cubes",color:"#e4f2f8",h:80}],ingredients:[{label:"Ground coffee",value:"20g",sub:"medium-fine grind"},{label:"Hot water",value:"160ml",sub:"93C for brewing"},{label:"Ice",value:"140g",sub:"weighed, in server"},{label:"Total yield",value:"~300ml",sub:"coffee + melted ice"}],steps:[{name:"Set up with ice in server",desc:"Place V60 on a server already containing 140g of weighed ice.",tip:"Weigh the ice — it is part of the recipe, not optional."},{name:"Rinse filter",desc:"Rinse paper filter, discard rinse water, place dripper back on the ice-filled server."},{name:"Add coffee and bloom",desc:"Add 20g of coffee. Pour 40ml of 93C water to bloom. Wait 45 seconds.",timer:45},{name:"First pour to 100ml",desc:"Pour slowly in spirals to reach 100ml total water.",timer:30},{name:"Second pour to 160ml",desc:"Pour remaining water to reach 160ml total.",timer:30},{name:"Wait for drawdown",desc:"Total brew time around 2.5-3 minutes from first pour.",timer:60},{name:"Serve immediately",desc:"Hot coffee hits ice and chills instantly, locking in bright, floral flavours.",tip:"Do not add more ice — the melted ice is already your dilution."}]}
 };
 
-// ── KNOWLEDGE BASE DATA ───────────────────────────────
-const KB = [
-  {
-    icon:'🌱', title:'Coffee Species', sub:'Arabica, Robusta & beyond',
-    cards:[
-      {icon:'☕',title:'Arabica',badge:'arabica',body:`<p><strong>Coffea arabica</strong> is the world's most popular species — about 60–70% of all coffee produced. It grows at high altitudes (600–2,000m), is more delicate, and takes longer to mature.</p><p>Arabica beans are oval-shaped with a curved crease. They contain less caffeine (~1.2%) and more sugar, which translates to a sweeter, more complex, and nuanced cup.</p><p>Expect notes of fruit, florals, chocolate, and caramel. The gold standard for specialty coffee.</p>`,tags:['High altitude','Low caffeine','Complex flavour','Specialty grade'],flavors:[{label:'Sweetness',v:85},{label:'Acidity',v:75},{label:'Body',v:55},{label:'Bitterness',v:30}]},
-      {icon:'💪',title:'Robusta',badge:'robusta',body:`<p><strong>Coffea canephora</strong> (Robusta) is tougher, higher-yielding, and more disease-resistant. It grows at lower altitudes and thrives in hotter climates — hence the name.</p><p>Robusta contains nearly double the caffeine of Arabica (~2.7%), which acts as a natural pesticide. The beans are rounder with a straighter crease.</p><p>Flavor profile: earthy, woody, rubbery, with a strong bitter punch. Essential in espresso blends for crema, and dominant in Vietnamese and Italian-style coffees.</p>`,tags:['Low altitude','High caffeine','Strong crema','Espresso blends'],flavors:[{label:'Sweetness',v:30},{label:'Acidity',v:25},{label:'Body',v:90},{label:'Bitterness',v:88}]},
-      {icon:'🌸',title:'Liberica & Excelsa',badge:'info',body:`<p><strong>Liberica</strong> is grown mostly in the Philippines and Malaysia. It has an unusually large, irregular bean and a distinctly smoky, woody, floral flavour — divisive but fascinating.</p><p><strong>Excelsa</strong> (often classified as a Liberica variant) is grown in Southeast Asia. It produces a tart, fruity, dark-roasty cup and is used to add complexity to blends.</p><p>Combined, they account for less than 3% of global production. Rare, but worth seeking out.</p>`,tags:['Rare','Philippines','Malaysia','Fruity & smoky']},
-    ]
-  },
-  {
-    icon:'🗺️', title:'Coffee Origins', sub:'Terroir, regions & famous beans',
-    cards:[
-      {icon:'🇪🇹',title:'Ethiopia',badge:'origin',body:`<p>The <strong>birthplace of coffee</strong>. The Kaffa region is where Coffea arabica was first discovered, and Ethiopia remains the most genetically diverse coffee origin on earth.</p><p><strong>Yirgacheffe</strong> is the most celebrated — expect jasmine, bergamot, lemon, and blueberry. Ethereal and floral. <strong>Sidama</strong> is fuller-bodied with peach and apricot notes. <strong>Harrar</strong> is dry-processed and winey, with blueberry and dark chocolate.</p><p>Ethiopia is the holy grail for light-roast lovers and third-wave cafés worldwide.</p>`,tags:['Yirgacheffe','Sidama','Harrar','Floral','Fruity']},
-      {icon:'🇮🇩',title:'Indonesia — Gayo (Aceh)',badge:'origin',body:`<p>Grown in the Gayo highlands of Aceh, Sumatra, at 1,200–1,500m altitude. <strong>Kopi Gayo</strong> is one of Indonesia's most prized exports and holds a Geographical Indication (GI) certification.</p><p>Processed mostly using the <em>wet-hulled</em> (Giling Basah) method — unique to Indonesia — which gives it a distinctively heavy body, low acidity, and earthy-herbal flavour profile with hints of cedar, dark chocolate, and tobacco.</p><p>Beloved by espresso roasters for its deep, complex body.</p>`,tags:['Sumatra','Wet-hulled','Heavy body','Earthy','Chocolate']},
-      {icon:'🦦',title:'Kopi Luwak',badge:'origin',body:`<p>The world's most famous (and controversial) coffee. Asian palm civets eat ripe coffee cherries; the beans pass through their digestive system and are collected, cleaned, and roasted.</p><p>The fermentation in the civet's gut is said to break down proteins, reducing bitterness and adding a distinctive smooth, earthy flavour. Prices can reach $300–500/kg.</p><p><strong>Ethical concerns are serious:</strong> Most commercial Kopi Luwak involves caged civets in poor conditions. Wild-sourced Luwak is genuinely rare and nearly impossible to verify. Worth knowing about, but approach with caution.</p>`,tags:['Indonesia','Controversial','Smooth','Earthy','Very expensive']},
-      {icon:'🇾🇪',title:'Yemen — Mocha',badge:'origin',body:`<p>Yemen was the <strong>first country to cultivate and trade coffee commercially</strong>, through the port of Mocha (Al-Makha) in the 15th century. This is where the word "mocha" comes from — it originally referred to Yemeni coffee, not chocolate.</p><p>Yemeni coffee is grown in ancient stone terraces at high altitude, dry-processed, and incredibly distinct: intensely winey, fruity, and complex with notes of dried fig, tamarind, and spice.</p><p>Very limited supply due to ongoing conflict. One of the most sought-after and expensive coffees in the world.</p>`,tags:['Historical','Winey','Fruity','Very rare','Dry processed']},
-      {icon:'🇨🇴',title:'Colombia',badge:'origin',body:`<p>Colombia is the world's third-largest coffee producer and synonymous with quality Arabica. Its geography — the Andes mountains, two harvests per year, rich volcanic soil — creates ideal conditions.</p><p>Colombian coffee is known for being <strong>well-balanced and accessible</strong>: medium body, bright but mild acidity, and notes of caramel, red apple, and hazelnut. It's the entry point for many specialty coffee drinkers.</p><p>Key regions: <strong>Huila</strong> (fruity, complex), <strong>Nariño</strong> (bright, citrusy), <strong>Antioquia</strong> (balanced, sweet).</p>`,tags:['Huila','Nariño','Balanced','Caramel','Bright']},
-      {icon:'🇯🇵',title:'Jamaica Blue Mountain',badge:'origin',body:`<p>Grown between 910–1,700m in Jamaica's Blue Mountains. One of the most famous and expensive coffees globally — protected by a certification that limits the name to beans from this specific region.</p><p>Profile: extremely mild, almost no bitterness, silky smooth with notes of sweet chocolate, herbs, and light fruit. It's less bold than most coffees — the appeal is its <em>elegance and balance</em>.</p><p>Heavily exported to Japan, which purchases about 80% of the annual production.</p>`,tags:['Mild','Smooth','Chocolate','Very expensive','Jamaica']},
-    ]
-  },
-  {
-    icon:'⚙️', title:'Processing Methods', sub:'How the cherry becomes the bean',
-    cards:[
-      {icon:'💧',title:'Washed (Full Wash)',badge:'process',body:`<p>The most common specialty process. After harvesting, the fruit skin and pulp are mechanically removed, then the beans are fermented in water tanks to dissolve the remaining mucilage (sticky layer), then washed clean and dried.</p><p><strong>Result:</strong> The cleanest expression of the bean's origin and variety. Bright acidity, clarity, and transparency of flavour. Notes of citrus, florals, and stone fruit.</p><p>Think of washed coffee as a clear photograph of the bean's character. If the terroir is exceptional, washed processing lets it shine without interference.</p>`,tags:['Clean','Bright','Transparent','High acidity','Specialty favourite']},
-      {icon:'☀️',title:'Natural (Dry Process)',badge:'process',body:`<p>The oldest processing method. Whole cherries are dried in the sun for weeks, fruit and all, before being hulled. The bean ferments inside the fruit as it dries.</p><p><strong>Result:</strong> Heavy, syrupy body with intense fruit-forward flavours — blueberry, strawberry, wine, tropical fruit. Much less acidity than washed, but more fermentation risk.</p><p>Ethiopian naturals and Brazilian naturals are the benchmark. Some drinkers love the funky intensity; traditionalists find it overwhelming.</p>`,tags:['Fruity','Winey','Heavy body','Low acidity','Fermented']},
-      {icon:'🍯',title:'Honey Process',badge:'process',body:`<p>A middle ground between washed and natural. The skin is removed but varying amounts of mucilage (the honey-like sticky layer) are left on the bean during drying.</p><p><strong>Yellow honey:</strong> most mucilage removed, closest to washed — clean and bright. <strong>Red honey:</strong> more mucilage left, more body and sweetness. <strong>Black honey:</strong> almost all mucilage retained, closest to natural — very sweet and fruity.</p><p>Honey-processed coffees from Costa Rica and El Salvador are benchmark examples. They offer complexity without the wild fermentation of naturals.</p>`,tags:['Balanced','Sweet','Costa Rica','El Salvador','Medium body']},
-      {icon:'🧪',title:'Anaerobic Fermentation',badge:'process',body:`<p>A newer, experimental process where cherries or depulped beans ferment in sealed, oxygen-free tanks. Without oxygen, different bacteria and yeasts dominate — producing wildly unique flavour compounds.</p><p><strong>Result:</strong> Intense, almost boozy, tropical, and fermented flavours. Think passion fruit, rum, sourdough, and rose water. Very distinct and polarising.</p><p>Anaerobic processing is the current obsession of competition baristas and specialty roasters. When done well, it's remarkable. When overdone, it tastes artificial and overwhelms the bean's origin character.</p>`,tags:['Experimental','Boozy','Tropical','Competition coffee','Polarising']},
-      {icon:'💨',title:'Wet-Hulled (Giling Basah)',badge:'process',body:`<p>Unique to Indonesia (Sumatra, Sulawesi, Flores). The parchment layer is removed while the bean still has high moisture content — unlike other methods where beans are fully dried first.</p><p><strong>Result:</strong> The distinctive "Sumatran" profile: low acidity, very heavy and syrupy body, earthy, herbal, and mushroomy flavours. The high-moisture hulling introduces specific flavour compounds found nowhere else.</p><p>It's an acquired taste — specialty roasters either celebrate it as terroir or avoid it as defect. Kopi Gayo and Mandheling are the benchmark wet-hulled coffees.</p>`,tags:['Indonesia','Earthy','Heavy body','Low acidity','Unique']},
-    ]
-  },
-  {
-    icon:'🔥', title:'Roast Levels', sub:'From light & floral to dark & smoky',
-    cards:[
-      {icon:'🌿',title:'Light Roast',badge:'roast',body:`<p>Roasted to an internal temperature of around <strong>180–205°C</strong>, just at or before "first crack" (an audible popping as moisture escapes). Beans are light brown, dry surface, no oils visible.</p><p>Light roast preserves the most origin character — all the floral, fruity, and acidic notes the terroir and processing created. Caffeine content is highest (less is burned off).</p><p><strong>Best for:</strong> Pour over, V60, filter coffee. Specialty coffee culture skews heavily light. Expect: jasmine, berries, citrus, stone fruit, tea-like delicacy.</p><p><strong>Common names:</strong> Cinnamon roast, New England, Half City.</p>`,tags:['High acidity','Fruity','Floral','Origin-forward','Specialty'],flavors:[{label:'Acidity',v:90},{label:'Sweetness',v:70},{label:'Body',v:40},{label:'Bitterness',v:15}]},
-      {icon:'🍂',title:'Medium Roast',badge:'roast',body:`<p>Roasted to <strong>210–220°C</strong>, between first and second crack. Beans are medium brown, still dry surface. The most commercially popular roast level worldwide.</p><p>A balance point: some origin character remains, but roast flavours (caramel, chocolate, nuts) start to develop. Acidity softens, body increases compared to light roast.</p><p><strong>Best for:</strong> Drip coffee, AeroPress, espresso blends. Approachable for most palates. Expect: caramel, milk chocolate, hazelnut, brown sugar, mild fruit.</p><p><strong>Common names:</strong> City, City+, American, Breakfast roast.</p>`,tags:['Balanced','Caramel','Chocolate','Approachable','Versatile'],flavors:[{label:'Acidity',v:55},{label:'Sweetness',v:80},{label:'Body',v:65},{label:'Bitterness',v:45}]},
-      {icon:'🌑',title:'Dark Roast',badge:'roast',body:`<p>Roasted to <strong>225°C+</strong>, into or past second crack. Beans are dark brown to nearly black, oily surface as oils migrate outward. Origin character is largely replaced by roast character.</p><p>Lower acidity, very heavy body, and dominant bitterness. The sugars are nearly fully caramelised or burned — hence the smoky, dark chocolate, and bitter notes.</p><p><strong>Best for:</strong> Espresso (traditional Italian style), Moka pot, French press. Holds up to milk. Expect: dark chocolate, smoke, ash, roasted nuts, tobacco.</p><p><strong>Common names:</strong> French roast, Italian roast, Espresso roast, Vienna.</p>`,tags:['Low acidity','Smoky','Bold','Oily','Heavy body'],flavors:[{label:'Acidity',v:15},{label:'Sweetness',v:30},{label:'Body',v:92},{label:'Bitterness',v:85}]},
-      {icon:'📊',title:'Roast & Caffeine — The Myth',badge:'info',body:`<p>Common myth: <em>"Dark roast has more caffeine."</em> This is wrong, and here's why.</p><p>Caffeine is relatively stable under heat. As beans roast longer and darker, they <strong>lose mass and density</strong> (moisture evaporates). So:</p><p>By <strong>weight</strong>: Light roast has slightly more caffeine per gram (denser beans).<br/>By <strong>volume/scoop</strong>: Dark roast has slightly more caffeine (lighter, less dense beans pack more per scoop).</p><p>In practice, the difference is negligible. The type of bean (Robusta vs Arabica) and brew ratio matter far more than roast level for caffeine content.</p>`,tags:['Myth busted','Caffeine','Roast science']},
-    ]
-  },
-  {
-    icon:'🧬', title:'Flavour & Extraction', sub:'Why coffee tastes the way it does',
-    cards:[
-      {icon:'📐',title:'The Coffee Flavour Wheel',badge:'info',body:`<p>The <strong>SCA Coffee Taster's Flavor Wheel</strong> (Specialty Coffee Association) is the industry standard for describing coffee flavour. It maps hundreds of flavour descriptors in concentric rings — from broad categories (fruity, floral, nutty) inward to specific notes (jasmine, blackberry, hazelnut).</p><p>The outer ring is specific: "cherry", "apricot", "bergamot". The inner ring is general: "fruity", "floral". Trained tasters work from inside out — first identifying the category, then narrowing to the specific note.</p><p>You don't need to memorise it. Just knowing it exists and using the language ("I get some stone fruit and a floral finish") will make you sound like you know exactly what you're doing.</p>`,tags:['Tasting','SCA','Specialty','Vocabulary']},
-      {icon:'⚗️',title:'Extraction — Under, Over & Just Right',badge:'info',body:`<p>Extraction is the percentage of soluble compounds pulled from the coffee grounds. The SCA golden zone is <strong>18–22% extraction</strong>.</p><p><strong>Under-extracted (&lt;18%):</strong> Sour, salty, thin, hollow. The pleasant acids come out first; not enough brewing time/heat/grind surface area to reach the sugars and balancing compounds.</p><p><strong>Over-extracted (&gt;22%):</strong> Bitter, dry, astringent, harsh. You've pulled the unpleasant tannins and bitter compounds after exhausting the good stuff.</p><p><strong>Just right:</strong> Sweet, balanced, clean finish. Acidity and bitterness in harmony. Adjust grind size first — finer = more extraction, coarser = less.</p>`,tags:['Extraction','Brewing science','Grind size','Taste']},
-      {icon:'💧',title:'Water Quality & Temperature',badge:'info',body:`<p>Coffee is 98–99% water. Water quality is massively underestimated by home brewers.</p><p><strong>Ideal TDS (Total Dissolved Solids):</strong> 75–150 ppm. Too soft (distilled water) = flat, sour. Too hard = chalky, over-extracted, and it destroys your equipment.</p><p><strong>Temperature:</strong> SCA recommends <strong>90–96°C</strong>. Below 85°C = under-extraction, sour. Boiling (100°C) = over-extraction, bitter. For dark roasts, use lower temp (88–90°C). For light roasts, use higher (93–96°C).</p><p>If your tap water tastes good, it's probably fine. If not, use filtered or mineral water.</p>`,tags:['Water','TDS','Temperature','Brewing science']},
-      {icon:'⏱️',title:'Grind Size — The Most Important Variable',badge:'info',body:`<p>Grind size controls surface area, which controls extraction rate. It's the single most impactful variable in brewing coffee.</p><p><strong>Finer grind:</strong> More surface area, faster extraction, more body, more bitterness risk. Espresso requires the finest grind.</p><p><strong>Coarser grind:</strong> Less surface area, slower extraction, cleaner cup, more sourness risk. Cold brew and French press use the coarsest.</p><p>The general rule: <em>if your coffee tastes sour, grind finer. If it tastes bitter, grind coarser.</em> Always adjust grind before changing any other variable.</p>`,tags:['Grind','Extraction','Burr grinder','Espresso','Filter']},
-    ]
-  },
-  {
-    icon:'🏆', title:'Specialty Coffee 101', sub:'Third wave, scores & what it all means',
-    cards:[
-      {icon:'🌊',title:'The Three Waves of Coffee',badge:'info',body:`<p><strong>First wave (1800s–1960s):</strong> Coffee as a commodity. Folgers, Maxwell House. Accessibility over quality. Instant coffee was peak innovation.</p><p><strong>Second wave (1960s–2000s):</strong> Coffee as an experience. Starbucks, lattes, flavoured syrups. People started caring about café culture, but beans were still over-roasted commodity blends.</p><p><strong>Third wave (2000s–present):</strong> Coffee as craft. Single origins, transparent sourcing, light roasts, barista as artisan. Focus on the farmer, the terroir, the process. Specialty cafés, competition culture, and direct trade relationships.</p><p>We are now arguably entering a <strong>fourth wave</strong>: scientific precision, fermentation experimentation, and coffee geekery taken to an extreme.</p>`,tags:['History','Culture','Third wave','Specialty']},
-      {icon:'💯',title:'The SCA Score & "Specialty" Definition',badge:'info',body:`<p>The <strong>Specialty Coffee Association (SCA)</strong> defines specialty coffee as any coffee scoring <strong>80 points or above</strong> on their 100-point cupping scale.</p><p>Coffees are evaluated on: fragrance/aroma, flavour, aftertaste, acidity, body, balance, uniformity, clean cup, sweetness, and overall impression. Trained Q-Graders (certified tasters) conduct the cupping.</p><p><strong>80–84.99:</strong> Very Good. <strong>85–89.99:</strong> Excellent. <strong>90+:</strong> Outstanding — extremely rare, the top fraction of a percent of all coffee produced globally.</p><p>Most specialty café offerings sit in the 84–88 range. A 90+ coffee will genuinely change how you think about the drink.</p>`,tags:['SCA','Q-Grader','Cupping','Score','Quality']},
-      {icon:'🌿',title:'Direct Trade & Transparency',badge:'info',body:`<p>Most commodity coffee passes through brokers, cooperatives, and importers before reaching the roaster — with farmers often receiving less than $1 per pound.</p><p><strong>Direct trade</strong> means the roaster buys directly from the farm, typically paying 2–5× the commodity price. The best specialty roasters publish the farm, the farmer's name, the harvest year, the price paid, and the lot details on the bag.</p><p>Terms to know: <strong>single origin</strong> (one farm or region), <strong>single estate</strong> (one specific farm), <strong>microlot</strong> (a tiny, exceptional lot from one section of a farm), <strong>lot number</strong> (traceability back to the specific harvest).</p>`,tags:['Ethics','Sourcing','Transparency','Farmer','Single origin']},
-      {icon:'☕',title:'How to Taste Coffee Like a Pro',badge:'info',body:`<p><strong>Cupping</strong> is the industry-standard tasting method: coarsely ground coffee is steeped in hot water, and tasters slurp it loudly (seriously — the slurp aerates the coffee and spreads it across the palate).</p><p>What to evaluate: <strong>Aroma</strong> (dry and wet), <strong>Flavour</strong> (first impression), <strong>Aftertaste</strong> (finish length and quality), <strong>Acidity</strong> (brightness, not sourness), <strong>Body</strong> (weight on the tongue), <strong>Balance</strong> (does everything work together?).</p><p>At home: brew a pour over with no milk or sugar. Let it cool slightly (60–65°C is optimal for tasting). Take a small sip and let it coat your whole mouth. Ask yourself: sweet or bitter? Light or heavy? What fruit or food does it remind you of?</p>`,tags:['Cupping','Tasting','Aroma','Palate','SCA']},
-    ]
-  },
-];
+// ── KNOWLEDGE BASE ────────────────────────────────────
+var KB = [];
+(function(){
+  function card(ico,ttl,paras,tags,bars){return{ico:ico,ttl:ttl,paras:paras,tags:tags||[],bars:bars||[]};}
+  KB.push({icon:"🌱",title:"Coffee Species",sub:"Arabica, Robusta & beyond",cards:[
+    card("☕","Arabica",["Coffea arabica is the world's most popular species — about 60-70% of all coffee produced. It grows at high altitudes (600-2,000m), is more delicate, and takes longer to mature.","Arabica beans are oval-shaped with a curved crease. They contain less caffeine (~1.2%) and more sugar, which translates to a sweeter, more complex cup.","Expect notes of fruit, florals, chocolate, and caramel. The gold standard for specialty coffee."],["High altitude","Low caffeine","Complex flavour","Specialty grade"],[{l:"Sweetness",v:85},{l:"Acidity",v:75},{l:"Body",v:55},{l:"Bitterness",v:30}]),
+    card("💪","Robusta",["Coffea canephora (Robusta) is tougher, higher-yielding, and more disease-resistant. It grows at lower altitudes and thrives in hotter climates.","Robusta contains nearly double the caffeine of Arabica (~2.7%), which acts as a natural pesticide. The beans are rounder with a straighter crease.","Flavor profile: earthy, woody, rubbery, with a strong bitter punch. Essential in espresso blends for crema, and dominant in Vietnamese and Italian-style coffees."],["Low altitude","High caffeine","Strong crema","Espresso blends"],[{l:"Sweetness",v:30},{l:"Acidity",v:25},{l:"Body",v:90},{l:"Bitterness",v:88}]),
+    card("🌸","Liberica & Excelsa",["Liberica is grown mostly in the Philippines and Malaysia. It has an unusually large, irregular bean and a distinctly smoky, woody, floral flavour.","Excelsa (often classified as a Liberica variant) is grown in Southeast Asia. It produces a tart, fruity, dark-roasty cup and is used to add complexity to blends.","Combined, they account for less than 3% of global production. Rare, but worth seeking out."],["Rare","Philippines","Malaysia","Fruity & smoky"])
+  ]});
+  KB.push({icon:"🗺️",title:"Coffee Origins",sub:"Terroir, regions & famous beans",cards:[
+    card("🇪🇹","Ethiopia",["The birthplace of coffee. The Kaffa region is where Coffea arabica was first discovered, and Ethiopia remains the most genetically diverse coffee origin on earth.","Yirgacheffe is the most celebrated — expect jasmine, bergamot, lemon, and blueberry. Sidama is fuller-bodied with peach and apricot notes. Harrar is dry-processed and winey, with blueberry and dark chocolate.","Ethiopia is the holy grail for light-roast lovers and third-wave cafes worldwide."],["Yirgacheffe","Sidama","Harrar","Floral","Fruity"]),
+    card("🇮🇩","Indonesia — Gayo (Aceh)",["Grown in the Gayo highlands of Aceh, Sumatra, at 1,200-1,500m altitude. Kopi Gayo is one of Indonesia's most prized exports and holds a Geographical Indication (GI) certification.","Processed mostly using the wet-hulled (Giling Basah) method — unique to Indonesia — which gives it a distinctively heavy body, low acidity, and earthy-herbal flavour profile with hints of cedar, dark chocolate, and tobacco.","Beloved by espresso roasters for its deep, complex body."],["Sumatra","Wet-hulled","Heavy body","Earthy","Chocolate"]),
+    card("🦦","Kopi Luwak",["The world's most famous and controversial coffee. Asian palm civets eat ripe coffee cherries; the beans pass through their digestive system and are collected, cleaned, and roasted.","The fermentation in the civet's gut is said to break down proteins, reducing bitterness and adding a distinctive smooth, earthy flavour. Prices can reach $300-500/kg.","Ethical concerns are serious: Most commercial Kopi Luwak involves caged civets in poor conditions. Wild-sourced Luwak is genuinely rare and nearly impossible to verify."],["Indonesia","Controversial","Smooth","Earthy","Very expensive"]),
+    card("🇾🇪","Yemen — Mocha",["Yemen was the first country to cultivate and trade coffee commercially, through the port of Mocha (Al-Makha) in the 15th century. This is where the word mocha comes from — it originally referred to Yemeni coffee, not chocolate.","Yemeni coffee is grown in ancient stone terraces at high altitude, dry-processed, and incredibly distinct: intensely winey, fruity, and complex with notes of dried fig, tamarind, and spice.","Very limited supply due to ongoing conflict. One of the most sought-after and expensive coffees in the world."],["Historical","Winey","Fruity","Very rare","Dry processed"]),
+    card("🇨🇴","Colombia",["Colombia is the world's third-largest coffee producer and synonymous with quality Arabica. Its geography — the Andes mountains, two harvests per year, rich volcanic soil — creates ideal conditions.","Colombian coffee is known for being well-balanced and accessible: medium body, bright but mild acidity, and notes of caramel, red apple, and hazelnut.","Key regions: Huila (fruity, complex), Narino (bright, citrusy), Antioquia (balanced, sweet)."],["Huila","Narino","Balanced","Caramel","Bright"]),
+    card("🇯🇲","Jamaica Blue Mountain",["Grown between 910-1,700m in Jamaica's Blue Mountains. One of the most famous and expensive coffees globally — protected by a certification that limits the name to beans from this specific region.","Profile: extremely mild, almost no bitterness, silky smooth with notes of sweet chocolate, herbs, and light fruit. The appeal is its elegance and balance.","Heavily exported to Japan, which purchases about 80% of the annual production."],["Mild","Smooth","Chocolate","Very expensive","Jamaica"])
+  ]});
+  KB.push({icon:"⚙️",title:"Processing Methods",sub:"How the cherry becomes the bean",cards:[
+    card("💧","Washed (Full Wash)",["The most common specialty process. After harvesting, the fruit skin and pulp are mechanically removed, then the beans are fermented in water tanks to dissolve the remaining mucilage, then washed clean and dried.","Result: The cleanest expression of the bean's origin and variety. Bright acidity, clarity, and transparency of flavour. Notes of citrus, florals, and stone fruit.","Think of washed coffee as a clear photograph of the bean's character."],["Clean","Bright","Transparent","High acidity","Specialty favourite"]),
+    card("☀️","Natural (Dry Process)",["The oldest processing method. Whole cherries are dried in the sun for weeks, fruit and all, before being hulled. The bean ferments inside the fruit as it dries.","Result: Heavy, syrupy body with intense fruit-forward flavours — blueberry, strawberry, wine, tropical fruit. Much less acidity than washed, but more fermentation risk.","Ethiopian naturals and Brazilian naturals are the benchmark."],["Fruity","Winey","Heavy body","Low acidity","Fermented"]),
+    card("🍯","Honey Process",["A middle ground between washed and natural. The skin is removed but varying amounts of mucilage are left on the bean during drying.","Yellow honey: most mucilage removed, closest to washed. Red honey: more mucilage, more body and sweetness. Black honey: almost all mucilage retained, closest to natural — very sweet and fruity.","Honey-processed coffees from Costa Rica and El Salvador are benchmark examples."],["Balanced","Sweet","Costa Rica","El Salvador","Medium body"]),
+    card("🧪","Anaerobic Fermentation",["A newer, experimental process where cherries or depulped beans ferment in sealed, oxygen-free tanks. Without oxygen, different bacteria and yeasts dominate — producing wildly unique flavour compounds.","Result: Intense, almost boozy, tropical, and fermented flavours. Think passion fruit, rum, sourdough, and rose water. Very distinct and polarising.","Anaerobic processing is the current obsession of competition baristas and specialty roasters."],["Experimental","Boozy","Tropical","Competition coffee","Polarising"]),
+    card("💨","Wet-Hulled (Giling Basah)",["Unique to Indonesia (Sumatra, Sulawesi, Flores). The parchment layer is removed while the bean still has high moisture content — unlike other methods where beans are fully dried first.","Result: The distinctive Sumatran profile: low acidity, very heavy and syrupy body, earthy, herbal, and mushroomy flavours.","Kopi Gayo and Mandheling are the benchmark wet-hulled coffees."],["Indonesia","Earthy","Heavy body","Low acidity","Unique"])
+  ]});
+  KB.push({icon:"🔥",title:"Roast Levels",sub:"From light & floral to dark & smoky",cards:[
+    card("🌿","Light Roast",["Roasted to around 180-205C, just at or before first crack. Beans are light brown, dry surface, no oils visible.","Light roast preserves the most origin character — all the floral, fruity, and acidic notes the terroir and processing created. Caffeine content is highest (less is burned off).","Best for: Pour over, V60, filter coffee. Expect: jasmine, berries, citrus, stone fruit, tea-like delicacy."],["High acidity","Fruity","Floral","Origin-forward","Specialty"],[{l:"Acidity",v:90},{l:"Sweetness",v:70},{l:"Body",v:40},{l:"Bitterness",v:15}]),
+    card("🍂","Medium Roast",["Roasted to 210-220C, between first and second crack. Beans are medium brown, still dry surface. The most commercially popular roast level worldwide.","A balance point: some origin character remains, but roast flavours (caramel, chocolate, nuts) start to develop. Acidity softens, body increases.","Best for: Drip coffee, AeroPress, espresso blends. Expect: caramel, milk chocolate, hazelnut, brown sugar."],["Balanced","Caramel","Chocolate","Approachable","Versatile"],[{l:"Acidity",v:55},{l:"Sweetness",v:80},{l:"Body",v:65},{l:"Bitterness",v:45}]),
+    card("🌑","Dark Roast",["Roasted to 225C+, into or past second crack. Beans are dark brown to nearly black, oily surface as oils migrate outward. Origin character is largely replaced by roast character.","Lower acidity, very heavy body, and dominant bitterness. The sugars are nearly fully caramelised or burned.","Best for: Espresso (traditional Italian style), Moka pot, French press. Expect: dark chocolate, smoke, ash, roasted nuts, tobacco."],["Low acidity","Smoky","Bold","Oily","Heavy body"],[{l:"Acidity",v:15},{l:"Sweetness",v:30},{l:"Body",v:92},{l:"Bitterness",v:85}]),
+    card("📊","Roast & Caffeine — The Myth",["Common myth: Dark roast has more caffeine. This is wrong. Caffeine is relatively stable under heat. As beans roast longer and darker, they lose mass and density (moisture evaporates).","By weight: Light roast has slightly more caffeine per gram (denser beans). By volume: Dark roast has slightly more (lighter beans pack more per scoop).","In practice the difference is negligible. The type of bean (Robusta vs Arabica) and brew ratio matter far more."],["Myth busted","Caffeine","Roast science"])
+  ]});
+  KB.push({icon:"🧬",title:"Flavour & Extraction",sub:"Why coffee tastes the way it does",cards:[
+    card("📐","The Coffee Flavour Wheel",["The SCA Coffee Taster Flavor Wheel is the industry standard for describing coffee flavour. It maps hundreds of flavour descriptors in concentric rings — from broad categories (fruity, floral, nutty) inward to specific notes (jasmine, blackberry, hazelnut).","The outer ring is specific: cherry, apricot, bergamot. The inner ring is general: fruity, floral. Trained tasters work from inside out.","You do not need to memorise it. Just knowing it exists and using the language will make you sound like you know exactly what you are doing."],["Tasting","SCA","Specialty","Vocabulary"]),
+    card("⚗️","Extraction — Under, Over & Just Right",["Extraction is the percentage of soluble compounds pulled from the coffee grounds. The SCA golden zone is 18-22% extraction.","Under-extracted below 18%: Sour, salty, thin, hollow. The pleasant acids come out first without enough brewing time or heat to reach the sugars.","Over-extracted above 22%: Bitter, dry, astringent, harsh. You have pulled the unpleasant tannins and bitter compounds after exhausting the good stuff."],["Extraction","Brewing science","Grind size","Taste"]),
+    card("💧","Water Quality & Temperature",["Coffee is 98-99% water. Water quality is massively underestimated by home brewers.","Ideal TDS (Total Dissolved Solids): 75-150 ppm. Too soft (distilled water) = flat, sour. Too hard = chalky, over-extracted, and it destroys your equipment.","Temperature: SCA recommends 90-96C. Below 85C = under-extraction. Boiling (100C) = over-extraction. For dark roasts use lower temp (88-90C)."],["Water","TDS","Temperature","Brewing science"]),
+    card("⏱️","Grind Size — The Most Important Variable",["Grind size controls surface area, which controls extraction rate. It is the single most impactful variable in brewing coffee.","Finer grind: More surface area, faster extraction, more body, more bitterness risk. Espresso requires the finest grind.","The general rule: if your coffee tastes sour, grind finer. If it tastes bitter, grind coarser. Always adjust grind before changing any other variable."],["Grind","Extraction","Burr grinder","Espresso","Filter"])
+  ]});
+  KB.push({icon:"🏆",title:"Specialty Coffee 101",sub:"Third wave, scores & what it all means",cards:[
+    card("🌊","The Three Waves of Coffee",["First wave 1800s-1960s: Coffee as a commodity. Folgers, Maxwell House. Accessibility over quality. Instant coffee was peak innovation.","Second wave 1960s-2000s: Coffee as an experience. Starbucks, lattes, flavoured syrups. People started caring about cafe culture.","Third wave 2000s-present: Coffee as craft. Single origins, transparent sourcing, light roasts, barista as artisan. We are arguably entering a fourth wave: scientific precision and fermentation experimentation."],["History","Culture","Third wave","Specialty"]),
+    card("💯","The SCA Score & Specialty Definition",["The Specialty Coffee Association (SCA) defines specialty coffee as any coffee scoring 80 points or above on their 100-point cupping scale.","Coffees are evaluated on: fragrance, aroma, flavour, aftertaste, acidity, body, balance, uniformity, clean cup, sweetness, and overall impression. Trained Q-Graders conduct the cupping.","80-84.99: Very Good. 85-89.99: Excellent. 90+: Outstanding — extremely rare. Most specialty cafe offerings sit in the 84-88 range."],["SCA","Q-Grader","Cupping","Score","Quality"]),
+    card("🌿","Direct Trade & Transparency",["Most commodity coffee passes through brokers, cooperatives, and importers before reaching the roaster — with farmers often receiving less than $1 per pound.","Direct trade means the roaster buys directly from the farm, typically paying 2-5x the commodity price.","Terms to know: single origin (one farm or region), single estate (one specific farm), microlot (tiny exceptional lot from one section of a farm), lot number (traceability back to the specific harvest)."],["Ethics","Sourcing","Transparency","Farmer","Single origin"]),
+    card("☕","How to Taste Coffee Like a Pro",["Cupping is the industry-standard tasting method: coarsely ground coffee is steeped in hot water, and tasters slurp it loudly. The slurp aerates the coffee and spreads it across the palate.","What to evaluate: Aroma (dry and wet), Flavour (first impression), Aftertaste (finish length and quality), Acidity (brightness, not sourness), Body (weight on the tongue), Balance (does everything work together?).","At home: brew a pour over with no milk or sugar. Let it cool to 60-65C. Take a small sip and let it coat your whole mouth. Ask yourself: sweet or bitter? Light or heavy?"],["Cupping","Tasting","Aroma","Palate","SCA"])
+  ]});
+  KB.push({icon:"❓",title:"Brewing FAQ",sub:"Why does my coffee taste like that?",cards:[
+    card("💧","Why is my coffee watery?",["Watery coffee usually means under-extraction or too little coffee for the amount of water used.","Fix 1 — Check your ratio: The SCA golden ratio is 1:15 to 1:17. If you are using less coffee than this, the brew will taste thin and weak.","Fix 2 — Grind finer: A coarser grind extracts less. Fix 3 — Check water temperature: Water below 85C under-extracts, producing a flat, watery result. Fix 4 — Slow down the pour: For pour over methods, pouring too fast rushes the brew."],["Under-extraction","Ratio","Grind","Temperature"]),
+    card("😬","Why is my espresso too bitter?",["Bitterness in espresso almost always means over-extraction. You have pulled too many compounds from the grounds — including the unpleasant ones.","Fix 1 — Grind coarser: The single most effective fix. Fix 2 — Shorten the shot: Aim for 25-30s for a 1:2 ratio (18g in, 36ml out). Fix 3 — Lower water temperature: Try dropping to 90-92C.","Fix 4 — Check your roast: Very dark roasts are inherently more bitter. Try a lighter or medium roast for espresso. Fix 5 — Check your tamp: Uneven tamping creates channelling and over-extracts sections of the puck."],["Over-extraction","Espresso","Grind coarser","Bitter"]),
+    card("😣","Why is my coffee sour?",["Sourness equals under-extraction. The pleasant fruity acids are extracted first, but you have not brewed long enough or hot enough to also extract the sweetness and body that balance them.","Fix 1 — Grind finer: More surface area means more extraction. The quickest fix for sourness. Fix 2 — Use hotter water: If you are brewing below 90C, increase temperature. Fix 3 — Extend brew time.","Note: Some sourness is desirable in light-roast specialty coffee. It is called brightness or acidity and is a positive quality. If it is sharp and unpleasant, that is under-extraction."],["Under-extraction","Sour","Acidity","Grind finer"]),
+    card("🔄","Pour Over vs Immersion — what is the difference?",["Pour Over (percolation): Fresh water continuously passes through the coffee grounds and drips out the bottom. V60, Chemex, Kalita Wave. Water is always moving — it extracts and leaves. Result: clean, bright, transparent cup.","Immersion: Coffee grounds sit submerged in water for the full brew time. French press, AeroPress (inverted), cold brew. The water and grounds stay together the whole time. Result: fuller body, heavier mouthfeel.","Which is better? Neither. Pour over rewards precision and good beans. Immersion rewards patience and is more consistent for beginners."],["Pour over","Immersion","French press","V60","Brewing method"]),
+    card("🥛","What is the best milk for a latte?",["The best milk for lattes is one that steams well — forming a silky, sweet microfoam that integrates with espresso rather than separating.","Whole milk: The gold standard. High fat content creates stable, velvety microfoam with natural sweetness. What every cafe uses by default. Oat milk: The best dairy-free option. Barista-edition oat milk steams almost as well as whole milk.","Almond milk: Steams poorly — thin foam that separates quickly. Works better in iced drinks. Soy milk: Steams reasonably well but can split if the espresso is very acidic."],["Milk","Latte","Oat milk","Microfoam","Dairy-free"]),
+    card("☕","How do I store coffee beans properly?",["Coffee enemies are: oxygen, moisture, heat, and light. Most people store coffee wrong.","Do: Store in an airtight container (ideally with a one-way valve) at room temperature, away from sunlight. Use within 2-4 weeks of the roast date.","Do not: Store in the fridge (moisture and odour absorption). Specialty coffee is best 5-30 days after roast. After 4-6 weeks, flavour degrades noticeably."],["Storage","Freshness","Roast date","Airtight"]),
+    card("⚖️","Should I use a scale?",["Yes. A scale is the single best investment a home brewer can make — more impactful than upgrading your brewer.","Coffee is measured by weight, not volume. A scoop of coffee varies wildly depending on grind size, bean density, and how you scoop. Two tablespoons of light roast do not equal two tablespoons of dark roast in weight or flavour.","You need: a scale that measures to 0.1g for espresso doses or at least 1g for filter coffee. Even a $15 scale beats no scale."],["Scale","Precision","Weight","Dose","Consistency"]),
+    card("🔢","What does 1:15 ratio mean?",["Coffee ratios express the relationship between ground coffee and water by weight. 1:15 means 1 gram of coffee for every 15 grams (ml) of water. So 20g of coffee gives 300ml of water.","Common ratios by method: Espresso 1:2 (18g coffee, 36ml espresso). V60 and Pour Over 1:15 to 1:17. French Press 1:15 to 1:17. AeroPress 1:10 to 1:17 depending on style. Cold Brew 1:7 (concentrate) to 1:14 (ready to drink).","Think of ratio as your starting point. Once you nail a consistent ratio, you can adjust grind size and temperature to tune flavour without changing the amount."],["Ratio","Dose","Recipe","Beginner","Espresso"]),
+    card("🌡️","Does grind size really matter that much?",["Yes. Grind size is the most impactful variable in brewing coffee after bean quality itself.","Grind size controls surface area, which controls how fast water extracts flavour compounds. Espresso needs powder-fine. Cold brew needs coarse chunks (cold water, 12-24 hours, slow passive extraction).","Burr grinder vs blade grinder: A burr grinder is essential for consistent results. Blade grinders chop randomly — you get a mix of dust and chunks, which extracts unevenly, producing bitter and sour notes simultaneously. A decent hand burr grinder costs $50-80."],["Grind size","Burr grinder","Extraction","Consistency","Equipment"])
+  ]});
+})();
 
-
-// Each entry: { type:'method', key } or { type:'drink', key }
-// or { type:'header', label } or { type:'divider', label }
-const MENU = [
-  {type:'header', label:'Espresso'},
-  {type:'drink', key:'espresso_pure', icon:'☕', label:'Espresso'},
-  {type:'divider', label:'Milk Drinks'},
-  {type:'drink', key:'latte', icon:'🥛', label:'Café Latte'},
-  {type:'drink', key:'cappuccino', icon:'☁️', label:'Cappuccino'},
-  {type:'drink', key:'piccolo', icon:'🌿', label:'Piccolo Latte'},
-  {type:'drink', key:'flatwhite', icon:'🤍', label:'Flat White'},
-  {type:'drink', key:'cortado', icon:'⚖️', label:'Cortado'},
-  {type:'drink', key:'macchiato', icon:'🔸', label:'Macchiato'},
-  {type:'divider', label:'Black'},
-  {type:'drink', key:'americano', icon:'🌊', label:'Americano'},
-  {type:'drink', key:'iced_americano', icon:'🧊', label:'Iced Americano'},
-  {type:'drink', key:'longblack', icon:'🖤', label:'Long Black'},
-  {type:'drink', key:'iced_longblack', icon:'🖤', label:'Iced Long Black'},
-  {type:'divider', label:'Specialty'},
-  {type:'drink', key:'affogato', icon:'🍨', label:'Affogato'},
-  {type:'drink', key:'dirtychai', icon:'🍵', label:'Dirty Chai'},
-  {type:'header', label:'V60'},
-  {type:'method', key:'v60', icon:'🔻', label:'V60 (Hot)'},
-  {type:'drink', key:'iced_v60', icon:'🧊', label:'Japanese Iced V60'},
-  {type:'header', label:'French Press'},
-  {type:'method', key:'frenchpress', icon:'⚗️', label:'French Press'},
-  {type:'header', label:'AeroPress'},
-  {type:'method', key:'aeropress', icon:'🧪', label:'AeroPress'},
-  {type:'header', label:'Cold Brew'},
-  {type:'method', key:'coldbrew', icon:'🧊', label:'Cold Brew'},
-  {type:'header', label:'Moka Pot'},
-  {type:'method', key:'moka', icon:'🔥', label:'Moka Pot'},
-  {type:'header', label:'📚 Knowledge Base'},
-  {type:'kb', icon:'🌱', label:'Coffee Species'},
-  {type:'kb', icon:'🗺️', label:'Origins'},
-  {type:'kb', icon:'⚙️', label:'Processing'},
-  {type:'kb', icon:'🔥', label:'Roast Levels'},
-  {type:'kb', icon:'🧬', label:'Flavour & Extraction'},
-  {type:'kb', icon:'🏆', label:'Specialty Coffee 101'},
+// ── MENU ──────────────────────────────────────────────
+var MENU = [
+  {type:"header",label:"Espresso"},
+  {type:"drink",key:"espresso_pure",icon:"☕",label:"Espresso"},
+  {type:"divider",label:"Milk Drinks"},
+  {type:"drink",key:"latte",icon:"🥛",label:"Cafe Latte"},
+  {type:"drink",key:"cappuccino",icon:"☁️",label:"Cappuccino"},
+  {type:"drink",key:"piccolo",icon:"🌿",label:"Piccolo Latte"},
+  {type:"drink",key:"flatwhite",icon:"🤍",label:"Flat White"},
+  {type:"drink",key:"cortado",icon:"⚖️",label:"Cortado"},
+  {type:"drink",key:"macchiato",icon:"🔸",label:"Macchiato"},
+  {type:"divider",label:"Black"},
+  {type:"drink",key:"americano",icon:"🌊",label:"Americano"},
+  {type:"drink",key:"iced_americano",icon:"🧊",label:"Iced Americano"},
+  {type:"drink",key:"longblack",icon:"🖤",label:"Long Black"},
+  {type:"drink",key:"iced_longblack",icon:"🖤",label:"Iced Long Black"},
+  {type:"divider",label:"Specialty"},
+  {type:"drink",key:"affogato",icon:"🍨",label:"Affogato"},
+  {type:"drink",key:"dirtychai",icon:"🍵",label:"Dirty Chai"},
+  {type:"drink",key:"dirty_latte",icon:"🤎",label:"Dirty Latte"},
+  {type:"header",label:"V60"},
+  {type:"method",key:"v60",icon:"🔻",label:"V60 (Hot)"},
+  {type:"drink",key:"iced_v60",icon:"🧊",label:"Japanese Iced V60"},
+  {type:"header",label:"French Press"},
+  {type:"method",key:"frenchpress",icon:"⚗️",label:"French Press"},
+  {type:"header",label:"AeroPress"},
+  {type:"method",key:"aeropress",icon:"🧪",label:"AeroPress"},
+  {type:"header",label:"Cold Brew"},
+  {type:"method",key:"coldbrew",icon:"🧊",label:"Cold Brew"},
+  {type:"header",label:"Moka Pot"},
+  {type:"method",key:"moka",icon:"🔥",label:"Moka Pot"},
+  {type:"header",label:"Knowledge Base"},
+  {type:"kb",icon:"🌱",label:"Coffee Species"},
+  {type:"kb",icon:"🗺️",label:"Origins"},
+  {type:"kb",icon:"⚙️",label:"Processing"},
+  {type:"kb",icon:"🔥",label:"Roast Levels"},
+  {type:"kb",icon:"🧬",label:"Flavour & Extraction"},
+  {type:"kb",icon:"🏆",label:"Specialty Coffee 101"},
+  {type:"kb",icon:"❓",label:"Brewing FAQ"}
 ];
 
 // ── BUILD MENU ────────────────────────────────────────
 function buildMenu(){
-  const list = document.getElementById('methodList');
-  list.innerHTML = '';
-  MENU.forEach(item => {
-    if(item.type === 'header'){
-      const li = document.createElement('li');
-      li.style.cssText = 'padding:.7rem 1rem .2rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:'+getComputedStyle(document.documentElement).getPropertyValue('--gold').trim()+';opacity:.7';
-      li.style.color = '#e8a84c';
-      li.textContent = item.label;
-      list.appendChild(li);
-    } else if(item.type === 'divider'){
-      const li = document.createElement('li');
-      li.style.cssText = 'padding:.5rem 1rem .15rem 2rem;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,168,76,.5)';
-      li.textContent = item.label;
-      list.appendChild(li);
-          } else if(item.type === 'kb'){
-        const kbIndex = KB.findIndex(k => k.icon === item.icon);
-        const li = document.createElement('li');
-        const btn = document.createElement('button');
-        btn.className = 'method-btn';
-        btn.style.paddingLeft = '1rem';
-        btn.innerHTML = '<span style="font-size:.95rem">'+item.icon+'</span> '+item.label;
-        btn.addEventListener('click', function(){
-          document.querySelectorAll('.method-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          loadKB(kbIndex);
+  var list=document.getElementById("methodList");
+  list.innerHTML="";
+  MENU.forEach(function(item){
+    var li=document.createElement("li");
+    if(item.type==="header"){
+      li.style.cssText="padding:.7rem 1rem .2rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:#e8a84c;opacity:.8";
+      li.textContent=item.label;
+    } else if(item.type==="divider"){
+      li.style.cssText="padding:.5rem 1rem .15rem 2rem;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,168,76,.5)";
+      li.textContent=item.label;
+    } else {
+      var btn=document.createElement("button");
+      btn.className="method-btn";
+      btn.style.paddingLeft=(item.type==="drink")?"2rem":"1rem";
+      btn.innerHTML="<span style='font-size:.95rem'>"+item.icon+"</span> "+item.label;
+      (function(it){
+        btn.addEventListener("click",function(){
+          document.querySelectorAll(".method-btn").forEach(function(b){b.classList.remove("active")});
+          btn.classList.add("active");
+          if(it.type==="method") loadMethod(it.key);
+          else if(it.type==="drink") loadDrink(it.key);
+          else if(it.type==="kb"){
+            var idx=KB.findIndex(function(k){return k.icon===it.icon});
+            loadKB(idx);
+          }
           closeDrawer();
         });
-        li.appendChild(btn);
-        list.appendChild(li);
-      } else {
-      const li = document.createElement('li');
-      const btn = document.createElement('button');
-      btn.className = 'method-btn';
-      btn.style.paddingLeft = (item.type === 'drink') ? '2rem' : '1rem';
-      btn.innerHTML = '<span style="font-size:.95rem">'+item.icon+'</span> '+item.label;
-      btn.addEventListener('click', function(){
-        document.querySelectorAll('.method-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        if(item.type === 'method') loadMethod(item.key);
-        else loadDrink(item.key);
-        closeDrawer();
-      });
+      })(item);
       li.appendChild(btn);
-      list.appendChild(li);
     }
+    list.appendChild(li);
   });
 }
 
 // ── STATE ─────────────────────────────────────────────
-let currentMethod=null, currentVariant=null, currentDrink=null;
-let doneSteps=[], doneDrinkSteps=[];
+var currentMethod=null,currentVariant=null,currentDrink=null,doneSteps=[],doneDrinkSteps=[];
 
 // ── DRAWER ────────────────────────────────────────────
-function openDrawer(){ document.getElementById('drawer').classList.add('open'); document.getElementById('drawerOverlay').classList.add('open'); }
-function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); }
-document.getElementById('menuBtn').addEventListener('click', openDrawer);
-document.getElementById('drawerOverlay').addEventListener('click', closeDrawer);
+function openDrawer(){document.getElementById("drawer").classList.add("open");document.getElementById("drawerOverlay").classList.add("open")}
+function closeDrawer(){document.getElementById("drawer").classList.remove("open");document.getElementById("drawerOverlay").classList.remove("open")}
+document.getElementById("menuBtn").addEventListener("click",openDrawer);
+document.getElementById("drawerOverlay").addEventListener("click",closeDrawer);
 
 // ── SCREEN ────────────────────────────────────────────
 function showScreen(which){
-  document.getElementById('introScreen').style.display='none';
-  document.getElementById('guideScreen').classList.remove('visible');
-  document.getElementById('drinkScreen').classList.remove('visible');
-  document.getElementById('kbScreen').classList.remove('visible');
-  if(which==='guide') document.getElementById('guideScreen').classList.add('visible');
-  else if(which==='drink') document.getElementById('drinkScreen').classList.add('visible');
-  else if(which==='kb') document.getElementById('kbScreen').classList.add('visible');
-  else document.getElementById('introScreen').style.display='flex';
+  document.getElementById("introScreen").style.display="none";
+  document.getElementById("guideScreen").classList.remove("visible");
+  document.getElementById("drinkScreen").classList.remove("visible");
+  document.getElementById("kbScreen").classList.remove("visible");
+  if(which==="guide") document.getElementById("guideScreen").classList.add("visible");
+  else if(which==="drink") document.getElementById("drinkScreen").classList.add("visible");
+  else if(which==="kb") document.getElementById("kbScreen").classList.add("visible");
+  else document.getElementById("introScreen").style.display="flex";
 }
 
-// ── KNOWLEDGE BASE ────────────────────────────────────
-function loadKB(chapterIndex){
-  showScreen('kb');
-  const container = document.getElementById('kbChapters');
-  // build all chapters if not yet built
+// ── KB ────────────────────────────────────────────────
+function loadKB(idx){
+  showScreen("kb");
+  var container=document.getElementById("kbChapters");
   if(!container.dataset.built){
-    container.innerHTML = KB.map((ch,ci) => {
-      const cardsHtml = ch.cards.map(card => {
-        const flavorHtml = card.flavors ? '<div class="kb-flavor-bar">'+card.flavors.map(f=>'<div class="kb-flavor-row"><div class="kb-flavor-label">'+f.label+'</div><div class="kb-flavor-track"><div class="kb-flavor-fill" style="width:'+f.v+'%"></div></div></div>').join('')+'</div>' : '';
-        const tagsHtml = card.tags ? '<div class="kb-tags">'+card.tags.map(t=>'<span class="kb-tag">'+t+'</span>').join('')+'</div>' : '';
-        return '<div class="kb-card"><div class="kb-card-header"><span class="kb-card-icon">'+card.icon+'</span><span class="kb-card-title">'+card.title+'</span><span class="kb-card-badge badge-'+card.badge+'">'+card.badge+'</span></div><div class="kb-card-body">'+card.body+flavorHtml+tagsHtml+'</div></div>';
-      }).join('');
-      return '<div class="kb-chapter" data-ci="'+ci+'">'+
-        '<button class="kb-chapter-btn" data-ci="'+ci+'">'+
-          '<div class="kb-chapter-left">'+
-            '<span class="kb-chapter-icon">'+ch.icon+'</span>'+
-            '<div><div class="kb-chapter-title">'+ch.title+'</div><div class="kb-chapter-sub">'+ch.sub+'</div></div>'+
-          '</div>'+
-          '<span class="kb-chapter-arrow">▶</span>'+
-        '</button>'+
-        '<div class="kb-chapter-content" data-ci="'+ci+'"><div class="kb-cards">'+cardsHtml+'</div></div>'+
-      '</div>';
-    }).join('');
-    container.dataset.built = '1';
-    // wire chapter toggles
-    container.addEventListener('click', function(e){
-      const btn = e.target.closest('.kb-chapter-btn'); if(!btn) return;
-      const ci = btn.dataset.ci;
-      const content = container.querySelector('.kb-chapter-content[data-ci="'+ci+'"]');
-      const isOpen = content.classList.contains('open');
-      // close all
-      container.querySelectorAll('.kb-chapter-btn').forEach(b=>b.classList.remove('active'));
-      container.querySelectorAll('.kb-chapter-content').forEach(c=>c.classList.remove('open'));
-      if(!isOpen){ btn.classList.add('active'); content.classList.add('open'); }
+    var html="";
+    KB.forEach(function(ch,ci){
+      var cardsHtml="";
+      ch.cards.forEach(function(c){
+        var parasHtml=c.paras.map(function(p){return "<p>"+p+"</p>"}).join("");
+        var barsHtml="";
+        if(c.bars&&c.bars.length){
+          barsHtml="<div class='kb-bar-wrap'>";
+          c.bars.forEach(function(b){barsHtml+="<div class='kb-bar-row'><div class='kb-bar-lbl'>"+b.l+"</div><div class='kb-bar-track'><div class='kb-bar-fill' style='width:"+b.v+"%'></div></div></div>"});
+          barsHtml+="</div>";
+        }
+        var tagsHtml="<div class='kb-tags'>"+c.tags.map(function(t){return "<span class='kb-tag'>"+t+"</span>"}).join("")+"</div>";
+        cardsHtml+="<div class='kb-card'><div class='kb-card-hdr'><span class='kb-card-ico'>"+c.ico+"</span><span class='kb-card-ttl'>"+c.ttl+"</span></div><div class='kb-card-body'>"+parasHtml+barsHtml+tagsHtml+"</div></div>";
+      });
+      html+="<div class='kb-ch'><button class='kb-ch-btn' data-ci='"+ci+"'><div class='kb-ch-left'><span class='kb-ch-icon'>"+ch.icon+"</span><div><div class='kb-ch-title'>"+ch.title+"</div><div class='kb-ch-sub'>"+ch.sub+"</div></div></div><span class='kb-ch-arrow'>&#9654;</span></button><div class='kb-ch-content' data-ci='"+ci+"'><div class='kb-cards'>"+cardsHtml+"</div></div></div>";
+    });
+    container.innerHTML=html;
+    container.dataset.built="1";
+    container.addEventListener("click",function(e){
+      var btn=e.target.closest(".kb-ch-btn");if(!btn)return;
+      var ci=btn.dataset.ci;
+      var content=container.querySelector(".kb-ch-content[data-ci='"+ci+"']");
+      var isOpen=content.classList.contains("open");
+      container.querySelectorAll(".kb-ch-btn").forEach(function(b){b.classList.remove("active")});
+      container.querySelectorAll(".kb-ch-content").forEach(function(c){c.classList.remove("open")});
+      if(!isOpen){btn.classList.add("active");content.classList.add("open")}
     });
   }
-  // auto-open the requested chapter
-  const allBtns = container.querySelectorAll('.kb-chapter-btn');
-  const allContents = container.querySelectorAll('.kb-chapter-content');
-  allBtns.forEach(b=>b.classList.remove('active'));
-  allContents.forEach(c=>c.classList.remove('open'));
-  if(chapterIndex >= 0 && chapterIndex < KB.length){
-    const targetBtn = container.querySelector('.kb-chapter-btn[data-ci="'+chapterIndex+'"]');
-    const targetContent = container.querySelector('.kb-chapter-content[data-ci="'+chapterIndex+'"]');
-    if(targetBtn && targetContent){ targetBtn.classList.add('active'); targetContent.classList.add('open'); }
+  container.querySelectorAll(".kb-ch-btn").forEach(function(b){b.classList.remove("active")});
+  container.querySelectorAll(".kb-ch-content").forEach(function(c){c.classList.remove("open")});
+  if(idx>=0&&idx<KB.length){
+    var tb=container.querySelector(".kb-ch-btn[data-ci='"+idx+"']");
+    var tc=container.querySelector(".kb-ch-content[data-ci='"+idx+"']");
+    if(tb&&tc){tb.classList.add("active");tc.classList.add("open")}
   }
   updateNotesContext();
 }
 
-
+// ── LOAD METHOD ───────────────────────────────────────
 function loadMethod(key){
-  const m = METHODS[key]; if(!m) return;
-  currentMethod=key; currentDrink=null; doneSteps=[];
-  currentVariant = m.variants ? m.variants[0].id : null;
-  htReset('guide');
-  showScreen('guide');
-  document.getElementById('methodIcon').textContent = m.icon;
-  document.getElementById('methodName').textContent = m.name;
-  document.getElementById('methodSubtitle').textContent = m.subtitle;
-  document.getElementById('completeBanner').classList.remove('visible');
-  const vs = document.getElementById('variantSection');
-  if(m.variants){ vs.style.display='block'; renderVariantTabs(); } else { vs.style.display='none'; }
-  const ratio = getBaseRatio();
-  document.getElementById('coffeeInput').value = ratio.coffee;
-  document.getElementById('waterInput').value = ratio.water;
-  updateRatioUI(); renderParams(); renderSteps(); updateProgress();
-  updateNotesContext();
+  var m=METHODS[key];if(!m)return;
+  currentMethod=key;currentDrink=null;doneSteps=[];
+  currentVariant=m.variants?m.variants[0].id:null;
+  htReset("guide");showScreen("guide");
+  document.getElementById("methodIcon").textContent=m.icon;
+  document.getElementById("methodName").textContent=m.name;
+  document.getElementById("methodSubtitle").textContent=m.subtitle;
+  document.getElementById("completeBanner").classList.remove("visible");
+  var vs=document.getElementById("variantSection");
+  if(m.variants){vs.style.display="block";renderVariantTabs();}else{vs.style.display="none";}
+  var ratio=getBaseRatio();
+  document.getElementById("coffeeInput").value=ratio.coffee;
+  document.getElementById("waterInput").value=ratio.water;
+  updateRatioUI();renderParams();renderSteps();updateProgress();updateNotesContext();
 }
 
 // ── LOAD DRINK ────────────────────────────────────────
 function loadDrink(key){
-  const d = DRINKS[key]; if(!d) return;
-  currentDrink=key; currentMethod=null; doneDrinkSteps=[];
-  htReset('drink');
-  showScreen('drink');
-  document.getElementById('drinkIcon').textContent = d.icon;
-  document.getElementById('drinkName').textContent = d.name;
-  document.getElementById('drinkTagline').textContent = d.tagline;
-  document.getElementById('drinkCompleteBanner').classList.remove('visible');
-  document.getElementById('drinkCompleteMsg').textContent = d.icon+' '+d.name+' is ready!';
+  var d=DRINKS[key];if(!d)return;
+  currentDrink=key;currentMethod=null;doneDrinkSteps=[];
+  htReset("drink");showScreen("drink");
+  document.getElementById("drinkIcon").textContent=d.icon;
+  document.getElementById("drinkName").textContent=d.name;
+  document.getElementById("drinkTagline").textContent=d.tagline;
+  document.getElementById("drinkCompleteBanner").classList.remove("visible");
+  document.getElementById("drinkCompleteMsg").textContent=d.icon+" "+d.name+" is ready!";
   renderCupVisual(d);
-  document.getElementById('ingredientsGrid').innerHTML = d.ingredients.map(i =>
-    '<div class="ing-card"><div class="ing-label">'+i.label+'</div><div class="ing-value">'+i.value+'</div><div class="ing-sub">'+i.sub+'</div></div>'
-  ).join('');
-  document.getElementById('drinkSteps').innerHTML = d.steps.map((s,i) =>
-    '<div class="d-step" data-idx="'+i+'"><div class="d-step-num"><span>'+(i+1)+'</span></div><div class="d-step-body"><div class="d-step-name">'+s.name+'</div><div class="d-step-desc">'+s.desc+'</div>'+(s.tip?'<div class="d-step-tip">💡 '+s.tip+'</div>':'')+'</div></div>'
-  ).join('');
-  // show ratio calc if drink has one
-  const drinkRatioSection = document.getElementById('drinkRatioSection');
-  if(d.hasRatio){ drinkRatioSection.style.display='block'; updateIcedRatio(); }
-  else { drinkRatioSection.style.display='none'; }
+  document.getElementById("ingredientsGrid").innerHTML=d.ingredients.map(function(i){return "<div class='ing-card'><div class='ing-label'>"+i.label+"</div><div class='ing-value'>"+i.value+"</div><div class='ing-sub'>"+i.sub+"</div></div>"}).join("");
+  document.getElementById("drinkSteps").innerHTML=d.steps.map(function(s,i){return "<div class='d-step' data-idx='"+i+"'><div class='d-step-num'><span>"+(i+1)+"</span></div><div class='d-step-body'><div class='d-step-name'>"+s.name+"</div><div class='d-step-desc'>"+s.desc+"</div>"+(s.tip?"<div class='d-step-tip'>💡 "+s.tip+"</div>":"")+"</div></div>"}).join("");
+  var drs=document.getElementById("drinkRatioSection");
+  if(d.hasRatio){drs.style.display="block";updateIcedRatio();}else{drs.style.display="none";}
+  updateDrinkProgress();updateNotesContext();
 }
 
 // ── CUP VISUAL ────────────────────────────────────────
 function renderCupVisual(d){
-  const totalH = d.layers.reduce((a,l)=>a+l.h,0);
-  const layersHtml = [...d.layers].reverse().map(l=>'<div class="cup-layer" style="height:'+l.h+'px;background:'+l.color+'"></div>').join('');
-  document.getElementById('cupVisual').innerHTML = '<div class="cup-wrap"><div class="cup" style="height:'+totalH+'px">'+layersHtml+'</div><div class="cup-total">'+totalH+'ml</div><div class="cup-name">'+d.name+'</div></div>';
-  document.getElementById('layerLegend').innerHTML = d.layers.map(l=>'<div class="legend-item"><div class="legend-dot" style="background:'+l.color+';border:1px solid rgba(0,0,0,.1)"></div>'+l.label+'</div>').join('');
+  var totalH=d.layers.reduce(function(a,l){return a+l.h},0);
+  var layersHtml=[].concat(d.layers).reverse().map(function(l){return "<div class='cup-layer' style='height:"+l.h+"px;background:"+l.color+"'></div>"}).join("");
+  document.getElementById("cupVisual").innerHTML="<div class='cup-wrap'><div class='cup' style='height:"+totalH+"px'>"+layersHtml+"</div><div class='cup-total'>"+totalH+"ml</div><div class='cup-name'>"+d.name+"</div></div>";
+  document.getElementById("layerLegend").innerHTML=d.layers.map(function(l){return "<div class='legend-item'><div class='legend-dot' style='background:"+l.color+";border:1px solid rgba(0,0,0,.1)'></div>"+l.label+"</div>"}).join("");
 }
 
 // ── VARIANTS ──────────────────────────────────────────
 function renderVariantTabs(){
-  const m = METHODS[currentMethod];
-  document.getElementById('variantTabs').innerHTML = m.variants.map(v =>
-    '<button class="variant-tab'+(v.id===currentVariant?' active':'')+'" data-vid="'+v.id+'">'+v.label+'</button>'
-  ).join('');
+  var m=METHODS[currentMethod];
+  document.getElementById("variantTabs").innerHTML=m.variants.map(function(v){return "<button class='variant-tab"+(v.id===currentVariant?" active":"")+"' data-vid='"+v.id+"'>"+v.label+"</button>"}).join("");
   updateVariantDesc();
 }
 function updateVariantDesc(){
-  const m = METHODS[currentMethod];
-  const v = m.variants.find(x=>x.id===currentVariant);
-  document.getElementById('variantDesc').textContent = v ? v.desc : '';
+  var m=METHODS[currentMethod];
+  var v=m.variants.find(function(x){return x.id===currentVariant});
+  document.getElementById("variantDesc").textContent=v?v.desc:"";
 }
-document.getElementById('variantTabs').addEventListener('click', function(e){
-  const btn = e.target.closest('.variant-tab'); if(!btn) return;
-  currentVariant = btn.dataset.vid;
-  document.querySelectorAll('.variant-tab').forEach(b=>b.classList.toggle('active', b.dataset.vid===currentVariant));
+document.getElementById("variantTabs").addEventListener("click",function(e){
+  var btn=e.target.closest(".variant-tab");if(!btn)return;
+  currentVariant=btn.dataset.vid;
+  document.querySelectorAll(".variant-tab").forEach(function(b){b.classList.toggle("active",b.dataset.vid===currentVariant)});
   updateVariantDesc();
-  const m = METHODS[currentMethod];
-  const v = m.variants.find(x=>x.id===currentVariant);
-  const c = parseFloat(document.getElementById('coffeeInput').value)||100;
-  document.getElementById('waterInput').value = Math.round(c * v.ratio);
-  updateRatioUI(); renderParams();
+  var m=METHODS[currentMethod];
+  var v=m.variants.find(function(x){return x.id===currentVariant});
+  var c=parseFloat(document.getElementById("coffeeInput").value)||100;
+  document.getElementById("waterInput").value=Math.round(c*v.ratio);
+  updateRatioUI();renderParams();
 });
 
 // ── RATIO ─────────────────────────────────────────────
 function getBaseRatio(){
-  const m = METHODS[currentMethod];
-  if(m.variants && currentVariant){ const v=m.variants.find(x=>x.id===currentVariant); return {coffee:100, water:Math.round(100*v.ratio)}; }
+  var m=METHODS[currentMethod];
+  if(m.variants&&currentVariant){var v=m.variants.find(function(x){return x.id===currentVariant});return{coffee:100,water:Math.round(100*v.ratio)}}
   return m.baseRatio;
 }
 function getRatioMult(){
-  const m = METHODS[currentMethod];
-  if(m.variants && currentVariant){ const v=m.variants.find(x=>x.id===currentVariant); return v?v.ratio:7; }
-  return m.baseRatio.water / m.baseRatio.coffee;
+  var m=METHODS[currentMethod];
+  if(m.variants&&currentVariant){var v=m.variants.find(function(x){return x.id===currentVariant});return v?v.ratio:7}
+  return m.baseRatio.water/m.baseRatio.coffee;
 }
-document.getElementById('coffeeInput').addEventListener('input', function(){ recalc('coffee'); });
-document.getElementById('waterInput').addEventListener('input', function(){ recalc('water'); });
+document.getElementById("coffeeInput").addEventListener("input",function(){recalc("coffee")});
+document.getElementById("waterInput").addEventListener("input",function(){recalc("water")});
 function recalc(changed){
-  const mult = getRatioMult();
-  if(changed==='coffee'){ const c=parseFloat(document.getElementById('coffeeInput').value); if(!isNaN(c)&&c>0) document.getElementById('waterInput').value=Math.round(c*mult); }
-  else { const w=parseFloat(document.getElementById('waterInput').value); if(!isNaN(w)&&w>0) document.getElementById('coffeeInput').value=+(w/mult).toFixed(1); }
+  var mult=getRatioMult();
+  if(changed==="coffee"){var c=parseFloat(document.getElementById("coffeeInput").value);if(!isNaN(c)&&c>0)document.getElementById("waterInput").value=Math.round(c*mult)}
+  else{var w=parseFloat(document.getElementById("waterInput").value);if(!isNaN(w)&&w>0)document.getElementById("coffeeInput").value=+(w/mult).toFixed(1)}
   updateRatioUI();
 }
 function updateRatioUI(){
-  const m = METHODS[currentMethod]; if(!m) return;
-  const c = parseFloat(document.getElementById('coffeeInput').value)||0;
-  const w = parseFloat(document.getElementById('waterInput').value)||0;
-  document.getElementById('ratioBadge').textContent = '1 : '+((c>0&&w>0)?(w/c).toFixed(1):'—');
-  const extras = currentMethod==='coldbrew' ? m.extraResults(c,w,currentVariant) : m.extraResults(c,w);
-  document.getElementById('ratioResults').innerHTML = extras.map(e=>'<div class="r-card"><div class="r-label">'+e.label+'</div><div class="r-value">'+e.value+'</div><div class="r-sub">'+e.sub+'</div></div>').join('');
+  var m=METHODS[currentMethod];if(!m)return;
+  var c=parseFloat(document.getElementById("coffeeInput").value)||0;
+  var w=parseFloat(document.getElementById("waterInput").value)||0;
+  document.getElementById("ratioBadge").textContent="1 : "+((c>0&&w>0)?(w/c).toFixed(1):"—");
+  var extras=currentMethod==="coldbrew"?m.extraResults(c,w,currentVariant):m.extraResults(c,w);
+  document.getElementById("ratioResults").innerHTML=extras.map(function(e){return "<div class='r-card'><div class='r-label'>"+e.label+"</div><div class='r-value'>"+e.value+"</div><div class='r-sub'>"+e.sub+"</div></div>"}).join("");
 }
+function updateIcedRatio(){
+  var c=parseFloat(document.getElementById("icedCoffeeInput").value)||20;
+  var total=Math.round(c*16.7);
+  var hot=Math.round(total*0.6);
+  var ice=total-hot;
+  var bloom=Math.round(c*2);
+  document.getElementById("icedRatioResults").innerHTML=[
+    {label:"Hot water",value:hot+"ml",sub:"for brewing (93C)"},
+    {label:"Ice",value:ice+"g",sub:"weighed in server"},
+    {label:"Bloom water",value:bloom+"ml",sub:"2x coffee, first"},
+    {label:"Total yield",value:"~"+total+"ml",sub:"after ice melts"}
+  ].map(function(e){return "<div class='r-card'><div class='r-label'>"+e.label+"</div><div class='r-value'>"+e.value+"</div><div class='r-sub'>"+e.sub+"</div></div>"}).join("");
+}
+document.getElementById("icedCoffeeInput").addEventListener("input",updateIcedRatio);
 
 // ── PARAMS ────────────────────────────────────────────
 function renderParams(){
-  const m = METHODS[currentMethod];
-  let params = [...m.params];
-  if(currentMethod==='coldbrew'&&currentVariant){ const v=m.variants.find(x=>x.id===currentVariant); const idx=params.findIndex(p=>p.label==='Steep'); if(idx!==-1&&v) params[idx]={label:'Steep',value:v.steepLabel}; }
-  document.getElementById('paramsBar').innerHTML = params.map(p=>'<div class="param-card"><div class="param-label">'+p.label+'</div><div class="param-value">'+p.value+'</div></div>').join('');
+  var m=METHODS[currentMethod];
+  var params=m.params.slice();
+  if(currentMethod==="coldbrew"&&currentVariant){var v=m.variants.find(function(x){return x.id===currentVariant});var idx=params.findIndex(function(p){return p.label==="Steep"});if(idx!==-1&&v)params[idx]={label:"Steep",value:v.steepLabel}}
+  document.getElementById("paramsBar").innerHTML=params.map(function(p){return "<div class='param-card'><div class='param-label'>"+p.label+"</div><div class='param-value'>"+p.value+"</div></div>"}).join("");
 }
 
 // ── STEPS ─────────────────────────────────────────────
 function renderSteps(){
-  document.getElementById('stepsList').innerHTML = METHODS[currentMethod].steps.map((s,i)=>
-    '<div class="step" data-idx="'+i+'" data-timer="'+(s.timer||0)+'"><div class="step-num"><span>'+(i+1)+'</span></div><div class="step-body"><div class="step-name">'+s.name+'</div><div class="step-desc">'+s.desc+'</div>'+(s.timer?'<div class="step-timer">⏱ '+fmt(s.timer)+' suggested</div>':'')+'</div></div>'
-  ).join('');
+  document.getElementById("stepsList").innerHTML=METHODS[currentMethod].steps.map(function(s,i){return "<div class='step' data-idx='"+i+"' data-timer='"+(s.timer||0)+"'><div class='step-num'><span>"+(i+1)+"</span></div><div class='step-body'><div class='step-name'>"+s.name+"</div><div class='step-desc'>"+s.desc+"</div>"+(s.timer?"<div class='step-timer'>⏱ "+fmt(s.timer)+" suggested</div>":"")+"</div></div>"}).join("");
 }
-document.getElementById('stepsList').addEventListener('click', function(e){
-  const step = e.target.closest('.step'); if(!step) return;
-  const i = parseInt(step.dataset.idx);
-  const secs = parseInt(step.dataset.timer)||0;
-  const idx = doneSteps.indexOf(i);
-  if(idx===-1){ doneSteps.push(i); step.classList.add('done'); if(secs>0) htLoad('guide',secs); }
-  else { doneSteps.splice(idx,1); step.classList.remove('done'); }
+document.getElementById("stepsList").addEventListener("click",function(e){
+  var step=e.target.closest(".step");if(!step)return;
+  var i=parseInt(step.dataset.idx);
+  var secs=parseInt(step.dataset.timer)||0;
+  var idx=doneSteps.indexOf(i);
+  if(idx===-1){doneSteps.push(i);step.classList.add("done");if(secs>0)htLoad("guide",secs)}
+  else{doneSteps.splice(idx,1);step.classList.remove("done")}
   updateProgress();
 });
-document.getElementById('drinkSteps').addEventListener('click', function(e){
-  const step = e.target.closest('.d-step'); if(!step) return;
-  const i = parseInt(step.dataset.idx);
-  const idx = doneDrinkSteps.indexOf(i);
-  if(idx===-1){ doneDrinkSteps.push(i); step.classList.add('done'); }
-  else { doneDrinkSteps.splice(idx,1); step.classList.remove('done'); }
+document.getElementById("drinkSteps").addEventListener("click",function(e){
+  var step=e.target.closest(".d-step");if(!step)return;
+  var i=parseInt(step.dataset.idx);
+  var idx=doneDrinkSteps.indexOf(i);
+  if(idx===-1){doneDrinkSteps.push(i);step.classList.add("done")}
+  else{doneDrinkSteps.splice(idx,1);step.classList.remove("done")}
   updateDrinkProgress();
 });
-
 function updateProgress(){
-  const total = METHODS[currentMethod].steps.length;
-  document.getElementById('progressBar').style.width = (doneSteps.length/total*100)+'%';
-  document.getElementById('completeBanner').classList.toggle('visible', doneSteps.length===total);
+  var total=METHODS[currentMethod].steps.length;
+  document.getElementById("progressBar").style.width=(doneSteps.length/total*100)+"%";
+  document.getElementById("completeBanner").classList.toggle("visible",doneSteps.length===total);
 }
 function updateDrinkProgress(){
-  const total = DRINKS[currentDrink].steps.length;
-  document.getElementById('drinkProgressBar').style.width = (doneDrinkSteps.length/total*100)+'%';
-  document.getElementById('drinkCompleteBanner').classList.toggle('visible', doneDrinkSteps.length===total);
+  var total=DRINKS[currentDrink].steps.length;
+  document.getElementById("drinkProgressBar").style.width=(doneDrinkSteps.length/total*100)+"%";
+  document.getElementById("drinkCompleteBanner").classList.toggle("visible",doneDrinkSteps.length===total);
 }
-document.getElementById('resetGuideBtn').addEventListener('click', function(){
-  doneSteps=[];
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));
-  document.getElementById('completeBanner').classList.remove('visible');
-  updateProgress();
+document.getElementById("resetGuideBtn").addEventListener("click",function(){
+  doneSteps=[];document.querySelectorAll(".step").forEach(function(s){s.classList.remove("done")});
+  document.getElementById("completeBanner").classList.remove("visible");updateProgress();
 });
-document.getElementById('resetDrinkBtn').addEventListener('click', function(){
-  doneDrinkSteps=[];
-  document.querySelectorAll('.d-step').forEach(s=>s.classList.remove('done'));
-  document.getElementById('drinkCompleteBanner').classList.remove('visible');
-  updateDrinkProgress();
+document.getElementById("resetDrinkBtn").addEventListener("click",function(){
+  doneDrinkSteps=[];document.querySelectorAll(".d-step").forEach(function(s){s.classList.remove("done")});
+  document.getElementById("drinkCompleteBanner").classList.remove("visible");updateDrinkProgress();
 });
 
 // ── HEADER TIMERS ─────────────────────────────────────
-const ht={ guide:{interval:null,running:false,seconds:0,countUp:true}, drink:{interval:null,running:false,seconds:0,countUp:true} };
-function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
-function fmt(s){ return Math.floor(s/60)+':'+(s%60).toString().padStart(2,'0'); }
+var ht={guide:{interval:null,running:false,seconds:0,countUp:true},drink:{interval:null,running:false,seconds:0,countUp:true}};
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+function fmt(s){return Math.floor(s/60)+":"+(s%60).toString().padStart(2,"0")}
 function htToggle(which){
-  const s=ht[which]; const btn=document.getElementById('ht'+cap(which)+'StartBtn'); const disp=document.getElementById('ht'+cap(which)+'Display');
-  if(s.running){ clearInterval(s.interval); s.running=false; btn.textContent='Resume'; disp.classList.remove('running'); }
+  var s=ht[which];var btn=document.getElementById("ht"+cap(which)+"StartBtn");var disp=document.getElementById("ht"+cap(which)+"Display");
+  if(s.running){clearInterval(s.interval);s.running=false;btn.textContent="Resume";disp.classList.remove("running")}
   else{
-    if(s.seconds===0){ const m=parseInt(document.getElementById('ht'+cap(which)+'Min').value)||0; const sc=parseInt(document.getElementById('ht'+cap(which)+'Sec').value)||0; s.seconds=m*60+sc; s.countUp=s.seconds===0; }
-    s.running=true; btn.textContent='Pause'; disp.classList.add('running'); disp.classList.remove('done');
+    if(s.seconds===0){var m=parseInt(document.getElementById("ht"+cap(which)+"Min").value)||0;var sc=parseInt(document.getElementById("ht"+cap(which)+"Sec").value)||0;s.seconds=m*60+sc;s.countUp=s.seconds===0}
+    s.running=true;btn.textContent="Pause";disp.classList.add("running");disp.classList.remove("done");
     s.interval=setInterval(function(){
-      if(s.countUp){ s.seconds++; disp.textContent=fmt(s.seconds); }
-      else{ if(s.seconds<=0){ clearInterval(s.interval); s.running=false; btn.textContent='Start'; disp.textContent='Done!'; disp.classList.remove('running'); disp.classList.add('done'); return; } s.seconds--; disp.textContent=fmt(s.seconds); }
+      if(s.countUp){s.seconds++;disp.textContent=fmt(s.seconds)}
+      else{if(s.seconds<=0){clearInterval(s.interval);s.running=false;btn.textContent="Start";disp.textContent="Done!";disp.classList.remove("running");disp.classList.add("done");return}s.seconds--;disp.textContent=fmt(s.seconds)}
     },1000);
   }
 }
 function htReset(which){
-  const s=ht[which]; clearInterval(s.interval); s.running=false; s.seconds=0;
-  document.getElementById('ht'+cap(which)+'StartBtn').textContent='Start';
-  const disp=document.getElementById('ht'+cap(which)+'Display'); disp.textContent='0:00'; disp.classList.remove('running','done');
-  document.getElementById('ht'+cap(which)+'Min').value=0; document.getElementById('ht'+cap(which)+'Sec').value=0;
+  var s=ht[which];clearInterval(s.interval);s.running=false;s.seconds=0;
+  document.getElementById("ht"+cap(which)+"StartBtn").textContent="Start";
+  var disp=document.getElementById("ht"+cap(which)+"Display");disp.textContent="0:00";disp.classList.remove("running","done");
+  document.getElementById("ht"+cap(which)+"Min").value=0;document.getElementById("ht"+cap(which)+"Sec").value=0;
 }
 function htLoad(which,secs){
-  htReset(which); ht[which].seconds=secs; ht[which].countUp=false;
-  document.getElementById('ht'+cap(which)+'Min').value=Math.floor(secs/60);
-  document.getElementById('ht'+cap(which)+'Sec').value=secs%60;
-  document.getElementById('ht'+cap(which)+'Display').textContent=fmt(secs);
+  htReset(which);ht[which].seconds=secs;ht[which].countUp=false;
+  document.getElementById("ht"+cap(which)+"Min").value=Math.floor(secs/60);
+  document.getElementById("ht"+cap(which)+"Sec").value=secs%60;
+  document.getElementById("ht"+cap(which)+"Display").textContent=fmt(secs);
 }
-document.getElementById('htGuideStartBtn').addEventListener('click', function(){ htToggle('guide'); });
-document.getElementById('htGuideResetBtn').addEventListener('click', function(){ htReset('guide'); });
-document.getElementById('htDrinkStartBtn').addEventListener('click', function(){ htToggle('drink'); });
-document.getElementById('htDrinkResetBtn').addEventListener('click', function(){ htReset('drink'); });
+document.getElementById("htGuideStartBtn").addEventListener("click",function(){htToggle("guide")});
+document.getElementById("htGuideResetBtn").addEventListener("click",function(){htReset("guide")});
+document.getElementById("htDrinkStartBtn").addEventListener("click",function(){htToggle("drink")});
+document.getElementById("htDrinkResetBtn").addEventListener("click",function(){htReset("drink")});
 
 // ── NOTES ─────────────────────────────────────────────
-let notesOpen=false, allNotes=[];
-async function loadNotes(){ try{ const r=await window.storage.get('brew_notes'); allNotes=r?JSON.parse(r.value):[]; }catch(e){ allNotes=[]; } renderNotes(); }
+var notesOpen=false,allNotes=[];
+async function loadNotes(){try{var r=await window.storage.get("brew_notes");allNotes=r?JSON.parse(r.value):[]}catch(e){allNotes=[]}renderNotes()}
 async function saveNote(){
-  const ta=document.getElementById('notesTextarea'); const text=ta.value.trim(); if(!text) return;
-  const note={id:Date.now(),context:getActiveContext(),text,date:new Date().toLocaleString()};
+  var ta=document.getElementById("notesTextarea");var text=ta.value.trim();if(!text)return;
+  var note={id:Date.now(),context:getActiveContext(),text:text,date:new Date().toLocaleString()};
   allNotes.unshift(note);
-  try{ await window.storage.set('brew_notes',JSON.stringify(allNotes)); ta.value=''; renderNotes(); flashSaved(); }catch(e){ alert('Could not save note.'); }
+  try{await window.storage.set("brew_notes",JSON.stringify(allNotes));ta.value="";renderNotes();flashSaved()}catch(e){alert("Could not save note.")}
 }
 async function deleteNote(id){
-  allNotes=allNotes.filter(n=>n.id!==id);
-  try{ await window.storage.set('brew_notes',JSON.stringify(allNotes)); renderNotes(); }catch(e){}
+  allNotes=allNotes.filter(function(n){return n.id!==id});
+  try{await window.storage.set("brew_notes",JSON.stringify(allNotes));renderNotes()}catch(e){}
 }
 function renderNotes(){
-  const list=document.getElementById('notesList'); const count=document.getElementById('notesCount');
-  count.textContent=allNotes.length+' note'+(allNotes.length!==1?'s':'');
-  document.getElementById('notesToggleLabel').textContent=allNotes.length?'Notes ('+allNotes.length+')':'Brew Notes';
-  if(!allNotes.length){ list.innerHTML='<div class="notes-empty">No notes yet.<br>Start brewing and jot something down!</div>'; return; }
-  list.innerHTML=allNotes.map(n=>'<div class="note-card"><div class="note-card-top"><div class="note-tag">☕ '+n.context+'</div><button class="note-del" data-id="'+n.id+'">✕</button></div><div class="note-text">'+escHtml(n.text)+'</div><div class="note-date">'+n.date+'</div></div>').join('');
+  var list=document.getElementById("notesList");var count=document.getElementById("notesCount");
+  count.textContent=allNotes.length+" note"+(allNotes.length!==1?"s":"");
+  document.getElementById("notesToggleLabel").textContent=allNotes.length?"Notes ("+allNotes.length+")":"Brew Notes";
+  if(!allNotes.length){list.innerHTML="<div class='notes-empty'>No notes yet.<br>Start brewing and jot something down!</div>";return}
+  list.innerHTML=allNotes.map(function(n){return "<div class='note-card'><div class='note-card-top'><div class='note-tag'>☕ "+n.context+"</div><button class='note-del' data-id='"+n.id+"'>✕</button></div><div class='note-text'>"+escHtml(n.text)+"</div><div class='note-date'>"+n.date+"</div></div>"}).join("");
 }
-document.getElementById('notesList').addEventListener('click', function(e){
-  const btn=e.target.closest('.note-del'); if(!btn) return;
+document.getElementById("notesList").addEventListener("click",function(e){
+  var btn=e.target.closest(".note-del");if(!btn)return;
   deleteNote(parseInt(btn.dataset.id));
 });
-function getActiveContext(){ if(currentDrink&&DRINKS[currentDrink]) return DRINKS[currentDrink].name; if(currentMethod&&METHODS[currentMethod]) return METHODS[currentMethod].name; return 'General'; }
-function updateNotesContext(){ document.getElementById('notesContextChip').textContent=getActiveContext(); }
-function toggleNotes(){ notesOpen=!notesOpen; document.getElementById('notesPanel').classList.toggle('open',notesOpen); if(notesOpen) setTimeout(function(){ document.getElementById('notesTextarea').focus(); },350); }
-function flashSaved(){ const el=document.getElementById('notesSaving'); el.classList.add('visible'); setTimeout(function(){ el.classList.remove('visible'); },1800); }
-function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-document.getElementById('notesFab').addEventListener('click', toggleNotes);
-document.getElementById('notesClose').addEventListener('click', toggleNotes);
-document.getElementById('notesSaveBtn').addEventListener('click', saveNote);
+function getActiveContext(){if(currentDrink&&DRINKS[currentDrink])return DRINKS[currentDrink].name;if(currentMethod&&METHODS[currentMethod])return METHODS[currentMethod].name;return"General"}
+function updateNotesContext(){document.getElementById("notesContextChip").textContent=getActiveContext()}
+function toggleNotes(){notesOpen=!notesOpen;document.getElementById("notesPanel").classList.toggle("open",notesOpen);if(notesOpen)setTimeout(function(){document.getElementById("notesTextarea").focus()},350)}
+function flashSaved(){var el=document.getElementById("notesSaving");el.classList.add("visible");setTimeout(function(){el.classList.remove("visible")},1800)}
+function escHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+document.getElementById("notesFab").addEventListener("click",toggleNotes);
+document.getElementById("notesClose").addEventListener("click",toggleNotes);
+document.getElementById("notesSaveBtn").addEventListener("click",saveNote);
 
 // ── SERVICE WORKER ────────────────────────────────────
-if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); }); }
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
 
 // ── BOOT ──────────────────────────────────────────────
 buildMenu();
