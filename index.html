@@ -151,7 +151,14 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
 .notes-saving{font-size:.56rem;color:var(--caramel);opacity:0;transition:opacity .3s}
 .notes-saving.visible{opacity:1}
 .notes-save-btn{background:var(--caramel);color:white;border:none;border-radius:8px;padding:.45rem 1rem;font-family:'DM Mono',monospace;font-size:.68rem;cursor:pointer;min-height:36px}
-/* KB + FAQ */
+/* Language selector */
+.lang-btn{background:none;border:1px solid rgba(61,31,0,.2);border-radius:20px;padding:.25rem .65rem;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--roast);cursor:pointer;display:flex;align-items:center;gap:.35rem;transition:all .2s}
+.lang-btn:hover{background:var(--foam)}
+.lang-dropdown{position:absolute;top:calc(100% + .4rem);right:1.25rem;background:white;border:1px solid var(--foam);border-radius:10px;box-shadow:0 8px 24px rgba(26,15,0,.12);z-index:200;overflow:hidden;display:none}
+.lang-dropdown.open{display:block}
+.lang-option{display:block;width:100%;background:none;border:none;text-align:left;padding:.6rem 1rem;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--espresso);cursor:pointer;white-space:nowrap}
+.lang-option:hover{background:var(--cream)}
+.lang-option.active{color:var(--caramel);font-weight:500}
 .kb-screen{display:none;animation:fadeIn .4s ease}
 .kb-screen.visible{display:block}
 .kb-hero{margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--foam)}
@@ -193,9 +200,16 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
 </style>
 </head>
 <body>
-<header>
+<header style="position:relative">
   <div class="logo">brew<span>.</span></div>
-  <button class="menu-btn" id="menuBtn">☰</button>
+  <div style="display:flex;align-items:center;gap:.5rem">
+    <button class="lang-btn" id="langBtn">🌐 <span id="langBtnLabel">EN</span></button>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+  <div class="lang-dropdown" id="langDropdown">
+    <button class="lang-option active" data-lang="en">🇬🇧 English</button>
+    <button class="lang-option" data-lang="id">🇮🇩 Bahasa Indonesia</button>
+  </div>
 </header>
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="drawer">
@@ -321,7 +335,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
     </div>
   </div>
 </div>
-<a class="bmc-btn" href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+<a class="bmc-btn" href="https://teer.id/irfan_a4" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 <button class="notes-fab" id="notesFab">📝 <span id="notesToggleLabel">Brew Notes</span></button>
 <div class="notes-panel" id="notesPanel">
   <div class="notes-handle"></div>
@@ -432,43 +446,43 @@ var KB = [];
 
 // ── MENU ──────────────────────────────────────────────
 var MENU = [
-  {type:"header",label:"Espresso"},
-  {type:"drink",key:"espresso_pure",icon:"☕",label:"Espresso"},
-  {type:"divider",label:"Milk Drinks"},
-  {type:"drink",key:"latte",icon:"🥛",label:"Cafe Latte"},
-  {type:"drink",key:"cappuccino",icon:"☁️",label:"Cappuccino"},
-  {type:"drink",key:"piccolo",icon:"🌿",label:"Piccolo Latte"},
-  {type:"drink",key:"flatwhite",icon:"🤍",label:"Flat White"},
-  {type:"drink",key:"cortado",icon:"⚖️",label:"Cortado"},
-  {type:"drink",key:"macchiato",icon:"🔸",label:"Macchiato"},
-  {type:"divider",label:"Black"},
-  {type:"drink",key:"americano",icon:"🌊",label:"Americano"},
-  {type:"drink",key:"iced_americano",icon:"🧊",label:"Iced Americano"},
-  {type:"drink",key:"longblack",icon:"🖤",label:"Long Black"},
-  {type:"drink",key:"iced_longblack",icon:"🖤",label:"Iced Long Black"},
-  {type:"divider",label:"Specialty"},
-  {type:"drink",key:"affogato",icon:"🍨",label:"Affogato"},
-  {type:"drink",key:"dirtychai",icon:"🍵",label:"Dirty Chai"},
-  {type:"drink",key:"dirty_latte",icon:"🤎",label:"Dirty Latte"},
+  {type:"header",labelKey:"menu_espresso"},
+  {type:"drink",key:"espresso_pure",icon:"☕",labelKey:"menu_espresso"},
+  {type:"divider",labelKey:"menu_milk"},
+  {type:"drink",key:"latte",icon:"🥛",labelKey:"menu_cafe_latte"},
+  {type:"drink",key:"cappuccino",icon:"☁️",labelKey:"menu_cappuccino"},
+  {type:"drink",key:"piccolo",icon:"🌿",labelKey:"menu_piccolo"},
+  {type:"drink",key:"flatwhite",icon:"🤍",labelKey:"menu_flatwhite"},
+  {type:"drink",key:"cortado",icon:"⚖️",labelKey:"menu_cortado"},
+  {type:"drink",key:"macchiato",icon:"🔸",labelKey:"menu_macchiato"},
+  {type:"divider",labelKey:"menu_black"},
+  {type:"drink",key:"americano",icon:"🌊",labelKey:"menu_americano"},
+  {type:"drink",key:"iced_americano",icon:"🧊",labelKey:"menu_iced_americano"},
+  {type:"drink",key:"longblack",icon:"🖤",labelKey:"menu_longblack"},
+  {type:"drink",key:"iced_longblack",icon:"🖤",labelKey:"menu_iced_longblack"},
+  {type:"divider",labelKey:"menu_specialty"},
+  {type:"drink",key:"affogato",icon:"🍨",labelKey:"menu_affogato"},
+  {type:"drink",key:"dirtychai",icon:"🍵",labelKey:"menu_dirtychai"},
+  {type:"drink",key:"dirty_latte",icon:"🤎",labelKey:"menu_dirty_latte"},
   {type:"header",label:"V60"},
-  {type:"method",key:"v60",icon:"🔻",label:"V60 (Hot)"},
-  {type:"drink",key:"iced_v60",icon:"🧊",label:"Japanese Iced V60"},
+  {type:"method",key:"v60",icon:"🔻",labelKey:"menu_v60"},
+  {type:"drink",key:"iced_v60",icon:"🧊",labelKey:"menu_iced_v60"},
   {type:"header",label:"French Press"},
-  {type:"method",key:"frenchpress",icon:"⚗️",label:"French Press"},
+  {type:"method",key:"frenchpress",icon:"⚗️",labelKey:"menu_frenchpress"},
   {type:"header",label:"AeroPress"},
-  {type:"method",key:"aeropress",icon:"🧪",label:"AeroPress"},
+  {type:"method",key:"aeropress",icon:"🧪",labelKey:"menu_aeropress"},
   {type:"header",label:"Cold Brew"},
-  {type:"method",key:"coldbrew",icon:"🧊",label:"Cold Brew"},
+  {type:"method",key:"coldbrew",icon:"🧊",labelKey:"menu_coldbrew"},
   {type:"header",label:"Moka Pot"},
-  {type:"method",key:"moka",icon:"🔥",label:"Moka Pot"},
-  {type:"header",label:"Knowledge Base"},
-  {type:"kb",icon:"🌱",label:"Coffee Species"},
-  {type:"kb",icon:"🗺️",label:"Origins"},
-  {type:"kb",icon:"⚙️",label:"Processing"},
-  {type:"kb",icon:"🔥",label:"Roast Levels"},
-  {type:"kb",icon:"🧬",label:"Flavour & Extraction"},
-  {type:"kb",icon:"🏆",label:"Specialty Coffee 101"},
-  {type:"kb",icon:"❓",label:"Brewing FAQ"}
+  {type:"method",key:"moka",icon:"🔥",labelKey:"menu_moka"},
+  {type:"header",labelKey:"menu_kb"},
+  {type:"kb",icon:"🌱",labelKey:"kb_species"},
+  {type:"kb",icon:"🗺️",labelKey:"kb_origins"},
+  {type:"kb",icon:"⚙️",labelKey:"kb_processing"},
+  {type:"kb",icon:"🔥",labelKey:"kb_roast"},
+  {type:"kb",icon:"🧬",labelKey:"kb_flavour"},
+  {type:"kb",icon:"🏆",labelKey:"kb_specialty"},
+  {type:"kb",icon:"❓",labelKey:"kb_faq"}
 ];
 
 // ── BUILD MENU ────────────────────────────────────────
@@ -477,17 +491,18 @@ function buildMenu(){
   list.innerHTML="";
   MENU.forEach(function(item){
     var li=document.createElement("li");
+    var label=item.labelKey?t(item.labelKey):(item.label||"");
     if(item.type==="header"){
       li.style.cssText="padding:.7rem 1rem .2rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:#e8a84c;opacity:.8";
-      li.textContent=item.label;
+      li.textContent=label;
     } else if(item.type==="divider"){
       li.style.cssText="padding:.5rem 1rem .15rem 2rem;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,168,76,.5)";
-      li.textContent=item.label;
+      li.textContent=label;
     } else {
       var btn=document.createElement("button");
       btn.className="method-btn";
       btn.style.paddingLeft=(item.type==="drink")?"2rem":"1rem";
-      btn.innerHTML="<span style='font-size:.95rem'>"+item.icon+"</span> "+item.label;
+      btn.innerHTML="<span style='font-size:.95rem'>"+item.icon+"</span> "+label;
       (function(it){
         btn.addEventListener("click",function(){
           document.querySelectorAll(".method-btn").forEach(function(b){b.classList.remove("active")});
@@ -495,7 +510,8 @@ function buildMenu(){
           if(it.type==="method") loadMethod(it.key);
           else if(it.type==="drink") loadDrink(it.key);
           else if(it.type==="kb"){
-            var idx=KB.findIndex(function(k){return k.icon===it.icon});
+            var kbData=getKBData();
+            var idx=kbData.findIndex(function(k){return k.icon===it.icon});
             loadKB(idx);
           }
           closeDrawer();
@@ -532,9 +548,10 @@ function showScreen(which){
 function loadKB(idx){
   showScreen("kb");
   var container=document.getElementById("kbChapters");
+  var kbData=getKBData();
   if(!container.dataset.built){
     var html="";
-    KB.forEach(function(ch,ci){
+    kbData.forEach(function(ch,ci){
       var cardsHtml="";
       ch.cards.forEach(function(c){
         var parasHtml=c.paras.map(function(p){return "<p>"+p+"</p>"}).join("");
@@ -563,7 +580,7 @@ function loadKB(idx){
   }
   container.querySelectorAll(".kb-ch-btn").forEach(function(b){b.classList.remove("active")});
   container.querySelectorAll(".kb-ch-content").forEach(function(c){c.classList.remove("open")});
-  if(idx>=0&&idx<KB.length){
+  if(idx>=0&&idx<kbData.length){
     var tb=container.querySelector(".kb-ch-btn[data-ci='"+idx+"']");
     var tc=container.querySelector(".kb-ch-content[data-ci='"+idx+"']");
     if(tb&&tc){tb.classList.add("active");tc.classList.add("open")}
@@ -573,7 +590,7 @@ function loadKB(idx){
 
 // ── LOAD METHOD ───────────────────────────────────────
 function loadMethod(key){
-  var m=METHODS[key];if(!m)return;
+  var m=getMethodData(key);if(!m)return;
   currentMethod=key;currentDrink=null;doneSteps=[];
   currentVariant=m.variants?m.variants[0].id:null;
   htReset("guide");showScreen("guide");
@@ -591,7 +608,7 @@ function loadMethod(key){
 
 // ── LOAD DRINK ────────────────────────────────────────
 function loadDrink(key){
-  var d=DRINKS[key];if(!d)return;
+  var d=getDrinkData(key);if(!d)return;
   currentDrink=key;currentMethod=null;doneDrinkSteps=[];
   htReset("drink");showScreen("drink");
   document.getElementById("drinkIcon").textContent=d.icon;
@@ -617,12 +634,12 @@ function renderCupVisual(d){
 
 // ── VARIANTS ──────────────────────────────────────────
 function renderVariantTabs(){
-  var m=METHODS[currentMethod];
+  var m=getMethodData(currentMethod);
   document.getElementById("variantTabs").innerHTML=m.variants.map(function(v){return "<button class='variant-tab"+(v.id===currentVariant?" active":"")+"' data-vid='"+v.id+"'>"+v.label+"</button>"}).join("");
   updateVariantDesc();
 }
 function updateVariantDesc(){
-  var m=METHODS[currentMethod];
+  var m=getMethodData(currentMethod);
   var v=m.variants.find(function(x){return x.id===currentVariant});
   document.getElementById("variantDesc").textContent=v?v.desc:"";
 }
@@ -631,7 +648,7 @@ document.getElementById("variantTabs").addEventListener("click",function(e){
   currentVariant=btn.dataset.vid;
   document.querySelectorAll(".variant-tab").forEach(function(b){b.classList.toggle("active",b.dataset.vid===currentVariant)});
   updateVariantDesc();
-  var m=METHODS[currentMethod];
+  var m=getMethodData(currentMethod);
   var v=m.variants.find(function(x){return x.id===currentVariant});
   var c=parseFloat(document.getElementById("coffeeInput").value)||100;
   document.getElementById("waterInput").value=Math.round(c*v.ratio);
@@ -640,12 +657,12 @@ document.getElementById("variantTabs").addEventListener("click",function(e){
 
 // ── RATIO ─────────────────────────────────────────────
 function getBaseRatio(){
-  var m=METHODS[currentMethod];
+  var m=getMethodData(currentMethod);
   if(m.variants&&currentVariant){var v=m.variants.find(function(x){return x.id===currentVariant});return{coffee:100,water:Math.round(100*v.ratio)}}
   return m.baseRatio;
 }
 function getRatioMult(){
-  var m=METHODS[currentMethod];
+  var m=getMethodData(currentMethod);
   if(m.variants&&currentVariant){var v=m.variants.find(function(x){return x.id===currentVariant});return v?v.ratio:7}
   return m.baseRatio.water/m.baseRatio.coffee;
 }
@@ -658,7 +675,7 @@ function recalc(changed){
   updateRatioUI();
 }
 function updateRatioUI(){
-  var m=METHODS[currentMethod];if(!m)return;
+  var m=getMethodData(currentMethod);if(!m)return;
   var c=parseFloat(document.getElementById("coffeeInput").value)||0;
   var w=parseFloat(document.getElementById("waterInput").value)||0;
   document.getElementById("ratioBadge").textContent="1 : "+((c>0&&w>0)?(w/c).toFixed(1):"—");
@@ -710,12 +727,14 @@ document.getElementById("drinkSteps").addEventListener("click",function(e){
   updateDrinkProgress();
 });
 function updateProgress(){
-  var total=METHODS[currentMethod].steps.length;
+  var m=getMethodData(currentMethod);
+  var total=m.steps.length;
   document.getElementById("progressBar").style.width=(doneSteps.length/total*100)+"%";
   document.getElementById("completeBanner").classList.toggle("visible",doneSteps.length===total);
 }
 function updateDrinkProgress(){
-  var total=DRINKS[currentDrink].steps.length;
+  var d=getDrinkData(currentDrink);
+  var total=d.steps.length;
   document.getElementById("drinkProgressBar").style.width=(doneDrinkSteps.length/total*100)+"%";
   document.getElementById("drinkCompleteBanner").classList.toggle("visible",doneDrinkSteps.length===total);
 }
@@ -794,8 +813,285 @@ document.getElementById("notesFab").addEventListener("click",toggleNotes);
 document.getElementById("notesClose").addEventListener("click",toggleNotes);
 document.getElementById("notesSaveBtn").addEventListener("click",saveNote);
 
-// ── SERVICE WORKER ────────────────────────────────────
-if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+// ── TRANSLATIONS ──────────────────────────────────────
+var LANG = "en";
+var T = {
+  en: {
+    tagline:"Craft. Patience. Ritual.",
+    intro_h1_1:"The art of a ",
+    intro_em:"perfect",
+    intro_h1_2:" cup starts here.",
+    intro_p:"Select a brew method to get step-by-step guidance, a ratio calculator, and built-in timers.",
+    intro_hint:"☰ tap menu to choose your method",
+    timer_label:"Timer",
+    start:"Start",reset:"Reset",resume:"Resume",pause:"Pause",done:"Done!",
+    style:"Style",
+    ratio_title:"Ratio Calculator",
+    coffee_g:"Coffee (g)",water_ml:"Water (ml)",
+    steps_title:"Steps — tap to mark complete",
+    brew_again:"Brew Again",
+    enjoy:"☕ Enjoy your brew!",
+    enjoy_sub:"Your coffee is ready. Take a moment to savour it.",
+    what_you_need:"What you need",
+    how_to_make:"How to make it — tap to mark complete",
+    make_another:"Make Another",
+    perfect:"Perfect. Now slow down and enjoy every sip.",
+    cup_comp:"Cup composition",
+    ratio_iced:"1 : 16.7 (coffee : brew)",
+    notes_label:"Brew Notes",
+    notes_placeholder:"Grind size, dose, taste notes, tweaks...",
+    add_note:"Add Note",
+    saved:"✓ saved",
+    notes_empty:"No notes yet.\nStart brewing and jot something down!",
+    context_label:"Context:",
+    context_default:"— select a brew method —",
+    brew_methods:"Brew Methods",
+    kb_eyebrow:"The Coffee Nerd Handbook",
+    kb_title:"Know your coffee.",
+    kb_sub:"Everything you need to sound dangerously knowledgeable at your next specialty cafe visit.",
+    menu_espresso:"Espresso",menu_cafe_latte:"Cafe Latte",menu_cappuccino:"Cappuccino",
+    menu_piccolo:"Piccolo Latte",menu_flatwhite:"Flat White",menu_cortado:"Cortado",
+    menu_macchiato:"Macchiato",menu_americano:"Americano",menu_iced_americano:"Iced Americano",
+    menu_longblack:"Long Black",menu_iced_longblack:"Iced Long Black",menu_affogato:"Affogato",
+    menu_dirtychai:"Dirty Chai",menu_dirty_latte:"Dirty Latte",
+    menu_v60:"V60 (Hot)",menu_iced_v60:"Japanese Iced V60",
+    menu_frenchpress:"French Press",menu_aeropress:"AeroPress",
+    menu_coldbrew:"Cold Brew",menu_moka:"Moka Pot",
+    menu_milk:"Milk Drinks",menu_black:"Black",menu_specialty:"Specialty",
+    menu_kb:"Knowledge Base",
+    kb_species:"Coffee Species",kb_species_sub:"Arabica, Robusta & beyond",
+    kb_origins:"Coffee Origins",kb_origins_sub:"Terroir, regions & famous beans",
+    kb_processing:"Processing Methods",kb_processing_sub:"How the cherry becomes the bean",
+    kb_roast:"Roast Levels",kb_roast_sub:"From light & floral to dark & smoky",
+    kb_flavour:"Flavour & Extraction",kb_flavour_sub:"Why coffee tastes the way it does",
+    kb_specialty:"Specialty Coffee 101",kb_specialty_sub:"Third wave, scores & what it all means",
+    kb_faq:"Brewing FAQ",kb_faq_sub:"Why does my coffee taste like that?",
+    bmc:"☕ Buy me a coffee"
+  },
+  id: {
+    tagline:"Seni. Kesabaran. Ritual.",
+    intro_h1_1:"Seni menyeduh ",
+    intro_em:"secangkir sempurna",
+    intro_h1_2:" dimulai dari sini.",
+    intro_p:"Pilih metode penyeduhan untuk panduan langkah demi langkah, kalkulator rasio, dan timer bawaan.",
+    intro_hint:"☰ ketuk menu untuk memilih metode",
+    timer_label:"Timer",
+    start:"Mulai",reset:"Reset",resume:"Lanjut",pause:"Jeda",done:"Selesai!",
+    style:"Gaya",
+    ratio_title:"Kalkulator Rasio",
+    coffee_g:"Kopi (g)",water_ml:"Air (ml)",
+    steps_title:"Langkah — ketuk untuk menandai selesai",
+    brew_again:"Seduh Lagi",
+    enjoy:"☕ Nikmati kopimu!",
+    enjoy_sub:"Kopi kamu sudah siap. Luangkan waktu untuk menikmatinya.",
+    what_you_need:"Yang kamu butuhkan",
+    how_to_make:"Cara membuatnya — ketuk untuk menandai selesai",
+    make_another:"Buat Lagi",
+    perfect:"Sempurna. Sekarang nikmati setiap tegukan.",
+    cup_comp:"Komposisi minuman",
+    ratio_iced:"1 : 16.7 (kopi : seduhan)",
+    notes_label:"Catatan Seduhan",
+    notes_placeholder:"Ukuran gilingan, dosis, catatan rasa...",
+    add_note:"Tambah Catatan",
+    saved:"✓ tersimpan",
+    notes_empty:"Belum ada catatan.\nMulai menyeduh dan catat pengalamanmu!",
+    context_label:"Konteks:",
+    context_default:"— pilih metode penyeduhan —",
+    brew_methods:"Metode Seduhan",
+    kb_eyebrow:"Panduan Pecinta Kopi",
+    kb_title:"Kenali kopimu.",
+    kb_sub:"Semua yang kamu butuhkan untuk terdengar sangat berpengetahuan di kafe specialty berikutnya.",
+    menu_espresso:"Espresso",menu_cafe_latte:"Cafe Latte",menu_cappuccino:"Cappuccino",
+    menu_piccolo:"Piccolo Latte",menu_flatwhite:"Flat White",menu_cortado:"Cortado",
+    menu_macchiato:"Macchiato",menu_americano:"Americano",menu_iced_americano:"Iced Americano",
+    menu_longblack:"Long Black",menu_iced_longblack:"Iced Long Black",menu_affogato:"Affogato",
+    menu_dirtychai:"Dirty Chai",menu_dirty_latte:"Dirty Latte",
+    menu_v60:"V60 (Panas)",menu_iced_v60:"Japanese Iced V60",
+    menu_frenchpress:"French Press",menu_aeropress:"AeroPress",
+    menu_coldbrew:"Cold Brew",menu_moka:"Moka Pot",
+    menu_milk:"Minuman Susu",menu_black:"Hitam",menu_specialty:"Spesial",
+    menu_kb:"Basis Pengetahuan",
+    kb_species:"Spesies Kopi",kb_species_sub:"Arabika, Robusta & lainnya",
+    kb_origins:"Asal Kopi",kb_origins_sub:"Terroir, daerah & biji terkenal",
+    kb_processing:"Metode Pengolahan",kb_processing_sub:"Bagaimana ceri menjadi biji kopi",
+    kb_roast:"Tingkat Sangrai",kb_roast_sub:"Dari light & floral hingga dark & smoky",
+    kb_flavour:"Rasa & Ekstraksi",kb_flavour_sub:"Mengapa kopi terasa seperti itu",
+    kb_specialty:"Specialty Coffee 101",kb_specialty_sub:"Gelombang ketiga, skor & apa artinya",
+    kb_faq:"FAQ Penyeduhan",kb_faq_sub:"Mengapa kopi saya terasa seperti itu?",
+    bmc:"☕ Traktir saya kopi"
+  }
+};
+
+// Indonesian translations for METHODS
+var METHODS_ID = {
+  espresso:{subtitle:"Pekat & berani",params:[{label:"Suhu",value:"93°C"},{label:"Waktu seduh",value:"25-30d"},{label:"Gilingan",value:"Halus"}],steps:[{name:"Panaskan mesin",desc:"Alirkan air panas melalui group head dan portafilter selama 20-30 detik.",timer:30},{name:"Giling & takar",desc:"Giling halus seperti garam meja. Distribusikan merata di dalam basket."},{name:"Tamp dengan kuat",desc:"Tekan dengan tekanan 15-20kg secara merata dan rata."},{name:"Tarik shot",desc:"Kunci dan mulai. Tetesan pertama sekitar 5-8 detik.",timer:28},{name:"Evaluasi",desc:"25-30 detik total. Crema berwarna keemasan. Pucat berarti kurang ekstraksi."},{name:"Sajikan segera",desc:"Espresso cepat teroksidasi. Sajikan dalam 10 detik."}]},
+  v60:{subtitle:"Presisi · Kerucut · Bersih",params:[{label:"Suhu",value:"93°C"},{label:"Waktu seduh",value:"2.5-3 menit"},{label:"Gilingan",value:"Sedang-halus"}],steps:[{name:"Bilas filter",desc:"Bilas filter kertas di V60, buang air bilasan. Panaskan cangkir juga."},{name:"Tambah kopi",desc:"Tambahkan kopi yang sudah digiling. Kocok perlahan untuk membuat dasar rata. Tare timbangan."},{name:"Bloom",desc:"Tuang air 3x berat kopi. Biarkan bloom 30-40 detik.",timer:35},{name:"Tuang melingkar",desc:"Tuang perlahan membentuk spiral hingga 60% dari total air.",timer:30},{name:"Tuang terakhir",desc:"Lanjutkan menuang membentuk spiral hingga target total air."},{name:"Tunggu drawdown",desc:"Total waktu seduh 2.5-3 menit. Angkat V60 saat tetesan berhenti.",timer:45},{name:"Sajikan",desc:"Aduk perlahan dan nikmati rasa yang bersih dan cerah."}]},
+  frenchpress:{subtitle:"Kaya, bertubuh penuh & berani",params:[{label:"Suhu",value:"94°C"},{label:"Seduh",value:"4 menit"},{label:"Gilingan",value:"Kasar"}],steps:[{name:"Panaskan",desc:"Tambah air panas, putar, buang."},{name:"Tambah bubuk kopi",desc:"Tekstur seperti garam kasar. Tare timbangan."},{name:"Tuang & aduk",desc:"Tuang semua air dalam satu kali tuangan. Aduk."},{name:"Seduh",desc:"Tutup dipasang, plunger ke atas. Seduh 4 menit.",timer:240},{name:"Tekan perlahan",desc:"Tekanan perlahan dan stabil selama 20 detik.",timer:20},{name:"Tuang segera",desc:"Tuang semua sekaligus."}]},
+  aeropress:{subtitle:"Halus, serbaguna & cepat",params:[{label:"Suhu",value:"85°C"},{label:"Waktu seduh",value:"~2 menit"},{label:"Gilingan",value:"Sedang-halus"}],steps:[{name:"Persiapkan terbalik",desc:"Balik AeroPress. Bilas filter, pasang tutup."},{name:"Tambah kopi",desc:"Tambahkan kopi, ketuk untuk meratakan."},{name:"Tuang & aduk",desc:"Tuang air 85C. Aduk 3-4 kali."},{name:"Seduh",desc:"Pasang tutup. Seduh 90 detik.",timer:90},{name:"Balik & tekan",desc:"Balik dengan percaya diri, tekan perlahan sekitar 30 detik.",timer:30},{name:"Berhenti saat mendesis",desc:"Berhenti saat mendengar suara mendesis — menghindari ekstraksi berlebih."}]},
+  coldbrew:{subtitle:"Lembut, halus & sabar",params:[{label:"Suhu",value:"Dingin"},{label:"Seduh",value:"12-18j"},{label:"Gilingan",value:"Sangat kasar"}],variants:[{id:"concentrate",label:"🧪 Konsentrat",ratio:7,steepLabel:"18-24j",desc:"Konsentrat kuat (1:7). Encerkan 1:1-2 sebelum diminum. Seduh 18-24 jam."},{id:"rtd",label:"🥤 Siap Minum",ratio:14,steepLabel:"12-16j",desc:"Seimbang, bisa diminum langsung (1:14). Tuang di atas es. Seduh 12-16 jam."},{id:"nitro",label:"💨 Gaya Nitro",ratio:10,steepLabel:"16-20j",desc:"Sedang-kuat (1:10) untuk tap nitro. Sensasi halus. Seduh 16-20 jam."},{id:"flash",label:"⚡ Flash Brew",ratio:8,steepLabel:"5-7 menit",desc:"Seduhan panas kuat (1:8) dituang langsung ke es. 5-7 menit."}],steps:[{name:"Giling kasar",desc:"Seperti remah roti kasar. Sangrai gelap atau sedang."},{name:"Gabungkan",desc:"Masukkan kopi ke toples. Tuang air dingin."},{name:"Aduk",desc:"Aduk agar semua kopi basah. Tutup dengan tutup."},{name:"Dinginkan",desc:"Seduh di lemari es sesuai waktu target."},{name:"Saring dua kali",desc:"Saringan mesh halus, lalu filter kopi."},{name:"Sajikan",desc:"Encerkan jika konsentrat. Tuang di atas es. Tahan 2 minggu."}]},
+  moka:{subtitle:"Intensitas & kekayaan stovetop",params:[{label:"Panas",value:"Sedang-rendah"},{label:"Waktu seduh",value:"5-7 menit"},{label:"Gilingan",value:"Halus-sedang"}],steps:[{name:"Isi boiler",desc:"Air sampai — tidak melebihi — katup tekanan."},{name:"Isi basket",desc:"Rata tapi tidak ditamp. Perlu ruang untuk mengembang."},{name:"Rakit",desc:"Kencangkan ruang dengan kuat. Periksa seal."},{name:"Panaskan sedang-rendah",desc:"Tutup terbuka. Terlalu tinggi berarti rasa gosong dan pahit."},{name:"Dengarkan suara gelembung",desc:"Gelembung stabil dan kopi terang di atas berarti angkat."},{name:"Hentikan ekstraksi",desc:"Alirkan air dingin ke bagian bawah. Tuang segera."}]}
+};
+
+// Indonesian translations for DRINKS
+var DRINKS_ID = {
+  espresso_pure:{tagline:"Murni · Tanpa kompromi · 30ml",ingredients:[{label:"Kopi",value:"9g",sub:"gilingan halus"},{label:"Espresso",value:"30ml",sub:"single shot"},{label:"Suhu",value:"93C",sub:"air"},{label:"Ukuran cangkir",value:"60-90ml",sub:"demitasse"}],steps:[{name:"Tarik single shot",desc:"Dosis 9g kopi yang digiling halus. Tamp rata dan tarik 30ml dalam 25-30 detik.",tip:"Crema emas harus menutupi permukaan."},{name:"Sajikan segera",desc:"Terbaik diminum dalam 10-20 detik.",tip:"Panaskan cangkir terlebih dahulu dengan air panas."}]},
+  latte:{tagline:"Lembut · Creamy · 240ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Susu kukus",value:"160ml",sub:"microfoam"},{label:"Busa",value:"~1cm",sub:"di atas"},{label:"Ukuran cangkir",value:"240ml",sub:"gelas tulip"}],steps:[{name:"Tarik double shot",desc:"Dosis 18g dan tarik 60ml double espresso. Target 25-30 detik."},{name:"Kukus susu ke 60-65C",desc:"Teksturkan menjadi microfoam yang halus.",tip:"Putar dan ketuk jug sebelum menuang."},{name:"Tuang dari rendah",desc:"Miringkan cangkir, biarkan susu mengalir melalui espresso."},{name:"Latte art (opsional)",desc:"Mendekati penuh, goyangkan spout untuk hati atau rosetta.",tip:"Targetkan lapisan busa 1cm di atas."}]},
+  cappuccino:{tagline:"Seimbang · Berbusa · 180ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Susu kukus",value:"60ml",sub:"panas"},{label:"Busa",value:"60ml",sub:"tebal & kering"},{label:"Ukuran cangkir",value:"180ml",sub:"cangkir keramik"}],steps:[{name:"Tarik double shot",desc:"Dosis 18g, tarik 60ml ke dalam cangkir yang sudah dipanaskan."},{name:"Kukus susu hingga berbusa kaku",desc:"Masukkan lebih banyak udara untuk busa yang lebih tebal.",tip:"Jaga wand dekat permukaan untuk membangun volume busa."},{name:"Tuang sepertiga sama rata",desc:"Sepertiga espresso, sepertiga susu, sepertiga busa. Sendok busa di atas."},{name:"Taburi cokelat",desc:"Taburan bubuk kakao ringan adalah klasik. Sajikan segera."}]},
+  piccolo:{tagline:"Intens · Kecil · 100ml",ingredients:[{label:"Ristretto",value:"30ml",sub:"shot terbatas"},{label:"Susu kukus",value:"60ml",sub:"microfoam halus"},{label:"Busa",value:"lapisan tipis",sub:"di atas"},{label:"Ukuran cangkir",value:"100ml",sub:"gelas demitasse"}],steps:[{name:"Tarik ristretto",desc:"Dosis 9g, tarik shot terbatas 20-30ml."},{name:"Kukus susu sedikit",desc:"Kukus hanya 60ml ke microfoam halus pada 60-65C.",tip:"Gunakan jug yang lebih kecil untuk kontrol lebih baik."},{name:"Tuang di atas ristretto",desc:"Tuang susu kukus di atas ristretto dalam gelas kecil. Minum cepat."}]},
+  flatwhite:{tagline:"Halus · Kuat · 160ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double ristretto"},{label:"Susu kukus",value:"100ml",sub:"microfoam halus"},{label:"Rasio",value:"2:3",sub:"kopi ke susu"},{label:"Ukuran cangkir",value:"160ml",sub:"cangkir tulip"}],steps:[{name:"Tarik double ristretto",desc:"Dosis 18g, tarik double terbatas ~40-50ml."},{name:"Kukus susu tipis",desc:"Kukus 100ml ke 60-65C. Busa lebih tipis dari latte.",tip:"Ketuk jug kuat untuk menghilangkan gelembung besar."},{name:"Tuang dengan niat",desc:"Aliran stabil dekat permukaan."}]},
+  cortado:{tagline:"Sama rata · Tanpa basa-basi · 120ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Susu kukus",value:"60ml",sub:"sedikit bertekstur"},{label:"Rasio",value:"1:1",sub:"espresso ke susu"},{label:"Ukuran cangkir",value:"120ml",sub:"gelas Gibraltar"}],steps:[{name:"Tarik double shot",desc:"Dosis 18g untuk 60ml double. Kuat dan hadir."},{name:"Kukus ringan",desc:"Kukus 60ml ke 55-60C dengan busa minimal.",tip:"Cukup untuk melembutkan espresso."},{name:"Tuang sama rata",desc:"Rasio 1:1. Tanpa seni, tanpa basa-basi."}]},
+  macchiato:{tagline:"Ditandai · Tajam · 40ml",ingredients:[{label:"Espresso",value:"30ml",sub:"single shot"},{label:"Busa",value:"1 sdt",sub:"busa susu kukus"},{label:"Ukuran cangkir",value:"60ml",sub:"demitasse"}],steps:[{name:"Tarik single shot",desc:"Dosis 9g, tarik 30ml ke dalam demitasse kecil."},{name:"Kukus sedikit susu",desc:"Beberapa detik di wand. Hanya satu sendok teh busa."},{name:"Tandai espresso",desc:"Sendokkan sejumput busa ke tengah.",tip:"Busa adalah tanda, bukan topping."}]},
+  americano:{tagline:"Diencerkan · Mudah dinikmati · 240ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Air panas",value:"180ml",sub:"dari ketel"},{label:"Rasio",value:"1:3",sub:"espresso ke air"},{label:"Ukuran cangkir",value:"240ml",sub:"mug besar"}],steps:[{name:"Tarik double shot",desc:"Dosis 18g, tarik 60ml double standar."},{name:"Tambah air panas terlebih dahulu",desc:"Tuang 180ml air 85-90C ke cangkir terlebih dahulu.",tip:"Air terlebih dahulu menjaga crema."},{name:"Tuang espresso di atas",desc:"Tuang espresso perlahan di atas air."}]},
+  iced_americano:{tagline:"Dingin · Segar · 300ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Air dingin",value:"120ml",sub:"tersaring"},{label:"Es",value:"1 gelas",sub:"batu es"},{label:"Ukuran gelas",value:"300ml",sub:"gelas tinggi"}],steps:[{name:"Isi gelas dengan es",desc:"Isi gelas tinggi dengan banyak batu es.",tip:"Batu besar mencair lebih lambat dan tidak banyak mengencerkan."},{name:"Tambah air dingin",desc:"Tuang 120ml air dingin di atas es."},{name:"Tarik double shot",desc:"Tarik 60ml double espresso panas yang segar."},{name:"Tuang espresso di atas es",desc:"Tuang espresso panas langsung ke atas es dan air.",tip:"Jangan diaduk — biarkan bercampur secara alami saat diminum."}]},
+  longblack:{tagline:"Kuat · Kaya crema · 200ml",ingredients:[{label:"Air panas",value:"120ml",sub:"dalam cangkir terlebih dahulu"},{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Ukuran cangkir",value:"200ml",sub:"cangkir keramik"}],steps:[{name:"Air panas terlebih dahulu",desc:"Tuang 120ml air 85-90C ke cangkir yang sudah dipanaskan.",tip:"Air terlebih dahulu yang membedakannya dari americano."},{name:"Tarik double shot di dalamnya",desc:"Tarik 60ml langsung di atas air. Crema mengapung."},{name:"Jangan diaduk",desc:"Disajikan tanpa diaduk. Aduk hanya jika suka."}]},
+  iced_longblack:{tagline:"Berani · Dingin · 250ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot"},{label:"Air dingin",value:"80ml",sub:"tersaring"},{label:"Es",value:"1 gelas",sub:"batu es besar"},{label:"Ukuran gelas",value:"250ml",sub:"gelas tinggi"}],steps:[{name:"Isi gelas dengan es",desc:"Padatkan gelas tinggi dengan batu es besar.",tip:"Dinginkan gelas terlebih dahulu untuk hasil terbaik."},{name:"Tambah air dingin di atas es",desc:"Tuang 80ml air dingin tersaring di atas es."},{name:"Tarik double shot segera",desc:"Tarik 60ml double espresso panas."},{name:"Tuang espresso di atas es",desc:"Tuang langsung di atas. Crema akan mengapung. Sajikan segera.",tip:"Air lebih sedikit dari iced americano — lebih kuat dan intens."}]},
+  affogato:{tagline:"Dessert · Kontras · Memanjakan",ingredients:[{label:"Es krim",value:"1-2 scoop",sub:"gelato vanilla"},{label:"Espresso",value:"30ml",sub:"single shot, panas"},{label:"Ukuran wadah",value:"150ml",sub:"mangkuk kecil"}],steps:[{name:"Dinginkan gelas",desc:"Bekukan gelas penyajian beberapa menit."},{name:"Scoop es krim",desc:"Tambahkan 1-2 scoop gelato vanilla berkualitas."},{name:"Tarik shot panas segera",desc:"Tarik 30ml shot panas yang segar.",tip:"Espresso single origin bersinar di sini."},{name:"Tuang dan sajikan segera",desc:"Tuang espresso di atas es krim. Terbaik dalam satu menit pertama."}]},
+  dirtychai:{tagline:"Berbumbu · Kompleks · 240ml",ingredients:[{label:"Espresso",value:"30-60ml",sub:"single atau double"},{label:"Konsentrat chai",value:"60ml",sub:"atau 1 celupan"},{label:"Susu kukus",value:"120ml",sub:"susu oat sangat cocok"},{label:"Rempah",value:"kayu manis+",sub:"jahe, kapulaga"}],steps:[{name:"Seduh atau panaskan chai",desc:"Konsentrat: panaskan 60ml. Celupan: seduh 4 menit.",tip:"Cari yang mengandung kapulaga, jahe, kayu manis, lada hitam."},{name:"Kukus susu",desc:"Kukus 120ml ke microfoam halus pada 60-65C."},{name:"Tarik espresso",desc:"30-60ml sesuai selera."},{name:"Rakit",desc:"Chai terlebih dahulu, susu kukus, mengapungkan espresso di atas. Taburi kayu manis.",tip:"Espresso yang tenggelam melalui susu berbumbu adalah keajaibannya."}]},
+  dirty_latte:{tagline:"Espresso · Susu Dingin · Es · 300ml",ingredients:[{label:"Espresso",value:"60ml",sub:"double shot, panas"},{label:"Susu dingin",value:"200ml",sub:"susu segar atau oat"},{label:"Es",value:"1 gelas",sub:"dalam gelas"},{label:"Pemanis",value:"opsional",sub:"sirup atau gula"}],steps:[{name:"Isi gelas dengan es",desc:"Isi gelas tinggi dengan banyak batu es. Kontras antara espresso panas dan susu dingin adalah inti dari minuman ini.",tip:"Gunakan batu es besar — mencair lebih lambat dan menjaga minuman tetap dingin lebih lama."},{name:"Tuang susu dingin di atas es",desc:"Tuang 200ml susu dingin langsung di atas es. Sisakan ruang di atas untuk espresso.",tip:"Susu full cream memberikan hasil terkaya. Susu oat barista edition adalah pilihan terbaik tanpa susu sapi."},{name:"Tarik double shot",desc:"Tarik 60ml double espresso panas yang segar."},{name:"Tuang espresso di atas sendok",desc:"Pegang sendok tepat di atas susu dan tuang espresso panas secara perlahan di atas punggung sendok. Ini membantu espresso mengapung sebentar sebelum perlahan turun.",tip:"Jangan diaduk — biarkan mengalir turun secara alami."},{name:"Tambah pemanis (opsional)",desc:"Tambahkan simple syrup atau sirup vanilla sebelum susu jika ingin manis."},{name:"Sajikan segera",desc:"Minum apa adanya, atau aduk tepat sebelum diminum. Rasa berubah saat espresso bercampur."}]},
+  iced_v60:{tagline:"Cerah · Segar · Flash-chilled · 300ml",ingredients:[{label:"Kopi bubuk",value:"20g",sub:"gilingan sedang-halus"},{label:"Air panas",value:"160ml",sub:"93C untuk menyeduh"},{label:"Es",value:"140g",sub:"ditimbang, dalam server"},{label:"Total hasil",value:"~300ml",sub:"kopi + es yang mencair"}],steps:[{name:"Siapkan es di server",desc:"Letakkan V60 di atas server yang sudah berisi 140g es yang ditimbang.",tip:"Timbang esnya — ini bagian dari resep, bukan opsional."},{name:"Bilas filter",desc:"Bilas filter kertas, buang air bilasan, letakkan dripper kembali di atas server berisi es."},{name:"Tambah kopi dan bloom",desc:"Tambahkan 20g kopi. Tuang 40ml air 93C untuk bloom. Tunggu 45 detik.",timer:45},{name:"Tuang pertama hingga 100ml",desc:"Tuang perlahan membentuk spiral hingga total 100ml air.",timer:30},{name:"Tuang kedua hingga 160ml",desc:"Tuang sisa air hingga total 160ml.",timer:30},{name:"Tunggu drawdown",desc:"Total waktu seduh sekitar 2.5-3 menit dari tuangan pertama.",timer:60},{name:"Sajikan segera",desc:"Kopi panas mengenai es dan langsung dingin, mengunci rasa cerah dan floral.",tip:"Jangan tambahkan es lagi — es yang mencair sudah menjadi pengencermu."}]}
+};
+
+// Indonesian KB
+var KB_ID = [];
+(function(){
+  function card(ico,ttl,paras,tags,bars){return{ico:ico,ttl:ttl,paras:paras,tags:tags||[],bars:bars||[]}}
+  KB_ID.push({icon:"🌱",title:"Spesies Kopi",sub:"Arabika, Robusta & lainnya",cards:[
+    card("☕","Arabika",["Coffea arabica adalah spesies kopi paling populer di dunia — sekitar 60-70% dari semua kopi yang diproduksi. Tumbuh di ketinggian tinggi (600-2.000m), lebih rapuh, dan membutuhkan waktu lebih lama untuk matang.","Biji Arabika berbentuk oval dengan lekukan melengkung. Mengandung lebih sedikit kafein (~1,2%) dan lebih banyak gula, yang menghasilkan cangkir yang lebih manis, kompleks, dan bernuansa.","Harapkan nuansa buah, floral, cokelat, dan karamel. Standar emas untuk kopi specialty."],["Ketinggian tinggi","Kafein rendah","Rasa kompleks","Kelas specialty"],[{l:"Kemanisan",v:85},{l:"Keasaman",v:75},{l:"Tubuh",v:55},{l:"Kepahitan",v:30}]),
+    card("💪","Robusta",["Coffea canephora (Robusta) lebih kuat, hasil lebih tinggi, dan lebih tahan penyakit. Tumbuh di ketinggian rendah dan berkembang di iklim panas.","Robusta mengandung hampir dua kali kafein Arabika (~2,7%). Biji lebih bulat dengan lekukan lurus.","Profil rasa: tanah, kayu, karet, dengan kepahitan yang kuat. Penting dalam campuran espresso untuk crema, dan dominan dalam kopi gaya Vietnam dan Italia."],["Ketinggian rendah","Kafein tinggi","Crema kuat","Campuran espresso"],[{l:"Kemanisan",v:30},{l:"Keasaman",v:25},{l:"Tubuh",v:90},{l:"Kepahitan",v:88}]),
+    card("🌸","Liberika & Excelsa",["Liberika sebagian besar ditanam di Filipina dan Malaysia. Biji yang besar dan tidak beraturan dengan rasa smoky, kayu, dan floral yang khas.","Excelsa (sering diklasifikasikan sebagai varian Liberika) ditanam di Asia Tenggara. Menghasilkan cangkir yang asam, buah, dan bernuansa sangrai gelap.","Gabungan, keduanya menyumbang kurang dari 3% produksi global. Langka, tapi layak dicari."],["Langka","Filipina","Malaysia","Buah & smoky"])
+  ]});
+  KB_ID.push({icon:"🗺️",title:"Asal Kopi",sub:"Terroir, daerah & biji terkenal",cards:[
+    card("🇪🇹","Ethiopia",["Tempat kelahiran kopi. Daerah Kaffa adalah tempat Coffea arabica pertama kali ditemukan, dan Ethiopia tetap menjadi asal kopi dengan keragaman genetik terbesar di bumi.","Yirgacheffe adalah yang paling dirayakan — harapkan melati, bergamot, lemon, dan blueberry. Sidama lebih bertubuh dengan nuansa persik dan aprikot. Harrar diproses kering dan berasa anggur.","Ethiopia adalah surga bagi pecinta sangrai ringan dan kafe gelombang ketiga di seluruh dunia."],["Yirgacheffe","Sidama","Harrar","Floral","Buah"]),
+    card("🇮🇩","Indonesia — Gayo (Aceh)",["Ditanam di dataran tinggi Gayo, Aceh, Sumatera, pada ketinggian 1.200-1.500m. Kopi Gayo adalah salah satu ekspor Indonesia yang paling dihargai dan memiliki sertifikasi Indikasi Geografis (IG).","Diproses sebagian besar menggunakan metode wet-hull (Giling Basah) — unik untuk Indonesia — yang memberikan tubuh yang sangat berat, keasaman rendah, dan profil rasa earthy-herbal.","Disukai oleh roaster espresso karena tubuhnya yang dalam dan kompleks."],["Sumatera","Giling basah","Tubuh berat","Earthy","Cokelat"]),
+    card("🦦","Kopi Luwak",["Kopi paling terkenal (dan kontroversial) di dunia. Musang kelapa Asia memakan buah kopi yang matang; biji melewati sistem pencernaan mereka dan dikumpulkan, dibersihkan, dan disangrai.","Fermentasi di usus musang dikatakan memecah protein, mengurangi kepahitan. Harga bisa mencapai Rp 5-8 juta/kg.","Perhatian etis serius: Sebagian besar Kopi Luwak komersial melibatkan musang dalam kandang dengan kondisi buruk. Luwak sumber liar sangat langka dan hampir tidak mungkin diverifikasi."],["Indonesia","Kontroversial","Halus","Earthy","Sangat mahal"]),
+    card("🇾🇪","Yaman — Mocha",["Yaman adalah negara pertama yang membudidayakan dan memperdagangkan kopi secara komersial, melalui pelabuhan Mocha (Al-Makha) pada abad ke-15. Di sinilah kata mocha berasal.","Kopi Yaman ditanam di teras batu kuno di ketinggian tinggi, diproses kering, dan sangat khas: berasa anggur kuat, buah, dan kompleks dengan nuansa buah ara kering, asam jawa, dan rempah.","Pasokan sangat terbatas karena konflik yang sedang berlangsung. Salah satu kopi paling dicari dan mahal di dunia."],["Bersejarah","Rasa anggur","Buah","Sangat langka","Proses kering"]),
+    card("🇨🇴","Kolombia",["Kolombia adalah produsen kopi terbesar ketiga di dunia dan identik dengan kualitas Arabika. Geografinya — pegunungan Andes, dua panen per tahun, tanah vulkanik yang kaya — menciptakan kondisi ideal.","Kopi Kolombia dikenal seimbang dan mudah dinikmati: tubuh sedang, keasaman cerah namun ringan, dan nuansa karamel, apel merah, dan hazelnut.","Daerah utama: Huila (buah, kompleks), Narino (cerah, jeruk), Antioquia (seimbang, manis)."],["Huila","Narino","Seimbang","Karamel","Cerah"]),
+    card("🇯🇲","Blue Mountain Jamaica",["Ditanam antara 910-1.700m di Blue Mountains Jamaica. Salah satu kopi paling terkenal dan mahal secara global — dilindungi oleh sertifikasi yang membatasi nama ini hanya untuk biji dari wilayah tertentu.","Profil: sangat ringan, hampir tanpa kepahitan, halus seperti sutra dengan nuansa cokelat manis, herbal, dan buah ringan. Daya tariknya adalah keanggunan dan keseimbangannya.","Sebagian besar diekspor ke Jepang, yang membeli sekitar 80% produksi tahunan."],["Ringan","Halus","Cokelat","Sangat mahal","Jamaica"])
+  ]});
+  KB_ID.push({icon:"⚙️",title:"Metode Pengolahan",sub:"Bagaimana ceri menjadi biji kopi",cards:[
+    card("💧","Washed (Full Wash)",["Proses specialty yang paling umum. Setelah panen, kulit dan daging buah dihilangkan secara mekanis, kemudian biji difermentasi dalam tangki air untuk melarutkan sisa mucilage, lalu dicuci bersih dan dikeringkan.","Hasil: Ekspresi paling bersih dari asal dan varietas biji. Keasaman cerah, kejernihan, dan transparansi rasa. Nuansa jeruk, floral, dan buah batu.","Anggap kopi washed sebagai foto jernih dari karakter biji."],["Bersih","Cerah","Transparan","Keasaman tinggi","Favorit specialty"]),
+    card("☀️","Natural (Proses Kering)",["Metode pengolahan tertua. Ceri utuh dikeringkan di bawah sinar matahari selama berminggu-minggu, buah dan semua, sebelum dikelupas. Biji difermentasi di dalam buah saat mengering.","Hasil: Tubuh berat dan sirup dengan rasa buah yang intens — blueberry, stroberi, anggur, buah tropis. Keasaman jauh lebih rendah dari washed, tapi risiko fermentasi lebih tinggi.","Natural Ethiopia dan Brazil adalah tolok ukur."],["Buah","Rasa anggur","Tubuh berat","Keasaman rendah","Difermentasi"]),
+    card("🍯","Proses Honey",["Jalan tengah antara washed dan natural. Kulit dihilangkan tetapi sejumlah mucilage (lapisan lengket seperti madu) dibiarkan pada biji selama pengeringan.","Yellow honey: paling banyak mucilage dihilangkan. Red honey: lebih banyak mucilage, lebih banyak tubuh dan kemanisan. Black honey: hampir semua mucilage dipertahankan — sangat manis dan buah.","Kopi proses honey dari Costa Rica dan El Salvador adalah contoh terbaik."],["Seimbang","Manis","Costa Rica","El Salvador","Tubuh sedang"]),
+    card("🧪","Fermentasi Anaerobik",["Proses yang lebih baru dan eksperimental di mana ceri atau biji yang sudah dikupas difermentasi dalam tangki tertutup bebas oksigen. Tanpa oksigen, bakteri dan ragi yang berbeda mendominasi.","Hasil: Rasa yang intens, hampir seperti minuman beralkohol, tropis, dan difermentasi. Pikirkan markisa, rum, sourdough, dan air mawar. Sangat khas dan polarisasi.","Fermentasi anaerobik adalah obsesi barista kompetisi dan roaster specialty saat ini."],["Eksperimental","Beralkohol","Tropis","Kopi kompetisi","Polarisasi"]),
+    card("💨","Wet-Hulled (Giling Basah)",["Unik untuk Indonesia (Sumatera, Sulawesi, Flores). Lapisan perkamen dihilangkan saat biji masih memiliki kandungan kelembaban tinggi — tidak seperti metode lain di mana biji dikeringkan sepenuhnya terlebih dahulu.","Hasil: Profil Sumatera yang khas: keasaman rendah, tubuh yang sangat berat dan seperti sirup, rasa earthy, herbal, dan seperti jamur.","Kopi Gayo dan Mandheling adalah kopi wet-hulled terbaik."],["Indonesia","Earthy","Tubuh berat","Keasaman rendah","Unik"])
+  ]});
+  KB_ID.push({icon:"🔥",title:"Tingkat Sangrai",sub:"Dari light & floral hingga dark & smoky",cards:[
+    card("🌿","Sangrai Ringan (Light Roast)",["Disangrai pada suhu internal sekitar 180-205C, tepat pada atau sebelum first crack. Biji berwarna cokelat muda, permukaan kering, tidak ada minyak yang terlihat.","Light roast menjaga karakter asal paling banyak. Kandungan kafein tertinggi.","Terbaik untuk: Pour over, V60, kopi filter. Harapkan: melati, beri, jeruk, buah batu, keanggunan seperti teh."],["Keasaman tinggi","Buah","Floral","Karakter asal","Specialty"],[{l:"Keasaman",v:90},{l:"Kemanisan",v:70},{l:"Tubuh",v:40},{l:"Kepahitan",v:15}]),
+    card("🍂","Sangrai Sedang (Medium Roast)",["Disangrai pada suhu 210-220C, antara first dan second crack. Biji berwarna cokelat sedang, masih permukaan kering. Tingkat sangrai paling populer secara komersial di seluruh dunia.","Titik keseimbangan: sebagian karakter asal tetap ada, tetapi rasa sangrai (karamel, cokelat, kacang) mulai berkembang.","Terbaik untuk: Drip coffee, AeroPress, campuran espresso. Harapkan: karamel, cokelat susu, hazelnut, gula merah."],["Seimbang","Karamel","Cokelat","Mudah dinikmati","Serbaguna"],[{l:"Keasaman",v:55},{l:"Kemanisan",v:80},{l:"Tubuh",v:65},{l:"Kepahitan",v:45}]),
+    card("🌑","Sangrai Gelap (Dark Roast)",["Disangrai pada suhu 225C+, hingga atau melampaui second crack. Biji berwarna cokelat gelap hingga hampir hitam, permukaan berminyak. Karakter asal sebagian besar digantikan oleh karakter sangrai.","Keasaman lebih rendah, tubuh sangat berat, dan kepahitan yang dominan.","Terbaik untuk: Espresso (gaya Italia tradisional), Moka pot, French press. Harapkan: cokelat hitam, asap, abu, kacang sangrai, tembakau."],["Keasaman rendah","Smoky","Berani","Berminyak","Tubuh berat"],[{l:"Keasaman",v:15},{l:"Kemanisan",v:30},{l:"Tubuh",v:92},{l:"Kepahitan",v:85}]),
+    card("📊","Sangrai & Kafein — Mitos",["Mitos umum: Sangrai gelap memiliki lebih banyak kafein. Ini salah. Kafein relatif stabil di bawah panas. Saat biji disangrai lebih lama dan lebih gelap, mereka kehilangan massa dan kepadatan.","Berdasarkan berat: Light roast memiliki sedikit lebih banyak kafein per gram (biji lebih padat). Berdasarkan volume: Dark roast memiliki sedikit lebih banyak (biji lebih ringan mengisi lebih banyak per sendok).","Dalam praktiknya perbedaannya sangat kecil. Jenis biji (Robusta vs Arabika) dan rasio seduh jauh lebih berpengaruh."],["Mitos terbantah","Kafein","Ilmu sangrai"])
+  ]});
+  KB_ID.push({icon:"🧬",title:"Rasa & Ekstraksi",sub:"Mengapa kopi terasa seperti itu",cards:[
+    card("📐","Roda Rasa Kopi",["Roda Rasa Kopi SCA adalah standar industri untuk mendeskripsikan rasa kopi. Ini memetakan ratusan deskriptor rasa dalam cincin konsentris — dari kategori luas (buah, floral, kacang) ke catatan spesifik (melati, blackberry, hazelnut).","Cincin luar spesifik: ceri, aprikot, bergamot. Cincin dalam umum: buah, floral. Pencicip terlatih bekerja dari dalam ke luar.","Anda tidak perlu menghafalnya. Hanya mengetahui keberadaannya dan menggunakan bahasanya akan membuat Anda terdengar sangat berpengetahuan."],["Mencicipi","SCA","Specialty","Kosakata"]),
+    card("⚗️","Ekstraksi — Kurang, Lebih & Pas",["Ekstraksi adalah persentase senyawa yang larut yang ditarik dari bubuk kopi. Zona emas SCA adalah ekstraksi 18-22%.","Kurang terekstraksi di bawah 18%: Asam, asin, tipis, hampa. Terlalu terekstraksi di atas 22%: Pahit, kering, astringen, keras.","Pas: Manis, seimbang, rasa akhir yang bersih. Sesuaikan ukuran gilingan terlebih dahulu — lebih halus = lebih banyak ekstraksi, lebih kasar = lebih sedikit."],["Ekstraksi","Ilmu penyeduhan","Ukuran gilingan","Rasa"]),
+    card("💧","Kualitas & Suhu Air",["Kopi terdiri dari 98-99% air. Kualitas air sangat diremehkan oleh pembuat kopi di rumah.","TDS (Total Dissolved Solids) ideal: 75-150 ppm. Terlalu lunak (air suling) = hambar, asam. Terlalu keras = berkapur, terlalu terekstraksi.","Suhu: SCA merekomendasikan 90-96C. Di bawah 85C = kurang ekstraksi. Mendidih (100C) = terlalu terekstraksi."],["Air","TDS","Suhu","Ilmu penyeduhan"]),
+    card("⏱️","Ukuran Gilingan — Variabel Terpenting",["Ukuran gilingan mengontrol luas permukaan, yang mengontrol tingkat ekstraksi. Ini adalah variabel yang paling berpengaruh dalam menyeduh kopi.","Gilingan lebih halus: Lebih banyak permukaan, ekstraksi lebih cepat, lebih banyak tubuh, lebih banyak risiko kepahitan. Espresso memerlukan gilingan paling halus.","Aturan umum: jika kopi terasa asam, giling lebih halus. Jika terasa pahit, giling lebih kasar. Selalu sesuaikan gilingan sebelum mengubah variabel lain."],["Gilingan","Ekstraksi","Burr grinder","Espresso","Filter"])
+  ]});
+  KB_ID.push({icon:"🏆",title:"Specialty Coffee 101",sub:"Gelombang ketiga, skor & apa artinya",cards:[
+    card("🌊","Tiga Gelombang Kopi",["Gelombang pertama 1800an-1960an: Kopi sebagai komoditas. Aksesibilitas di atas kualitas. Kopi instan adalah inovasi puncak.","Gelombang kedua 1960an-2000an: Kopi sebagai pengalaman. Starbucks, latte, sirup rasa. Orang mulai peduli dengan budaya kafe.","Gelombang ketiga 2000an-sekarang: Kopi sebagai kerajinan. Single origin, sumber transparan, sangrai ringan, barista sebagai seniman. Kita mungkin memasuki gelombang keempat: presisi ilmiah dan eksperimentasi fermentasi."],["Sejarah","Budaya","Gelombang ketiga","Specialty"]),
+    card("💯","Skor SCA & Definisi Specialty",["Specialty Coffee Association (SCA) mendefinisikan kopi specialty sebagai kopi yang mendapat skor 80 poin atau lebih pada skala cupping 100 poin mereka.","Kopi dievaluasi berdasarkan: harum/aroma, rasa, aftertaste, keasaman, tubuh, keseimbangan, keseragaman, cangkir bersih, kemanisan, dan kesan keseluruhan.","80-84,99: Sangat Baik. 85-89,99: Luar Biasa. 90+: Menakjubkan — sangat langka. Sebagian besar penawaran kafe specialty berada di kisaran 84-88."],["SCA","Q-Grader","Cupping","Skor","Kualitas"]),
+    card("🌿","Direct Trade & Transparansi",["Sebagian besar kopi komoditas melewati broker, koperasi, dan importir sebelum mencapai roaster — dengan petani sering menerima kurang dari Rp 15.000 per kilogram.","Direct trade berarti roaster membeli langsung dari kebun, biasanya membayar 2-5x harga komoditas.","Istilah yang perlu diketahui: single origin (satu kebun atau wilayah), single estate (satu kebun spesifik), microlot (lot kecil yang luar biasa dari satu bagian kebun), lot number (keterlacakan kembali ke panen spesifik)."],["Etika","Sumber","Transparansi","Petani","Single origin"]),
+    card("☕","Cara Mencicipi Kopi Seperti Profesional",["Cupping adalah metode mencicipi standar industri: kopi yang digiling kasar direndam dalam air panas, dan pencicip menyeruputnya dengan keras. Seruputan mengaerasikan kopi dan menyebarkannya ke seluruh langit-langit mulut.","Yang dievaluasi: Aroma (kering dan basah), Rasa (kesan pertama), Aftertaste (panjang dan kualitas rasa akhir), Keasaman (kecerahan, bukan asam), Tubuh (berat di lidah), Keseimbangan.","Di rumah: seduh pour over tanpa susu atau gula. Biarkan agak dingin ke 60-65C. Ambil tegukan kecil dan biarkan melapisi seluruh mulut Anda."],["Cupping","Mencicipi","Aroma","Langit-langit","SCA"])
+  ]});
+  KB_ID.push({icon:"❓",title:"FAQ Penyeduhan",sub:"Mengapa kopi saya terasa seperti itu?",cards:[
+    card("💧","Mengapa kopi saya terasa encer?",["Kopi encer biasanya berarti kurang ekstraksi atau terlalu sedikit kopi untuk jumlah air yang digunakan.","Perbaikan 1 — Periksa rasio Anda: Rasio emas SCA adalah 1:15 hingga 1:17. Perbaikan 2 — Giling lebih halus: Gilingan yang lebih kasar mengekstraksi lebih sedikit. Perbaikan 3 — Periksa suhu air: Air di bawah 85C kurang mengekstraksi.","Perbaikan 4 — Perlambat tuangan: Untuk metode pour over, menuang terlalu cepat memburu penyeduhan."],["Kurang ekstraksi","Rasio","Gilingan","Suhu"]),
+    card("😬","Mengapa espresso saya terlalu pahit?",["Kepahitan dalam espresso hampir selalu berarti terlalu terekstraksi. Anda telah menarik terlalu banyak senyawa dari bubuk kopi.","Perbaikan 1 — Giling lebih kasar: Perbaikan tunggal paling efektif. Perbaikan 2 — Persingkat shot: Targetkan 25-30 detik untuk rasio 1:2 (18g masuk, 36ml keluar). Perbaikan 3 — Turunkan suhu air: Coba turunkan ke 90-92C.","Perbaikan 4 — Periksa tingkat sangrai: Sangrai yang sangat gelap secara inheren lebih pahit. Coba sangrai lebih ringan atau sedang untuk espresso."],["Terlalu terekstraksi","Espresso","Giling lebih kasar","Pahit"]),
+    card("😣","Mengapa kopi saya terasa asam?",["Keasaman berarti kurang ekstraksi. Asam buah yang menyenangkan diekstraksi terlebih dahulu, tetapi Anda belum menyeduh cukup lama atau cukup panas untuk juga mengekstraksi kemanisan dan tubuh yang menyeimbangkannya.","Perbaikan 1 — Giling lebih halus: Lebih banyak permukaan berarti lebih banyak ekstraksi. Perbaikan tercepat untuk keasaman. Perbaikan 2 — Gunakan air yang lebih panas. Perbaikan 3 — Perpanjang waktu seduh.","Catatan: Beberapa keasaman diinginkan dalam kopi specialty sangrai ringan. Ini disebut kecerahan atau keasaman dan merupakan kualitas positif."],["Kurang ekstraksi","Asam","Keasaman","Giling lebih halus"]),
+    card("🔄","Pour Over vs Immersion — apa bedanya?",["Pour Over (perkolasi): Air segar terus melewati bubuk kopi dan menetes ke bawah. V60, Chemex, Kalita Wave. Air selalu bergerak. Hasil: cangkir yang bersih, cerah, transparan.","Immersion: Bubuk kopi terendam dalam air selama waktu seduh penuh. French press, AeroPress (terbalik), cold brew. Air dan bubuk tetap bersama sepanjang waktu. Hasil: tubuh lebih penuh, mouthfeel lebih berat.","Mana yang lebih baik? Tidak ada yang lebih baik. Pour over menghargai presisi dan biji yang bagus. Immersion menghargai kesabaran dan lebih konsisten untuk pemula."],["Pour over","Immersion","French press","V60","Metode penyeduhan"]),
+    card("🥛","Susu apa yang terbaik untuk latte?",["Susu terbaik untuk latte adalah yang dikukus dengan baik — membentuk microfoam yang halus dan manis yang menyatu dengan espresso.","Susu full cream: Standar emas. Kandungan lemak tinggi menciptakan microfoam yang stabil dan halus. Susu oat: Pilihan terbaik tanpa susu sapi. Susu oat edisi barista dikukus hampir sama baiknya dengan susu sapi.","Susu almond: Dikukus dengan buruk — busa tipis yang cepat terpisah. Lebih baik untuk minuman iced. Susu kedelai: Dikukus cukup baik tetapi bisa pecah jika espresso sangat asam."],["Susu","Latte","Susu oat","Microfoam","Bebas susu sapi"]),
+    card("☕","Bagaimana cara menyimpan biji kopi dengan benar?",["Musuh kopi adalah: oksigen, kelembaban, panas, dan cahaya. Kebanyakan orang menyimpan kopi dengan cara yang salah.","Lakukan: Simpan dalam wadah kedap udara (idealnya dengan katup satu arah) pada suhu kamar, jauh dari sinar matahari. Gunakan dalam 2-4 minggu dari tanggal sangrai.","Jangan lakukan: Simpan di kulkas (penyerapan kelembaban dan bau). Kopi specialty terbaik dikonsumsi 5-30 hari setelah sangrai. Setelah 4-6 minggu, rasa menurun nyata."],["Penyimpanan","Kesegaran","Tanggal sangrai","Kedap udara"]),
+    card("⚖️","Apakah saya perlu timbangan?",["Ya. Timbangan adalah investasi terbaik yang bisa dilakukan pembuat kopi di rumah — lebih berpengaruh daripada meningkatkan alat seduh Anda.","Kopi diukur berdasarkan berat, bukan volume. Satu sendok kopi sangat bervariasi tergantung pada ukuran gilingan, kepadatan biji, dan cara menyendok.","Anda memerlukan: timbangan yang mengukur hingga 0,1g untuk dosis espresso atau setidaknya 1g untuk kopi filter. Bahkan timbangan seharga Rp 75.000 lebih baik daripada tidak ada timbangan."],["Timbangan","Presisi","Berat","Dosis","Konsistensi"]),
+    card("🔢","Apa arti rasio 1:15?",["Rasio kopi mengungkapkan hubungan antara kopi bubuk dan air berdasarkan berat. 1:15 berarti 1 gram kopi untuk setiap 15 gram (ml) air. Jadi 20g kopi menghasilkan 300ml air.","Rasio umum berdasarkan metode: Espresso 1:2. V60 dan Pour Over 1:15 hingga 1:17. French Press 1:15 hingga 1:17. AeroPress 1:10 hingga 1:17 tergantung gaya. Cold Brew 1:7 (konsentrat) hingga 1:14 (siap minum).","Anggap rasio sebagai titik awal Anda. Setelah Anda menetapkan rasio yang konsisten, Anda dapat menyesuaikan ukuran gilingan dan suhu untuk menyetel rasa."],["Rasio","Dosis","Resep","Pemula","Espresso"]),
+    card("🌡️","Apakah ukuran gilingan benar-benar penting?",["Ya. Ukuran gilingan adalah variabel yang paling berpengaruh dalam menyeduh kopi setelah kualitas biji itu sendiri.","Ukuran gilingan mengontrol luas permukaan, yang mengontrol seberapa cepat air mengekstraksi senyawa rasa. Espresso butuh sangat halus. Cold brew butuh sangat kasar.","Burr grinder vs blade grinder: Burr grinder sangat penting untuk hasil yang konsisten. Blade grinder memotong secara acak — Anda mendapatkan campuran debu dan potongan besar. Burr grinder tangan yang bagus harganya Rp 750.000-1.200.000 dan jauh lebih baik dari blade grinder manapun."],["Ukuran gilingan","Burr grinder","Ekstraksi","Konsistensi","Peralatan"])
+  ]});
+})();
+
+function t(key){return (T[LANG]&&T[LANG][key])||T["en"][key]||key}
+function getKBData(){return LANG==="id"?KB_ID:KB}
+function getMethods(){return METHODS}
+function getDrinkData(key){
+  if(LANG==="id"&&DRINKS_ID[key]){
+    var base=DRINKS[key];
+    var ov=DRINKS_ID[key];
+    return Object.assign({},base,{tagline:ov.tagline,ingredients:ov.ingredients,steps:ov.steps});
+  }
+  return DRINKS[key];
+}
+function getMethodData(key){
+  if(LANG==="id"&&METHODS_ID[key]){
+    var base=METHODS[key];
+    var ov=METHODS_ID[key];
+    var merged=Object.assign({},base,{subtitle:ov.subtitle,params:ov.params,steps:ov.steps});
+    if(ov.variants) merged.variants=ov.variants;
+    return merged;
+  }
+  return METHODS[key];
+}
+
+// ── LANGUAGE SWITCHING ────────────────────────────────
+document.getElementById("langBtn").addEventListener("click",function(e){
+  e.stopPropagation();
+  document.getElementById("langDropdown").classList.toggle("open");
+});
+document.addEventListener("click",function(){document.getElementById("langDropdown").classList.remove("open")});
+document.querySelectorAll(".lang-option").forEach(function(opt){
+  opt.addEventListener("click",function(){
+    LANG=opt.dataset.lang;
+    document.getElementById("langBtnLabel").textContent=LANG.toUpperCase();
+    document.querySelectorAll(".lang-option").forEach(function(o){o.classList.toggle("active",o.dataset.lang===LANG)});
+    document.getElementById("langDropdown").classList.remove("open");
+    applyStaticTranslations();
+    buildMenu();
+    // re-render current screen
+    if(currentMethod) loadMethod(currentMethod);
+    else if(currentDrink) loadDrink(currentDrink);
+    // reset KB so it rebuilds in new language
+    var kbc=document.getElementById("kbChapters");
+    kbc.innerHTML="";delete kbc.dataset.built;
+  });
+});
+
+function applyStaticTranslations(){
+  // intro screen
+  var h1=document.querySelector(".intro-screen h1");
+  if(h1) h1.innerHTML=t("intro_h1_1")+"<em>"+t("intro_em")+"</em>"+t("intro_h1_2");
+  var ep=document.querySelector(".intro-screen .eyebrow");if(ep) ep.textContent=t("tagline");
+  var ip=document.querySelector(".intro-screen p");if(ip) ip.textContent=t("intro_p");
+  var ia=document.querySelector(".arrow-hint");if(ia) ia.textContent=t("intro_hint");
+  // drawer title
+  var dh=document.querySelector(".drawer h2");if(dh) dh.textContent=t("brew_methods");
+  // kb hero
+  var ke=document.querySelector(".kb-hero-eyebrow");if(ke) ke.textContent=t("kb_eyebrow");
+  var kh=document.querySelector(".kb-hero h2");if(kh) kh.textContent=t("kb_title");
+  var kp=document.querySelector(".kb-hero p");if(kp) kp.textContent=t("kb_sub");
+  // notes
+  document.getElementById("notesToggleLabel").textContent=t("notes_label");
+  document.getElementById("notesTextarea").placeholder=t("notes_placeholder");
+  document.getElementById("notesSaveBtn").textContent=t("add_note");
+  document.querySelector(".notes-context-label").textContent=t("context_label");
+  document.getElementById("notesContextChip").textContent=t("context_default");
+  document.querySelector(".notes-title").textContent=t("notes_label");
+  // ratio
+  document.querySelector(".steps-title").textContent=t("steps_title");
+  document.querySelector(".drink-steps-title").textContent=t("how_to_make");
+  document.getElementById("completeBanner").querySelector("h3").textContent=t("enjoy");
+  document.getElementById("completeBanner").querySelector("p").textContent=t("enjoy_sub");
+  document.getElementById("resetGuideBtn").textContent=t("brew_again");
+  document.getElementById("drinkCompleteBanner").querySelector("p").textContent=t("perfect");
+  document.getElementById("resetDrinkBtn").textContent=t("make_another");
+  document.querySelector(".cup-label").textContent=t("cup_comp");
+  document.querySelector(".bmc-btn").textContent=t("bmc");
+  // guide ratio labels
+  var rl=document.querySelectorAll(".ratio-field label");
+  if(rl[0]) rl[0].textContent=t("coffee_g");
+  if(rl[1]) rl[1].textContent=t("water_ml");
+  // timer labels
+  document.querySelectorAll(".ht-label").forEach(function(l){l.textContent=t("timer_label")});
+  document.getElementById("htGuideStartBtn").textContent=ht.guide.running?t("pause"):t("start");
+  document.getElementById("htDrinkStartBtn").textContent=ht.drink.running?t("pause"):t("start");
+  document.getElementById("htGuideResetBtn").textContent=t("reset");
+  document.getElementById("htDrinkResetBtn").textContent=t("reset");
+}
 
 // ── BOOT ──────────────────────────────────────────────
 buildMenu();
