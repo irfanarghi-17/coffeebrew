@@ -15,8 +15,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--cream:#f5ede0;--warm:#fdf8f2;--dark:#1a0f00;--roast:#3d1f00;--gold:#c47c2b;--bright:#e8a84c;--foam:#f0e0c8}
 body{background:var(--cream);color:var(--dark);font-family:'DM Mono',monospace;min-height:100vh}
-
-/* HEADER */
 header{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.25rem;border-bottom:1px solid rgba(61,31,0,.12);background:var(--cream);position:sticky;top:0;z-index:50}
 .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--roast)}
 .logo em{font-style:italic;color:var(--gold)}
@@ -27,18 +25,12 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .lang-opt{display:block;width:100%;background:none;border:none;text-align:left;padding:.6rem 1rem;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--dark);cursor:pointer}
 .lang-opt:hover{background:var(--cream)}
 .lang-opt.on{color:var(--gold);font-weight:500}
-
-/* CONTENT */
 .page{padding:1.5rem 1.25rem;background:var(--warm);min-height:calc(100vh - 57px)}
-
-/* INTRO */
 #pg-home{display:block}
 .eyebrow{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
 .hero{font-family:'Playfair Display',serif;font-size:1.9rem;line-height:1.15;color:var(--roast);margin-bottom:.85rem}
 .hero em{font-style:italic;color:var(--gold)}
 .hero-sub{font-size:.76rem;line-height:1.8;color:rgba(26,15,0,.5);margin-bottom:1.5rem}
-
-/* INLINE MENU */
 .cat-block{margin-bottom:.6rem}
 .cat-head{width:100%;background:var(--cream);border:1.5px solid var(--foam);border-radius:12px;padding:.85rem 1.1rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:'DM Mono',monospace;font-size:.78rem;color:var(--roast);font-weight:500}
 .cat-head:hover{background:var(--foam)}
@@ -51,20 +43,12 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .sec-lbl{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,168,76,.5);padding:.55rem .5rem .2rem}
 .menu-item{width:100%;background:none;border:none;text-align:left;padding:.55rem .75rem;border-radius:8px;color:var(--foam);font-family:'DM Mono',monospace;font-size:.76rem;cursor:pointer;display:flex;align-items:center;gap:.55rem}
 .menu-item:hover{background:rgba(255,255,255,.1)}
-
-/* RECIPE / GUIDE SCREENS */
 #pg-guide,#pg-drink,#pg-kb{display:none}
-
-/* back button */
 .back-btn{background:none;border:none;color:var(--gold);font-family:'DM Mono',monospace;font-size:.68rem;cursor:pointer;padding:0;margin-bottom:1.25rem;display:flex;align-items:center;gap:.35rem}
-
-/* recipe header */
 .rec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--foam)}
 .rec-info .rec-icon{font-size:1.8rem;margin-bottom:.3rem}
 .rec-info h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--roast);margin-bottom:.15rem}
 .rec-info .rec-sub{font-size:.58rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
-
-/* timer */
 .timer-box{background:var(--roast);border-radius:12px;padding:.75rem .9rem;display:flex;flex-direction:column;align-items:center;gap:.3rem;min-width:108px;flex-shrink:0}
 .t-lbl{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bright)}
 .t-disp{font-family:'Playfair Display',serif;font-size:1.7rem;color:white;line-height:1}
@@ -75,8 +59,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .t-btns{display:flex;gap:.3rem}
 .t-btn{background:rgba(255,255,255,.1);border:none;color:white;font-family:'DM Mono',monospace;font-size:.57rem;padding:.22rem .5rem;border-radius:5px;cursor:pointer}
 .t-btn.pri{background:var(--gold);color:white}
-
-/* ratio */
 .ratio-box{background:var(--cream);border:1px solid var(--foam);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.5rem}
 .ratio-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
 .sec-title{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
@@ -92,25 +74,17 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .r-lbl{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,15,0,.4);margin-bottom:.12rem}
 .r-val{font-size:.92rem;font-weight:500;color:var(--roast)}
 .r-sub{font-size:.54rem;color:var(--gold);margin-top:.08rem}
-
-/* params */
 .params{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.5rem}
 .param{background:var(--cream);border:1px solid var(--foam);border-radius:10px;padding:.6rem .8rem;flex:1;min-width:0}
 .p-lbl{font-size:.5rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem}
 .p-val{font-size:.8rem;font-weight:500;color:var(--roast);white-space:nowrap}
-
-/* variants */
 .variant-sec{margin-bottom:1.5rem}
 .vtabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem}
 .vtab{background:var(--foam);border:1.5px solid var(--foam);border-radius:8px;padding:.42rem .8rem;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(26,15,0,.6);cursor:pointer;white-space:nowrap}
 .vtab.on{background:var(--gold);border-color:var(--gold);color:white;font-weight:500}
 .vdesc{font-size:.7rem;line-height:1.65;color:rgba(26,15,0,.55);padding:.7rem .85rem;background:var(--cream);border-radius:8px;border-left:3px solid var(--gold)}
-
-/* progress */
 .prog-wrap{background:var(--foam);border-radius:20px;height:4px;margin-bottom:1.5rem;overflow:hidden}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--bright));border-radius:20px;transition:width .4s;width:0}
-
-/* steps */
 .steps-lbl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .steps{display:flex;flex-direction:column}
 .step{display:grid;grid-template-columns:40px 1fr;gap:.8rem;position:relative;cursor:pointer}
@@ -124,15 +98,11 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .step-desc{font-size:.69rem;line-height:1.7;color:rgba(26,15,0,.55)}
 .step-timer{display:inline-flex;align-items:center;gap:.32rem;font-size:.58rem;color:var(--gold);margin-top:.4rem;background:rgba(196,124,43,.1);padding:.2rem .55rem;border-radius:20px}
 .step-tip{font-size:.63rem;color:var(--gold);margin-top:.38rem;background:rgba(196,124,43,.08);padding:.25rem .65rem;border-radius:6px;display:inline-block}
-
-/* done banner */
 .done-banner{display:none;background:linear-gradient(135deg,var(--gold),var(--bright));color:var(--dark);border-radius:12px;padding:1.2rem 1.4rem;margin-top:1.5rem;text-align:center}
 .done-banner.show{display:block}
 .done-banner h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:.2rem}
 .done-banner p{font-size:.68rem;opacity:.8}
 .reset-btn{margin-top:.8rem;background:var(--roast);color:var(--cream);border:none;padding:.48rem 1.1rem;border-radius:8px;font-family:'DM Mono',monospace;font-size:.66rem;cursor:pointer}
-
-/* drink extras */
 .cup-sec{margin-bottom:1.5rem}
 .cup-lbl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
 .cup-vis{display:flex;align-items:flex-end;gap:1.2rem;flex-wrap:wrap}
@@ -150,8 +120,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .ing-lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem}
 .ing-val{font-size:.92rem;font-weight:500;color:var(--roast)}
 .ing-sub{font-size:.53rem;color:rgba(26,15,0,.4);margin-top:.08rem}
-
-/* KB */
 .kb-hero{margin-bottom:1.5rem;padding-bottom:1.2rem;border-bottom:1px solid var(--foam)}
 .kb-hero h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--roast);margin-bottom:.35rem}
 .kb-hero p{font-size:.7rem;line-height:1.7;color:rgba(26,15,0,.5)}
@@ -184,12 +152,8 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .kb-bar-lbl{font-size:.56rem;color:rgba(26,15,0,.45);width:65px;flex-shrink:0}
 .kb-bar-track{flex:1;background:var(--foam);border-radius:20px;height:5px;overflow:hidden}
 .kb-bar-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--gold),var(--bright))}
-
-/* FABs */
 .bmc-btn{position:fixed;bottom:1.2rem;left:1.2rem;background:#FFDD00;color:#000;border:none;border-radius:50px;padding:.62rem .95rem;font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.15);z-index:90;text-decoration:none;display:flex;align-items:center;gap:.4rem}
 .notes-fab{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--roast);color:var(--bright);border:none;border-radius:50px;padding:.62rem .95rem;font-family:'DM Mono',monospace;font-size:.68rem;cursor:pointer;box-shadow:0 4px 16px rgba(26,15,0,.3);z-index:90;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
-
-/* NOTES PANEL */
 .notes-panel{position:fixed;left:0;right:0;bottom:0;background:var(--warm);border-top:2px solid var(--gold);border-radius:20px 20px 0 0;box-shadow:0 -8px 32px rgba(26,15,0,.15);z-index:200;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);max-height:80vh;padding-bottom:env(safe-area-inset-bottom)}
 .notes-panel.open{transform:translateY(0)}
 .notes-handle{width:36px;height:4px;background:rgba(61,31,0,.12);border-radius:2px;margin:10px auto 4px}
@@ -215,14 +179,12 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 .notes-saved{font-size:.54rem;color:var(--gold);opacity:0;transition:opacity .3s}
 .notes-saved.show{opacity:1}
 .notes-save{background:var(--gold);color:white;border:none;border-radius:8px;padding:.42rem .95rem;font-family:'DM Mono',monospace;font-size:.66rem;cursor:pointer;min-height:34px}
-
 @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .page>*{animation:fadeIn .35s ease}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">brew<em>.</em></div>
   <div class="lang-wrap">
@@ -234,13 +196,11 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
   </div>
 </header>
 
-<!-- ═══════════════ HOME ═══════════════ -->
 <div class="page" id="pg-home">
   <p class="eyebrow" id="txt-eyebrow">Craft. Patience. Ritual.</p>
   <h1 class="hero" id="txt-hero">The art of a <em>perfect</em> cup starts here.</h1>
   <p class="hero-sub" id="txt-sub">Choose a brew method below to get step-by-step guidance, a ratio calculator, and built-in timers.</p>
 
-  <!-- ESPRESSO BASED -->
   <div class="cat-block">
     <button class="cat-head" id="cat-esp">
       <span><span class="cat-icon">☕</span><span id="lbl-cat-esp">Espresso Based</span></span>
@@ -262,12 +222,10 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
       <button class="menu-item" data-drink="iced_longblack">🖤 Iced Long Black</button>
       <div class="sec-lbl" id="lbl-spec">Specialty</div>
       <button class="menu-item" data-drink="affogato">🍨 Affogato</button>
-      <button class="menu-item" data-drink="dirtychai">🍵 Dirty Chai</button>
       <button class="menu-item" data-drink="dirty_latte">🤎 Dirty Latte</button>
     </div>
   </div>
 
-  <!-- MANUAL BREW -->
   <div class="cat-block">
     <button class="cat-head" id="cat-man">
       <span><span class="cat-icon">🫖</span><span id="lbl-cat-man">Manual Brew</span></span>
@@ -276,14 +234,16 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
     <div class="cat-body" id="body-man">
       <button class="menu-item" data-method="v60">🔻 V60 (Hot)</button>
       <button class="menu-item" data-drink="iced_v60">🧊 Japanese Iced V60</button>
+      <button class="menu-item" data-method="chemex">☕ Chemex</button>
       <button class="menu-item" data-method="frenchpress">⚗️ French Press</button>
       <button class="menu-item" data-method="aeropress">🧪 AeroPress</button>
       <button class="menu-item" data-method="coldbrew">🧊 Cold Brew</button>
       <button class="menu-item" data-method="moka">🔥 Moka Pot</button>
+      <button class="menu-item" data-method="tubruk">🫖 Kopi Tubruk</button>
+      <button class="menu-item" data-method="vietnam">🇻🇳 Vietnam Drip (Phin)</button>
     </div>
   </div>
 
-  <!-- KNOWLEDGE BASE -->
   <div class="cat-block">
     <button class="cat-head" id="cat-kb">
       <span><span class="cat-icon">📚</span><span id="lbl-cat-kb">Knowledge Base</span></span>
@@ -301,7 +261,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
   </div>
 </div>
 
-<!-- ═══════════════ GUIDE (method) ═══════════════ -->
 <div class="page" id="pg-guide">
   <button class="back-btn" id="back-guide">← <span id="back-guide-lbl">Back</span></button>
   <div class="rec-head">
@@ -352,7 +311,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
   </div>
 </div>
 
-<!-- ═══════════════ DRINK ═══════════════ -->
 <div class="page" id="pg-drink">
   <button class="back-btn" id="back-drink">← <span id="back-drink-lbl">Back</span></button>
   <div class="rec-head">
@@ -407,7 +365,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
   </div>
 </div>
 
-<!-- ═══════════════ KB ═══════════════ -->
 <div class="page" id="pg-kb">
   <button class="back-btn" id="back-kb">← <span id="back-kb-lbl">Back</span></button>
   <div class="kb-hero">
@@ -418,11 +375,9 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
   <div class="kb-chaps" id="kb-chaps"></div>
 </div>
 
-<!-- FABs -->
 <a class="bmc-btn" href="https://teer.id/irfan_a4" target="_blank" rel="noopener" id="bmc-btn">☕ Buy me a coffee</a>
 <button class="notes-fab" id="notes-fab">📝 <span id="notes-fab-lbl">Brew Notes</span></button>
 
-<!-- NOTES PANEL -->
 <div class="notes-panel" id="notes-panel">
   <div class="notes-handle"></div>
   <div class="notes-hd">
@@ -447,144 +402,72 @@ header{display:flex;justify-content:space-between;align-items:center;padding:.9r
 </div>
 
 <script>
-// ─── LANGUAGE ────────────────────────────────────────
-var LANG = "en";
-var TR = {
-  en:{
-    eyebrow:"Craft. Patience. Ritual.",
-    hero:"The art of a <em>perfect</em> cup starts here.",
-    sub:"Choose a brew method below to get step-by-step guidance, a ratio calculator, and built-in timers.",
-    cat_esp:"Espresso Based", cat_man:"Manual Brew", cat_kb:"Knowledge Base",
-    milk:"Milk Drinks", black:"Black", spec:"Specialty",
-    back:"Back", timer:"Timer", start:"Start", reset:"Reset", resume:"Resume", pause:"Pause",
-    style:"Style", ratio:"Ratio Calculator", coffee:"Coffee (g)", water:"Water (ml)",
-    steps:"Steps — tap to mark complete", how:"How to make it — tap to mark complete",
-    cup:"Cup composition", need:"What you need",
-    enjoy:"☕ Enjoy your brew!", enjoy_sub:"Your coffee is ready. Take a moment to savour it.",
-    brew_again:"Brew Again", perfect:"Perfect. Now slow down and enjoy every sip.", make_another:"Make Another",
-    kb_eyebrow:"The Coffee Nerd Handbook", kb_title:"Know your coffee.",
-    kb_sub:"Everything you need to sound dangerously knowledgeable at your next specialty cafe visit.",
-    notes:"Brew Notes", ctx:"Context:", add_note:"Add Note", notes_ph:"Grind size, dose, taste notes...",
-    bmc:"☕ Buy me a coffee"
-  },
-  id:{
-    eyebrow:"Seni. Kesabaran. Ritual.",
-    hero:"Seni menyeduh <em>secangkir sempurna</em> dimulai dari sini.",
-    sub:"Pilih metode penyeduhan di bawah untuk panduan langkah demi langkah, kalkulator rasio, dan timer.",
-    cat_esp:"Berbasis Espresso", cat_man:"Manual Brew", cat_kb:"Basis Pengetahuan",
-    milk:"Minuman Susu", black:"Hitam", spec:"Spesial",
-    back:"Kembali", timer:"Timer", start:"Mulai", reset:"Reset", resume:"Lanjut", pause:"Jeda",
-    style:"Gaya", ratio:"Kalkulator Rasio", coffee:"Kopi (g)", water:"Air (ml)",
-    steps:"Langkah — ketuk untuk menandai selesai", how:"Cara membuatnya — ketuk untuk menandai selesai",
-    cup:"Komposisi minuman", need:"Yang kamu butuhkan",
-    enjoy:"☕ Nikmati kopimu!", enjoy_sub:"Kopi kamu sudah siap. Luangkan waktu untuk menikmatinya.",
-    brew_again:"Seduh Lagi", perfect:"Sempurna. Sekarang nikmati setiap tegukan.", make_another:"Buat Lagi",
-    kb_eyebrow:"Panduan Pecinta Kopi", kb_title:"Kenali kopimu.",
-    kb_sub:"Semua yang kamu butuhkan untuk terdengar sangat berpengetahuan di kafe specialty berikutnya.",
-    notes:"Catatan Seduhan", ctx:"Konteks:", add_note:"Tambah Catatan", notes_ph:"Ukuran gilingan, dosis, catatan rasa...",
-    bmc:"☕ Trakteer saya"
-  }
+var LANG="en";
+var TR={
+  en:{eyebrow:"Craft. Patience. Ritual.",hero:"The art of a <em>perfect</em> cup starts here.",sub:"Choose a brew method below to get step-by-step guidance, a ratio calculator, and built-in timers.",cat_esp:"Espresso Based",cat_man:"Manual Brew",cat_kb:"Knowledge Base",milk:"Milk Drinks",black:"Black",spec:"Specialty",back:"Back",timer:"Timer",start:"Start",reset:"Reset",resume:"Resume",pause:"Pause",style:"Style",ratio:"Ratio Calculator",coffee:"Coffee (g)",water:"Water (ml)",steps:"Steps — tap to mark complete",how:"How to make it — tap to mark complete",cup:"Cup composition",need:"What you need",enjoy:"☕ Enjoy your brew!",enjoy_sub:"Your coffee is ready. Take a moment to savour it.",brew_again:"Brew Again",perfect:"Perfect. Now slow down and enjoy every sip.",make_another:"Make Another",kb_eyebrow:"The Coffee Nerd Handbook",kb_title:"Know your coffee.",kb_sub:"Everything you need to sound dangerously knowledgeable at your next specialty cafe visit.",notes:"Brew Notes",ctx:"Context:",add_note:"Add Note",notes_ph:"Grind size, dose, taste notes...",bmc:"☕ Buy me a coffee"},
+  id:{eyebrow:"Seni. Kesabaran. Ritual.",hero:"Seni menyeduh <em>secangkir sempurna</em> dimulai dari sini.",sub:"Pilih metode penyeduhan di bawah untuk panduan langkah demi langkah, kalkulator rasio, dan timer.",cat_esp:"Berbasis Espresso",cat_man:"Manual Brew",cat_kb:"Basis Pengetahuan",milk:"Minuman Susu",black:"Hitam",spec:"Spesial",back:"Kembali",timer:"Timer",start:"Mulai",reset:"Reset",resume:"Lanjut",pause:"Jeda",style:"Gaya",ratio:"Kalkulator Rasio",coffee:"Kopi (g)",water:"Air (ml)",steps:"Langkah — ketuk untuk menandai selesai",how:"Cara membuatnya — ketuk untuk menandai selesai",cup:"Komposisi minuman",need:"Yang kamu butuhkan",enjoy:"☕ Nikmati kopimu!",enjoy_sub:"Kopi kamu sudah siap. Luangkan waktu untuk menikmatinya.",brew_again:"Seduh Lagi",perfect:"Sempurna. Sekarang nikmati setiap tegukan.",make_another:"Buat Lagi",kb_eyebrow:"Panduan Pecinta Kopi",kb_title:"Kenali kopimu.",kb_sub:"Semua yang kamu butuhkan untuk terdengar sangat berpengetahuan di kafe specialty berikutnya.",notes:"Catatan Seduhan",ctx:"Konteks:",add_note:"Tambah Catatan",notes_ph:"Ukuran gilingan, dosis, catatan rasa...",bmc:"☕ Trakteer saya"}
 };
-function tr(k){ return (TR[LANG]&&TR[LANG][k]) || TR.en[k] || k; }
+function tr(k){return(TR[LANG]&&TR[LANG][k])||TR.en[k]||k;}
 
 function applyLang(){
-  document.getElementById("txt-eyebrow").textContent = tr("eyebrow");
-  document.getElementById("txt-hero").innerHTML = tr("hero");
-  document.getElementById("txt-sub").textContent = tr("sub");
-  document.getElementById("lbl-cat-esp").textContent = tr("cat_esp");
-  document.getElementById("lbl-cat-man").textContent = tr("cat_man");
-  document.getElementById("lbl-cat-kb").textContent = tr("cat_kb");
-  document.getElementById("lbl-milk").textContent = tr("milk");
-  document.getElementById("lbl-black").textContent = tr("black");
-  document.getElementById("lbl-spec").textContent = tr("spec");
-  document.getElementById("back-guide-lbl").textContent = tr("back");
-  document.getElementById("back-drink-lbl").textContent = tr("back");
-  document.getElementById("back-kb-lbl").textContent = tr("back");
-  document.getElementById("t-lbl-g").textContent = tr("timer");
-  document.getElementById("t-lbl-d").textContent = tr("timer");
-  document.getElementById("t-start-g").textContent = tr("start");
-  document.getElementById("t-start-d").textContent = tr("start");
-  document.getElementById("t-reset-g").textContent = tr("reset");
-  document.getElementById("t-reset-d").textContent = tr("reset");
-  document.getElementById("lbl-style").textContent = tr("style");
-  document.getElementById("lbl-ratio").textContent = tr("ratio");
-  document.getElementById("lbl-ratio2").textContent = tr("ratio");
-  document.getElementById("lbl-coffee").textContent = tr("coffee");
-  document.getElementById("lbl-coffee2").textContent = tr("coffee");
-  document.getElementById("lbl-water").textContent = tr("water");
-  document.getElementById("lbl-steps").textContent = tr("steps");
-  document.getElementById("lbl-how").textContent = tr("how");
-  document.getElementById("lbl-cup").textContent = tr("cup");
-  document.getElementById("lbl-need").textContent = tr("need");
-  document.getElementById("g-done-h").textContent = tr("enjoy");
-  document.getElementById("g-done-p").textContent = tr("enjoy_sub");
-  document.getElementById("g-reset").textContent = tr("brew_again");
-  document.getElementById("d-done-p").textContent = tr("perfect");
-  document.getElementById("d-reset").textContent = tr("make_another");
-  document.getElementById("kb-eyebrow").textContent = tr("kb_eyebrow");
-  document.getElementById("kb-title").textContent = tr("kb_title");
-  document.getElementById("kb-sub").textContent = tr("kb_sub");
-  document.getElementById("notes-title-lbl").textContent = tr("notes");
-  document.getElementById("notes-fab-lbl").textContent = tr("notes");
-  document.getElementById("notes-ctx-lbl").textContent = tr("ctx");
-  document.getElementById("notes-save").textContent = tr("add_note");
-  document.getElementById("notes-ta").placeholder = tr("notes_ph");
-  document.getElementById("bmc-btn").textContent = tr("bmc");
-  document.getElementById("langLabel").textContent = LANG.toUpperCase();
+  document.getElementById("txt-eyebrow").textContent=tr("eyebrow");
+  document.getElementById("txt-hero").innerHTML=tr("hero");
+  document.getElementById("txt-sub").textContent=tr("sub");
+  document.getElementById("lbl-cat-esp").textContent=tr("cat_esp");
+  document.getElementById("lbl-cat-man").textContent=tr("cat_man");
+  document.getElementById("lbl-cat-kb").textContent=tr("cat_kb");
+  document.getElementById("lbl-milk").textContent=tr("milk");
+  document.getElementById("lbl-black").textContent=tr("black");
+  document.getElementById("lbl-spec").textContent=tr("spec");
+  document.getElementById("back-guide-lbl").textContent=tr("back");
+  document.getElementById("back-drink-lbl").textContent=tr("back");
+  document.getElementById("back-kb-lbl").textContent=tr("back");
+  document.getElementById("t-lbl-g").textContent=tr("timer");
+  document.getElementById("t-lbl-d").textContent=tr("timer");
+  document.getElementById("t-start-g").textContent=tr("start");
+  document.getElementById("t-start-d").textContent=tr("start");
+  document.getElementById("t-reset-g").textContent=tr("reset");
+  document.getElementById("t-reset-d").textContent=tr("reset");
+  document.getElementById("lbl-style").textContent=tr("style");
+  document.getElementById("lbl-ratio").textContent=tr("ratio");
+  document.getElementById("lbl-ratio2").textContent=tr("ratio");
+  document.getElementById("lbl-coffee").textContent=tr("coffee");
+  document.getElementById("lbl-coffee2").textContent=tr("coffee");
+  document.getElementById("lbl-water").textContent=tr("water");
+  document.getElementById("lbl-steps").textContent=tr("steps");
+  document.getElementById("lbl-how").textContent=tr("how");
+  document.getElementById("lbl-cup").textContent=tr("cup");
+  document.getElementById("lbl-need").textContent=tr("need");
+  document.getElementById("g-done-h").textContent=tr("enjoy");
+  document.getElementById("g-done-p").textContent=tr("enjoy_sub");
+  document.getElementById("g-reset").textContent=tr("brew_again");
+  document.getElementById("d-done-p").textContent=tr("perfect");
+  document.getElementById("d-reset").textContent=tr("make_another");
+  document.getElementById("kb-eyebrow").textContent=tr("kb_eyebrow");
+  document.getElementById("kb-title").textContent=tr("kb_title");
+  document.getElementById("kb-sub").textContent=tr("kb_sub");
+  document.getElementById("notes-title-lbl").textContent=tr("notes");
+  document.getElementById("notes-fab-lbl").textContent=tr("notes");
+  document.getElementById("notes-ctx-lbl").textContent=tr("ctx");
+  document.getElementById("notes-save").textContent=tr("add_note");
+  document.getElementById("notes-ta").placeholder=tr("notes_ph");
+  document.getElementById("bmc-btn").textContent=tr("bmc");
+  document.getElementById("langLabel").textContent=LANG.toUpperCase();
 }
 
-// ─── DATA ─────────────────────────────────────────────
-var METHODS = {
-  espresso:{icon:"☕",name:"Espresso",sub_en:"Concentrated & bold",sub_id:"Pekat & berani",baseRatio:{c:18,w:36},
-    params_en:[{l:"Temp",v:"93°C"},{l:"Brew time",v:"25-30s"},{l:"Grind",v:"Fine"}],
-    params_id:[{l:"Suhu",v:"93°C"},{l:"Waktu seduh",v:"25-30d"},{l:"Gilingan",v:"Halus"}],
-    extraR:function(c,w){return[{l:"Shots",v:Math.round(c/9)||1,s:"~9g per shot"},{l:"Yield",v:w+"ml",s:"total output"}]},
-    steps_en:[{n:"Warm up machine",d:"Run hot water through group head and portafilter for 20-30s.",t:30},{n:"Grind & dose",d:"Grind fine like table salt. Distribute evenly."},{n:"Tamp firmly",d:"Apply 15-20kg of even, level pressure."},{n:"Pull the shot",d:"Lock in and start. First drops around 5-8s.",t:28},{n:"Assess",d:"25-30s total. Golden crema. Blond = under-extracted."},{n:"Serve immediately",d:"Espresso oxidises fast. Serve within 10 seconds."}],
-    steps_id:[{n:"Panaskan mesin",d:"Alirkan air panas melalui group head dan portafilter 20-30 detik.",t:30},{n:"Giling & takar",d:"Giling halus seperti garam meja. Distribusikan merata."},{n:"Tamp dengan kuat",d:"Tekan dengan tekanan 15-20kg secara merata."},{n:"Tarik shot",d:"Kunci dan mulai. Tetesan pertama sekitar 5-8 detik.",t:28},{n:"Evaluasi",d:"25-30 detik total. Crema emas. Pucat berarti kurang ekstraksi."},{n:"Sajikan segera",d:"Espresso cepat teroksidasi. Sajikan dalam 10 detik."}]},
-  v60:{icon:"🔻",name:"V60",sub_en:"Precise · Conical · Clean",sub_id:"Presisi · Kerucut · Bersih",baseRatio:{c:15,w:250},
-    params_en:[{l:"Temp",v:"93°C"},{l:"Brew time",v:"2.5-3 min"},{l:"Grind",v:"Med-fine"}],
-    params_id:[{l:"Suhu",v:"93°C"},{l:"Waktu seduh",v:"2.5-3 menit"},{l:"Gilingan",v:"Sedang-halus"}],
-    extraR:function(c,w){return[{l:"Bloom",v:Math.round(c*3)+"ml",s:"3x coffee"},{l:"First pour",v:Math.round(w*.6)+"ml",s:"60% total"},{l:"Cups",v:(w/250).toFixed(1),s:"x 250ml"}]},
-    steps_en:[{n:"Rinse filter",d:"Rinse paper filter, discard. Preheat your cup."},{n:"Add coffee",d:"Add grounds. Shake to level. Tare scale."},{n:"Bloom",d:"Pour 3x coffee weight in water. Wait 30-40s.",t:35},{n:"Pour in circles",d:"Pour slowly in spirals to 60% total water.",t:30},{n:"Final pour",d:"Continue to full target water weight."},{n:"Wait for drawdown",d:"Total brew time 2.5-3 minutes.",t:45},{n:"Serve",d:"Swirl gently and enjoy."}],
-    steps_id:[{n:"Bilas filter",d:"Bilas filter kertas, buang. Panaskan cangkir."},{n:"Tambah kopi",d:"Tambahkan kopi. Kocok perlahan. Tare timbangan."},{n:"Bloom",d:"Tuang air 3x berat kopi. Tunggu 30-40 detik.",t:35},{n:"Tuang melingkar",d:"Tuang perlahan spiral hingga 60% total air.",t:30},{n:"Tuang terakhir",d:"Lanjutkan hingga target total air."},{n:"Tunggu drawdown",d:"Total waktu seduh 2.5-3 menit.",t:45},{n:"Sajikan",d:"Aduk perlahan dan nikmati."}]},
-  frenchpress:{icon:"⚗️",name:"French Press",sub_en:"Rich, full-bodied & bold",sub_id:"Kaya, bertubuh penuh & berani",baseRatio:{c:30,w:500},
-    params_en:[{l:"Temp",v:"94°C"},{l:"Steep",v:"4 min"},{l:"Grind",v:"Coarse"}],
-    params_id:[{l:"Suhu",v:"94°C"},{l:"Seduh",v:"4 menit"},{l:"Gilingan",v:"Kasar"}],
-    extraR:function(c,w){return[{l:"Cups (300ml)",v:(w/300).toFixed(1),s:"approx."}]},
-    steps_en:[{n:"Preheat",d:"Add hot water, swirl, discard."},{n:"Add grounds",d:"Coarse sea salt texture. Tare scale."},{n:"Pour & stir",d:"Pour all water in one pour. Stir."},{n:"Steep",d:"Lid on, plunger up. Steep 4 minutes.",t:240},{n:"Press slowly",d:"Slow steady pressure over 20 seconds.",t:20},{n:"Pour immediately",d:"Pour all at once — it keeps extracting if left."}],
-    steps_id:[{n:"Panaskan",d:"Tambah air panas, putar, buang."},{n:"Tambah kopi",d:"Tekstur seperti garam kasar. Tare timbangan."},{n:"Tuang & aduk",d:"Tuang semua air dalam satu kali tuangan. Aduk."},{n:"Seduh",d:"Tutup dipasang, plunger ke atas. Seduh 4 menit.",t:240},{n:"Tekan perlahan",d:"Tekanan perlahan dan stabil selama 20 detik.",t:20},{n:"Tuang segera",d:"Tuang semua sekaligus."}]},
-  aeropress:{icon:"🧪",name:"AeroPress",sub_en:"Smooth, versatile & fast",sub_id:"Halus, serbaguna & cepat",baseRatio:{c:17,w:220},
-    params_en:[{l:"Temp",v:"85°C"},{l:"Brew time",v:"~2 min"},{l:"Grind",v:"Med-fine"}],
-    params_id:[{l:"Suhu",v:"85°C"},{l:"Waktu seduh",v:"~2 menit"},{l:"Gilingan",v:"Sedang-halus"}],
-    extraR:function(c,w){return[{l:"Yield",v:w+"ml",s:"in chamber"}]},
-    steps_en:[{n:"Prepare inverted",d:"Flip AeroPress upside down. Rinse filter, attach cap."},{n:"Add coffee",d:"Add grounds, tap to level."},{n:"Pour & stir",d:"Pour 85C water. Stir 3-4 times."},{n:"Steep",d:"Place cap on. Steep 90 seconds.",t:90},{n:"Flip & press",d:"Flip confidently, press slowly ~30 seconds.",t:30},{n:"Stop at the hiss",d:"Stop as you hear air — avoids over-extraction."}],
-    steps_id:[{n:"Persiapkan terbalik",d:"Balik AeroPress. Bilas filter, pasang tutup."},{n:"Tambah kopi",d:"Tambahkan kopi, ketuk untuk meratakan."},{n:"Tuang & aduk",d:"Tuang air 85C. Aduk 3-4 kali."},{n:"Seduh",d:"Pasang tutup. Seduh 90 detik.",t:90},{n:"Balik & tekan",d:"Balik dengan percaya diri, tekan perlahan ~30 detik.",t:30},{n:"Berhenti saat mendesis",d:"Berhenti saat mendengar suara mendesis."}]},
-  coldbrew:{icon:"🧊",name:"Cold Brew",sub_en:"Mellow, smooth & patient",sub_id:"Lembut, halus & sabar",baseRatio:{c:100,w:700},
-    variants:[
-      {id:"con",label_en:"🧪 Concentrate",label_id:"🧪 Konsentrat",ratio:7,steep_en:"18-24h",steep_id:"18-24j",desc_en:"Strong 1:7 concentrate. Dilute before drinking. Steep 18-24 hours.",desc_id:"Konsentrat kuat 1:7. Encerkan sebelum diminum. Seduh 18-24 jam."},
-      {id:"rtd",label_en:"🥤 Ready to Drink",label_id:"🥤 Siap Minum",ratio:14,steep_en:"12-16h",steep_id:"12-16j",desc_en:"Balanced 1:14, drinkable straight over ice. Steep 12-16 hours.",desc_id:"Seimbang 1:14, bisa diminum langsung. Seduh 12-16 jam."},
-      {id:"nit",label_en:"💨 Nitro Style",label_id:"💨 Gaya Nitro",ratio:10,steep_en:"16-20h",steep_id:"16-20j",desc_en:"Medium-strong 1:10 for nitro tap. Silky mouthfeel. Steep 16-20 hours.",desc_id:"Sedang-kuat 1:10 untuk tap nitro. Sensasi halus. Seduh 16-20 jam."},
-      {id:"fla",label_en:"⚡ Flash Brew",label_id:"⚡ Flash Brew",ratio:8,steep_en:"5-7 min",steep_id:"5-7 menit",desc_en:"Strong hot brew 1:8 poured directly over ice. 5-7 minutes.",desc_id:"Seduhan panas kuat 1:8 dituang langsung ke es. 5-7 menit."}
-    ],
-    params_en:[{l:"Temp",v:"Cold"},{l:"Steep",v:"12-18h"},{l:"Grind",v:"Very coarse"}],
-    params_id:[{l:"Suhu",v:"Dingin"},{l:"Seduh",v:"12-18j"},{l:"Gilingan",v:"Sangat kasar"}],
-    extraR:function(c,w,vid){
-      var v=METHODS.coldbrew.variants.find(function(x){return x.id===vid});
-      if(!v)return[];
-      if(vid==="con")return[{l:"Diluted yield",v:Math.round(w*2)+"ml",s:"at 1:1"},{l:"Servings",v:Math.round(w*2/240),s:"x 240ml"}];
-      return[{l:"Brew yield",v:"~"+Math.round(w*.88)+"ml",s:"after straining"},{l:"Servings",v:Math.round(w*.88/300),s:"x 300ml"}];
-    },
-    steps_en:[{n:"Grind coarsely",d:"Like coarse breadcrumbs. Dark or medium roast."},{n:"Combine",d:"Add grounds to jar. Pour cold water over."},{n:"Stir",d:"Stir so all grounds are wet. Cover."},{n:"Refrigerate",d:"Steep in fridge for target time."},{n:"Strain twice",d:"Fine mesh sieve, then coffee filter."},{n:"Serve",d:"Dilute if concentrate. Pour over ice. Keeps 2 weeks."}],
-    steps_id:[{n:"Giling kasar",d:"Seperti remah roti kasar. Sangrai gelap atau sedang."},{n:"Gabungkan",d:"Masukkan kopi ke toples. Tuang air dingin."},{n:"Aduk",d:"Aduk agar semua kopi basah. Tutup."},{n:"Dinginkan",d:"Seduh di lemari es sesuai waktu target."},{n:"Saring dua kali",d:"Saringan mesh halus, lalu filter kopi."},{n:"Sajikan",d:"Encerkan jika konsentrat. Tuang di atas es. Tahan 2 minggu."}]},
-  moka:{icon:"🔥",name:"Moka Pot",sub_en:"Stovetop intensity & richness",sub_id:"Intensitas & kekayaan stovetop",baseRatio:{c:20,w:300},
-    params_en:[{l:"Heat",v:"Med-low"},{l:"Brew time",v:"5-7 min"},{l:"Grind",v:"Fine-med"}],
-    params_id:[{l:"Panas",v:"Sedang-rendah"},{l:"Waktu seduh",v:"5-7 menit"},{l:"Gilingan",v:"Halus-sedang"}],
-    extraR:function(c,w){return[{l:"Cups (60ml)",v:Math.round(w/60),s:"espresso-sized"},{l:"Cups (150ml)",v:Math.round(w/150),s:"small"}]},
-    steps_en:[{n:"Fill boiler",d:"Water up to — not above — the pressure valve."},{n:"Fill basket",d:"Level but not tamped. Needs room to expand."},{n:"Assemble",d:"Screw chambers firmly. Check the seal."},{n:"Heat med-low",d:"Lid open. Too high = burnt, bitter taste."},{n:"Listen for gurgle",d:"Steady gurgle + light coffee in top = remove from heat."},{n:"Stop extraction",d:"Run base under cold water. Pour right away."}],
-    steps_id:[{n:"Isi boiler",d:"Air sampai — tidak melebihi — katup tekanan."},{n:"Isi basket",d:"Rata tapi tidak ditamp. Perlu ruang untuk mengembang."},{n:"Rakit",d:"Kencangkan ruang dengan kuat. Periksa seal."},{n:"Panaskan sedang-rendah",d:"Tutup terbuka. Terlalu tinggi berarti rasa gosong dan pahit."},{n:"Dengarkan suara gelembung",d:"Gelembung stabil dan kopi terang di atas berarti angkat."},{n:"Hentikan ekstraksi",d:"Alirkan air dingin ke bagian bawah. Tuang segera."}]}
+var METHODS={
+  espresso:{icon:"☕",name:"Espresso",sub_en:"Concentrated & bold",sub_id:"Pekat & berani",baseRatio:{c:18,w:36},params_en:[{l:"Temp",v:"93°C"},{l:"Brew time",v:"25-30s"},{l:"Grind",v:"Fine"}],params_id:[{l:"Suhu",v:"93°C"},{l:"Waktu seduh",v:"25-30d"},{l:"Gilingan",v:"Halus"}],extraR:function(c,w){return[{l:"Shots",v:Math.round(c/9)||1,s:"~9g per shot"},{l:"Yield",v:w+"ml",s:"total output"}]},steps_en:[{n:"Warm up machine",d:"Run hot water through group head and portafilter for 20-30s.",t:30},{n:"Grind & dose",d:"Grind fine like table salt. Distribute evenly."},{n:"Tamp firmly",d:"Apply 15-20kg of even, level pressure."},{n:"Pull the shot",d:"Lock in and start. First drops around 5-8s.",t:28},{n:"Assess",d:"25-30s total. Golden crema. Blond = under-extracted."},{n:"Serve immediately",d:"Espresso oxidises fast. Serve within 10 seconds."}],steps_id:[{n:"Panaskan mesin",d:"Alirkan air panas melalui group head dan portafilter 20-30 detik.",t:30},{n:"Giling & takar",d:"Giling halus seperti garam meja. Distribusikan merata."},{n:"Tamp dengan kuat",d:"Tekan dengan tekanan 15-20kg secara merata."},{n:"Tarik shot",d:"Kunci dan mulai. Tetesan pertama sekitar 5-8 detik.",t:28},{n:"Evaluasi",d:"25-30 detik total. Crema emas. Pucat berarti kurang ekstraksi."},{n:"Sajikan segera",d:"Espresso cepat teroksidasi. Sajikan dalam 10 detik."}]},
+  v60:{icon:"🔻",name:"V60",sub_en:"Precise · Conical · Clean",sub_id:"Presisi · Kerucut · Bersih",baseRatio:{c:15,w:250},params_en:[{l:"Temp",v:"93°C"},{l:"Brew time",v:"2.5-3 min"},{l:"Grind",v:"Med-fine"}],params_id:[{l:"Suhu",v:"93°C"},{l:"Waktu seduh",v:"2.5-3 menit"},{l:"Gilingan",v:"Sedang-halus"}],extraR:function(c,w){return[{l:"Bloom",v:Math.round(c*3)+"ml",s:"3x coffee"},{l:"First pour",v:Math.round(w*.6)+"ml",s:"60% total"},{l:"Cups",v:(w/250).toFixed(1),s:"x 250ml"}]},steps_en:[{n:"Rinse filter",d:"Rinse paper filter, discard. Preheat your cup."},{n:"Add coffee",d:"Add grounds. Shake to level. Tare scale."},{n:"Bloom",d:"Pour 3x coffee weight in water. Wait 30-40s.",t:35},{n:"Pour in circles",d:"Pour slowly in spirals to 60% total water.",t:30},{n:"Final pour",d:"Continue to full target water weight."},{n:"Wait for drawdown",d:"Total brew time 2.5-3 minutes.",t:45},{n:"Serve",d:"Swirl gently and enjoy."}],steps_id:[{n:"Bilas filter",d:"Bilas filter kertas, buang. Panaskan cangkir."},{n:"Tambah kopi",d:"Tambahkan kopi. Kocok perlahan. Tare timbangan."},{n:"Bloom",d:"Tuang air 3x berat kopi. Tunggu 30-40 detik.",t:35},{n:"Tuang melingkar",d:"Tuang perlahan spiral hingga 60% total air.",t:30},{n:"Tuang terakhir",d:"Lanjutkan hingga target total air."},{n:"Tunggu drawdown",d:"Total waktu seduh 2.5-3 menit.",t:45},{n:"Sajikan",d:"Aduk perlahan dan nikmati."}]},
+  chemex:{icon:"☕",name:"Chemex",sub_en:"Clean · Elegant · Pour Over",sub_id:"Bersih · Elegan · Pour Over",baseRatio:{c:42,w:700},params_en:[{l:"Temp",v:"96°C"},{l:"Brew time",v:"4-5 min"},{l:"Grind",v:"Med-coarse"}],params_id:[{l:"Suhu",v:"96°C"},{l:"Waktu seduh",v:"4-5 menit"},{l:"Gilingan",v:"Sedang-kasar"}],extraR:function(c,w){return[{l:"Bloom water",v:Math.round(c*2)+"ml",s:"2x coffee"},{l:"Cups (350ml)",v:(w/350).toFixed(1),s:"approx."}]},steps_en:[{n:"Rinse the filter",d:"Open the Chemex filter into a cone (3 layers face the spout). Place in Chemex and rinse with hot water. Discard the rinse water.",tip:"The thick Chemex filter absorbs more oils — this gives the signature clean, bright cup."},{n:"Add coffee",d:"Add ground coffee to the filter. Shake gently to level. Tare your scale."},{n:"Bloom",d:"Pour 2x coffee weight in slow circles. Make sure all grounds are saturated. Wait 45 seconds.",t:45},{n:"First pour — to 300ml",d:"Pour slowly in concentric circles from centre outward. Target 300ml total by 2 minutes.",t:60},{n:"Second pour — to 500ml",d:"As the water drops, pour again slowly to 500ml total.",t:45},{n:"Final pour — to 700ml",d:"Complete to your full 700ml target. Total drawdown should finish between 4-5 minutes.",t:60},{n:"Serve",d:"Remove and discard the filter. Swirl gently and pour into pre-warmed cups.",tip:"Chemex keeps coffee warm — it holds heat well due to the thick glass."}],steps_id:[{n:"Bilas filter",d:"Buka filter Chemex menjadi kerucut (3 lapis menghadap spout). Letakkan di Chemex dan bilas dengan air panas. Buang air bilasan.",tip:"Filter Chemex yang tebal menyerap lebih banyak minyak — ini memberikan cangkir yang bersih dan cerah."},{n:"Tambah kopi",d:"Tambahkan kopi yang sudah digiling ke dalam filter. Kocok perlahan untuk meratakan. Tare timbangan."},{n:"Bloom",d:"Tuang 2x berat kopi dalam lingkaran perlahan. Pastikan semua bubuk kopi basah. Tunggu 45 detik.",t:45},{n:"Tuang pertama — hingga 300ml",d:"Tuang perlahan dalam lingkaran konsentris dari tengah ke luar. Target 300ml total dalam 2 menit.",t:60},{n:"Tuang kedua — hingga 500ml",d:"Saat air turun, tuang lagi perlahan hingga total 500ml.",t:45},{n:"Tuang terakhir — hingga 700ml",d:"Selesaikan hingga target 700ml. Total drawdown harus selesai antara 4-5 menit.",t:60},{n:"Sajikan",d:"Lepaskan dan buang filter. Putar Chemex perlahan dan tuang ke dalam cangkir yang sudah dipanaskan.",tip:"Chemex menjaga kopi tetap hangat karena kaca tebalnya."}]},
+  frenchpress:{icon:"⚗️",name:"French Press",sub_en:"Rich, full-bodied & bold",sub_id:"Kaya, bertubuh penuh & berani",baseRatio:{c:30,w:500},params_en:[{l:"Temp",v:"94°C"},{l:"Steep",v:"4 min"},{l:"Grind",v:"Coarse"}],params_id:[{l:"Suhu",v:"94°C"},{l:"Seduh",v:"4 menit"},{l:"Gilingan",v:"Kasar"}],extraR:function(c,w){return[{l:"Cups (300ml)",v:(w/300).toFixed(1),s:"approx."}]},steps_en:[{n:"Preheat",d:"Add hot water, swirl, discard."},{n:"Add grounds",d:"Coarse sea salt texture. Tare scale."},{n:"Pour & stir",d:"Pour all water in one pour. Stir."},{n:"Steep",d:"Lid on, plunger up. Steep 4 minutes.",t:240},{n:"Press slowly",d:"Slow steady pressure over 20 seconds.",t:20},{n:"Pour immediately",d:"Pour all at once."}],steps_id:[{n:"Panaskan",d:"Tambah air panas, putar, buang."},{n:"Tambah kopi",d:"Tekstur seperti garam kasar. Tare timbangan."},{n:"Tuang & aduk",d:"Tuang semua air dalam satu kali tuangan. Aduk."},{n:"Seduh",d:"Tutup dipasang, plunger ke atas. Seduh 4 menit.",t:240},{n:"Tekan perlahan",d:"Tekanan perlahan dan stabil selama 20 detik.",t:20},{n:"Tuang segera",d:"Tuang semua sekaligus."}]},
+  aeropress:{icon:"🧪",name:"AeroPress",sub_en:"Smooth, versatile & fast",sub_id:"Halus, serbaguna & cepat",baseRatio:{c:17,w:220},params_en:[{l:"Temp",v:"85°C"},{l:"Brew time",v:"~2 min"},{l:"Grind",v:"Med-fine"}],params_id:[{l:"Suhu",v:"85°C"},{l:"Waktu seduh",v:"~2 menit"},{l:"Gilingan",v:"Sedang-halus"}],extraR:function(c,w){return[{l:"Yield",v:w+"ml",s:"in chamber"}]},steps_en:[{n:"Prepare inverted",d:"Flip AeroPress upside down. Rinse filter, attach cap."},{n:"Add coffee",d:"Add grounds, tap to level."},{n:"Pour & stir",d:"Pour 85C water. Stir 3-4 times."},{n:"Steep",d:"Place cap on. Steep 90 seconds.",t:90},{n:"Flip & press",d:"Flip confidently, press slowly ~30 seconds.",t:30},{n:"Stop at the hiss",d:"Stop as you hear air — avoids over-extraction."}],steps_id:[{n:"Persiapkan terbalik",d:"Balik AeroPress. Bilas filter, pasang tutup."},{n:"Tambah kopi",d:"Tambahkan kopi, ketuk untuk meratakan."},{n:"Tuang & aduk",d:"Tuang air 85C. Aduk 3-4 kali."},{n:"Seduh",d:"Pasang tutup. Seduh 90 detik.",t:90},{n:"Balik & tekan",d:"Balik dengan percaya diri, tekan perlahan ~30 detik.",t:30},{n:"Berhenti saat mendesis",d:"Berhenti saat mendengar suara mendesis."}]},
+  coldbrew:{icon:"🧊",name:"Cold Brew",sub_en:"Mellow, smooth & patient",sub_id:"Lembut, halus & sabar",baseRatio:{c:100,w:700},variants:[{id:"con",label_en:"🧪 Concentrate",label_id:"🧪 Konsentrat",ratio:7,steep_en:"18-24h",steep_id:"18-24j",desc_en:"Strong 1:7 concentrate. Dilute before drinking. Steep 18-24 hours.",desc_id:"Konsentrat kuat 1:7. Encerkan sebelum diminum. Seduh 18-24 jam."},{id:"rtd",label_en:"🥤 Ready to Drink",label_id:"🥤 Siap Minum",ratio:14,steep_en:"12-16h",steep_id:"12-16j",desc_en:"Balanced 1:14, drinkable straight over ice. Steep 12-16 hours.",desc_id:"Seimbang 1:14, bisa diminum langsung. Seduh 12-16 jam."},{id:"nit",label_en:"💨 Nitro Style",label_id:"💨 Gaya Nitro",ratio:10,steep_en:"16-20h",steep_id:"16-20j",desc_en:"Medium-strong 1:10 for nitro tap. Silky mouthfeel. Steep 16-20 hours.",desc_id:"Sedang-kuat 1:10 untuk tap nitro. Sensasi halus. Seduh 16-20 jam."},{id:"fla",label_en:"⚡ Flash Brew",label_id:"⚡ Flash Brew",ratio:8,steep_en:"5-7 min",steep_id:"5-7 menit",desc_en:"Strong hot brew 1:8 poured directly over ice. 5-7 minutes.",desc_id:"Seduhan panas kuat 1:8 dituang langsung ke es. 5-7 menit."}],params_en:[{l:"Temp",v:"Cold"},{l:"Steep",v:"12-18h"},{l:"Grind",v:"Very coarse"}],params_id:[{l:"Suhu",v:"Dingin"},{l:"Seduh",v:"12-18j"},{l:"Gilingan",v:"Sangat kasar"}],extraR:function(c,w,vid){var v=METHODS.coldbrew.variants.find(function(x){return x.id===vid});if(!v)return[];if(vid==="con")return[{l:"Diluted yield",v:Math.round(w*2)+"ml",s:"at 1:1"},{l:"Servings",v:Math.round(w*2/240),s:"x 240ml"}];return[{l:"Brew yield",v:"~"+Math.round(w*.88)+"ml",s:"after straining"},{l:"Servings",v:Math.round(w*.88/300),s:"x 300ml"}]},steps_en:[{n:"Grind coarsely",d:"Like coarse breadcrumbs. Dark or medium roast."},{n:"Combine",d:"Add grounds to jar. Pour cold water over."},{n:"Stir",d:"Stir so all grounds are wet. Cover."},{n:"Refrigerate",d:"Steep in fridge for target time."},{n:"Strain twice",d:"Fine mesh sieve, then coffee filter."},{n:"Serve",d:"Dilute if concentrate. Pour over ice. Keeps 2 weeks."}],steps_id:[{n:"Giling kasar",d:"Seperti remah roti kasar. Sangrai gelap atau sedang."},{n:"Gabungkan",d:"Masukkan kopi ke toples. Tuang air dingin."},{n:"Aduk",d:"Aduk agar semua kopi basah. Tutup."},{n:"Dinginkan",d:"Seduh di lemari es sesuai waktu target."},{n:"Saring dua kali",d:"Saringan mesh halus, lalu filter kopi."},{n:"Sajikan",d:"Encerkan jika konsentrat. Tuang di atas es. Tahan 2 minggu."}]},
+  moka:{icon:"🔥",name:"Moka Pot",sub_en:"Stovetop intensity & richness",sub_id:"Intensitas & kekayaan stovetop",baseRatio:{c:20,w:300},params_en:[{l:"Heat",v:"Med-low"},{l:"Brew time",v:"5-7 min"},{l:"Grind",v:"Fine-med"}],params_id:[{l:"Panas",v:"Sedang-rendah"},{l:"Waktu seduh",v:"5-7 menit"},{l:"Gilingan",v:"Halus-sedang"}],extraR:function(c,w){return[{l:"Cups (60ml)",v:Math.round(w/60),s:"espresso-sized"},{l:"Cups (150ml)",v:Math.round(w/150),s:"small"}]},steps_en:[{n:"Fill boiler",d:"Water up to — not above — the pressure valve."},{n:"Fill basket",d:"Level but not tamped. Needs room to expand."},{n:"Assemble",d:"Screw chambers firmly. Check the seal."},{n:"Heat med-low",d:"Lid open. Too high = burnt, bitter taste."},{n:"Listen for gurgle",d:"Steady gurgle + light coffee in top = remove from heat."},{n:"Stop extraction",d:"Run base under cold water. Pour right away."}],steps_id:[{n:"Isi boiler",d:"Air sampai — tidak melebihi — katup tekanan."},{n:"Isi basket",d:"Rata tapi tidak ditamp. Perlu ruang untuk mengembang."},{n:"Rakit",d:"Kencangkan ruang dengan kuat. Periksa seal."},{n:"Panaskan sedang-rendah",d:"Tutup terbuka. Terlalu tinggi berarti rasa gosong dan pahit."},{n:"Dengarkan suara gelembung",d:"Gelembung stabil dan kopi terang di atas berarti angkat."},{n:"Hentikan ekstraksi",d:"Alirkan air dingin ke bagian bawah. Tuang segera."}]},
+  tubruk:{icon:"🫖",name:"Kopi Tubruk",sub_en:"Traditional · Indonesian · Unfiltered",sub_id:"Tradisional · Indonesia · Tanpa filter",baseRatio:{c:14,w:200},params_en:[{l:"Temp",v:"95°C"},{l:"Wait",v:"3-4 min"},{l:"Grind",v:"Very fine"}],params_id:[{l:"Suhu",v:"95°C"},{l:"Tunggu",v:"3-4 menit"},{l:"Gilingan",v:"Sangat halus"}],extraR:function(c,w){return[{l:"Sugar",v:"optional",s:"add before water"},{l:"Cups",v:Math.round(w/200),s:"per serve"}]},steps_en:[{n:"Add coffee (and sugar) to cup",d:"Place 2 heaped tablespoons (~14g) of very finely ground coffee directly into your cup. If you take sugar, add it now — before the water.",tip:"In Java and Bali, Tubruk is traditionally served sweet. In some regions it is drunk plain (pahit — bitter)."},{n:"Pour hot water directly",d:"Pour hot water (around 95C) directly over the grounds in one slow, steady pour. Do not stir.",tip:"Pouring without stirring helps the grounds settle to the bottom naturally."},{n:"Wait for grounds to settle",d:"Let the cup sit undisturbed for 3-4 minutes. The grounds will sink to the bottom.",t:210},{n:"Sip carefully",d:"Drink slowly from the top. Stop when you feel resistance or the cup starts tasting gritty.",tip:"No filter, no fuss, no equipment needed. Pure kopi Indonesia."}],steps_id:[{n:"Tambah kopi (dan gula) ke cangkir",d:"Masukkan 2 sendok makan penuh (~14g) kopi yang digiling sangat halus langsung ke dalam cangkir. Jika ingin manis, tambahkan gula sekarang — sebelum air.",tip:"Di Jawa dan Bali, Tubruk secara tradisional disajikan dengan gula. Di beberapa daerah diminum polos (pahit)."},{n:"Tuang air panas langsung",d:"Tuang air panas (sekitar 95C) langsung ke atas kopi dalam satu kali tuangan perlahan. Jangan diaduk.",tip:"Menuang tanpa mengaduk membantu ampas mengendap ke dasar secara alami."},{n:"Tunggu ampas mengendap",d:"Biarkan cangkir tidak diganggu selama 3-4 menit. Ampas akan tenggelam ke dasar.",t:210},{n:"Minum dengan hati-hati",d:"Minum perlahan dari bagian atas. Berhenti saat Anda merasakan hambatan atau kopi mulai terasa berpasir.",tip:"Tanpa filter, tanpa peralatan. Pure kopi Indonesia."}]},
+  vietnam:{icon:"🇻🇳",name:"Vietnam Drip (Phin)",sub_en:"Slow · Rich · Traditional",sub_id:"Perlahan · Kaya · Tradisional",baseRatio:{c:20,w:100},params_en:[{l:"Temp",v:"94°C"},{l:"Brew time",v:"4-5 min"},{l:"Grind",v:"Med-coarse"}],params_id:[{l:"Suhu",v:"94°C"},{l:"Waktu seduh",v:"4-5 menit"},{l:"Gilingan",v:"Sedang-kasar"}],extraR:function(c,w){return[{l:"Condensed milk",v:"2-3 tbsp",s:"at the bottom"},{l:"Total",v:"~"+(w+40)+"ml",s:"coffee + milk"}]},steps_en:[{n:"Add condensed milk",d:"Spoon 2-3 tablespoons of sweetened condensed milk into the bottom of your glass.",tip:"More for sweeter, less for more coffee-forward contrast. This is the soul of Vietnamese coffee."},{n:"Assemble the Phin",d:"Place the Phin filter on top of the glass. Add 20g of medium-coarse ground coffee. Give a light shake to level.",tip:"Use Robusta or a Robusta-blend for authentic Vietnamese flavour — bold, earthy, and strong."},{n:"Bloom the coffee",d:"Pour just enough hot water (94C) to wet all the grounds — about 30-40ml. Place the press plate inside. Wait 30 seconds.",t:30,tip:"This bloom step opens up the grounds for even extraction through the Phin."},{n:"Fill and wait",d:"Fill the Phin chamber to the top with remaining hot water. Place the lid on top. Allow to drip slowly — 4 to 5 minutes.",t:270,tip:"A proper Phin drip should take 4-5 minutes. Too fast, grind finer. Too slow, grind coarser."},{n:"Stir and serve hot",d:"Once dripping stops, remove the Phin. Stir vigorously to mix the condensed milk from the bottom."},{n:"Optional: serve iced (Ca Phe Sua Da)",d:"Pour everything over a tall glass packed with ice for the classic Vietnamese iced coffee.",tip:"Ca Phe Sua Da is the street-style classic. The ice chills and dilutes it to perfect drinking strength."}],steps_id:[{n:"Tambah susu kental manis",d:"Sendokkan 2-3 sendok makan susu kental manis ke dalam dasar gelas.",tip:"Sesuaikan dengan selera. Ini adalah jiwa kopi Vietnam."},{n:"Rakit Phin",d:"Letakkan filter Phin di atas gelas. Tambahkan 20g kopi yang digiling sedang-kasar. Kocok ringan untuk meratakan.",tip:"Gunakan Robusta atau campuran Robusta untuk rasa Vietnam yang autentik."},{n:"Bloom kopi",d:"Tuang air panas (94C) secukupnya untuk membasahi semua bubuk kopi — sekitar 30-40ml. Letakkan press plate. Tunggu 30 detik.",t:30,tip:"Langkah bloom ini membuka bubuk kopi untuk ekstraksi yang merata melalui Phin."},{n:"Isi dan tunggu",d:"Isi ruang Phin hingga penuh dengan sisa air panas. Letakkan tutup di atas. Biarkan menetes perlahan — 4 hingga 5 menit.",t:270,tip:"Tetesan Phin yang baik harus memakan waktu 4-5 menit."},{n:"Aduk dan sajikan panas",d:"Setelah tetesan berhenti, angkat Phin. Aduk dengan kuat untuk mencampur susu kental manis."},{n:"Opsional: sajikan dingin (Ca Phe Sua Da)",d:"Tuang semuanya ke atas segelas penuh es untuk Ca Phe Sua Da.",tip:"Ca Phe Sua Da adalah klasik gaya jalanan. Es mendinginkan dan mengencerkannya hingga kekuatan minum yang sempurna."}]}
 };
 
-var DRINKS = {
+var DRINKS={
   espresso_pure:{icon:"☕",name_en:"Espresso",name_id:"Espresso",tag_en:"Pure · Unadulterated · 30ml",tag_id:"Murni · Tanpa kompromi · 30ml",layers:[{l:"Crema",c:"#c8903a",h:12},{l:"Espresso",c:"#3d1800",h:68}],ings_en:[{l:"Coffee",v:"9g",s:"fine grind"},{l:"Espresso",v:"30ml",s:"single shot"},{l:"Temp",v:"93C",s:"water"},{l:"Cup",v:"60-90ml",s:"demitasse"}],ings_id:[{l:"Kopi",v:"9g",s:"gilingan halus"},{l:"Espresso",v:"30ml",s:"single shot"},{l:"Suhu",v:"93C",s:"air"},{l:"Cangkir",v:"60-90ml",s:"demitasse"}],steps_en:[{n:"Pull a single shot",d:"Dose 9g, tamp level and pull 30ml in 25-30 seconds.",tip:"Golden crema should cover the surface."},{n:"Serve immediately",d:"Best drunk within 10-20 seconds.",tip:"Pre-warm your cup with hot water."}],steps_id:[{n:"Tarik single shot",d:"Dosis 9g, tamp rata dan tarik 30ml dalam 25-30 detik.",tip:"Crema emas harus menutupi permukaan."},{n:"Sajikan segera",d:"Terbaik diminum dalam 10-20 detik.",tip:"Panaskan cangkir terlebih dahulu dengan air panas."}]},
   latte:{icon:"🥛",name_en:"Cafe Latte",name_id:"Cafe Latte",tag_en:"Smooth · Creamy · 240ml",tag_id:"Lembut · Creamy · 240ml",layers:[{l:"Foam",c:"#f5f0e8",h:20},{l:"Steamed milk",c:"#f0e6d0",h:120},{l:"Espresso",c:"#3d1800",h:40}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Steamed milk",v:"160ml",s:"microfoam"},{l:"Foam",v:"~1cm",s:"on top"},{l:"Cup",v:"240ml",s:"tulip glass"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Susu kukus",v:"160ml",s:"microfoam"},{l:"Busa",v:"~1cm",s:"di atas"},{l:"Cangkir",v:"240ml",s:"gelas tulip"}],steps_en:[{n:"Pull a double shot",d:"Dose 18g and pull 60ml double espresso. Target 25-30 seconds."},{n:"Steam milk to 60-65C",d:"Texture to silky microfoam.",tip:"Swirl and tap jug before pouring."},{n:"Pour from low",d:"Tilt cup, let milk flow through espresso."},{n:"Latte art (optional)",d:"Near full, wiggle spout for a heart or rosetta.",tip:"Aim for 1cm foam layer on top."}],steps_id:[{n:"Tarik double shot",d:"Dosis 18g dan tarik 60ml double espresso. Target 25-30 detik."},{n:"Kukus susu ke 60-65C",d:"Teksturkan menjadi microfoam yang halus.",tip:"Putar dan ketuk jug sebelum menuang."},{n:"Tuang dari rendah",d:"Miringkan cangkir, biarkan susu mengalir melalui espresso."},{n:"Latte art (opsional)",d:"Mendekati penuh, goyangkan spout untuk hati atau rosetta.",tip:"Targetkan lapisan busa 1cm di atas."}]},
   cappuccino:{icon:"☁️",name_en:"Cappuccino",name_id:"Cappuccino",tag_en:"Balanced · Frothy · 180ml",tag_id:"Seimbang · Berbusa · 180ml",layers:[{l:"Thick foam",c:"#f8f4ee",h:60},{l:"Steamed milk",c:"#f0e4cc",h:50},{l:"Espresso",c:"#3d1800",h:40}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Steamed milk",v:"60ml",s:"hot"},{l:"Foam",v:"60ml",s:"thick & dry"},{l:"Cup",v:"180ml",s:"ceramic"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Susu kukus",v:"60ml",s:"panas"},{l:"Busa",v:"60ml",s:"tebal & kering"},{l:"Cangkir",v:"180ml",s:"keramik"}],steps_en:[{n:"Pull a double shot",d:"Dose 18g, pull 60ml into pre-warmed cup."},{n:"Steam milk to stiff foam",d:"Introduce more air for thicker foam.",tip:"Keep wand near surface to build foam volume."},{n:"Pour equal thirds",d:"1/3 espresso, 1/3 milk, 1/3 foam. Spoon foam on top."},{n:"Dust with chocolate",d:"Light cocoa dusting is classic. Serve immediately."}],steps_id:[{n:"Tarik double shot",d:"Dosis 18g, tarik 60ml ke dalam cangkir yang sudah dipanaskan."},{n:"Kukus susu hingga berbusa kaku",d:"Masukkan lebih banyak udara untuk busa yang lebih tebal.",tip:"Jaga wand dekat permukaan untuk membangun volume busa."},{n:"Tuang sepertiga sama rata",d:"1/3 espresso, 1/3 susu, 1/3 busa. Sendok busa di atas."},{n:"Taburi cokelat",d:"Taburan bubuk kakao ringan adalah klasik. Sajikan segera."}]},
@@ -595,233 +478,91 @@ var DRINKS = {
   americano:{icon:"🌊",name_en:"Americano",name_id:"Americano",tag_en:"Diluted · Approachable · 240ml",tag_id:"Diencerkan · Mudah dinikmati · 240ml",layers:[{l:"Hot water",c:"#c8dde8",h:120},{l:"Espresso",c:"#3d1800",h:60}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Hot water",v:"180ml",s:"off the boil"},{l:"Ratio",v:"1:3",s:"espresso to water"},{l:"Cup",v:"240ml",s:"large mug"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Air panas",v:"180ml",s:"dari ketel"},{l:"Rasio",v:"1:3",s:"espresso ke air"},{l:"Cangkir",v:"240ml",s:"mug besar"}],steps_en:[{n:"Pull a double shot",d:"Dose 18g, pull standard 60ml double."},{n:"Add hot water first",d:"Pour 180ml of 85-90C water into cup first.",tip:"Water first preserves crema."},{n:"Pour espresso over",d:"Gently pour espresso over the water."}],steps_id:[{n:"Tarik double shot",d:"Dosis 18g, tarik 60ml double standar."},{n:"Tambah air panas terlebih dahulu",d:"Tuang 180ml air 85-90C ke cangkir terlebih dahulu.",tip:"Air terlebih dahulu menjaga crema."},{n:"Tuang espresso di atas",d:"Tuang espresso perlahan di atas air."}]},
   iced_americano:{icon:"🧊",name_en:"Iced Americano",name_id:"Iced Americano",tag_en:"Cold · Refreshing · 300ml",tag_id:"Dingin · Segar · 300ml",layers:[{l:"Espresso",c:"#3d1800",h:40},{l:"Cold water",c:"#c8dde8",h:80},{l:"Ice",c:"#e8f4f8",h:80}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Cold water",v:"120ml",s:"filtered"},{l:"Ice",v:"1 cup",s:"cubes"},{l:"Cup",v:"300ml",s:"tall glass"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Air dingin",v:"120ml",s:"tersaring"},{l:"Es",v:"1 gelas",s:"batu es"},{l:"Gelas",v:"300ml",s:"gelas tinggi"}],steps_en:[{n:"Fill glass with ice",d:"Fill a tall glass generously with ice.",tip:"Large cubes melt slower."},{n:"Add cold water",d:"Pour 120ml of cold water over the ice."},{n:"Pull a double shot",d:"Pull a fresh hot 60ml double espresso."},{n:"Pour espresso over ice",d:"Pour hot espresso directly over ice and water.",tip:"Do not stir — let it mix naturally."}],steps_id:[{n:"Isi gelas dengan es",d:"Isi gelas tinggi dengan banyak batu es.",tip:"Batu besar mencair lebih lambat."},{n:"Tambah air dingin",d:"Tuang 120ml air dingin di atas es."},{n:"Tarik double shot",d:"Tarik 60ml double espresso panas yang segar."},{n:"Tuang espresso di atas es",d:"Tuang espresso panas langsung ke atas es dan air.",tip:"Jangan diaduk — biarkan bercampur secara alami."}]},
   longblack:{icon:"🖤",name_en:"Long Black",name_id:"Long Black",tag_en:"Strong · Crema-rich · 200ml",tag_id:"Kuat · Kaya crema · 200ml",layers:[{l:"Crema",c:"#c8903a",h:15},{l:"Espresso",c:"#3d1800",h:45},{l:"Hot water",c:"#b8ccd6",h:100}],ings_en:[{l:"Hot water",v:"120ml",s:"in cup first"},{l:"Espresso",v:"60ml",s:"double shot"},{l:"Cup",v:"200ml",s:"ceramic cup"}],ings_id:[{l:"Air panas",v:"120ml",s:"dalam cangkir terlebih dahulu"},{l:"Espresso",v:"60ml",s:"double shot"},{l:"Cangkir",v:"200ml",s:"cangkir keramik"}],steps_en:[{n:"Hot water first",d:"Pour 120ml of 85-90C water into pre-warmed cup.",tip:"Water first separates it from an americano."},{n:"Pull double shot in",d:"Pull 60ml directly on top. Crema floats."},{n:"Do not stir",d:"Served unstirred. Stir only if you prefer."}],steps_id:[{n:"Air panas terlebih dahulu",d:"Tuang 120ml air 85-90C ke cangkir yang sudah dipanaskan.",tip:"Air terlebih dahulu yang membedakannya dari americano."},{n:"Tarik double shot di dalamnya",d:"Tarik 60ml langsung di atas air. Crema mengapung."},{n:"Jangan diaduk",d:"Disajikan tanpa diaduk. Aduk hanya jika suka."}]},
-  iced_longblack:{icon:"🖤",name_en:"Iced Long Black",name_id:"Iced Long Black",tag_en:"Bold · Cold · 250ml",tag_id:"Berani · Dingin · 250ml",layers:[{l:"Crema",c:"#c8903a",h:10},{l:"Espresso",c:"#3d1800",h:50},{l:"Cold water",c:"#b8ccd6",h:50},{l:"Ice",c:"#ddeef4",h:80}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Cold water",v:"80ml",s:"filtered"},{l:"Ice",v:"1 cup",s:"large cubes"},{l:"Cup",v:"250ml",s:"tall glass"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Air dingin",v:"80ml",s:"tersaring"},{l:"Es",v:"1 gelas",s:"batu es besar"},{l:"Gelas",v:"250ml",s:"gelas tinggi"}],steps_en:[{n:"Fill glass with ice",d:"Pack a tall glass with large ice cubes.",tip:"Chill your glass beforehand for best results."},{n:"Add cold water over ice",d:"Pour 80ml of cold filtered water over ice."},{n:"Pull double shot",d:"Pull a hot 60ml double espresso."},{n:"Pour espresso over ice",d:"Pour directly on top. Crema will float. Serve immediately.",tip:"Less water than iced americano — stronger."}],steps_id:[{n:"Isi gelas dengan es",d:"Padatkan gelas tinggi dengan batu es besar.",tip:"Dinginkan gelas terlebih dahulu untuk hasil terbaik."},{n:"Tambah air dingin di atas es",d:"Tuang 80ml air dingin tersaring di atas es."},{n:"Tarik double shot",d:"Tarik 60ml double espresso panas."},{n:"Tuang espresso di atas es",d:"Tuang langsung di atas. Crema akan mengapung.",tip:"Air lebih sedikit dari iced americano — lebih kuat."}]},
+  iced_longblack:{icon:"🖤",name_en:"Iced Long Black",name_id:"Iced Long Black",tag_en:"Bold · Cold · 250ml",tag_id:"Berani · Dingin · 250ml",layers:[{l:"Crema",c:"#c8903a",h:10},{l:"Espresso",c:"#3d1800",h:50},{l:"Cold water",c:"#b8ccd6",h:50},{l:"Ice",c:"#ddeef4",h:80}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Cold water",v:"80ml",s:"filtered"},{l:"Ice",v:"1 cup",s:"large cubes"},{l:"Cup",v:"250ml",s:"tall glass"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot"},{l:"Air dingin",v:"80ml",s:"tersaring"},{l:"Es",v:"1 gelas",s:"batu es besar"},{l:"Gelas",v:"250ml",s:"gelas tinggi"}],steps_en:[{n:"Fill glass with ice",d:"Pack a tall glass with large ice cubes.",tip:"Chill your glass beforehand."},{n:"Add cold water over ice",d:"Pour 80ml of cold filtered water over ice."},{n:"Pull double shot",d:"Pull a hot 60ml double espresso."},{n:"Pour espresso over ice",d:"Pour directly on top. Crema will float.",tip:"Less water than iced americano — stronger."}],steps_id:[{n:"Isi gelas dengan es",d:"Padatkan gelas tinggi dengan batu es besar.",tip:"Dinginkan gelas terlebih dahulu."},{n:"Tambah air dingin di atas es",d:"Tuang 80ml air dingin tersaring di atas es."},{n:"Tarik double shot",d:"Tarik 60ml double espresso panas."},{n:"Tuang espresso di atas es",d:"Tuang langsung di atas. Crema akan mengapung.",tip:"Air lebih sedikit dari iced americano — lebih kuat."}]},
   affogato:{icon:"🍨",name_en:"Affogato",name_id:"Affogato",tag_en:"Dessert · Contrast · Indulgent",tag_id:"Dessert · Kontras · Memanjakan",layers:[{l:"Espresso",c:"#3d1800",h:50},{l:"Ice cream",c:"#fdf6e8",h:90}],ings_en:[{l:"Ice cream",v:"1-2 scoops",s:"vanilla gelato"},{l:"Espresso",v:"30ml",s:"single shot, hot"},{l:"Cup",v:"150ml",s:"small bowl"}],ings_id:[{l:"Es krim",v:"1-2 scoop",s:"gelato vanilla"},{l:"Espresso",v:"30ml",s:"single shot, panas"},{l:"Wadah",v:"150ml",s:"mangkuk kecil"}],steps_en:[{n:"Chill your glass",d:"Freeze the serving glass for a few minutes."},{n:"Scoop ice cream",d:"Add 1-2 scoops of quality vanilla gelato."},{n:"Pull hot shot immediately",d:"Pull a fresh hot 30ml shot.",tip:"Single origin espresso shines here."},{n:"Pour and serve at once",d:"Pour espresso over ice cream. Best within the first minute."}],steps_id:[{n:"Dinginkan gelas",d:"Bekukan gelas penyajian beberapa menit."},{n:"Scoop es krim",d:"Tambahkan 1-2 scoop gelato vanilla berkualitas."},{n:"Tarik shot panas segera",d:"Tarik 30ml shot panas yang segar.",tip:"Espresso single origin bersinar di sini."},{n:"Tuang dan sajikan segera",d:"Tuang espresso di atas es krim. Terbaik dalam satu menit pertama."}]},
-  dirtychai:{icon:"🍵",name_en:"Dirty Chai",name_id:"Dirty Chai",tag_en:"Spiced · Complex · 240ml",tag_id:"Berbumbu · Kompleks · 240ml",layers:[{l:"Espresso",c:"#3d1800",h:30},{l:"Chai & milk",c:"#c8845a",h:120},{l:"Foam",c:"#f0e4d0",h:30}],ings_en:[{l:"Espresso",v:"30-60ml",s:"single or double"},{l:"Chai concentrate",v:"60ml",s:"or 1 teabag"},{l:"Steamed milk",v:"120ml",s:"oat milk works great"},{l:"Spices",v:"cinnamon+",s:"ginger, cardamom"}],ings_id:[{l:"Espresso",v:"30-60ml",s:"single atau double"},{l:"Konsentrat chai",v:"60ml",s:"atau 1 celupan"},{l:"Susu kukus",v:"120ml",s:"susu oat sangat cocok"},{l:"Rempah",v:"kayu manis+",s:"jahe, kapulaga"}],steps_en:[{n:"Brew or heat chai",d:"Concentrate: heat 60ml. Teabag: steep 4 min.",tip:"Look for cardamom, ginger, cinnamon, black pepper."},{n:"Steam milk",d:"Steam 120ml to silky microfoam at 60-65C."},{n:"Pull espresso",d:"30-60ml depending on preference."},{n:"Assemble",d:"Chai first, steamed milk, float espresso on top. Dust with cinnamon.",tip:"The espresso sinking through the spiced milk is the magic."}],steps_id:[{n:"Seduh atau panaskan chai",d:"Konsentrat: panaskan 60ml. Celupan: seduh 4 menit.",tip:"Cari yang mengandung kapulaga, jahe, kayu manis, lada hitam."},{n:"Kukus susu",d:"Kukus 120ml ke microfoam halus pada 60-65C."},{n:"Tarik espresso",d:"30-60ml sesuai selera."},{n:"Rakit",d:"Chai terlebih dahulu, susu kukus, mengapungkan espresso di atas. Taburi kayu manis.",tip:"Espresso yang tenggelam melalui susu berbumbu adalah keajaibannya."}]},
-  dirty_latte:{icon:"🤎",name_en:"Dirty Latte",name_id:"Dirty Latte",tag_en:"Espresso · Cold Milk · Iced · 300ml",tag_id:"Espresso · Susu Dingin · Es · 300ml",layers:[{l:"Espresso",c:"#2a1000",h:40},{l:"Cold milk",c:"#f5efe4",h:120},{l:"Ice",c:"#e4f2f8",h:40}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot, hot"},{l:"Cold milk",v:"200ml",s:"whole or oat"},{l:"Ice",v:"1 cup",s:"in the glass"},{l:"Sweetener",v:"optional",s:"syrup or sugar"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot, panas"},{l:"Susu dingin",v:"200ml",s:"segar atau oat"},{l:"Es",v:"1 gelas",s:"dalam gelas"},{l:"Pemanis",v:"opsional",s:"sirup atau gula"}],steps_en:[{n:"Fill glass with ice",d:"Fill a tall glass with ice. The contrast between hot espresso and cold milk is the point.",tip:"Large ice cubes melt slower."},{n:"Pour cold milk over ice",d:"Pour 200ml of cold milk over the ice. Leave room for the espresso.",tip:"Whole milk gives the richest result. Oat milk barista edition is best dairy-free."},{n:"Pull a double shot",d:"Pull a fresh hot 60ml double espresso right before pouring."},{n:"Pour espresso over spoon",d:"Hold a spoon above the milk and pour hot espresso slowly over the back of it.",tip:"Do not stir — let it drift down naturally."},{n:"Add sweetener (optional)",d:"Add simple syrup before the milk if you want it sweet."},{n:"Serve immediately",d:"Drink as is, or stir just before sipping."}],steps_id:[{n:"Isi gelas dengan es",d:"Isi gelas tinggi dengan batu es. Kontras antara espresso panas dan susu dingin adalah intinya.",tip:"Batu es besar mencair lebih lambat."},{n:"Tuang susu dingin di atas es",d:"Tuang 200ml susu dingin di atas es. Sisakan ruang untuk espresso.",tip:"Susu full cream memberikan hasil terkaya. Susu oat barista edition terbaik tanpa susu sapi."},{n:"Tarik double shot",d:"Tarik 60ml double espresso panas yang segar."},{n:"Tuang espresso di atas sendok",d:"Pegang sendok di atas susu dan tuang espresso panas perlahan di atas punggung sendok.",tip:"Jangan diaduk — biarkan mengalir turun secara alami."},{n:"Tambah pemanis (opsional)",d:"Tambahkan simple syrup sebelum susu jika ingin manis."},{n:"Sajikan segera",d:"Minum apa adanya, atau aduk tepat sebelum diminum."}]},
-  iced_v60:{icon:"🧊",name_en:"Japanese Iced V60",name_id:"Japanese Iced V60",tag_en:"Bright · Crisp · Flash-chilled · 300ml",tag_id:"Cerah · Segar · Flash-chilled · 300ml",hasIcedRatio:true,layers:[{l:"Brewed coffee",c:"#6b3a1f",h:80},{l:"Melted ice",c:"#c8dde8",h:40},{l:"Ice cubes",c:"#e4f2f8",h:80}],ings_en:[{l:"Ground coffee",v:"20g",s:"medium-fine grind"},{l:"Hot water",v:"160ml",s:"93C for brewing"},{l:"Ice",v:"140g",s:"weighed, in server"},{l:"Total yield",v:"~300ml",s:"coffee + melted ice"}],ings_id:[{l:"Kopi bubuk",v:"20g",s:"gilingan sedang-halus"},{l:"Air panas",v:"160ml",s:"93C untuk menyeduh"},{l:"Es",v:"140g",s:"ditimbang, dalam server"},{l:"Total hasil",v:"~300ml",s:"kopi + es yang mencair"}],steps_en:[{n:"Set up with ice in server",d:"Place V60 on a server containing 140g of weighed ice.",tip:"Weigh the ice — it is part of the recipe."},{n:"Rinse filter",d:"Rinse paper filter, discard, place dripper back on ice-filled server."},{n:"Add coffee and bloom",d:"Add 20g coffee. Pour 40ml of 93C water to bloom. Wait 45 seconds.",t:45},{n:"First pour to 100ml",d:"Pour slowly in spirals to 100ml total.",t:30},{n:"Second pour to 160ml",d:"Pour remaining water to 160ml total.",t:30},{n:"Wait for drawdown",d:"Total brew time ~2.5-3 minutes.",t:60},{n:"Serve immediately",d:"Hot coffee hits ice and chills instantly, locking in bright floral flavours.",tip:"Do not add more ice — the melted ice is already your dilution."}],steps_id:[{n:"Siapkan es di server",d:"Letakkan V60 di atas server yang sudah berisi 140g es yang ditimbang.",tip:"Timbang esnya — ini bagian dari resep."},{n:"Bilas filter",d:"Bilas filter kertas, buang, letakkan dripper kembali di atas server berisi es."},{n:"Tambah kopi dan bloom",d:"Tambahkan 20g kopi. Tuang 40ml air 93C untuk bloom. Tunggu 45 detik.",t:45},{n:"Tuang pertama hingga 100ml",d:"Tuang perlahan spiral hingga total 100ml.",t:30},{n:"Tuang kedua hingga 160ml",d:"Tuang sisa air hingga total 160ml.",t:30},{n:"Tunggu drawdown",d:"Total waktu seduh sekitar 2.5-3 menit.",t:60},{n:"Sajikan segera",d:"Kopi panas mengenai es dan langsung dingin.",tip:"Jangan tambahkan es lagi — es yang mencair sudah menjadi pengencermu."}]}
+  dirty_latte:{icon:"🤎",name_en:"Dirty Latte",name_id:"Dirty Latte",tag_en:"Espresso · Cold Milk · Iced · 300ml",tag_id:"Espresso · Susu Dingin · Es · 300ml",layers:[{l:"Espresso",c:"#2a1000",h:40},{l:"Cold milk",c:"#f5efe4",h:120},{l:"Ice",c:"#e4f2f8",h:40}],ings_en:[{l:"Espresso",v:"60ml",s:"double shot, hot"},{l:"Cold milk",v:"200ml",s:"whole or oat"},{l:"Ice",v:"1 cup",s:"in the glass"},{l:"Sweetener",v:"optional",s:"syrup or sugar"}],ings_id:[{l:"Espresso",v:"60ml",s:"double shot, panas"},{l:"Susu dingin",v:"200ml",s:"segar atau oat"},{l:"Es",v:"1 gelas",s:"dalam gelas"},{l:"Pemanis",v:"opsional",s:"sirup atau gula"}],steps_en:[{n:"Fill glass with ice",d:"Fill a tall glass with ice.",tip:"Large ice cubes melt slower."},{n:"Pour cold milk over ice",d:"Pour 200ml of cold milk over the ice.",tip:"Whole milk gives the richest result. Oat milk barista edition is best dairy-free."},{n:"Pull a double shot",d:"Pull a fresh hot 60ml double espresso right before pouring."},{n:"Pour espresso over spoon",d:"Hold a spoon above the milk and pour hot espresso slowly over the back of it.",tip:"Do not stir — let it drift down naturally."},{n:"Add sweetener (optional)",d:"Add simple syrup before the milk if you want it sweet."},{n:"Serve immediately",d:"Drink as is, or stir just before sipping."}],steps_id:[{n:"Isi gelas dengan es",d:"Isi gelas tinggi dengan batu es.",tip:"Batu es besar mencair lebih lambat."},{n:"Tuang susu dingin di atas es",d:"Tuang 200ml susu dingin di atas es.",tip:"Susu full cream memberikan hasil terkaya. Susu oat barista edition terbaik tanpa susu sapi."},{n:"Tarik double shot",d:"Tarik 60ml double espresso panas yang segar."},{n:"Tuang espresso di atas sendok",d:"Pegang sendok di atas susu dan tuang espresso panas perlahan di atas punggung sendok.",tip:"Jangan diaduk — biarkan mengalir turun secara alami."},{n:"Tambah pemanis (opsional)",d:"Tambahkan simple syrup sebelum susu jika ingin manis."},{n:"Sajikan segera",d:"Minum apa adanya, atau aduk tepat sebelum diminum."}]},
+  iced_v60:{icon:"🧊",name_en:"Japanese Iced V60",name_id:"Japanese Iced V60",tag_en:"Bright · Crisp · Flash-chilled · 300ml",tag_id:"Cerah · Segar · Flash-chilled · 300ml",hasIcedRatio:true,layers:[{l:"Brewed coffee",c:"#6b3a1f",h:80},{l:"Melted ice",c:"#c8dde8",h:40},{l:"Ice cubes",c:"#e4f2f8",h:80}],ings_en:[{l:"Ground coffee",v:"20g",s:"medium-fine grind"},{l:"Hot water",v:"160ml",s:"93C for brewing"},{l:"Ice",v:"140g",s:"weighed, in server"},{l:"Total yield",v:"~300ml",s:"coffee + melted ice"}],ings_id:[{l:"Kopi bubuk",v:"20g",s:"gilingan sedang-halus"},{l:"Air panas",v:"160ml",s:"93C untuk menyeduh"},{l:"Es",v:"140g",s:"ditimbang, dalam server"},{l:"Total hasil",v:"~300ml",s:"kopi + es yang mencair"}],steps_en:[{n:"Set up with ice in server",d:"Place V60 on a server containing 140g of weighed ice.",tip:"Weigh the ice — it is part of the recipe."},{n:"Rinse filter",d:"Rinse paper filter, discard, place dripper back on ice-filled server."},{n:"Add coffee and bloom",d:"Add 20g coffee. Pour 40ml of 93C water to bloom. Wait 45 seconds.",t:45},{n:"First pour to 100ml",d:"Pour slowly in spirals to 100ml total.",t:30},{n:"Second pour to 160ml",d:"Pour remaining water to 160ml total.",t:30},{n:"Wait for drawdown",d:"Total brew time ~2.5-3 minutes.",t:60},{n:"Serve immediately",d:"Hot coffee hits ice and chills instantly.",tip:"Do not add more ice — the melted ice is already your dilution."}],steps_id:[{n:"Siapkan es di server",d:"Letakkan V60 di atas server yang sudah berisi 140g es yang ditimbang.",tip:"Timbang esnya — ini bagian dari resep."},{n:"Bilas filter",d:"Bilas filter kertas, buang, letakkan dripper kembali di atas server berisi es."},{n:"Tambah kopi dan bloom",d:"Tambahkan 20g kopi. Tuang 40ml air 93C untuk bloom. Tunggu 45 detik.",t:45},{n:"Tuang pertama hingga 100ml",d:"Tuang perlahan spiral hingga total 100ml.",t:30},{n:"Tuang kedua hingga 160ml",d:"Tuang sisa air hingga total 160ml.",t:30},{n:"Tunggu drawdown",d:"Total waktu seduh sekitar 2.5-3 menit.",t:60},{n:"Sajikan segera",d:"Kopi panas mengenai es dan langsung dingin.",tip:"Jangan tambahkan es lagi — es yang mencair sudah menjadi pengencermu."}]}
 };
 
-// ─── KB DATA ──────────────────────────────────────────
-var KB = [
-  {icon:"🌱",title_en:"Coffee Species",title_id:"Spesies Kopi",sub_en:"Arabica, Robusta & beyond",sub_id:"Arabika, Robusta & lainnya",cards:[
-    {ico:"☕",ttl_en:"Arabica",ttl_id:"Arabika",ps_en:["Coffea arabica is the world's most popular species — about 60-70% of all coffee produced. Grows at high altitudes (600-2,000m), more delicate, takes longer to mature.","Contains less caffeine (~1.2%) and more sugar, translating to a sweeter, more complex cup. Oval-shaped beans with a curved crease.","Expect notes of fruit, florals, chocolate, and caramel. The gold standard for specialty coffee."],ps_id:["Coffea arabica adalah spesies kopi paling populer di dunia — sekitar 60-70% dari semua kopi yang diproduksi. Tumbuh di ketinggian tinggi (600-2.000m).","Mengandung lebih sedikit kafein (~1,2%) dan lebih banyak gula, menghasilkan cangkir yang lebih manis dan kompleks.","Harapkan nuansa buah, floral, cokelat, dan karamel. Standar emas untuk kopi specialty."],tags:["High altitude","Low caffeine","Complex flavour","Specialty grade"],bars:[{l:"Sweetness",v:85},{l:"Acidity",v:75},{l:"Body",v:55},{l:"Bitterness",v:30}]},
-    {ico:"💪",ttl_en:"Robusta",ttl_id:"Robusta",ps_en:["Coffea canephora (Robusta) is tougher, higher-yielding, and more disease-resistant. Grows at lower altitudes in hotter climates.","Contains nearly double the caffeine (~2.7%). Beans are rounder with a straighter crease.","Flavor profile: earthy, woody, rubbery, with a strong bitter punch. Essential in espresso blends for crema."],ps_id:["Coffea canephora (Robusta) lebih kuat, hasil lebih tinggi, dan lebih tahan penyakit. Tumbuh di ketinggian rendah di iklim panas.","Mengandung hampir dua kali kafein (~2,7%). Biji lebih bulat dengan lekukan lurus.","Profil rasa: tanah, kayu, karet, dengan kepahitan yang kuat. Penting dalam campuran espresso untuk crema."],tags:["Low altitude","High caffeine","Strong crema","Espresso blends"],bars:[{l:"Sweetness",v:30},{l:"Acidity",v:25},{l:"Body",v:90},{l:"Bitterness",v:88}]},
-    {ico:"🌸",ttl_en:"Liberica & Excelsa",ttl_id:"Liberika & Excelsa",ps_en:["Liberica is grown mostly in the Philippines and Malaysia. Unusually large, irregular bean with a distinctly smoky, woody, floral flavour.","Excelsa produces a tart, fruity, dark-roasty cup and is used to add complexity to blends.","Combined, they account for less than 3% of global production. Rare, but worth seeking out."],ps_id:["Liberika sebagian besar ditanam di Filipina dan Malaysia. Biji besar dan tidak beraturan dengan rasa smoky, kayu, dan floral.","Excelsa menghasilkan cangkir yang asam, buah, dan bernuansa sangrai gelap.","Gabungan, keduanya menyumbang kurang dari 3% produksi global. Langka, tapi layak dicari."],tags:["Rare","Philippines","Malaysia","Fruity & smoky"]}
-  ]},
-  {icon:"🗺️",title_en:"Coffee Origins",title_id:"Asal Kopi",sub_en:"Terroir, regions & famous beans",sub_id:"Terroir, daerah & biji terkenal",cards:[
-    {ico:"🇪🇹",ttl_en:"Ethiopia",ttl_id:"Ethiopia",ps_en:["The birthplace of coffee. The Kaffa region is where Coffea arabica was first discovered. Ethiopia remains the most genetically diverse coffee origin on earth.","Yirgacheffe is the most celebrated — expect jasmine, bergamot, lemon, and blueberry. Sidama is fuller-bodied. Harrar is dry-processed and winey.","Ethiopia is the holy grail for light-roast lovers and third-wave cafes worldwide."],ps_id:["Tempat kelahiran kopi. Daerah Kaffa adalah tempat Coffea arabica pertama kali ditemukan.","Yirgacheffe paling dirayakan — harapkan melati, bergamot, lemon, dan blueberry. Sidama lebih bertubuh. Harrar diproses kering dan berasa anggur.","Ethiopia adalah surga bagi pecinta sangrai ringan dan kafe gelombang ketiga di seluruh dunia."],tags:["Yirgacheffe","Sidama","Harrar","Floral","Fruity"]},
-    {ico:"🇮🇩",ttl_en:"Indonesia — Gayo (Aceh)",ttl_id:"Indonesia — Gayo (Aceh)",ps_en:["Grown in the Gayo highlands of Aceh, Sumatra, at 1,200-1,500m altitude. Kopi Gayo is one of Indonesia's most prized exports with a Geographical Indication (GI) certification.","Processed using wet-hull (Giling Basah) — unique to Indonesia — giving it a heavy body, low acidity, and earthy-herbal flavour profile.","Beloved by espresso roasters for its deep, complex body."],ps_id:["Ditanam di dataran tinggi Gayo, Aceh, Sumatera, pada ketinggian 1.200-1.500m. Kopi Gayo adalah salah satu ekspor Indonesia yang paling dihargai.","Diproses menggunakan wet-hull (Giling Basah) — unik untuk Indonesia — memberikan tubuh yang sangat berat, keasaman rendah, dan profil rasa earthy-herbal.","Disukai oleh roaster espresso karena tubuhnya yang dalam dan kompleks."],tags:["Sumatra","Wet-hulled","Heavy body","Earthy","Chocolate"]},
-    {ico:"🦦",ttl_en:"Kopi Luwak",ttl_id:"Kopi Luwak",ps_en:["The world's most famous and controversial coffee. Asian palm civets eat ripe coffee cherries; beans pass through their digestive system and are collected, cleaned, and roasted.","Fermentation in the civet's gut reduces bitterness and adds a distinctive smooth, earthy flavour. Prices can reach $300-500/kg.","Ethical concerns are serious: Most commercial Kopi Luwak involves caged civets in poor conditions. Wild-sourced Luwak is genuinely rare and nearly impossible to verify."],ps_id:["Kopi paling terkenal dan kontroversial di dunia. Musang kelapa Asia memakan buah kopi yang matang; biji melewati sistem pencernaan mereka.","Fermentasi di usus musang mengurangi kepahitan dan menambah rasa yang halus dan earthy. Harga bisa mencapai Rp 5-8 juta/kg.","Perhatian etis serius: Sebagian besar Kopi Luwak komersial melibatkan musang dalam kandang dengan kondisi buruk."],tags:["Indonesia","Controversial","Smooth","Earthy","Very expensive"]},
-    {ico:"🇨🇴",ttl_en:"Colombia",ttl_id:"Kolombia",ps_en:["Colombia is the world's third-largest coffee producer. Its geography — the Andes mountains, two harvests per year, rich volcanic soil — creates ideal conditions.","Known for being well-balanced: medium body, bright but mild acidity, and notes of caramel, red apple, and hazelnut.","Key regions: Huila (fruity, complex), Narino (bright, citrusy), Antioquia (balanced, sweet)."],ps_id:["Kolombia adalah produsen kopi terbesar ketiga di dunia. Geografinya — pegunungan Andes, dua panen per tahun, tanah vulkanik yang kaya.","Dikenal seimbang: tubuh sedang, keasaman cerah namun ringan, dan nuansa karamel, apel merah, dan hazelnut.","Daerah utama: Huila (buah, kompleks), Narino (cerah, jeruk), Antioquia (seimbang, manis)."],tags:["Huila","Narino","Balanced","Caramel","Bright"]}
-  ]},
-  {icon:"⚙️",title_en:"Processing Methods",title_id:"Metode Pengolahan",sub_en:"How the cherry becomes the bean",sub_id:"Bagaimana ceri menjadi biji kopi",cards:[
-    {ico:"💧",ttl_en:"Washed (Full Wash)",ttl_id:"Washed (Full Wash)",ps_en:["The most common specialty process. Fruit skin and pulp are mechanically removed, beans are fermented in water tanks to dissolve mucilage, then washed clean and dried.","Result: The cleanest expression of the bean's origin. Bright acidity, clarity, and transparency of flavour. Notes of citrus, florals, and stone fruit.","Think of washed coffee as a clear photograph of the bean's character."],ps_id:["Proses specialty yang paling umum. Kulit dan daging buah dihilangkan secara mekanis, biji difermentasi dalam tangki air untuk melarutkan mucilage, lalu dicuci bersih dan dikeringkan.","Hasil: Ekspresi paling bersih dari asal biji. Keasaman cerah, kejernihan, dan transparansi rasa. Nuansa jeruk, floral, dan buah batu.","Anggap kopi washed sebagai foto jernih dari karakter biji."],tags:["Clean","Bright","Transparent","High acidity","Specialty favourite"]},
-    {ico:"☀️",ttl_en:"Natural (Dry Process)",ttl_id:"Natural (Proses Kering)",ps_en:["The oldest processing method. Whole cherries are dried in the sun for weeks, fruit and all, before being hulled. The bean ferments inside the fruit as it dries.","Result: Heavy, syrupy body with intense fruit-forward flavours — blueberry, strawberry, wine, tropical fruit. Much less acidity than washed.","Ethiopian naturals and Brazilian naturals are the benchmark."],ps_id:["Metode pengolahan tertua. Ceri utuh dikeringkan di bawah sinar matahari selama berminggu-minggu sebelum dikelupas. Biji difermentasi di dalam buah saat mengering.","Hasil: Tubuh berat dan sirup dengan rasa buah yang intens — blueberry, stroberi, anggur, buah tropis.","Natural Ethiopia dan Brazil adalah tolok ukur."],tags:["Fruity","Winey","Heavy body","Low acidity","Fermented"]},
-    {ico:"🧪",ttl_en:"Anaerobic Fermentation",ttl_id:"Fermentasi Anaerobik",ps_en:["An experimental process where cherries ferment in sealed, oxygen-free tanks. Without oxygen, different bacteria and yeasts dominate — producing wildly unique flavour compounds.","Result: Intense, almost boozy, tropical, and fermented flavours. Think passion fruit, rum, sourdough, and rose water. Very distinct and polarising.","Anaerobic processing is the current obsession of competition baristas and specialty roasters."],ps_id:["Proses eksperimental di mana ceri difermentasi dalam tangki tertutup bebas oksigen. Tanpa oksigen, bakteri dan ragi yang berbeda mendominasi.","Hasil: Rasa yang intens, hampir seperti minuman beralkohol, tropis, dan difermentasi. Pikirkan markisa, rum, sourdough, dan air mawar.","Fermentasi anaerobik adalah obsesi barista kompetisi dan roaster specialty saat ini."],tags:["Experimental","Boozy","Tropical","Competition coffee","Polarising"]},
-    {ico:"💨",ttl_en:"Wet-Hulled (Giling Basah)",ttl_id:"Wet-Hulled (Giling Basah)",ps_en:["Unique to Indonesia (Sumatra, Sulawesi, Flores). The parchment layer is removed while the bean still has high moisture content.","Result: The distinctive Sumatran profile: low acidity, very heavy and syrupy body, earthy, herbal, and mushroomy flavours.","Kopi Gayo and Mandheling are the benchmark wet-hulled coffees."],ps_id:["Unik untuk Indonesia (Sumatera, Sulawesi, Flores). Lapisan perkamen dihilangkan saat biji masih memiliki kandungan kelembaban tinggi.","Hasil: Profil Sumatera yang khas: keasaman rendah, tubuh yang sangat berat dan seperti sirup, rasa earthy, herbal, dan seperti jamur.","Kopi Gayo dan Mandheling adalah kopi wet-hulled terbaik."],tags:["Indonesia","Earthy","Heavy body","Low acidity","Unique"]}
-  ]},
-  {icon:"🔥",title_en:"Roast Levels",title_id:"Tingkat Sangrai",sub_en:"From light & floral to dark & smoky",sub_id:"Dari light & floral hingga dark & smoky",cards:[
-    {ico:"🌿",ttl_en:"Light Roast",ttl_id:"Sangrai Ringan",ps_en:["Roasted to around 180-205C, just at or before first crack. Beans are light brown, dry surface, no oils visible.","Preserves the most origin character. Caffeine content is highest. Best for: Pour over, V60, filter coffee.","Expect: jasmine, berries, citrus, stone fruit, tea-like delicacy. Common names: Cinnamon roast, New England, Half City."],ps_id:["Disangrai pada suhu sekitar 180-205C, tepat pada atau sebelum first crack. Biji berwarna cokelat muda, permukaan kering.","Menjaga karakter asal paling banyak. Kandungan kafein tertinggi. Terbaik untuk: Pour over, V60, kopi filter.","Harapkan: melati, beri, jeruk, buah batu, keanggunan seperti teh."],tags:["High acidity","Fruity","Floral","Origin-forward","Specialty"],bars:[{l:"Acidity",v:90},{l:"Sweetness",v:70},{l:"Body",v:40},{l:"Bitterness",v:15}]},
-    {ico:"🍂",ttl_en:"Medium Roast",ttl_id:"Sangrai Sedang",ps_en:["Roasted to 210-220C, between first and second crack. Beans are medium brown, dry surface. The most commercially popular roast level.","A balance point: some origin character remains, but roast flavours (caramel, chocolate, nuts) start to develop.","Best for: Drip coffee, AeroPress, espresso blends. Expect: caramel, milk chocolate, hazelnut, brown sugar."],ps_id:["Disangrai pada suhu 210-220C, antara first dan second crack. Biji berwarna cokelat sedang. Tingkat sangrai paling populer secara komersial.","Titik keseimbangan: sebagian karakter asal tetap ada, tetapi rasa sangrai mulai berkembang.","Terbaik untuk: Drip coffee, AeroPress, campuran espresso. Harapkan: karamel, cokelat susu, hazelnut, gula merah."],tags:["Balanced","Caramel","Chocolate","Approachable","Versatile"],bars:[{l:"Acidity",v:55},{l:"Sweetness",v:80},{l:"Body",v:65},{l:"Bitterness",v:45}]},
-    {ico:"🌑",ttl_en:"Dark Roast",ttl_id:"Sangrai Gelap",ps_en:["Roasted to 225C+, into or past second crack. Beans are dark brown to nearly black, oily surface. Origin character is largely replaced by roast character.","Lower acidity, very heavy body, and dominant bitterness.","Best for: Espresso (traditional Italian style), Moka pot, French press. Expect: dark chocolate, smoke, ash, roasted nuts, tobacco."],ps_id:["Disangrai pada suhu 225C+, hingga atau melampaui second crack. Biji berwarna cokelat gelap hingga hampir hitam, permukaan berminyak.","Keasaman lebih rendah, tubuh sangat berat, dan kepahitan yang dominan.","Terbaik untuk: Espresso (gaya Italia tradisional), Moka pot, French press. Harapkan: cokelat hitam, asap, abu, kacang sangrai, tembakau."],tags:["Low acidity","Smoky","Bold","Oily","Heavy body"],bars:[{l:"Acidity",v:15},{l:"Sweetness",v:30},{l:"Body",v:92},{l:"Bitterness",v:85}]}
-  ]},
-  {icon:"🧬",title_en:"Flavour & Extraction",title_id:"Rasa & Ekstraksi",sub_en:"Why coffee tastes the way it does",sub_id:"Mengapa kopi terasa seperti itu",cards:[
-    {ico:"⚗️",ttl_en:"Extraction — Under, Over & Just Right",ttl_id:"Ekstraksi — Kurang, Lebih & Pas",ps_en:["Extraction is the percentage of soluble compounds pulled from the grounds. The SCA golden zone is 18-22% extraction.","Under-extracted (below 18%): Sour, salty, thin, hollow. Over-extracted (above 22%): Bitter, dry, astringent, harsh.","Just right: Sweet, balanced, clean finish. Adjust grind size first — finer = more extraction, coarser = less."],ps_id:["Ekstraksi adalah persentase senyawa yang larut yang ditarik dari bubuk kopi. Zona emas SCA adalah ekstraksi 18-22%.","Kurang terekstraksi (di bawah 18%): Asam, asin, tipis, hampa. Terlalu terekstraksi (di atas 22%): Pahit, kering, astringen, keras.","Pas: Manis, seimbang, rasa akhir yang bersih. Sesuaikan ukuran gilingan terlebih dahulu."],tags:["Extraction","Brewing science","Grind size","Taste"]},
-    {ico:"💧",ttl_en:"Water Quality & Temperature",ttl_id:"Kualitas & Suhu Air",ps_en:["Coffee is 98-99% water. Water quality is massively underestimated by home brewers.","Ideal TDS (Total Dissolved Solids): 75-150 ppm. Too soft (distilled) = flat, sour. Too hard = chalky, over-extracted.","Temperature: SCA recommends 90-96C. Below 85C = under-extraction. Boiling (100C) = over-extraction."],ps_id:["Kopi terdiri dari 98-99% air. Kualitas air sangat diremehkan oleh pembuat kopi di rumah.","TDS ideal: 75-150 ppm. Terlalu lunak (air suling) = hambar, asam. Terlalu keras = berkapur, terlalu terekstraksi.","Suhu: SCA merekomendasikan 90-96C. Di bawah 85C = kurang ekstraksi. Mendidih (100C) = terlalu terekstraksi."],tags:["Water","TDS","Temperature","Brewing science"]},
-    {ico:"⏱️",ttl_en:"Grind Size — The Most Important Variable",ttl_id:"Ukuran Gilingan — Variabel Terpenting",ps_en:["Grind size controls surface area, which controls extraction rate. It is the single most impactful variable in brewing coffee.","Finer grind: More surface area, faster extraction, more body, more bitterness risk. Espresso requires the finest grind.","The general rule: if your coffee tastes sour, grind finer. If it tastes bitter, grind coarser. Always adjust grind before changing any other variable."],ps_id:["Ukuran gilingan mengontrol luas permukaan, yang mengontrol tingkat ekstraksi. Ini adalah variabel yang paling berpengaruh dalam menyeduh kopi.","Gilingan lebih halus: Lebih banyak permukaan, ekstraksi lebih cepat, lebih banyak tubuh, lebih banyak risiko kepahitan.","Aturan umum: jika kopi terasa asam, giling lebih halus. Jika terasa pahit, giling lebih kasar."],tags:["Grind","Extraction","Burr grinder","Espresso","Filter"]}
-  ]},
-  {icon:"🏆",title_en:"Specialty Coffee 101",title_id:"Specialty Coffee 101",sub_en:"Third wave, scores & what it all means",sub_id:"Gelombang ketiga, skor & apa artinya",cards:[
-    {ico:"🌊",ttl_en:"The Three Waves of Coffee",ttl_id:"Tiga Gelombang Kopi",ps_en:["First wave (1800s-1960s): Coffee as a commodity. Folgers, Maxwell House. Accessibility over quality. Instant coffee was peak innovation.","Second wave (1960s-2000s): Coffee as an experience. Starbucks, lattes, flavoured syrups. People started caring about cafe culture.","Third wave (2000s-present): Coffee as craft. Single origins, transparent sourcing, light roasts, barista as artisan. We may be entering a fourth wave of scientific precision and fermentation experimentation."],ps_id:["Gelombang pertama (1800an-1960an): Kopi sebagai komoditas. Aksesibilitas di atas kualitas. Kopi instan adalah inovasi puncak.","Gelombang kedua (1960an-2000an): Kopi sebagai pengalaman. Starbucks, latte, sirup rasa. Orang mulai peduli dengan budaya kafe.","Gelombang ketiga (2000an-sekarang): Kopi sebagai kerajinan. Single origin, sumber transparan, sangrai ringan, barista sebagai seniman."],tags:["History","Culture","Third wave","Specialty"]},
-    {ico:"💯",ttl_en:"The SCA Score & Specialty Definition",ttl_id:"Skor SCA & Definisi Specialty",ps_en:["The SCA defines specialty coffee as any coffee scoring 80 points or above on their 100-point cupping scale.","Coffees are evaluated on: fragrance, aroma, flavour, aftertaste, acidity, body, balance, uniformity, clean cup, and sweetness.","80-84.99: Very Good. 85-89.99: Excellent. 90+: Outstanding — extremely rare. Most specialty cafe offerings sit in the 84-88 range."],ps_id:["SCA mendefinisikan kopi specialty sebagai kopi yang mendapat skor 80 poin atau lebih pada skala cupping 100 poin mereka.","Kopi dievaluasi berdasarkan: harum, aroma, rasa, aftertaste, keasaman, tubuh, keseimbangan, keseragaman, cangkir bersih, dan kemanisan.","80-84,99: Sangat Baik. 85-89,99: Luar Biasa. 90+: Menakjubkan — sangat langka."],tags:["SCA","Q-Grader","Cupping","Score","Quality"]},
-    {ico:"☕",ttl_en:"How to Taste Coffee Like a Pro",ttl_id:"Cara Mencicipi Kopi Seperti Profesional",ps_en:["Cupping is the industry-standard tasting method: coarsely ground coffee is steeped in hot water, and tasters slurp it loudly. The slurp aerates the coffee and spreads it across the palate.","Evaluate: Aroma (dry and wet), Flavour (first impression), Aftertaste, Acidity (brightness), Body (weight on tongue), Balance.","At home: brew a pour over with no milk or sugar. Let it cool to 60-65C. Take a small sip and ask: sweet or bitter? Light or heavy? What fruit or food does it remind you of?"],ps_id:["Cupping adalah metode mencicipi standar industri: kopi yang digiling kasar direndam dalam air panas, dan pencicip menyeruputnya dengan keras.","Evaluasi: Aroma (kering dan basah), Rasa (kesan pertama), Aftertaste, Keasaman (kecerahan), Tubuh (berat di lidah), Keseimbangan.","Di rumah: seduh pour over tanpa susu atau gula. Biarkan agak dingin ke 60-65C. Ambil tegukan kecil dan tanyakan: manis atau pahit?"],tags:["Cupping","Tasting","Aroma","Palate","SCA"]}
-  ]},
-  {icon:"❓",title_en:"Brewing FAQ",title_id:"FAQ Penyeduhan",sub_en:"Why does my coffee taste like that?",sub_id:"Mengapa kopi saya terasa seperti itu?",cards:[
-    {ico:"💧",ttl_en:"Why is my coffee watery?",ttl_id:"Mengapa kopi saya terasa encer?",ps_en:["Watery coffee usually means under-extraction or too little coffee for the amount of water used.","Fix 1: Check your ratio — the SCA golden ratio is 1:15 to 1:17. Fix 2: Grind finer. Fix 3: Check water temperature — below 85C under-extracts.","Fix 4: Slow down your pour — for pour over, pouring too fast rushes the brew and reduces extraction."],ps_id:["Kopi encer biasanya berarti kurang ekstraksi atau terlalu sedikit kopi untuk jumlah air yang digunakan.","Perbaikan 1: Periksa rasio — rasio emas SCA adalah 1:15 hingga 1:17. Perbaikan 2: Giling lebih halus. Perbaikan 3: Periksa suhu air — di bawah 85C kurang mengekstraksi.","Perbaikan 4: Perlambat tuangan — untuk pour over, menuang terlalu cepat memburu penyeduhan."],tags:["Under-extraction","Ratio","Grind","Temperature"]},
-    {ico:"😬",ttl_en:"Why is my espresso too bitter?",ttl_id:"Mengapa espresso saya terlalu pahit?",ps_en:["Bitterness in espresso almost always means over-extraction. You have pulled too many compounds from the grounds.","Fix 1: Grind coarser — the single most effective fix. Fix 2: Shorten the shot — aim for 25-30s at 1:2 ratio. Fix 3: Lower water temperature to 90-92C.","Fix 4: Try a lighter roast. Fix 5: Check your tamp — uneven tamping creates channelling and over-extracts sections."],ps_id:["Kepahitan dalam espresso hampir selalu berarti terlalu terekstraksi. Anda telah menarik terlalu banyak senyawa dari bubuk kopi.","Perbaikan 1: Giling lebih kasar — perbaikan tunggal paling efektif. Perbaikan 2: Persingkat shot — targetkan 25-30 detik. Perbaikan 3: Turunkan suhu air ke 90-92C.","Perbaikan 4: Coba sangrai lebih ringan. Perbaikan 5: Periksa tamp Anda — tamp yang tidak merata menciptakan channelling."],tags:["Over-extraction","Espresso","Grind coarser","Bitter"]},
-    {ico:"🔄",ttl_en:"Pour Over vs Immersion",ttl_id:"Pour Over vs Immersion",ps_en:["Pour Over (percolation): Fresh water continuously passes through the grounds and drips out. V60, Chemex, Kalita Wave. Water always moving. Result: clean, bright, transparent cup.","Immersion: Grounds sit submerged in water for the full brew time. French press, AeroPress (inverted), cold brew. Result: fuller body, heavier mouthfeel.","Which is better? Neither. Pour over rewards precision. Immersion rewards patience and is more forgiving for beginners."],ps_id:["Pour Over (perkolasi): Air segar terus melewati bubuk kopi dan menetes ke bawah. V60, Chemex, Kalita Wave. Hasil: cangkir yang bersih, cerah, transparan.","Immersion: Bubuk kopi terendam dalam air selama waktu seduh penuh. French press, AeroPress (terbalik), cold brew. Hasil: tubuh lebih penuh, mouthfeel lebih berat.","Mana yang lebih baik? Tidak ada yang lebih baik. Pour over menghargai presisi. Immersion menghargai kesabaran dan lebih mudah untuk pemula."],tags:["Pour over","Immersion","French press","V60"]},
-    {ico:"🥛",ttl_en:"What is the best milk for a latte?",ttl_id:"Susu apa yang terbaik untuk latte?",ps_en:["The best milk for lattes forms silky, sweet microfoam that integrates with espresso rather than separating.","Whole milk: The gold standard. High fat content creates stable, velvety microfoam. Oat milk: The best dairy-free option. Barista-edition oat milk steams almost as well as whole milk.","Almond milk: Steams poorly, thin foam that separates quickly — works better in iced drinks. Soy milk: Steams reasonably well but can split if espresso is very acidic."],ps_id:["Susu terbaik untuk latte adalah yang dikukus dengan baik — membentuk microfoam yang halus dan manis yang menyatu dengan espresso.","Susu full cream: Standar emas. Kandungan lemak tinggi menciptakan microfoam yang stabil dan halus. Susu oat: Pilihan terbaik tanpa susu sapi. Susu oat edisi barista dikukus hampir sama baiknya.","Susu almond: Dikukus dengan buruk, busa tipis yang cepat terpisah. Susu kedelai: Dikukus cukup baik tetapi bisa pecah jika espresso sangat asam."],tags:["Milk","Latte","Oat milk","Microfoam","Dairy-free"]},
-    {ico:"⚖️",ttl_en:"Should I use a scale?",ttl_id:"Apakah saya perlu timbangan?",ps_en:["Yes. A scale is the single best investment a home brewer can make — more impactful than upgrading your brewer.","Coffee is measured by weight, not volume. A scoop of coffee varies wildly depending on grind size and bean density.","You need a scale that measures to 0.1g for espresso or at least 1g for filter coffee. Even a budget scale beats no scale."],ps_id:["Ya. Timbangan adalah investasi terbaik yang bisa dilakukan pembuat kopi di rumah — lebih berpengaruh daripada meningkatkan alat seduh Anda.","Kopi diukur berdasarkan berat, bukan volume. Satu sendok kopi sangat bervariasi tergantung pada ukuran gilingan dan kepadatan biji.","Anda memerlukan timbangan yang mengukur hingga 0,1g untuk espresso atau setidaknya 1g untuk kopi filter."],tags:["Scale","Precision","Weight","Dose","Consistency"]},
-    {ico:"🔢",ttl_en:"What does 1:15 ratio mean?",ttl_id:"Apa arti rasio 1:15?",ps_en:["Coffee ratios express the relationship between ground coffee and water by weight. 1:15 means 1g coffee for every 15ml water. So 20g coffee gives 300ml water.","Common ratios: Espresso 1:2. V60/Pour Over 1:15-1:17. French Press 1:15-1:17. AeroPress 1:10-1:17. Cold Brew 1:7 (concentrate) to 1:14 (ready to drink).","Think of ratio as your starting point. Once you nail a consistent ratio, adjust grind size and temperature to tune flavour."],ps_id:["Rasio kopi mengungkapkan hubungan antara kopi bubuk dan air berdasarkan berat. 1:15 berarti 1g kopi untuk setiap 15ml air. Jadi 20g kopi menghasilkan 300ml air.","Rasio umum: Espresso 1:2. V60/Pour Over 1:15-1:17. French Press 1:15-1:17. AeroPress 1:10-1:17. Cold Brew 1:7 (konsentrat) hingga 1:14 (siap minum).","Anggap rasio sebagai titik awal Anda. Setelah Anda menetapkan rasio yang konsisten, sesuaikan ukuran gilingan dan suhu untuk menyetel rasa."],tags:["Ratio","Dose","Recipe","Beginner","Espresso"]}
-  ]}
+var KB=[
+  {icon:"🌱",title_en:"Coffee Species",title_id:"Spesies Kopi",sub_en:"Arabica, Robusta & beyond",sub_id:"Arabika, Robusta & lainnya",cards:[{ico:"☕",ttl_en:"Arabica",ttl_id:"Arabika",ps_en:["Coffea arabica is the world's most popular species — about 60-70% of all coffee produced. Grows at high altitudes (600-2,000m), more delicate, takes longer to mature.","Contains less caffeine (~1.2%) and more sugar, translating to a sweeter, more complex cup.","Expect notes of fruit, florals, chocolate, and caramel. The gold standard for specialty coffee."],ps_id:["Coffea arabica adalah spesies kopi paling populer di dunia — sekitar 60-70% dari semua kopi yang diproduksi. Tumbuh di ketinggian tinggi (600-2.000m).","Mengandung lebih sedikit kafein (~1,2%) dan lebih banyak gula, menghasilkan cangkir yang lebih manis dan kompleks.","Harapkan nuansa buah, floral, cokelat, dan karamel. Standar emas untuk kopi specialty."],tags:["High altitude","Low caffeine","Complex flavour","Specialty grade"],bars:[{l:"Sweetness",v:85},{l:"Acidity",v:75},{l:"Body",v:55},{l:"Bitterness",v:30}]},{ico:"💪",ttl_en:"Robusta",ttl_id:"Robusta",ps_en:["Coffea canephora (Robusta) is tougher, higher-yielding, and more disease-resistant. Grows at lower altitudes in hotter climates.","Contains nearly double the caffeine (~2.7%). Beans are rounder with a straighter crease.","Flavor profile: earthy, woody, rubbery, with a strong bitter punch. Essential in espresso blends for crema."],ps_id:["Coffea canephora (Robusta) lebih kuat, hasil lebih tinggi, dan lebih tahan penyakit. Tumbuh di ketinggian rendah di iklim panas.","Mengandung hampir dua kali kafein (~2,7%). Biji lebih bulat dengan lekukan lurus.","Profil rasa: tanah, kayu, karet, dengan kepahitan yang kuat. Penting dalam campuran espresso untuk crema."],tags:["Low altitude","High caffeine","Strong crema","Espresso blends"],bars:[{l:"Sweetness",v:30},{l:"Acidity",v:25},{l:"Body",v:90},{l:"Bitterness",v:88}]},{ico:"🌸",ttl_en:"Liberica & Excelsa",ttl_id:"Liberika & Excelsa",ps_en:["Liberica is grown mostly in the Philippines and Malaysia. Unusually large, irregular bean with a distinctly smoky, woody, floral flavour.","Excelsa produces a tart, fruity, dark-roasty cup and is used to add complexity to blends.","Combined, they account for less than 3% of global production. Rare, but worth seeking out."],ps_id:["Liberika sebagian besar ditanam di Filipina dan Malaysia. Biji besar dan tidak beraturan dengan rasa smoky, kayu, dan floral.","Excelsa menghasilkan cangkir yang asam, buah, dan bernuansa sangrai gelap.","Gabungan, keduanya menyumbang kurang dari 3% produksi global. Langka, tapi layak dicari."],tags:["Rare","Philippines","Malaysia","Fruity & smoky"]}]},
+  {icon:"🗺️",title_en:"Coffee Origins",title_id:"Asal Kopi",sub_en:"Terroir, regions & famous beans",sub_id:"Terroir, daerah & biji terkenal",cards:[{ico:"🇪🇹",ttl_en:"Ethiopia",ttl_id:"Ethiopia",ps_en:["The birthplace of coffee. The Kaffa region is where Coffea arabica was first discovered. Ethiopia remains the most genetically diverse coffee origin on earth.","Yirgacheffe is the most celebrated — expect jasmine, bergamot, lemon, and blueberry. Sidama is fuller-bodied. Harrar is dry-processed and winey.","Ethiopia is the holy grail for light-roast lovers and third-wave cafes worldwide."],ps_id:["Tempat kelahiran kopi. Daerah Kaffa adalah tempat Coffea arabica pertama kali ditemukan.","Yirgacheffe paling dirayakan — harapkan melati, bergamot, lemon, dan blueberry. Sidama lebih bertubuh. Harrar diproses kering dan berasa anggur.","Ethiopia adalah surga bagi pecinta sangrai ringan dan kafe gelombang ketiga di seluruh dunia."],tags:["Yirgacheffe","Sidama","Harrar","Floral","Fruity"]},{ico:"🇮🇩",ttl_en:"Indonesia — Gayo (Aceh)",ttl_id:"Indonesia — Gayo (Aceh)",ps_en:["Grown in the Gayo highlands of Aceh, Sumatra, at 1,200-1,500m altitude. Kopi Gayo is one of Indonesia's most prized exports with a GI certification.","Processed using wet-hull (Giling Basah) — unique to Indonesia — giving it a heavy body, low acidity, and earthy-herbal flavour profile.","Beloved by espresso roasters for its deep, complex body."],ps_id:["Ditanam di dataran tinggi Gayo, Aceh, Sumatera, pada ketinggian 1.200-1.500m. Kopi Gayo adalah salah satu ekspor Indonesia yang paling dihargai.","Diproses menggunakan wet-hull (Giling Basah) — unik untuk Indonesia — memberikan tubuh yang sangat berat, keasaman rendah, dan profil rasa earthy-herbal.","Disukai oleh roaster espresso karena tubuhnya yang dalam dan kompleks."],tags:["Sumatra","Wet-hulled","Heavy body","Earthy","Chocolate"]},{ico:"🦦",ttl_en:"Kopi Luwak",ttl_id:"Kopi Luwak",ps_en:["The world's most famous and controversial coffee. Asian palm civets eat ripe coffee cherries; beans pass through their digestive system and are collected, cleaned, and roasted.","Fermentation in the civet's gut reduces bitterness and adds a distinctive smooth, earthy flavour. Prices can reach $300-500/kg.","Ethical concerns are serious: Most commercial Kopi Luwak involves caged civets in poor conditions."],ps_id:["Kopi paling terkenal dan kontroversial di dunia. Musang kelapa Asia memakan buah kopi yang matang; biji melewati sistem pencernaan mereka.","Fermentasi di usus musang mengurangi kepahitan dan menambah rasa yang halus dan earthy. Harga bisa mencapai Rp 5-8 juta/kg.","Perhatian etis serius: Sebagian besar Kopi Luwak komersial melibatkan musang dalam kandang dengan kondisi buruk."],tags:["Indonesia","Controversial","Smooth","Earthy","Very expensive"]},{ico:"🇨🇴",ttl_en:"Colombia",ttl_id:"Kolombia",ps_en:["Colombia is the world's third-largest coffee producer. Its geography — the Andes mountains, two harvests per year, rich volcanic soil — creates ideal conditions.","Known for being well-balanced: medium body, bright but mild acidity, and notes of caramel, red apple, and hazelnut.","Key regions: Huila (fruity, complex), Narino (bright, citrusy), Antioquia (balanced, sweet)."],ps_id:["Kolombia adalah produsen kopi terbesar ketiga di dunia. Geografinya — pegunungan Andes, dua panen per tahun, tanah vulkanik yang kaya.","Dikenal seimbang: tubuh sedang, keasaman cerah namun ringan, dan nuansa karamel, apel merah, dan hazelnut.","Daerah utama: Huila (buah, kompleks), Narino (cerah, jeruk), Antioquia (seimbang, manis)."],tags:["Huila","Narino","Balanced","Caramel","Bright"]}]},
+  {icon:"⚙️",title_en:"Processing Methods",title_id:"Metode Pengolahan",sub_en:"How the cherry becomes the bean",sub_id:"Bagaimana ceri menjadi biji kopi",cards:[{ico:"💧",ttl_en:"Washed (Full Wash)",ttl_id:"Washed (Full Wash)",ps_en:["The most common specialty process. Fruit skin and pulp are mechanically removed, beans are fermented in water tanks to dissolve mucilage, then washed clean and dried.","Result: The cleanest expression of the bean's origin. Bright acidity, clarity, and transparency of flavour. Notes of citrus, florals, and stone fruit.","Think of washed coffee as a clear photograph of the bean's character."],ps_id:["Proses specialty yang paling umum. Kulit dan daging buah dihilangkan secara mekanis, biji difermentasi dalam tangki air untuk melarutkan mucilage, lalu dicuci bersih dan dikeringkan.","Hasil: Ekspresi paling bersih dari asal biji. Keasaman cerah, kejernihan, dan transparansi rasa.","Anggap kopi washed sebagai foto jernih dari karakter biji."],tags:["Clean","Bright","Transparent","High acidity","Specialty favourite"]},{ico:"☀️",ttl_en:"Natural (Dry Process)",ttl_id:"Natural (Proses Kering)",ps_en:["The oldest processing method. Whole cherries are dried in the sun for weeks, fruit and all, before being hulled. The bean ferments inside the fruit as it dries.","Result: Heavy, syrupy body with intense fruit-forward flavours — blueberry, strawberry, wine, tropical fruit. Much less acidity than washed.","Ethiopian naturals and Brazilian naturals are the benchmark."],ps_id:["Metode pengolahan tertua. Ceri utuh dikeringkan di bawah sinar matahari selama berminggu-minggu sebelum dikelupas.","Hasil: Tubuh berat dan sirup dengan rasa buah yang intens — blueberry, stroberi, anggur, buah tropis.","Natural Ethiopia dan Brazil adalah tolok ukur."],tags:["Fruity","Winey","Heavy body","Low acidity","Fermented"]},{ico:"🧪",ttl_en:"Anaerobic Fermentation",ttl_id:"Fermentasi Anaerobik",ps_en:["An experimental process where cherries ferment in sealed, oxygen-free tanks. Without oxygen, different bacteria and yeasts dominate — producing wildly unique flavour compounds.","Result: Intense, almost boozy, tropical, and fermented flavours. Think passion fruit, rum, sourdough, and rose water.","Anaerobic processing is the current obsession of competition baristas and specialty roasters."],ps_id:["Proses eksperimental di mana ceri difermentasi dalam tangki tertutup bebas oksigen. Tanpa oksigen, bakteri dan ragi yang berbeda mendominasi.","Hasil: Rasa yang intens, hampir seperti minuman beralkohol, tropis, dan difermentasi.","Fermentasi anaerobik adalah obsesi barista kompetisi dan roaster specialty saat ini."],tags:["Experimental","Boozy","Tropical","Competition coffee","Polarising"]},{ico:"💨",ttl_en:"Wet-Hulled (Giling Basah)",ttl_id:"Wet-Hulled (Giling Basah)",ps_en:["Unique to Indonesia (Sumatra, Sulawesi, Flores). The parchment layer is removed while the bean still has high moisture content.","Result: The distinctive Sumatran profile: low acidity, very heavy and syrupy body, earthy, herbal, and mushroomy flavours.","Kopi Gayo and Mandheling are the benchmark wet-hulled coffees."],ps_id:["Unik untuk Indonesia (Sumatera, Sulawesi, Flores). Lapisan perkamen dihilangkan saat biji masih memiliki kandungan kelembaban tinggi.","Hasil: Profil Sumatera yang khas: keasaman rendah, tubuh yang sangat berat dan seperti sirup, rasa earthy, herbal, dan seperti jamur.","Kopi Gayo dan Mandheling adalah kopi wet-hulled terbaik."],tags:["Indonesia","Earthy","Heavy body","Low acidity","Unique"]}]},
+  {icon:"🔥",title_en:"Roast Levels",title_id:"Tingkat Sangrai",sub_en:"From light & floral to dark & smoky",sub_id:"Dari light & floral hingga dark & smoky",cards:[{ico:"🌿",ttl_en:"Light Roast",ttl_id:"Sangrai Ringan",ps_en:["Roasted to around 180-205C, just at or before first crack. Beans are light brown, dry surface, no oils visible.","Preserves the most origin character. Caffeine content is highest. Best for: Pour over, V60, filter coffee.","Expect: jasmine, berries, citrus, stone fruit, tea-like delicacy."],ps_id:["Disangrai pada suhu sekitar 180-205C, tepat pada atau sebelum first crack. Biji berwarna cokelat muda, permukaan kering.","Menjaga karakter asal paling banyak. Kandungan kafein tertinggi. Terbaik untuk: Pour over, V60, kopi filter.","Harapkan: melati, beri, jeruk, buah batu, keanggunan seperti teh."],tags:["High acidity","Fruity","Floral","Origin-forward","Specialty"],bars:[{l:"Acidity",v:90},{l:"Sweetness",v:70},{l:"Body",v:40},{l:"Bitterness",v:15}]},{ico:"🍂",ttl_en:"Medium Roast",ttl_id:"Sangrai Sedang",ps_en:["Roasted to 210-220C, between first and second crack. Beans are medium brown, dry surface. The most commercially popular roast level.","A balance point: some origin character remains, but roast flavours (caramel, chocolate, nuts) start to develop.","Best for: Drip coffee, AeroPress, espresso blends. Expect: caramel, milk chocolate, hazelnut, brown sugar."],ps_id:["Disangrai pada suhu 210-220C, antara first dan second crack. Biji berwarna cokelat sedang. Tingkat sangrai paling populer secara komersial.","Titik keseimbangan: sebagian karakter asal tetap ada, tetapi rasa sangrai mulai berkembang.","Terbaik untuk: Drip coffee, AeroPress, campuran espresso. Harapkan: karamel, cokelat susu, hazelnut, gula merah."],tags:["Balanced","Caramel","Chocolate","Approachable","Versatile"],bars:[{l:"Acidity",v:55},{l:"Sweetness",v:80},{l:"Body",v:65},{l:"Bitterness",v:45}]},{ico:"🌑",ttl_en:"Dark Roast",ttl_id:"Sangrai Gelap",ps_en:["Roasted to 225C+, into or past second crack. Beans are dark brown to nearly black, oily surface. Origin character is largely replaced by roast character.","Lower acidity, very heavy body, and dominant bitterness.","Best for: Espresso (traditional Italian style), Moka pot, French press. Expect: dark chocolate, smoke, ash, roasted nuts, tobacco."],ps_id:["Disangrai pada suhu 225C+, hingga atau melampaui second crack. Biji berwarna cokelat gelap hingga hampir hitam, permukaan berminyak.","Keasaman lebih rendah, tubuh sangat berat, dan kepahitan yang dominan.","Terbaik untuk: Espresso (gaya Italia tradisional), Moka pot, French press. Harapkan: cokelat hitam, asap, abu, kacang sangrai, tembakau."],tags:["Low acidity","Smoky","Bold","Oily","Heavy body"],bars:[{l:"Acidity",v:15},{l:"Sweetness",v:30},{l:"Body",v:92},{l:"Bitterness",v:85}]}]},
+  {icon:"🧬",title_en:"Flavour & Extraction",title_id:"Rasa & Ekstraksi",sub_en:"Why coffee tastes the way it does",sub_id:"Mengapa kopi terasa seperti itu",cards:[{ico:"⚗️",ttl_en:"Extraction — Under, Over & Just Right",ttl_id:"Ekstraksi — Kurang, Lebih & Pas",ps_en:["Extraction is the percentage of soluble compounds pulled from the grounds. The SCA golden zone is 18-22% extraction.","Under-extracted (below 18%): Sour, salty, thin, hollow. Over-extracted (above 22%): Bitter, dry, astringent, harsh.","Just right: Sweet, balanced, clean finish. Adjust grind size first — finer = more extraction, coarser = less."],ps_id:["Ekstraksi adalah persentase senyawa yang larut yang ditarik dari bubuk kopi. Zona emas SCA adalah ekstraksi 18-22%.","Kurang terekstraksi (di bawah 18%): Asam, asin, tipis, hampa. Terlalu terekstraksi (di atas 22%): Pahit, kering, astringen, keras.","Pas: Manis, seimbang, rasa akhir yang bersih. Sesuaikan ukuran gilingan terlebih dahulu."],tags:["Extraction","Brewing science","Grind size","Taste"]},{ico:"💧",ttl_en:"Water Quality & Temperature",ttl_id:"Kualitas & Suhu Air",ps_en:["Coffee is 98-99% water. Water quality is massively underestimated by home brewers.","Ideal TDS (Total Dissolved Solids): 75-150 ppm. Too soft (distilled) = flat, sour. Too hard = chalky, over-extracted.","Temperature: SCA recommends 90-96C. Below 85C = under-extraction. Boiling (100C) = over-extraction."],ps_id:["Kopi terdiri dari 98-99% air. Kualitas air sangat diremehkan oleh pembuat kopi di rumah.","TDS ideal: 75-150 ppm. Terlalu lunak (air suling) = hambar, asam. Terlalu keras = berkapur, terlalu terekstraksi.","Suhu: SCA merekomendasikan 90-96C. Di bawah 85C = kurang ekstraksi. Mendidih (100C) = terlalu terekstraksi."],tags:["Water","TDS","Temperature","Brewing science"]},{ico:"⏱️",ttl_en:"Grind Size — The Most Important Variable",ttl_id:"Ukuran Gilingan — Variabel Terpenting",ps_en:["Grind size controls surface area, which controls extraction rate. It is the single most impactful variable in brewing coffee.","Finer grind: More surface area, faster extraction, more body, more bitterness risk. Espresso requires the finest grind.","The general rule: if your coffee tastes sour, grind finer. If it tastes bitter, grind coarser."],ps_id:["Ukuran gilingan mengontrol luas permukaan, yang mengontrol tingkat ekstraksi. Ini adalah variabel yang paling berpengaruh dalam menyeduh kopi.","Gilingan lebih halus: Lebih banyak permukaan, ekstraksi lebih cepat, lebih banyak tubuh, lebih banyak risiko kepahitan.","Aturan umum: jika kopi terasa asam, giling lebih halus. Jika terasa pahit, giling lebih kasar."],tags:["Grind","Extraction","Burr grinder","Espresso","Filter"]}]},
+  {icon:"🏆",title_en:"Specialty Coffee 101",title_id:"Specialty Coffee 101",sub_en:"Third wave, scores & what it all means",sub_id:"Gelombang ketiga, skor & apa artinya",cards:[{ico:"🌊",ttl_en:"The Three Waves of Coffee",ttl_id:"Tiga Gelombang Kopi",ps_en:["First wave (1800s-1960s): Coffee as a commodity. Folgers, Maxwell House. Accessibility over quality. Instant coffee was peak innovation.","Second wave (1960s-2000s): Coffee as an experience. Starbucks, lattes, flavoured syrups. People started caring about cafe culture.","Third wave (2000s-present): Coffee as craft. Single origins, transparent sourcing, light roasts, barista as artisan."],ps_id:["Gelombang pertama (1800an-1960an): Kopi sebagai komoditas. Aksesibilitas di atas kualitas. Kopi instan adalah inovasi puncak.","Gelombang kedua (1960an-2000an): Kopi sebagai pengalaman. Starbucks, latte, sirup rasa. Orang mulai peduli dengan budaya kafe.","Gelombang ketiga (2000an-sekarang): Kopi sebagai kerajinan. Single origin, sumber transparan, sangrai ringan, barista sebagai seniman."],tags:["History","Culture","Third wave","Specialty"]},{ico:"💯",ttl_en:"The SCA Score",ttl_id:"Skor SCA",ps_en:["The SCA defines specialty coffee as any coffee scoring 80 points or above on their 100-point cupping scale.","Coffees are evaluated on: fragrance, aroma, flavour, aftertaste, acidity, body, balance, uniformity, clean cup, and sweetness.","80-84.99: Very Good. 85-89.99: Excellent. 90+: Outstanding — extremely rare."],ps_id:["SCA mendefinisikan kopi specialty sebagai kopi yang mendapat skor 80 poin atau lebih pada skala cupping 100 poin mereka.","Kopi dievaluasi berdasarkan: harum, aroma, rasa, aftertaste, keasaman, tubuh, keseimbangan, keseragaman, cangkir bersih, dan kemanisan.","80-84,99: Sangat Baik. 85-89,99: Luar Biasa. 90+: Menakjubkan — sangat langka."],tags:["SCA","Q-Grader","Cupping","Score","Quality"]},{ico:"☕",ttl_en:"How to Taste Coffee Like a Pro",ttl_id:"Cara Mencicipi Kopi Seperti Profesional",ps_en:["Cupping is the industry-standard tasting method: coarsely ground coffee is steeped in hot water, and tasters slurp it loudly. The slurp aerates the coffee and spreads it across the palate.","Evaluate: Aroma (dry and wet), Flavour (first impression), Aftertaste, Acidity (brightness), Body (weight on tongue), Balance.","At home: brew a pour over with no milk or sugar. Let it cool to 60-65C. Take a small sip and ask: sweet or bitter? Light or heavy?"],ps_id:["Cupping adalah metode mencicipi standar industri: kopi yang digiling kasar direndam dalam air panas, dan pencicip menyeruputnya dengan keras.","Evaluasi: Aroma (kering dan basah), Rasa (kesan pertama), Aftertaste, Keasaman (kecerahan), Tubuh (berat di lidah), Keseimbangan.","Di rumah: seduh pour over tanpa susu atau gula. Biarkan agak dingin ke 60-65C. Ambil tegukan kecil dan tanyakan: manis atau pahit?"],tags:["Cupping","Tasting","Aroma","Palate","SCA"]}]},
+  {icon:"❓",title_en:"Brewing FAQ",title_id:"FAQ Penyeduhan",sub_en:"Why does my coffee taste like that?",sub_id:"Mengapa kopi saya terasa seperti itu?",cards:[{ico:"💧",ttl_en:"Why is my coffee watery?",ttl_id:"Mengapa kopi saya terasa encer?",ps_en:["Watery coffee usually means under-extraction or too little coffee for the amount of water used.","Fix 1: Check your ratio — the SCA golden ratio is 1:15 to 1:17. Fix 2: Grind finer. Fix 3: Check water temperature — below 85C under-extracts.","Fix 4: Slow down your pour — for pour over, pouring too fast rushes the brew and reduces extraction."],ps_id:["Kopi encer biasanya berarti kurang ekstraksi atau terlalu sedikit kopi untuk jumlah air yang digunakan.","Perbaikan 1: Periksa rasio — rasio emas SCA adalah 1:15 hingga 1:17. Perbaikan 2: Giling lebih halus. Perbaikan 3: Periksa suhu air — di bawah 85C kurang mengekstraksi.","Perbaikan 4: Perlambat tuangan — untuk pour over, menuang terlalu cepat memburu penyeduhan."],tags:["Under-extraction","Ratio","Grind","Temperature"]},{ico:"😬",ttl_en:"Why is my espresso too bitter?",ttl_id:"Mengapa espresso saya terlalu pahit?",ps_en:["Bitterness in espresso almost always means over-extraction. You have pulled too many compounds from the grounds.","Fix 1: Grind coarser — the single most effective fix. Fix 2: Shorten the shot — aim for 25-30s at 1:2 ratio. Fix 3: Lower water temperature to 90-92C.","Fix 4: Try a lighter roast. Fix 5: Check your tamp — uneven tamping creates channelling and over-extracts sections."],ps_id:["Kepahitan dalam espresso hampir selalu berarti terlalu terekstraksi. Anda telah menarik terlalu banyak senyawa dari bubuk kopi.","Perbaikan 1: Giling lebih kasar — perbaikan tunggal paling efektif. Perbaikan 2: Persingkat shot — targetkan 25-30 detik. Perbaikan 3: Turunkan suhu air ke 90-92C.","Perbaikan 4: Coba sangrai lebih ringan. Perbaikan 5: Periksa tamp Anda — tamp yang tidak merata menciptakan channelling."],tags:["Over-extraction","Espresso","Grind coarser","Bitter"]},{ico:"🔄",ttl_en:"Pour Over vs Immersion",ttl_id:"Pour Over vs Immersion",ps_en:["Pour Over (percolation): Fresh water continuously passes through the grounds and drips out. V60, Chemex, Kalita Wave. Water always moving. Result: clean, bright, transparent cup.","Immersion: Grounds sit submerged in water for the full brew time. French press, AeroPress (inverted), cold brew. Result: fuller body, heavier mouthfeel.","Which is better? Neither. Pour over rewards precision. Immersion rewards patience and is more forgiving for beginners."],ps_id:["Pour Over (perkolasi): Air segar terus melewati bubuk kopi dan menetes ke bawah. V60, Chemex, Kalita Wave. Hasil: cangkir yang bersih, cerah, transparan.","Immersion: Bubuk kopi terendam dalam air selama waktu seduh penuh. French press, AeroPress (terbalik), cold brew. Hasil: tubuh lebih penuh, mouthfeel lebih berat.","Mana yang lebih baik? Tidak ada yang lebih baik. Pour over menghargai presisi. Immersion menghargai kesabaran dan lebih mudah untuk pemula."],tags:["Pour over","Immersion","French press","V60"]},{ico:"🥛",ttl_en:"What is the best milk for a latte?",ttl_id:"Susu apa yang terbaik untuk latte?",ps_en:["The best milk for lattes forms silky, sweet microfoam that integrates with espresso rather than separating.","Whole milk: The gold standard. High fat content creates stable, velvety microfoam. Oat milk: The best dairy-free option. Barista-edition oat milk steams almost as well as whole milk.","Almond milk: Steams poorly, thin foam that separates quickly. Soy milk: Steams reasonably well but can split if espresso is very acidic."],ps_id:["Susu terbaik untuk latte adalah yang dikukus dengan baik — membentuk microfoam yang halus dan manis yang menyatu dengan espresso.","Susu full cream: Standar emas. Susu oat: Pilihan terbaik tanpa susu sapi. Susu oat edisi barista dikukus hampir sama baiknya.","Susu almond: Dikukus dengan buruk, busa tipis yang cepat terpisah. Susu kedelai: Dikukus cukup baik tetapi bisa pecah jika espresso sangat asam."],tags:["Milk","Latte","Oat milk","Microfoam","Dairy-free"]},{ico:"⚖️",ttl_en:"Should I use a scale?",ttl_id:"Apakah saya perlu timbangan?",ps_en:["Yes. A scale is the single best investment a home brewer can make — more impactful than upgrading your brewer.","Coffee is measured by weight, not volume. A scoop of coffee varies wildly depending on grind size and bean density.","You need a scale that measures to 0.1g for espresso or at least 1g for filter coffee. Even a budget scale beats no scale."],ps_id:["Ya. Timbangan adalah investasi terbaik yang bisa dilakukan pembuat kopi di rumah.","Kopi diukur berdasarkan berat, bukan volume. Satu sendok kopi sangat bervariasi tergantung pada ukuran gilingan dan kepadatan biji.","Anda memerlukan timbangan yang mengukur hingga 0,1g untuk espresso atau setidaknya 1g untuk kopi filter."],tags:["Scale","Precision","Weight","Dose","Consistency"]},{ico:"🔢",ttl_en:"What does 1:15 ratio mean?",ttl_id:"Apa arti rasio 1:15?",ps_en:["Coffee ratios express the relationship between ground coffee and water by weight. 1:15 means 1g coffee for every 15ml water. So 20g coffee gives 300ml water.","Common ratios: Espresso 1:2. V60/Pour Over 1:15-1:17. French Press 1:15-1:17. AeroPress 1:10-1:17. Cold Brew 1:7 (concentrate) to 1:14 (ready to drink).","Think of ratio as your starting point. Once you nail a consistent ratio, adjust grind size and temperature to tune flavour."],ps_id:["Rasio kopi mengungkapkan hubungan antara kopi bubuk dan air berdasarkan berat. 1:15 berarti 1g kopi untuk setiap 15ml air.","Rasio umum: Espresso 1:2. V60/Pour Over 1:15-1:17. French Press 1:15-1:17. AeroPress 1:10-1:17. Cold Brew 1:7 (konsentrat) hingga 1:14 (siap minum).","Anggap rasio sebagai titik awal Anda. Setelah Anda menetapkan rasio yang konsisten, sesuaikan ukuran gilingan dan suhu untuk menyetel rasa."],tags:["Ratio","Dose","Recipe","Beginner","Espresso"]}]}
 ];
 
-// ─── STATE ────────────────────────────────────────────
-var curMethod = null, curVariant = null, curDrink = null, curKB = -1;
-var doneSteps = [], doneDSteps = [];
-var timerG = {iv:null,run:false,secs:0,up:true};
-var timerD = {iv:null,run:false,secs:0,up:true};
+var curMethod=null,curVariant=null,curDrink=null,curKB=-1,doneSteps=[],doneDSteps=[];
+var timerG={iv:null,run:false,secs:0,up:true};
+var timerD={iv:null,run:false,secs:0,up:true};
 
-// ─── HELPERS ──────────────────────────────────────────
-function fmt(s){ return Math.floor(s/60)+":"+(s%60).toString().padStart(2,"0"); }
-function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function show(id){
-  ["pg-home","pg-guide","pg-drink","pg-kb"].forEach(function(p){ document.getElementById(p).style.display="none"; });
-  document.getElementById(id).style.display="block";
-  window.scrollTo(0,0);
-}
+function fmt(s){return Math.floor(s/60)+":"+(s%60).toString().padStart(2,"0");}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function show(id){["pg-home","pg-guide","pg-drink","pg-kb"].forEach(function(p){document.getElementById(p).style.display="none";});document.getElementById(id).style.display="block";window.scrollTo(0,0);}
 
-// ─── TIMER ────────────────────────────────────────────
-function timerToggle(t, dispId, btnId, minId, secId){
-  if(t.run){ clearInterval(t.iv); t.run=false; document.getElementById(btnId).textContent=tr("resume"); document.getElementById(dispId).classList.remove("run"); }
-  else {
-    if(t.secs===0){ var m=parseInt(document.getElementById(minId).value)||0, s=parseInt(document.getElementById(secId).value)||0; t.secs=m*60+s; t.up=t.secs===0; }
-    t.run=true; document.getElementById(btnId).textContent=tr("pause"); document.getElementById(dispId).classList.add("run"); document.getElementById(dispId).classList.remove("fin");
-    t.iv=setInterval(function(){
-      if(t.up){ t.secs++; document.getElementById(dispId).textContent=fmt(t.secs); }
-      else{ if(t.secs<=0){ clearInterval(t.iv); t.run=false; document.getElementById(btnId).textContent=tr("start"); document.getElementById(dispId).textContent="Done!"; document.getElementById(dispId).classList.remove("run"); document.getElementById(dispId).classList.add("fin"); return; } t.secs--; document.getElementById(dispId).textContent=fmt(t.secs); }
-    },1000);
-  }
+function timerToggle(t,dispId,btnId,minId,secId){
+  if(t.run){clearInterval(t.iv);t.run=false;document.getElementById(btnId).textContent=tr("resume");document.getElementById(dispId).classList.remove("run");}
+  else{if(t.secs===0){var m=parseInt(document.getElementById(minId).value)||0,s=parseInt(document.getElementById(secId).value)||0;t.secs=m*60+s;t.up=t.secs===0;}t.run=true;document.getElementById(btnId).textContent=tr("pause");document.getElementById(dispId).classList.add("run");document.getElementById(dispId).classList.remove("fin");t.iv=setInterval(function(){if(t.up){t.secs++;document.getElementById(dispId).textContent=fmt(t.secs);}else{if(t.secs<=0){clearInterval(t.iv);t.run=false;document.getElementById(btnId).textContent=tr("start");document.getElementById(dispId).textContent="Done!";document.getElementById(dispId).classList.remove("run");document.getElementById(dispId).classList.add("fin");return;}t.secs--;document.getElementById(dispId).textContent=fmt(t.secs);}},1000);}
 }
-function timerReset(t, dispId, btnId, minId, secId){ clearInterval(t.iv); t.run=false; t.secs=0; document.getElementById(dispId).textContent="0:00"; document.getElementById(dispId).classList.remove("run","fin"); document.getElementById(btnId).textContent=tr("start"); document.getElementById(minId).value=0; document.getElementById(secId).value=0; }
-function timerLoad(t, dispId, minId, secId, btnId, secs){ timerReset(t,dispId,btnId,minId,secId); t.secs=secs; t.up=false; document.getElementById(minId).value=Math.floor(secs/60); document.getElementById(secId).value=secs%60; document.getElementById(dispId).textContent=fmt(secs); }
+function timerReset(t,dispId,btnId,minId,secId){clearInterval(t.iv);t.run=false;t.secs=0;document.getElementById(dispId).textContent="0:00";document.getElementById(dispId).classList.remove("run","fin");document.getElementById(btnId).textContent=tr("start");document.getElementById(minId).value=0;document.getElementById(secId).value=0;}
+function timerLoad(t,dispId,minId,secId,btnId,secs){timerReset(t,dispId,btnId,minId,secId);t.secs=secs;t.up=false;document.getElementById(minId).value=Math.floor(secs/60);document.getElementById(secId).value=secs%60;document.getElementById(dispId).textContent=fmt(secs);}
 
-document.getElementById("t-start-g").addEventListener("click",function(){ timerToggle(timerG,"t-disp-g","t-start-g","t-min-g","t-sec-g"); });
-document.getElementById("t-reset-g").addEventListener("click",function(){ timerReset(timerG,"t-disp-g","t-start-g","t-min-g","t-sec-g"); });
-document.getElementById("t-start-d").addEventListener("click",function(){ timerToggle(timerD,"t-disp-d","t-start-d","t-min-d","t-sec-d"); });
-document.getElementById("t-reset-d").addEventListener("click",function(){ timerReset(timerD,"t-disp-d","t-start-d","t-min-d","t-sec-d"); });
+document.getElementById("t-start-g").addEventListener("click",function(){timerToggle(timerG,"t-disp-g","t-start-g","t-min-g","t-sec-g");});
+document.getElementById("t-reset-g").addEventListener("click",function(){timerReset(timerG,"t-disp-g","t-start-g","t-min-g","t-sec-g");});
+document.getElementById("t-start-d").addEventListener("click",function(){timerToggle(timerD,"t-disp-d","t-start-d","t-min-d","t-sec-d");});
+document.getElementById("t-reset-d").addEventListener("click",function(){timerReset(timerD,"t-disp-d","t-start-d","t-min-d","t-sec-d");});
 
-// ─── RENDER HELPERS ───────────────────────────────────
-function renderCup(d){
-  var totalH=d.layers.reduce(function(a,l){return a+l.h;},0);
-  var html=[...d.layers].reverse().map(function(l){return "<div class='cup-layer' style='height:"+l.h+"px;background:"+l.c+"'></div>";}).join("");
-  document.getElementById("d-cup").innerHTML="<div class='cup-wrap'><div class='cup' style='height:"+totalH+"px'>"+html+"</div><div class='cup-ml'>"+totalH+"ml</div><div class='cup-name'>"+d["name_"+LANG]+"</div></div>";
-  document.getElementById("d-legend").innerHTML=d.layers.map(function(l){return "<div class='leg-item'><div class='leg-dot' style='background:"+l.c+";border:1px solid rgba(0,0,0,.1)'></div>"+l.l+"</div>";}).join("");
-}
-function renderIngs(d){
-  var ings=d["ings_"+LANG];
-  document.getElementById("d-ings").innerHTML=ings.map(function(i){return "<div class='ing-card'><div class='ing-lbl'>"+i.l+"</div><div class='ing-val'>"+i.v+"</div><div class='ing-sub'>"+i.s+"</div></div>";}).join("");
-}
-function renderDSteps(d){
-  var steps=d["steps_"+LANG];
-  document.getElementById("d-steps").innerHTML=steps.map(function(s,i){
-    return "<div class='step' data-i='"+i+"'><div class='step-num'><span class='sn'>"+(i+1)+"</span></div><div class='step-body'><div class='step-name'>"+s.n+"</div><div class='step-desc'>"+s.d+"</div>"+(s.tip?"<div class='step-tip'>💡 "+s.tip+"</div>":"")+"</div></div>";
-  }).join("");
-}
-function updateDProg(){
-  var d=DRINKS[curDrink]; var total=d["steps_"+LANG].length;
-  document.getElementById("d-prog").style.width=(doneDSteps.length/total*100)+"%";
-  document.getElementById("d-done").classList.toggle("show",doneDSteps.length===total);
-}
-function renderGSteps(m){
-  var steps=m["steps_"+LANG];
-  document.getElementById("g-steps").innerHTML=steps.map(function(s,i){
-    return "<div class='step' data-i='"+i+"' data-t='"+(s.t||0)+"'><div class='step-num'><span class='sn'>"+(i+1)+"</span></div><div class='step-body'><div class='step-name'>"+s.n+"</div><div class='step-desc'>"+s.d+"</div>"+(s.t?"<div class='step-timer'>⏱ "+fmt(s.t)+" suggested</div>":"")+"</div></div>";
-  }).join("");
-}
-function updateGProg(m){
-  var steps=m["steps_"+LANG]; var total=steps.length;
-  document.getElementById("g-prog").style.width=(doneSteps.length/total*100)+"%";
-  document.getElementById("g-done").classList.toggle("show",doneSteps.length===total);
-}
-function updateRatioUI(m){
-  var c=parseFloat(document.getElementById("g-coffee").value)||0;
-  var w=parseFloat(document.getElementById("g-water").value)||0;
-  document.getElementById("g-rbadge").textContent="1:"+(c>0&&w>0?(w/c).toFixed(1):"—");
-  var vid=curVariant;
-  var extras=curMethod==="coldbrew"?m.extraR(c,w,vid):m.extraR(c,w);
-  document.getElementById("g-rresults").innerHTML=extras.map(function(e){return "<div class='r-card'><div class='r-lbl'>"+e.l+"</div><div class='r-val'>"+e.v+"</div><div class='r-sub'>"+e.s+"</div></div>";}).join("");
-}
-function getRatioMult(m){
-  if(m.variants&&curVariant){ var v=m.variants.find(function(x){return x.id===curVariant;}); return v?v.ratio:7; }
-  return m.baseRatio.w/m.baseRatio.c;
-}
-function updateIcedRatio(){
-  var c=parseFloat(document.getElementById("d-iced-g").value)||20;
-  var total=Math.round(c*16.7), hot=Math.round(total*.6), ice=total-hot, bloom=Math.round(c*2);
-  document.getElementById("d-iced-res").innerHTML=[
-    {l:"Hot water",v:hot+"ml",s:"for brewing (93C)"},
-    {l:"Ice",v:ice+"g",s:"weighed in server"},
-    {l:"Bloom water",v:bloom+"ml",s:"2x coffee"},
-    {l:"Total yield",v:"~"+total+"ml",s:"after ice melts"}
-  ].map(function(e){return "<div class='r-card'><div class='r-lbl'>"+e.l+"</div><div class='r-val'>"+e.v+"</div><div class='r-sub'>"+e.s+"</div></div>";}).join("");
-}
+function renderCup(d){var totalH=d.layers.reduce(function(a,l){return a+l.h;},0);var html=[...d.layers].reverse().map(function(l){return "<div class='cup-layer' style='height:"+l.h+"px;background:"+l.c+"'></div>";}).join("");document.getElementById("d-cup").innerHTML="<div class='cup-wrap'><div class='cup' style='height:"+totalH+"px'>"+html+"</div><div class='cup-ml'>"+totalH+"ml</div><div class='cup-name'>"+d["name_"+LANG]+"</div></div>";document.getElementById("d-legend").innerHTML=d.layers.map(function(l){return "<div class='leg-item'><div class='leg-dot' style='background:"+l.c+";border:1px solid rgba(0,0,0,.1)'></div>"+l.l+"</div>";}).join("");}
+function renderIngs(d){document.getElementById("d-ings").innerHTML=d["ings_"+LANG].map(function(i){return "<div class='ing-card'><div class='ing-lbl'>"+i.l+"</div><div class='ing-val'>"+i.v+"</div><div class='ing-sub'>"+i.s+"</div></div>";}).join("");}
+function renderDSteps(d){document.getElementById("d-steps").innerHTML=d["steps_"+LANG].map(function(s,i){return "<div class='step' data-i='"+i+"'><div class='step-num'><span class='sn'>"+(i+1)+"</span></div><div class='step-body'><div class='step-name'>"+s.n+"</div><div class='step-desc'>"+s.d+"</div>"+(s.tip?"<div class='step-tip'>💡 "+s.tip+"</div>":"")+"</div></div>";}).join("");}
+function updateDProg(){var d=DRINKS[curDrink];var total=d["steps_"+LANG].length;document.getElementById("d-prog").style.width=(doneDSteps.length/total*100)+"%";document.getElementById("d-done").classList.toggle("show",doneDSteps.length===total);}
+function renderGSteps(m){document.getElementById("g-steps").innerHTML=m["steps_"+LANG].map(function(s,i){return "<div class='step' data-i='"+i+"' data-t='"+(s.t||0)+"'><div class='step-num'><span class='sn'>"+(i+1)+"</span></div><div class='step-body'><div class='step-name'>"+s.n+"</div><div class='step-desc'>"+s.d+"</div>"+(s.t?"<div class='step-timer'>⏱ "+fmt(s.t)+" suggested</div>":"")+"</div></div>";}).join("");}
+function updateGProg(m){var steps=m["steps_"+LANG];document.getElementById("g-prog").style.width=(doneSteps.length/steps.length*100)+"%";document.getElementById("g-done").classList.toggle("show",doneSteps.length===steps.length);}
+function updateRatioUI(m){var c=parseFloat(document.getElementById("g-coffee").value)||0,w=parseFloat(document.getElementById("g-water").value)||0;document.getElementById("g-rbadge").textContent="1:"+(c>0&&w>0?(w/c).toFixed(1):"—");var extras=curMethod==="coldbrew"?m.extraR(c,w,curVariant):m.extraR(c,w);document.getElementById("g-rresults").innerHTML=extras.map(function(e){return "<div class='r-card'><div class='r-lbl'>"+e.l+"</div><div class='r-val'>"+e.v+"</div><div class='r-sub'>"+e.s+"</div></div>";}).join("");}
+function getRatioMult(m){if(m.variants&&curVariant){var v=m.variants.find(function(x){return x.id===curVariant;});return v?v.ratio:7;}return m.baseRatio.w/m.baseRatio.c;}
+function updateIcedRatio(){var c=parseFloat(document.getElementById("d-iced-g").value)||20;var total=Math.round(c*16.7),hot=Math.round(total*.6),ice=total-hot,bloom=Math.round(c*2);document.getElementById("d-iced-res").innerHTML=[{l:"Hot water",v:hot+"ml",s:"for brewing (93C)"},{l:"Ice",v:ice+"g",s:"weighed in server"},{l:"Bloom water",v:bloom+"ml",s:"2x coffee"},{l:"Total yield",v:"~"+total+"ml",s:"after ice melts"}].map(function(e){return "<div class='r-card'><div class='r-lbl'>"+e.l+"</div><div class='r-val'>"+e.v+"</div><div class='r-sub'>"+e.s+"</div></div>";}).join("");}
 
-// ─── LOAD METHOD ──────────────────────────────────────
 function loadMethod(key){
-  var m=METHODS[key]; if(!m) return;
-  curMethod=key; curDrink=null; doneSteps=[];
-  curVariant=m.variants?m.variants[0].id:null;
+  var m=METHODS[key];if(!m)return;
+  curMethod=key;curDrink=null;doneSteps=[];curVariant=m.variants?m.variants[0].id:null;
   timerReset(timerG,"t-disp-g","t-start-g","t-min-g","t-sec-g");
-  document.getElementById("g-icon").textContent=m.icon;
-  document.getElementById("g-name").textContent=m.name;
-  document.getElementById("g-sub").textContent=m["sub_"+LANG];
-  document.getElementById("g-done").classList.remove("show");
-  // variants
+  document.getElementById("g-icon").textContent=m.icon;document.getElementById("g-name").textContent=m.name;document.getElementById("g-sub").textContent=m["sub_"+LANG];document.getElementById("g-done").classList.remove("show");
   var vs=document.getElementById("g-variants");
-  if(m.variants){
-    vs.style.display="block";
-    var vtabs=document.getElementById("g-vtabs");
-    vtabs.innerHTML=m.variants.map(function(v){
-      return "<button class='vtab"+(v.id===curVariant?" on":"")+"' data-vid='"+v.id+"'>"+(v["label_"+LANG])+"</button>";
-    }).join("");
-    var active=m.variants.find(function(v){return v.id===curVariant;});
-    document.getElementById("g-vdesc").textContent=active?active["desc_"+LANG]:"";
-  } else { vs.style.display="none"; }
-  // ratio
-  var br=m.baseRatio;
-  if(m.variants&&curVariant){ var vv=m.variants.find(function(v){return v.id===curVariant;}); if(vv){br={c:100,w:Math.round(100*vv.ratio)};} }
-  document.getElementById("g-coffee").value=br.c;
-  document.getElementById("g-water").value=br.w;
-  updateRatioUI(m);
-  // params
-  var params=m["params_"+LANG].slice();
-  document.getElementById("g-params").innerHTML=params.map(function(p){return "<div class='param'><div class='p-lbl'>"+p.l+"</div><div class='p-val'>"+p.v+"</div></div>";}).join("");
-  renderGSteps(m); updateGProg(m);
-  show("pg-guide");
+  if(m.variants){vs.style.display="block";document.getElementById("g-vtabs").innerHTML=m.variants.map(function(v){return "<button class='vtab"+(v.id===curVariant?" on":"")+"' data-vid='"+v.id+"'>"+(v["label_"+LANG])+"</button>";}).join("");var active=m.variants.find(function(v){return v.id===curVariant;});document.getElementById("g-vdesc").textContent=active?active["desc_"+LANG]:"";}else{vs.style.display="none";}
+  var br=m.baseRatio;if(m.variants&&curVariant){var vv=m.variants.find(function(v){return v.id===curVariant;});if(vv){br={c:100,w:Math.round(100*vv.ratio)};}}
+  document.getElementById("g-coffee").value=br.c;document.getElementById("g-water").value=br.w;updateRatioUI(m);
+  document.getElementById("g-params").innerHTML=m["params_"+LANG].map(function(p){return "<div class='param'><div class='p-lbl'>"+p.l+"</div><div class='p-val'>"+p.v+"</div></div>";}).join("");
+  renderGSteps(m);updateGProg(m);show("pg-guide");
 }
 
-// ─── LOAD DRINK ───────────────────────────────────────
 function loadDrink(key){
-  var d=DRINKS[key]; if(!d) return;
-  curDrink=key; curMethod=null; doneDSteps=[];
+  var d=DRINKS[key];if(!d)return;
+  curDrink=key;curMethod=null;doneDSteps=[];
   timerReset(timerD,"t-disp-d","t-start-d","t-min-d","t-sec-d");
-  document.getElementById("d-icon").textContent=d.icon;
-  document.getElementById("d-name").textContent=d["name_"+LANG];
-  document.getElementById("d-tag").textContent=d["tag_"+LANG];
-  document.getElementById("d-done-h").textContent=d.icon+" "+d["name_"+LANG]+" is ready!";
-  document.getElementById("d-done").classList.remove("show");
-  renderCup(d); renderIngs(d); renderDSteps(d); updateDProg();
-  var irs=document.getElementById("d-iced-ratio");
-  if(d.hasIcedRatio){ irs.style.display="block"; updateIcedRatio(); } else { irs.style.display="none"; }
+  document.getElementById("d-icon").textContent=d.icon;document.getElementById("d-name").textContent=d["name_"+LANG];document.getElementById("d-tag").textContent=d["tag_"+LANG];document.getElementById("d-done-h").textContent=d.icon+" "+d["name_"+LANG]+" is ready!";document.getElementById("d-done").classList.remove("show");
+  renderCup(d);renderIngs(d);renderDSteps(d);updateDProg();
+  var irs=document.getElementById("d-iced-ratio");if(d.hasIcedRatio){irs.style.display="block";updateIcedRatio();}else{irs.style.display="none";}
   show("pg-drink");
 }
 
-// ─── LOAD KB ──────────────────────────────────────────
 function loadKB(idx){
-  curKB=idx;
-  var container=document.getElementById("kb-chaps");
-  container.innerHTML="";
+  curKB=idx;var container=document.getElementById("kb-chaps");container.innerHTML="";
   KB.forEach(function(ch,ci){
-    var btn=document.createElement("button");
-    btn.className="kb-chap-btn"+(ci===idx?" open":"");
+    var btn=document.createElement("button");btn.className="kb-chap-btn"+(ci===idx?" open":"");
     btn.innerHTML="<div class='kb-chap-left'><span class='kb-chap-ico'>"+ch.icon+"</span><div><div class='kb-chap-ttl'>"+ch["title_"+LANG]+"</div><div class='kb-chap-sub'>"+ch["sub_"+LANG]+"</div></div></div><span class='kb-chap-arr'>▶</span>";
-    var content=document.createElement("div");
-    content.className="kb-content"+(ci===idx?" open":"");
+    var content=document.createElement("div");content.className="kb-content"+(ci===idx?" open":"");
     var cardsHtml="<div class='kb-cards'>";
-    ch.cards.forEach(function(card){
-      var ps=card["ps_"+LANG]; var bars=card.bars||[]; var tags=card.tags||[];
-      cardsHtml+="<div class='kb-card'><div class='kb-card-hd'><span class='kb-card-ico'>"+card.ico+"</span><span class='kb-card-ttl'>"+card["ttl_"+LANG]+"</span></div><div class='kb-card-bd'>";
-      ps.forEach(function(p){ cardsHtml+="<p>"+p+"</p>"; });
-      if(bars.length){ cardsHtml+="<div class='kb-bars'>"; bars.forEach(function(b){ cardsHtml+="<div class='kb-bar-row'><div class='kb-bar-lbl'>"+b.l+"</div><div class='kb-bar-track'><div class='kb-bar-fill' style='width:"+b.v+"%'></div></div></div>"; }); cardsHtml+="</div>"; }
-      if(tags.length){ cardsHtml+="<div class='kb-tags'>"+tags.map(function(t){return "<span class='kb-tag'>"+t+"</span>";}).join("")+"</div>"; }
-      cardsHtml+="</div></div>";
-    });
-    cardsHtml+="</div>";
-    content.innerHTML=cardsHtml;
-    btn.addEventListener("click",function(){
-      var isOpen=content.classList.contains("open");
-      container.querySelectorAll(".kb-chap-btn").forEach(function(b){b.classList.remove("open");});
-      container.querySelectorAll(".kb-content").forEach(function(c){c.classList.remove("open");});
-      if(!isOpen){ btn.classList.add("open"); content.classList.add("open"); }
-    });
-    container.appendChild(btn);
-    container.appendChild(content);
+    ch.cards.forEach(function(card){var ps=card["ps_"+LANG];var bars=card.bars||[];var tags=card.tags||[];cardsHtml+="<div class='kb-card'><div class='kb-card-hd'><span class='kb-card-ico'>"+card.ico+"</span><span class='kb-card-ttl'>"+card["ttl_"+LANG]+"</span></div><div class='kb-card-bd'>";ps.forEach(function(p){cardsHtml+="<p>"+p+"</p>";});if(bars.length){cardsHtml+="<div class='kb-bars'>";bars.forEach(function(b){cardsHtml+="<div class='kb-bar-row'><div class='kb-bar-lbl'>"+b.l+"</div><div class='kb-bar-track'><div class='kb-bar-fill' style='width:"+b.v+"%'></div></div></div>";});cardsHtml+="</div>";}if(tags.length){cardsHtml+="<div class='kb-tags'>"+tags.map(function(t){return "<span class='kb-tag'>"+t+"</span>";}).join("")+"</div>";}cardsHtml+="</div></div>";});
+    cardsHtml+="</div>";content.innerHTML=cardsHtml;
+    btn.addEventListener("click",function(){var isOpen=content.classList.contains("open");container.querySelectorAll(".kb-chap-btn").forEach(function(b){b.classList.remove("open");});container.querySelectorAll(".kb-content").forEach(function(c){c.classList.remove("open");});if(!isOpen){btn.classList.add("open");content.classList.add("open");}});
+    container.appendChild(btn);container.appendChild(content);
   });
   show("pg-kb");
 }
 
-// ─── CATEGORY TOGGLES ────────────────────────────────
+// Category toggles — exactly as in your working file
 ["esp","man","kb"].forEach(function(key){
   document.getElementById("cat-"+key).addEventListener("click",function(){
     var btn=document.getElementById("cat-"+key);
@@ -832,122 +573,48 @@ function loadKB(idx){
   });
 });
 
-// ─── MENU ITEM CLICKS ────────────────────────────────
+// Menu item clicks — exactly as in your working file
 document.querySelectorAll(".menu-item[data-method]").forEach(function(btn){
-  btn.addEventListener("click",function(){ loadMethod(btn.dataset.method); });
+  btn.addEventListener("click",function(){loadMethod(btn.dataset.method);});
 });
 document.querySelectorAll(".menu-item[data-drink]").forEach(function(btn){
-  btn.addEventListener("click",function(){ loadDrink(btn.dataset.drink); });
+  btn.addEventListener("click",function(){loadDrink(btn.dataset.drink);});
 });
 document.querySelectorAll(".menu-item[data-kb]").forEach(function(btn){
-  btn.addEventListener("click",function(){ loadKB(parseInt(btn.dataset.kb)); });
+  btn.addEventListener("click",function(){loadKB(parseInt(btn.dataset.kb));});
 });
 
-// ─── STEP CLICKS ─────────────────────────────────────
-document.getElementById("g-steps").addEventListener("click",function(e){
-  var s=e.target.closest(".step"); if(!s) return;
-  var i=parseInt(s.dataset.i), t=parseInt(s.dataset.t)||0;
-  var idx=doneSteps.indexOf(i);
-  if(idx===-1){ doneSteps.push(i); s.classList.add("done"); if(t>0) timerLoad(timerG,"t-disp-g","t-min-g","t-sec-g","t-start-g",t); }
-  else { doneSteps.splice(idx,1); s.classList.remove("done"); }
-  updateGProg(METHODS[curMethod]);
-});
-document.getElementById("d-steps").addEventListener("click",function(e){
-  var s=e.target.closest(".step"); if(!s) return;
-  var i=parseInt(s.dataset.i);
-  var idx=doneDSteps.indexOf(i);
-  if(idx===-1){ doneDSteps.push(i); s.classList.add("done"); }
-  else { doneDSteps.splice(idx,1); s.classList.remove("done"); }
-  updateDProg();
-});
+document.getElementById("g-steps").addEventListener("click",function(e){var s=e.target.closest(".step");if(!s)return;var i=parseInt(s.dataset.i),t=parseInt(s.dataset.t)||0;var idx=doneSteps.indexOf(i);if(idx===-1){doneSteps.push(i);s.classList.add("done");if(t>0)timerLoad(timerG,"t-disp-g","t-min-g","t-sec-g","t-start-g",t);}else{doneSteps.splice(idx,1);s.classList.remove("done");}updateGProg(METHODS[curMethod]);});
+document.getElementById("d-steps").addEventListener("click",function(e){var s=e.target.closest(".step");if(!s)return;var i=parseInt(s.dataset.i);var idx=doneDSteps.indexOf(i);if(idx===-1){doneDSteps.push(i);s.classList.add("done");}else{doneDSteps.splice(idx,1);s.classList.remove("done");}updateDProg();});
 
-// ─── RATIO INPUTS ─────────────────────────────────────
-document.getElementById("g-coffee").addEventListener("input",function(){
-  if(!curMethod) return; var m=METHODS[curMethod]; var mult=getRatioMult(m);
-  var c=parseFloat(this.value); if(!isNaN(c)&&c>0) document.getElementById("g-water").value=Math.round(c*mult);
-  updateRatioUI(m);
-});
-document.getElementById("g-water").addEventListener("input",function(){
-  if(!curMethod) return; var m=METHODS[curMethod]; var mult=getRatioMult(m);
-  var w=parseFloat(this.value); if(!isNaN(w)&&w>0) document.getElementById("g-coffee").value=+(w/mult).toFixed(1);
-  updateRatioUI(m);
-});
+document.getElementById("g-coffee").addEventListener("input",function(){if(!curMethod)return;var m=METHODS[curMethod];var mult=getRatioMult(m);var c=parseFloat(this.value);if(!isNaN(c)&&c>0)document.getElementById("g-water").value=Math.round(c*mult);updateRatioUI(m);});
+document.getElementById("g-water").addEventListener("input",function(){if(!curMethod)return;var m=METHODS[curMethod];var mult=getRatioMult(m);var w=parseFloat(this.value);if(!isNaN(w)&&w>0)document.getElementById("g-coffee").value=+(w/mult).toFixed(1);updateRatioUI(m);});
 document.getElementById("d-iced-g").addEventListener("input",updateIcedRatio);
 
-// ─── VARIANT TABS ─────────────────────────────────────
-document.getElementById("g-vtabs").addEventListener("click",function(e){
-  var btn=e.target.closest(".vtab"); if(!btn||!curMethod) return;
-  var m=METHODS[curMethod]; curVariant=btn.dataset.vid;
-  document.querySelectorAll(".vtab").forEach(function(b){b.classList.toggle("on",b.dataset.vid===curVariant);});
-  var v=m.variants.find(function(x){return x.id===curVariant;});
-  document.getElementById("g-vdesc").textContent=v?v["desc_"+LANG]:"";
-  var c=parseFloat(document.getElementById("g-coffee").value)||100;
-  document.getElementById("g-water").value=Math.round(c*v.ratio);
-  updateRatioUI(m);
-  var params=m["params_"+LANG].slice();
-  document.getElementById("g-params").innerHTML=params.map(function(p){return "<div class='param'><div class='p-lbl'>"+p.l+"</div><div class='p-val'>"+p.v+"</div></div>";}).join("");
-});
+document.getElementById("g-vtabs").addEventListener("click",function(e){var btn=e.target.closest(".vtab");if(!btn||!curMethod)return;var m=METHODS[curMethod];curVariant=btn.dataset.vid;document.querySelectorAll(".vtab").forEach(function(b){b.classList.toggle("on",b.dataset.vid===curVariant);});var v=m.variants.find(function(x){return x.id===curVariant;});document.getElementById("g-vdesc").textContent=v?v["desc_"+LANG]:"";var c=parseFloat(document.getElementById("g-coffee").value)||100;document.getElementById("g-water").value=Math.round(c*v.ratio);updateRatioUI(m);document.getElementById("g-params").innerHTML=m["params_"+LANG].map(function(p){return "<div class='param'><div class='p-lbl'>"+p.l+"</div><div class='p-val'>"+p.v+"</div></div>";}).join("");});
 
-// ─── BACK BUTTONS ─────────────────────────────────────
-document.getElementById("back-guide").addEventListener("click",function(){ show("pg-home"); });
-document.getElementById("back-drink").addEventListener("click",function(){ show("pg-home"); });
-document.getElementById("back-kb").addEventListener("click",function(){ show("pg-home"); });
+document.getElementById("back-guide").addEventListener("click",function(){show("pg-home");});
+document.getElementById("back-drink").addEventListener("click",function(){show("pg-home");});
+document.getElementById("back-kb").addEventListener("click",function(){show("pg-home");});
+document.getElementById("g-reset").addEventListener("click",function(){doneSteps=[];document.querySelectorAll("#g-steps .step").forEach(function(s){s.classList.remove("done");});document.getElementById("g-done").classList.remove("show");updateGProg(METHODS[curMethod]);});
+document.getElementById("d-reset").addEventListener("click",function(){doneDSteps=[];document.querySelectorAll("#d-steps .step").forEach(function(s){s.classList.remove("done");});document.getElementById("d-done").classList.remove("show");updateDProg();});
 
-// ─── RESET BUTTONS ────────────────────────────────────
-document.getElementById("g-reset").addEventListener("click",function(){
-  doneSteps=[]; document.querySelectorAll("#g-steps .step").forEach(function(s){s.classList.remove("done");});
-  document.getElementById("g-done").classList.remove("show"); updateGProg(METHODS[curMethod]);
-});
-document.getElementById("d-reset").addEventListener("click",function(){
-  doneDSteps=[]; document.querySelectorAll("#d-steps .step").forEach(function(s){s.classList.remove("done");});
-  document.getElementById("d-done").classList.remove("show"); updateDProg();
-});
+document.getElementById("langBtn").addEventListener("click",function(e){e.stopPropagation();document.getElementById("langDrop").classList.toggle("show");});
+document.addEventListener("click",function(){document.getElementById("langDrop").classList.remove("show");});
+document.querySelectorAll(".lang-opt").forEach(function(opt){opt.addEventListener("click",function(){LANG=opt.dataset.l;document.querySelectorAll(".lang-opt").forEach(function(o){o.classList.toggle("on",o.dataset.l===LANG);});document.getElementById("langDrop").classList.remove("show");applyLang();if(curMethod)loadMethod(curMethod);else if(curDrink)loadDrink(curDrink);else if(curKB>=0)loadKB(curKB);});});
 
-// ─── LANGUAGE ─────────────────────────────────────────
-document.getElementById("langBtn").addEventListener("click",function(e){
-  e.stopPropagation();
-  document.getElementById("langDrop").classList.toggle("show");
-});
-document.addEventListener("click",function(){ document.getElementById("langDrop").classList.remove("show"); });
-document.querySelectorAll(".lang-opt").forEach(function(opt){
-  opt.addEventListener("click",function(){
-    LANG=opt.dataset.l;
-    document.querySelectorAll(".lang-opt").forEach(function(o){o.classList.toggle("on",o.dataset.l===LANG);});
-    document.getElementById("langDrop").classList.remove("show");
-    applyLang();
-    if(curMethod) loadMethod(curMethod);
-    else if(curDrink) loadDrink(curDrink);
-    else if(curKB>=0) loadKB(curKB);
-  });
-});
-
-// ─── NOTES ────────────────────────────────────────────
-var notesOpen=false, allNotes=[];
-async function loadNotes(){ try{ var r=await window.storage.get("brew_notes"); allNotes=r?JSON.parse(r.value):[]; }catch(e){ allNotes=[]; } renderNotes(); }
-async function saveNote(){
-  var ta=document.getElementById("notes-ta"); var text=ta.value.trim(); if(!text) return;
-  var ctx=curDrink?DRINKS[curDrink]["name_"+LANG]:curMethod?METHODS[curMethod].name:"General";
-  allNotes.unshift({id:Date.now(),ctx:ctx,text:text,date:new Date().toLocaleString()});
-  try{ await window.storage.set("brew_notes",JSON.stringify(allNotes)); ta.value=""; renderNotes(); var s=document.getElementById("notes-saved"); s.classList.add("show"); setTimeout(function(){s.classList.remove("show");},1800); }catch(e){ alert("Could not save."); }
-}
-async function delNote(id){ allNotes=allNotes.filter(function(n){return n.id!==id;}); try{ await window.storage.set("brew_notes",JSON.stringify(allNotes)); renderNotes(); }catch(e){} }
-function renderNotes(){
-  var list=document.getElementById("notes-list");
-  document.getElementById("notes-count").textContent=allNotes.length+" note"+(allNotes.length!==1?"s":"");
-  document.getElementById("notes-fab-lbl").textContent=allNotes.length?"Notes ("+allNotes.length+")":tr("notes");
-  if(!allNotes.length){ list.innerHTML="<div class='notes-empty'>No notes yet.<br>Start brewing and jot something down!</div>"; return; }
-  list.innerHTML=allNotes.map(function(n){return "<div class='note-card'><div class='note-top'><div class='note-tag'>☕ "+n.ctx+"</div><button class='note-del' data-id='"+n.id+"'>✕</button></div><div class='note-text'>"+esc(n.text)+"</div><div class='note-date'>"+n.date+"</div></div>";}).join("");
-}
-document.getElementById("notes-list").addEventListener("click",function(e){ var b=e.target.closest(".note-del"); if(b) delNote(parseInt(b.dataset.id)); });
-function toggleNotes(){ notesOpen=!notesOpen; document.getElementById("notes-panel").classList.toggle("open",notesOpen); if(notesOpen) setTimeout(function(){ document.getElementById("notes-ta").focus(); },350); }
+var notesOpen=false,allNotes=[];
+async function loadNotes(){try{var r=await window.storage.get("brew_notes");allNotes=r?JSON.parse(r.value):[]}catch(e){allNotes=[];}renderNotes();}
+async function saveNote(){var ta=document.getElementById("notes-ta");var text=ta.value.trim();if(!text)return;var ctx=curDrink?DRINKS[curDrink]["name_"+LANG]:curMethod?METHODS[curMethod].name:"General";allNotes.unshift({id:Date.now(),ctx:ctx,text:text,date:new Date().toLocaleString()});try{await window.storage.set("brew_notes",JSON.stringify(allNotes));ta.value="";renderNotes();var s=document.getElementById("notes-saved");s.classList.add("show");setTimeout(function(){s.classList.remove("show");},1800);}catch(e){alert("Could not save.");}}
+async function delNote(id){allNotes=allNotes.filter(function(n){return n.id!==id;});try{await window.storage.set("brew_notes",JSON.stringify(allNotes));renderNotes();}catch(e){}}
+function renderNotes(){var list=document.getElementById("notes-list");document.getElementById("notes-count").textContent=allNotes.length+" note"+(allNotes.length!==1?"s":"");document.getElementById("notes-fab-lbl").textContent=allNotes.length?"Notes ("+allNotes.length+")":tr("notes");if(!allNotes.length){list.innerHTML="<div class='notes-empty'>No notes yet.<br>Start brewing and jot something down!</div>";return;}list.innerHTML=allNotes.map(function(n){return "<div class='note-card'><div class='note-top'><div class='note-tag'>☕ "+n.ctx+"</div><button class='note-del' data-id='"+n.id+"'>✕</button></div><div class='note-text'>"+esc(n.text)+"</div><div class='note-date'>"+n.date+"</div></div>";}).join("");}
+document.getElementById("notes-list").addEventListener("click",function(e){var b=e.target.closest(".note-del");if(b)delNote(parseInt(b.dataset.id));});
+function toggleNotes(){notesOpen=!notesOpen;document.getElementById("notes-panel").classList.toggle("open",notesOpen);if(notesOpen)setTimeout(function(){document.getElementById("notes-ta").focus();},350);}
 document.getElementById("notes-fab").addEventListener("click",toggleNotes);
 document.getElementById("notes-close").addEventListener("click",toggleNotes);
 document.getElementById("notes-save").addEventListener("click",saveNote);
 
-// ─── PWA ──────────────────────────────────────────────
-if("serviceWorker" in navigator){ window.addEventListener("load",function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); }); }
-
-// ─── INIT ─────────────────────────────────────────────
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}
 applyLang();
 loadNotes();
 </script>
